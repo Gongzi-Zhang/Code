@@ -1,4 +1,5 @@
 /*
 !.gitignore
-/*/**/reference/
 !/Vim
+/*/**/reference/
+/*/**/test/

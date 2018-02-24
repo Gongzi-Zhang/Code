@@ -1,0 +1,148 @@
+"       	            __   __(_)_ __ ___
+"       	            \ \ / /| | '_ ` _ \
+"       	             \ V / | | | | | | |
+"       	              \_/  |_|_| |_| |_|
+"       	      
+set nocompatible 
+
+set nu  " line number
+" set list	" a useful option for showing non-ascii chars
+" set ruler	" show editor information all the times
+
+set smartindent
+
+set virtualedit=all
+
+set tabstop=8  " hard tab
+set shiftwidth=4   " indent
+set softtabstop=4   " soft tab
+
+set tw=76   " why 78 ???
+
+set showcmd	" show incomplete commands
+
+set hlsearch
+set ignorecase smartcase infercase
+set incsearch   "  do incremental searching
+
+set matchpairs+=<:>
+
+set go=
+
+" search for tags in the current direcotry and up the tree towards root
+" until one is found. 
+set tags=./tags;
+	    
+colorscheme default
+
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk
+
+filetype plugin indent on   "  filetype detection
+if &t_Co > 1	
+    syntax on  " syntax highlighting, make sure terminal supports colors
+endif
+
+"  Mapping
+"  NOTE !!! when doing mapping and abbreviation, pay special attention to blank chars(<tab>
+"  <space> <CR> in the end of mapping command, otherwise you will get odd
+"  result from your mapping command)
+inoremap   (	()<Esc>i
+inoremap   {	{}<Esc>i
+inoremap   [	[]<Esc>i
+inoremap   "	""<Esc>i
+inoremap   ii	<esc>la
+" inoremap   '	''<Esc>i
+
+nnoremap  <F3>	:noh<return><esc>
+
+" open var. definition in a new tab. 
+map <A-]>   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" map zc  i{<esc>xea}<esc>
+" map zp  i(<esc>xea)<esc>
+map j	gj
+map k	gk
+
+
+"  Abbreviation
+ab teh	the
+ab cab	can
+ab waht what
+ab smae same
+ab wiht with
+ab fiel file
+ab adn	and
+ab fro	for
+ab taht	that
+ab htah that
+
+
+" au! group event filetype command  " remove autocommand 
+"   Autocmd
+augroup HTML
+    au!
+    au	FileType php,html,xhtml,css  inoremap  <  <><Esc>i
+    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>eldt>ko
+    au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
+    au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
+    au  FileType html,xhtml,js	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
+    au  FileType php,html,xhtml,js   inoremap  ;   <esc>A;<esc>
+    au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
+    au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
+augroup END
+
+augroup XML
+    au!
+    au Filetype xml	inoremap    <	<><Esc>i
+    au Filetype xml	inoremap    >   <Esc>yyp^a/<Esc>k$
+    au Filetype xml	inoremap    <!  <!----><Esc>2hi
+augroup END
+
+augroup C
+    au!
+"    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
+    au FileType c,cc,cpp,h  inoremap  ;  <Esc>A;<Esc>
+    au FileType c,cc,cpp,h  inoremap  /* /*<esc>o/<esc>kA
+    au FileType c,cc,cpp,h  ab	#i  #include
+    au FileType c,cc,cpp,h  ab	#d  #define
+augroup END
+
+augroup TEXT
+    au!
+    au FileType text,txt set nosmartindent
+    au FileType text,txt setlocal textwidth=72
+augroup END
+
+augroup TEX
+    au!
+    au FileType tex	set nosmartindent
+    au FileType tex	inoremap    $	$$<esc>i
+    au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
+augroup END
+
+"augroup CMAKE
+"    au!
+"    au BufNewFile,BufRead CMakelist,CMakeLists,CMakeList.txt,CMakeLists.txt set filetype=cmake
+"augroup END
+
+" http://bytefluent.com/vivify/
+" this is an amazing website where you are allowed to configure diffe-
+" rent color-scheme until you find your favorite. features such as 
+" foreground, background and bold, italic and underline are all suppor-
+" ted which is reaaly a convenient place for picking out your favorite 
+" colorscheme.
+"
+"
+" if you want to see what the most often used color combinations look
+" like, use this command:
+"                               :runtime syntax/colortest.vim
+
+
+"	    A NEW VIM CONFIGURE    -- ZHANG WEIBIN   2016/03/22
+
+"--------------------   DOUBTS   -------------------------
+"in line 59,"or" change color because it's the name of a function,
+" then how do I input a word(or) literally here  ?
+
+" in line 65, what other combination can be used for expressing 
+" delete to <End> except D. Why dt<End> doesb't work.

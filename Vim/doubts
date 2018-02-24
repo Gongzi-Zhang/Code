@@ -1,0 +1,7 @@
+# some doubts about vim
+
+command-line options:
+-b  : binary mode, A few options will be set that makes it possible 
+      to edit a binary or executable file.
+
+How does Vim open a file, when it open a very large file( say, hundreds of MB ), it will be a totally disaster.

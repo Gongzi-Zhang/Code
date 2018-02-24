@@ -1,0 +1,754 @@
+# Concept
+in vim, when you made some change to a file, you are editing it.
+a file that you are editing(you have made some changes to it) but not
+  show on screen is called hidden one
+a file that you want to edit but don't make any change to it yet is in
+  inactive state
+
+# help command 
+:h helphelp 
+    help on help files
+:h index 
+    to get a complete index of what is available
+:h help-summary
+    summary of help usage
+:h CTRL-commnad
+    get help for a control character command
+:h {i,v,:,c,-,}_[keyword]
+    get help for different mode
+	i   insert
+	v   visual
+	:   ex-mode
+	c   command-line editing
+	-   vim command arguments
+	''  options
+
+:h <Up>
+    for help about special keys, enclose them in angle brackets
+
+## multiple words
+what if I want help message about Binary mode, what should I put in?
+
+# command line options
+vim -n file	prohibit swap file 
+vim -r		list swap file and exit.
+vim -r file	recover crashed session		 
+vim -u <vimrc>	use <vimrc> instead of any .vimrc
+vim --noplugin	Don't load plugin scripts
+vim -S <session>    source file <session> after loading the first file
+vim -s <scriptin>   read normal mode commands from file <scriptin>
+vim -t <tag>	look up tag and start editing at its definition
+vim -w <scriptout>  Append all typed commands to file <scriptout>
+vim -W <scriptout>  Write all typed commands to file <scriptout> 
+vim --servername <name>	    Send to/become the Vim server <name>
+vim --startuptime <file>    Write startup timing message to <file>
+vim -i <viminfo>    use <viminfo> instead of .viminfo
+
+# color test
+:edit $VIMRUNTIME/syntax/colortest.vim	--and then:
+:source %
+## customize syntax highlighting
+:highlight group-name [c]term=attribute
+    for term(black and white), attribute =
+	bold, underline reverse, italic, standout
+    for cterm(colored), attribute = 
+	cterm=, ctermfg=, ctermbg=
+
+# indent
+=motion	    indent selected text by motion using Vim's internal formatting program
+
+# special
+CTRL-C	: cancel any pending command
+
+:split +command file: open file in new windows and apply command to it
+:split +/text file  : will open file in a new window and pose cursor 
+		      on text position
+
+g?motion    encrypt text with rot13 algorithm
+
+:mkvimrc file	save current options and setting into file
+:wviminfo[!] [file]	write viminfo to file
+:rviminfo[!] [file]	read viminfo from file
+
+:file	can change the name of current file
+
+CTRL-A	increments the number under the cursor(decimal, octal, or hexadecimal)
+CTRL-X	decrements
+
+:set scrollbind	    bind two files for synchronized scrolling
+
+grchar | gR	virtual replace mode, allow you replace <tab> without 
+		disturbing the format
+
+:set option^=value  add value to the beginning of option
+
+# Moving
+basic : h j k l
+word :  w e ge b  
+WORD : W
+line :  0 ^ $ - + _
+sentence : ( )  (separated by ".")
+paragraph : { }
+section : [[ [](backward)  (section is defined as any text separated by a page break char CTRL-L)
+	  ]] ][ forward
+file :  
+    [n]G  go to line n
+    :[n]  go to line n
+
+<CTRL-O>, <CTRL-I>: move to the previous, next cursor position.
+
+## option
+set iskeyword=	    defines what chars to be used as a word
+set option&	    recure default value for option
+
+
+# Searching
+line : f F ; , t(until) T
+d'a	delete to the end of mark a
+g*, g#	for unristic searching(not exact match)
+
+# Substitution
+:s//replacement/ : use the last serach or substitution RE.
+    flag: | 
+    c	  | Confirm
+    g	  | globally
+    p	  | print the line after the change is made
+## trick
+:s  : is the same as :s//~/
+:&  : same as :s
+# it's often useful to combine the substitute command with the ex 
+# global command, :g
+:g/Object Oriented/s//Buzzword compliant/g
+
+## offsets
+/pattern/Offset	offset cursor from matches of pattern
+    i.e. :
+    /pattern/3  3 lines below the occurrence of "pattern"
+    /pattern/b2 offset 2 chars from begin 
+    /pattern/e3 offset 3 chars from end 
+
+Offset can be:
+    [num]
+    +[num]	down [num] lines
+    -[num]	up [num] lines
+    e		end of the match
+    e[num]	end of the match, then move [num] chars, + for right, -		       for left
+    b
+    s		start of the match
+    b[num]
+    s[num]	same as e[num]
+
+
+
+# copying
+"+  system register which enable you to copy and paste text between 
+    different programs
+"Ayy	uppercase register, appending text into accordance lowercase 
+	register (a here)
+CTRL-A in insert mode	    insert the text you typed the last time
+			    you were in insert mode
+
+# marks
+:marks [args]
+## special marks
+'   the last place where cursor lies
+"   line 1
+[   the start of last insert
+]   the end of the insert
+## global marks
+Uppercase Letter
+
+# filtering
+!motion command	    apply command through the block choose by motion
+		    and replace it with the filtered results.
+    i.e.    !10Gsort	sort block from current line to line 10
+!! command	    filter current line
+    i.e.    !!ls    put files of current dir. in current position
+	    !!date  put in date
+		    (using !! like this is technically not filtering
+		    because commands like ls and date don't read 
+		    standard input)
+!! pwd		    insert current PWD
+
+# Repeating
+qchar	: record editing commands into register "char", char must be within a-z
+@char	: execute commands in register "char"
+CTRL-Rregister ( in insert mode)     insert the text in the register
+:echo @char : show content of a record
+editing content of a register: 
+    "qp	paste the content of register q to current cursor place
+    editing
+    "qyy yank this new modified macro back into reg. q
+
+:&	repeat the last substitution
+    :range & flags count
+
+# regular expression
+.   match any single char
+\[special char]	    to match special char
+
+# binary files
+-b  : binary mode
+:setlocal display=uhex
+:%!xxd [-b]
+
+# multifiles
+## opening multifiles
+:vi file    open file and close current one
+:view file  same as above but in read-only mode
+gf	    go to file whose name is under the cursor
+
+## position
+:args	    show which file you are in
+:rewind	    go to and edit the first file no matter where you are
+:last	    the last file
+CTRL_^	    go to the alternate file( the last modified file)
+
+## options
+set isfname	defines what chars can be used as filenam
+WORD		any series of non-whitespace chars
+
+# buffers
+in anytime, there is only one swap file in disk for one window. When 
+you change to another buffer using :bNext or :bPrevious command, it 
+will write current buffer back to disk and load the required one. 
+To summary up, there is only one beffer in memory for all the files
+that you are editing, though it will record all the buffers for you. 
+
+the content of a file in memory is called buffers.
+
+:hide	: allow you to hide a buffer(move it from active into inactive(not shown on window)) without save changes of it.
+:bunload    unloads a buffer from memory
+
+# line address
+'Address'   |
+1,$	    | all lines
+x,y	    | lines x through y
+x;y	    | lines x through y, with current line reset to x
+0	    | top of file
+.	    | current line
+n	    | absolute line number n
+$	    | last line
+%	    | all lines
+x-n	    | n lines before x
+x+n	    | n lines after x
+-[n]	    | one or n lines previous
++[n]	    | one or n lines ahead
+'x	    | line marked with x
+''	    | previous mark
+/pat/|?pat? | ahead or back to line where pat matches.
+# auto completion
+set complete=key,key,key    define the order of seraching file for auto
+			    completion, the key can be:
+    .	current file
+    b	files in loaded buffers, not in a window
+    d	definitions in the current file and in files included by a #include dir.
+    i	files included
+    k	files defined by the 'dictionary' option
+    kfile   the file named {file}
+    t	the tags file
+    u	unloaded buffers(what's this ???)
+    w	files in other windows
+
+CTRL-X	submode for auto completion:
+^D  Macro definition
+^F  filenames(current dir.)
+^K  dictionary
+^I  current file and #included files
+^L  whole lines
+^]  tags
+^P  same as ^P without ^X
+^N  same as ^N without ^X
+
+# programming
+[i		    Display the first line that	contains the keyword 
+		    under the cursor 
+]i		    Display the first line that contains the keyword
+                    under the cursor, but starts the search at the 
+		    current position in the file.
+[I       	    Display all lines that contain the keyword under
+		    the cursor; filenames and line num are displayed
+]I		    Display all lines that contain the keyword under
+		    the cursor, but starts the search at the current
+		    position in the file.  
+[CTRL-I,]CTRL-I	    Jump to the first occurrence of the keyword under
+		    the cursor.[start from current position]	    
+ i[^I]	    Open a new windwo showing the location of the first			   occurrence of the identifier under the cursor.
+[d(]d)		    Display the first macro definition for the 
+		    identifier under the cursor.
+[D(]D)		    Display all macro definiton for the identifier 
+		    under the cursor;
+[CTRL-D,]CTRL-D	    Jump to the first mccro definition for the 
+		    identifier under the cursor.[start from current 
+		    position]	    
+ d[^D]	    Open a new windwo showing the location of the first			   macro definition of the identifier under the cursor
+
+[range]is[earch][!][count][/]pattern[/]
+		    like [i and ]i but searches in range lines(default
+		    whole file). Without the slashes, a word search is
+		    done; with slashes, a RE search is done.
+[range]il[ist][!][count][/]pattern[/]
+		    Like [I and ]I
+[range]ij[ump][!][count][/]pattern[/]
+		    like [^I and ]^I
+[range]isp[lit][!][count][/]pattern[/]
+		    like i and ^I
+[range]ds[earch][!][count][/]pattern[/]
+		    like [d and ]d but searches in range lines(default
+		    whole file). 
+[range]dl[ist][!][count][/]pattern[/]
+		    Like [D and ]D
+[range]dj[ump][!][count][/]pattern[/]
+		    like [^D and ]^D
+[range]dsp[lit][!][count][/]pattern[/]
+		    like d and ^D
+che[ckpath][!] 	    List all the include files that couldn't be found;
+		    with the !, list all the included files.
+Ctrl-]		    go to definition
+Ctrl-T		    jump back from definition
+Ctrl-W Ctrl-]	    open the definition in a horizontal split
+gd,gD		    search for the definition of a var(d--local, D--global).
+]CTRL-D, [CTRL-D    Jump to a macro definition
+[(		    previous unmatched (
+[)		    next unmatched )
+[{		    find previous unmatched {
+[}		    next unmatched }
+[#		    previous unmatched #if or #else
+[*, [/		    previous unmatched start of a C comment /*
+]*, ]/		    next unmatched end of a C comment */
+]#		    next unmatched #endif or #else
+]{		    find next unmatched {
+]}                  previous unmatched }
+])		    next unmatched )
+
+## indent
+>%	place cursor on a left {, execute the command will indent the
+	content of the {} block.
+>i{	same as above, but don't include {} itself
+"registerp  inserts the text in register into buffer
+"register]p same as above except that each line has its indent adjusted
+^R^O register
+^R^P register(in insert mode)	to insert text in correct indent
+
+## tag
+help file: 29.1 or tagsrch.txt
+ctags *.c : create tags(table of contents file recording location
+	    of function definitions)
+:tag function : find the function through tags
+CTRL-] :	jumps to the tag of the word that is under the cursor  
+CTRL-T :	goes the preceding tag
+:tag :		goes to the tag on the list
+:tag /REGEP	search for a procedure match the regular expression 
+		(begin with /)in tags
+    i.e.
+    :tag /write	    find all the procedures with the word write in 
+		    their names 
+    :tag /^read	    find all procedures that begin with read
+    :tag /DoFile\|do_file\|Do_File	or
+    :tag /[Dd]o_\=[Ff]ile	same as above   
+:tselect {name}	select one from the list returned by the above command
+:t[next][previous][Next][rewind][last]
+
+## c make
+:make	    make a program and positions you on the first error(if any)
+:c[next][previous][Next][rewind][last]	moving through error list produced by make
+:cnfile	    goes to the first error of next file
+:cc	    display current error
+:clist	    list of errors
+:clist!	    list everything except errors(not suppress anything)
+:cfile	error-file	read in the output of make 
+:cquit	    exit vim with an error status (exit code=1)
+
+# options
+:set path^=dir.	    add dir. to the begin of search path for a function
+
+
+# text file
+
+## formating text file
+gq[motion]  format selected text
+    gqip    format a paragraph(chosed by ip: inner a paragraph)
+    gqgq-->gqq	format a line
+:range center width
+:range left margin
+
+:set formatoptions=char    char can be
+    t	wrap text
+    c	wrap comments, insert the comment leader automatically
+    r	insert comment leader in a comment when a new line is inserted
+    o	insert comment leader in a comment when a new line is created
+	using the O or o command
+    q	allow gq to act
+    2	format base on the indent of the second line, not the first
+    v	do old-style Vi text wrapping
+    b	wrap only on blanks you type
+    l	do dot break line in insert mode, only let gq break the lines
+
+# encryption
+:X | vim -x file | :set key=	set 'key=' decrypt the file
+vim -n file	prohibit swap file 
+
+# script or batch file
+vim -e file.txt < script    run Vim in ex mode(-e flag) on the file 
+			    file.txt reading commands from script
+vim -w script file	    edit file and write all characters entered
+			    by the user into file 'script'(appendix)
+    -W			    Override existing one
+
+# regular expressions
+############################################
+	       Sinple Atoms
+x	    literal x
+^	    start of line
+$	    end of line
+.	    a single char
+\<	    start of a word
+\>	    end of word
+	    The beginning or end of a word is determined either by a
+	    punctuation mark or by a space.
+~           matches the last given substitute string (replacement)
+############################################
+		Range Atoms
+[abc]	    match either "a","b" or "c"
+[^abc]	    match anything except "a","b","c"
+[a-z]	    match char from "a" through "z"
+[a-zA-Z]    match char from "a" through "z" and "A" through "Z"
+[]abc]	    to match literal "]", place it first in the list
+[ab^cd]	    to match literal "^", place it anywhere but first
+[abc-]	    to match literal "-", place it last
+############################################
+		   Class
+[[:upper:]]	Uppercase chars
+[[:lower:]]	lowercase chars
+[[:digit:]]	digit
+[[:alnum:]]	all letters and digits
+[[:alpha:]]	letters
+[[:ascii]]	ASCII chars
+[[:backspace:]]	<BS>
+[[:blank:]]	space and tab
+[[:cntrl:]]	control chars
+[[:escape:]]	<Esc>
+[[:graph:]]	printable chars, excluding space
+[[:print:]]	printable chars, including space
+[[:punct:]]	punctuation chars
+[[:return:]]	end-of-line (<CR>, >Enter>, <NL>)
+[[:space:]]	whitespace chars
+[[:tab:]]	<Tab>
+[[:xdigit:]]	hexadecimal digits
+
+\a		alphabetic chars (a-zA-Zi)
+\A		Non-alphabetic chars
+\b		<BS>
+\d		digit
+\D		non-digit
+\e		<Esc>
+\f		chars defined in "isfname" option
+\F		non-"isfname"
+\h		head of word char (A-Za-z_)
+\H		non-head of word char
+\i		chars defined in "isident"
+\I		non-"isident"
+\k		"iskeyword"
+\K		non-"iskeyword"
+\l		lowercase (a-z)
+\L		non-lowercase
+\o		octal digit (0-7)
+\O		non-octal chars
+\p		"isprint"
+\P		non-isprint
+\r		<CR>
+\s		whitespace(<Space> or <Tab>)
+\S		non-whitespace
+\t		<Tab>
+\u		uppercase
+\U		non-uppercase
+\w		word chars (0-9a-zA-Z_)
+\W		non-wrod chars
+\x		hexadecimal digits
+\X		non-hexadecimal chars
+
+# Note that the breckets in these class([:class:]) names are part of 
+# the symbolic names, and must be included in addition to the breackets
+# delimiting the bracket expression.
+#-The reason why class need two braket [[]] is that [:class:] represent
+# a class, which is just a collection of chars. Enclosing them in 
+# another [ ] means match any one of them.
+#- Another explain for double braket "[[]]" is that [:class:] itself 
+# will be regarded as range rather than class
+############################################
+		Sub Patters
+\(pattern\) Mark the pattern for later use.
+	    save the pattern enclosed between \( \) into a special 
+	    holding space or "hold buffer"
+\1	    matches the same string that was matched by the first 
+	    sub-expression in \( \)
+\2	    like "\1", but uses second sub-expression
+\9	    like "\1", but uses ninth sub-expression
+&	    replaced with the entire text matched by the search pattern
+	    when used in a replacement string.
+############################################
+		 Modifiers
+*	    match the previous atom 0 or more times,as much as possible
+\+	    1 or more times, as much as possible
+\=	    0 or 1 time
+\{}	    0 or more times, same as "*"
+\{n}	    exactly n times
+\{n,m}	    n to m times
+\{n,}	    at least n times
+\{,m}	    no more than m times
+\{-n,m}	    n to m times, as little as possible
+\{-n,}	    at least n times, as little as possible
+\{-,m}	    up to m times, as little as possible
+\{-}	    0 or more times, as little as possible
+str1|strl2  str1 or str2
+############################################
+if one regular expression modifier match pattern as little as possible,
+then the larger option is completely useless, because for a string that
+can match a pattern m(m>n) times, then the modifier make the expression
+will match only n times, which makes the upper limits for such matching
+needless, we can use excat n times matching to do work.
+therefore:
+\{-n,m}  =  \{-n,}  =	\{n}
+\{-,m}   =  \{-}    =	\{0}
+############################################
+		 Precedence
+Repetition takes precedence over concatenation, which in turn takes 
+precedence over alternation. A whole expression may be enclosed in 
+perentheses to override these precedence rules and form a subexpression
+############################################
+	    
+# command mode
+
+q:  # history command
+## auto completion
+<CTRL-D>: to see all possible values.
+:set i<CTRL-D>
+
+## source command
+:source $VIMRUNTIME/syntax/2html.vim	# convert to html file.
+:source $VIMRUNTIME/ftplugin/man.vim	# check man info.
+
+## range
+:n,m	from line n to m
+:%	all file
+:.,n	from curremt line to line n
+:/hello/,/world/    from line of first occurrence of hello to the first
+		    line that contains world
+:/hello/+1,/world/-1	from line one line after the line with the word
+		    hello in it, to the line one line before /world/
+:/first//second/    find the string "first" and then search for string
+		    "second"
+:range global /pattern/ command
+		    all lines containing pattern within range
+:range vglobal /pattern/ command
+:range global! /pattern/ command
+		    all lines that don't contain pattern within range
+
+## external command
+# Vim provide two ways to execute external commands: ":!cmd" and "!cmd".
+# The former one equal to executing command in shell, the latter do input/output
+# redirection, which is pipe the chosed text as input to the commands, and then
+# replace the text with the output of the commands.
+# Of course, single way redirection is also allowed in Vim:
+# input redirection: :write !wc
+# output redirection: :read !ls
+:r!pwd	insert $PWD in next line
+!!pwd	same as above
+
+
+## write command
+:[range] write >> file	append text to  a file(file must exist)
+:[range] write! >> file	append text to a file(if file does not exist,
+			create it)
+:[range] write !command		pipe to another command
+
+# examples
+## remove blanks off an end-of-line
+:%s/\s*$//g
+## changing last, first to first, last
+:%s/\([^,]*\),\(.*$\)/\2 \1/g
+
+## in insert mode
+<C-R>=getcwd()
+
+
+# variables
+:let var = value
+:unlet[!] var; with [!], no error message
+## expression
+### comparison ( return a 1 if succeeds and 0 if failed)
+var == var	equality
+var != var	inequality
+var < var	less than
+var <= var	less than or equal to 
+var > var	greater than
+var >= var	greater than or equal to 
+"string" =~ "pattern"	    match of regular expression
+"string" !~ pattern	    not match
+### string specific
+string ==? string	equal,ignore case
+string ==# string	equal, case must match
+string !=? string	not equal, ignore case
+string !=# string	not equal,case must match
+string [<,>,<=,>=][?,#]  
+	
+# setting
+:set option&	set option to its default value
+## numeric options
+:set option += value	Add value to the option
+:set option -= value    Subtract value from the option
+:set option ^= value    Multiply the option by value
+## string related options
+:set option += value	Add value to the end of the option
+:set option -= value    remove value( or characters) from the option
+:set option ^= value    Add value the beginning of the option
+
+# Vim Scripting
+## control statement
+### if
+:if {condition} 
+:   "statement
+:   "statement
+:elseif {condition}
+:   "statement
+:   "statement
+:else
+:   "statement
+:   "statement
+:endif
+
+### looping
+:while counter < 30
+:   let counter = counter + 1
+:	" Do something
+:endwhile
+
+:while counter < 30
+:   if skip_flag
+:	continue
+:   endif
+:   if exit_flag
+:	break
+:   endif
+:   "Do something
+:endwhile
+
+## function
+:function[!] {name}({var1},{var2},...) [range] [abort]
+:   DO something                       
+:   return var
+:endfunction					
+
+-- function name must begin with a captial letter. 
+-- if "!" after function, then, it will silently override any previously 
+defined function of same name.
+-- by putting the range keyword after the function definition, the 
+function is considered a "range" function. And a:firstline and a:lastline
+refer to the first and last line in the range. 
+-- if the word "abort" follows the function definition, the function 
+aborts on the first error.
+-- the ellipsis "..." in function's argument defines a function that must
+have n arguments(the number of arguments that are listed, which is 2 in 
+the above e.g.), and have up to 20 additional arguments, which are 
+referred to as a:1, a:2( the first, second optional argument) and a:0
+refer to the number of optional arguments
+
+### calling a function
+:[range] call {function}([parameters])
+-- inside a function definition, you can refer to a variable outside
+-- this function as g:var, correspondingly, a local variable is referred
+-- to as a:var
+#### call a function in insert mode
+<CTEL-R>=func()
+e.g.
+    insert current dir. =getcwd()
+
+### builtin function
+:h function	to find out the tremendous builtin functions of VIM
+
+
+## self-defined command
+:command name content	define command "name" to execute "content"
+    :command  Delete_first :1delete	delete first line
+-- user-defined commands must start with a captial letter
+:delcommand name    delete a user-defined command
+:comclear	    clear all user-defined commands
+
+# syntax
+:syntax clear	before define any new syntax
+:syntax case match
+:syntax case ignore	define whether case sensitive or insensitive
+## basic syntax command: define keyword
+:syntax keyword group [word,word,...]
+-- group is the name of a highlight group
+i.e.	:syntax keyword xType int long char
+	:syntax keyword xStatement if then else endif
+    now connect the x group names to standard Vim names:
+	:highlight link xType Type
+	:highlight link xStatument Statement
+## defining matches
+:syntax match xIndetifier /[a-z]\+/
+i.e.	define a match for a comment(#..$)
+	:syntax match xComment /#.*$/
+## defining regions
+:syntax region xString start=/"/ end=/"/
+:syntax region xString start=/"/ skip=/\\"/ end=/"/  skip any \" appear
+				in "" region
+## nested regions
+:syntax keyword xTodo contained
+:syntax match xComment /#.*$/ contains=xTodo	highlight xTodo in 
+						comments.
+
+:syntax region xComment start=/%.*/ end=/$/ contained
+:syntax region xPreProc start=/#.*/ end=/$/ contains=xComment keepend
+    -- highlight comment within preprocess, the keepend at the end take
+       care of the double end-of-line matching
+## multiple group options
+:syntax match xSpecial "^>" nextgroup=xkey
+:syntax match xKey "KEY" contained
+### we firstly define a syntax element consisting of > at the beginning
+### of a line. And then define a element for the KEY string. In this
+### case, the KEY is important only if it is part of a> line. the
+### 'nextgroup' option tells Vim to highlight KEY, but only if it 
+### follows xSpecial. 
+:syntax match xSpecial "^>" skipwhite nextgroup=xKey
+### the above command allow skipping whitespace
+### And "skipnl","skipempty" option allow skipping newline and empty
+### lines
+:syntax region xPreProc start=/^#/ end=/$/ online   
+    -- the online option indicates that the region does not cross a 
+    -- line boundary
+:syntax region xPreProc start=/^#/ end=/$/ online contains=xLineContinue
+:syntax match xLineContinues ""\\$"" contained
+    -- though xPreProc itself is a single online, the groups contained
+    -- in it let it go on for more than one line 
+
+:syntax region xPreProc start=/^#/ end=/$/ online contains=xLineContinue,xPreProcEnd
+:syntax match xPreProcEnd excludenl /end$/ contained
+    -- highlight "end" in xPreProc, but only at the end of the line,
+    -- avoiding making the xPreProc continue on the next line.
+
+:syntax region xInside matchgroup=xParent start=/(/ end=/)/
+    -- the matchgroup option allow matching inside and border of a 
+    -- region with different highlight groups
+# customize VIM
+## indentation
+when set autoindent -- :set autoindent
+^T : Add one level of indentation; typed in insert mode
+^D : Remove one level of indentation; in insert mode.
+
+
+# Note:
+r : the r command treats <Enter> in a special way. No matter how big 
+    the count is , only one <Enter> is inserted. Therefore, 5r<Enter> 
+    replaces five char with one <Enter>
+    
+
+# doubts
+vsplit	    many command provide version of horizental spliting, what
+	    about vertical spliting
+autocommand It seems autocommand can't be remove with :au! command,
+	    (for my FileType autocommand in .vimrc)why be that?
+viminfo	    viminfo file
+
+
