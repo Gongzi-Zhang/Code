@@ -436,6 +436,8 @@ $	    end of line
 [[:tab:]]	<Tab>
 [[:xdigit:]]	hexadecimal digits
 
+\123		Octal number
+\x123		Hexadecimal number
 \a		alphabetic chars (a-zA-Zi)
 \A		Non-alphabetic chars
 \b		<BS>
@@ -501,6 +503,25 @@ $	    end of line
 \{-,m}	    up to m times, as little as possible
 \{-}	    0 or more times, as little as possible
 str1|strl2  str1 or str2
+############################################
+		Grouping and Backreferences
+&	    the whoel matched pattern
+\0	    the whoel matched pattern
+\N	    the matched pattern in the N pair \(\)
+~	    the previous substitute string
+\L	    the following characters are made lowercase
+\U	    the following characters are made uppercase
+\E,\e	    end of \U and \L
+\r	    split line in two at this point
+\l	    next character made lowercase
+\u	    next character made uppercase
+############################################
+		Operator Precedence
+Precedence	Regexp		Description
+    1		\(\)		    grouping
+    2	    \=,\+,*,\{n}..	    quantifiers
+    3	      abc\t\.\w		    sequence of characters
+    4		 \|		    alternation
 ############################################
 if one regular expression modifier match pattern as little as possible,
 then the larger option is completely useless, because for a string that

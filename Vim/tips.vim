@@ -7,3 +7,7 @@
 &ft	" filetype
 &t_Co	" terminal color
 
+
+
+" debugging script
+debug call Myfunction()
