@@ -1,1 +1,71 @@
-/home/weibin/.vim/digraphs
+☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ 
+★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆
+☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆  
+★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★
+# some useful digraphs:
+
+# ㈠~㈨
+1c~9c
+
+# Greek Alphabet:
+α   a*	    β	b*	γ   g*	    δ	d*	ε   e*	    ζ	z*
+η   y*	    θ	h*	ι   i*	    κ	k*	λ   l*	    μ	m*
+ν   n*	    ξ	c*	ο   o*	    π	p*	ρ   r*	    σ	s*
+τ   t*	    υ	u*	φ   f*	    χ	x*	ψ   q*	    ω	w*
+Α   A*	    Β	B*	Γ   G*	    Δ	D*	Ε   E*	    Ζ	Z*
+Η   Y*	    Θ	H*	Ι   I*	    Κ	K*	Λ   L*	    Μ	M*  
+Ν   N*	    Ξ	C*	Ο   O*	    Π	P*	Ρ   R*	    Σ	S*
+Τ   T*	    Υ	U*	Φ   F*	    Χ	X*	Ψ   Q*	    Ω	Q*
+
+# Mathematics:
+∴   .:	    ∵	:.	∷   ::	    ∶	:R	∃   TE	    ∀   FA 
+                                    
+∅   /0      Ø	O/	ø   o/	    ∩    (U	 ∪   )U	    ∧   AN
+∨   OR	    	    
+⊂   (C      ⊃   C)      ⊆   (_	    ⊇	 )_	∈    (-     ∋   -) 
+
+×   *X	    ÷	:-	    
+
+∂   dP	    ∆	DE	∇   NB	    ∑   +Z      ∏   *P  
+
+⅓   13(23,15,25,35,45,16,56,18,38,58,78)
+₁   1s(2s-9s,0s,+s,-s,=s,(s,)s)
+¹   1S(2-9,0,+,-,(,),n,=)  
+
+∓   -+	    ±   +-      ∼   ?1	    ∾	CG	≃   ?-	    ≅	?=
+≈   ?2	    ≌	=?	≠   !=	    ≡	=3	≤   =<	    ≥	>=
+≪   <*	    ≫	>*	≮   !<	    ≯	!>	∙   Sb	      
+√   RT	    ∝	0(	∞   00	    ∥	PP	·   .M	    ∠   -V
+∫   In	    ∬   DI      ∮   Io  
+
+                 
+# Physics:
+∘   Ob	    ℃	oC	℉   oF	    Ω	Om	Å   AO	    ℅   co  
+∗   *-	    º	-o
+   
+ħ   h/	    ñ	n?	đ   d/	    Ā	A-	ā   a-	    ũ	u?
+Ū   U-	    ū	u-	Ƶ   Z/	    ƶ	z/	ã   a~
+
+
+# Arrows: 
+←   <-	    ↑	-!	→   ->	    ↓	-v	↔   <>	    ↕	UD
+⇐   <=	    ⇒	=>	⇔   ==	    
+
+# Polygons:
+□   OS	    ▢	RO	▭   Or	    ▲	UT	△   uT	    ▶	PR
+▷   Tr	    ▼	Dt	▽   dT	    ◀	PL	◁   Tl	    ◆	Db
+◇   Dw	    ◊	LZ	○   0m	    ●	0M	★   *2	    ☆	*1
+⋅   .P
+
+
+# Roman Numerals:
+Ⅰ   1R	    Ⅱ	2R	Ⅲ   3R	    Ⅳ	4R	Ⅴ   5R	    Ⅵ	6R
+Ⅶ   7R	    Ⅷ	8R	Ⅸ   9R	    Ⅹ	aR	Ⅺ   bR	    Ⅻ	cR
+ⅰ   1r	    ⅱ	2r	ⅲ   3r	    ⅳ	4r	ⅴ   5r	    ⅵ	6r
+ⅶ   7r	    ⅷ	8r	ⅸ   9r	    ⅹ	ar	ⅺ   br	    ⅻ	cr
+							    
+# Miscerllaneous:
+ ¯  'm	    ⋮   :3	⋯   .3	    §   SE	   
+
+# Monetary
+£   Pd	    ¥	Ye
