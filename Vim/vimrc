@@ -112,14 +112,14 @@ endfunction
 augroup HTML
     au!
     au	FileType php,html,xhtml,css  inoremap  <  <><Esc>i
-    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDO
+    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDko
 "    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>eldt>ko
 "    Why this command doesn't open new line automatically when there is only
 "    one word in tag ???
     au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
     au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
-    au  FileType html,xhtml,js	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
-    au  FileType php,html,xhtml,js   inoremap  ;   <esc>A;<esc>
+    au  FileType html,xhtml,javascript	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
+    au  FileType php,javascript   inoremap  ;   <esc>A;<esc>
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
 augroup END
