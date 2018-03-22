@@ -1,5 +1,4 @@
-/*
-!.gitignore
-!/Vim
-/*/**/reference/
-/*/**/test/
+.gitignore
+/**/reference/
+/**/test/
+/**/tmp/
