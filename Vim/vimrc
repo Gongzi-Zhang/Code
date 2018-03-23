@@ -185,3 +185,12 @@ augroup END
 
 " in line 65, what other combination can be used for expressing 
 " delete to <End> except D. Why dt<End> doesb't work.
+
+" loading local definition
+if filereadable("/home/".$USER."/.vim/vimrc")
+"   exec "source /home/".$USER."/.vim/vimrc"
+    source /home/$USER/.vim/vimrc
+"    source "/home/".$USER."/.vim/vimrc"    " this one doesn't work
+"    It looks like source command needs something naked, but not included in
+"    a quotes
+endif

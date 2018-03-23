@@ -548,6 +548,8 @@ q:  # history command
 ## source command
 :source $VIMRUNTIME/syntax/2html.vim	# convert to html file.
 :source $VIMRUNTIME/ftplugin/man.vim	# check man info.
+:source "$VIMRUNTIME/ftplugin/man.vim"	
+# be careful with source command, add a quote around the path will result in error: require argument. The argument ot source should always be a path, but not a string constant.
 
 ## range
 :n,m	from line n to m
