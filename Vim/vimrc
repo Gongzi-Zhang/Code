@@ -119,7 +119,7 @@ augroup HTML
     au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
     au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
     au  FileType html,xhtml,js	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
-    au  FileType php,html,xhtml,js   inoremap  ;   <esc>A;<esc>
+    au  FileType php,js		     inoremap  ;   <esc>A;<esc>
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
 augroup END
