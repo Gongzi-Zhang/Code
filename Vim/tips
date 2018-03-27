@@ -1,10 +1,3 @@
-# Concept
-in vim, when you made some change to a file, you are editing it.
-a file that you are editing(you have made some changes to it) but not
-  show on screen is called hidden one
-a file that you want to edit but don't make any change to it yet is in
-  inactive state
-
 # help command 
 :h helphelp 
     help on help files
@@ -22,12 +15,39 @@ a file that you want to edit but don't make any change to it yet is in
 	c   command-line editing
 	-   vim command arguments
 	''  options
-
 :h <Up>
     for help about special keys, enclose them in angle brackets
 
 ## multiple words
 what if I want help message about Binary mode, what should I put in?
+
+## real time check
+command
+    No escape (quotes) in any commands. just type directly.
+ENVIRONEMENT VARIABLE
+    :echo $ENV
+function
+    :echo function(argument)
+option
+    :set option?
+register
+    :echo @reg
+
+
+## user manual
+Keyword	    Chapter
+function    eval.txt
+pattern	    pattern.txt
+syntax	    syntax.txt
+
+
+# Concept
+in vim, when you made some change to a file, you are editing it.
+a file that you are editing (you have made some changes to it) but not
+  show on screen is called hidden one
+a file that you want to edit but don't make any change to it yet is in
+  inactive state
+
 
 # command line options
 vim -n file	prohibit swap file 
@@ -360,7 +380,12 @@ CTRL-T :	goes the preceding tag
 :cquit	    exit vim with an error status (exit code=1)
 
 # options
+## There are two ways to set options
+set opt = value	    " or 
+let &opt = value
+
 :set path^=dir.	    add dir. to the begin of search path for a function
+
 
 
 # text file
@@ -688,6 +713,9 @@ e.g.
 
 ### builtin function
 :h function	to find out the tremendous builtin functions of VIM
+
+### to test a function in command mode:
+echo function(arguments)
 
 
 ## self-defined command
