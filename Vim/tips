@@ -386,6 +386,11 @@ let &opt = value
 
 :set path^=dir.	    add dir. to the begin of search path for a function
 
+## filetype
+Note that filetype is not set (though it has been detected, it only set an
+autocommand to set the ft), so any command that set ft before BufferRead
+is useless. Only command after BufferRead can overrule the detected one.
+
 
 
 # text file
