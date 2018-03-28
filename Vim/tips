@@ -1,47 +1,52 @@
-# help command 
-:h helphelp 
-    help on help files
-:h index 
-    to get a complete index of what is available
-:h help-summary
-    summary of help usage
-:h CTRL-commnad
-    get help for a control character command
-:h {i,v,:,c,-,}_[keyword]
-    get help for different mode
-	i   insert
-	v   visual
-	:   ex-mode
-	c   command-line editing
-	-   vim command arguments
-	''  options
-:h <Up>
-    for help about special keys, enclose them in angle brackets
+\b{help command\} 
+	:h helphelp 
+	    help on help files
+	:h index 
+	    to get a complete index of what is available
+	:h help-summary
+	    summary of help usage
+	:h CTRL-commnad
+	    get help for a control character command
+	:h {i,v,:,c,-,}_[keyword]
+	    get help for different mode
+		i   insert
+		v   visual
+		:   ex-mode
+		c   command-line editing
+		-   vim command arguments
+		''  options
+	:h <Up>
+	    for help about special keys, enclose them in angle brackets
 
-## multiple words
-what if I want help message about Binary mode, what should I put in?
+	\b{multiple words\}
+	    what if I want help message about Binary mode, what should I put in?
 
-## real time check
-command
-    No escape (quotes) in any commands. just type directly.
-ENVIRONEMENT VARIABLE
-    :echo $ENV
-function
-    :echo function(argument)
-option
-    :set option?
-register
-    :echo @reg
-
-
-## user manual
-Keyword	    Chapter
-function    eval.txt
-pattern	    pattern.txt
-syntax	    syntax.txt
+	\b{real time check\}
+		command
+		    No escape (quotes) in any commands. just type directly.
+		ENVIRONEMENT VARIABLE
+		    :echo $ENV
+		function
+		    :echo function(argument)
+		option
+		    :set option?
+		register
+		    :echo @reg
 
 
-# Concept
+	\b{user manual\}
+		Keyword	    Chapter
+		function    eval.txt
+		pattern	    pattern.txt
+		syntax	    syntax.txt
+
+
+\b{syntax\}
+    \red{1:\} How to display \i{cchar=}\} in the highlighted region. (link conceal to some highlighting)
+	   syn match txtTest /\\}/ conceal cchar=} contained transparent
+	   hi def link Conceal Statement
+      without the link statement, it will be shown uglily.
+\b{Concept\}
 in vim, when you made some change to a file, you are editing it.
 a file that you are editing (you have made some changes to it) but not
   show on screen is called hidden one
@@ -49,7 +54,7 @@ a file that you want to edit but don't make any change to it yet is in
   inactive state
 
 
-# command line options
+\b{command line options\}
 vim -n file	prohibit swap file 
 vim -r		list swap file and exit.
 vim -r file	recover crashed session		 
@@ -64,20 +69,20 @@ vim --servername <name>	    Send to/become the Vim server <name>
 vim --startuptime <file>    Write startup timing message to <file>
 vim -i <viminfo>    use <viminfo> instead of .viminfo
 
-# color test
+\b{color test\}
 :edit $VIMRUNTIME/syntax/colortest.vim	--and then:
 :source %
-## customize syntax highlighting
+	\b{customize syntax highlighting\}
 :highlight group-name [c]term=attribute
     for term(black and white), attribute =
 	bold, underline reverse, italic, standout
     for cterm(colored), attribute = 
 	cterm=, ctermfg=, ctermbg=
 
-# indent
+\b{indent\}
 =motion	    indent selected text by motion using Vim's internal formatting program
 
-# special
+\b{special\}
 CTRL-C	: cancel any pending command
 
 :split +command file: open file in new windows and apply command to it
@@ -102,7 +107,7 @@ grchar | gR	virtual replace mode, allow you replace <tab> without
 
 :set option^=value  add value to the beginning of option
 
-# Moving
+\b{Moving\}
 basic : h j k l
 word :  w e ge b  
 WORD : W
@@ -117,30 +122,30 @@ file :
 
 <CTRL-O>, <CTRL-I>: move to the previous, next cursor position.
 
-## option
+	\b{option\}
 set iskeyword=	    defines what chars to be used as a word
 set option&	    recure default value for option
 
 
-# Searching
+\b{Searching\}
 line : f F ; , t(until) T
 d'a	delete to the end of mark a
-g*, g#	for unristic searching(not exact match)
+g*, g\#	for unristic searching(not exact match)
 
-# Substitution
+\b{Substitution\}
 :s//replacement/ : use the last serach or substitution RE.
     flag: | 
     c	  | Confirm
     g	  | globally
     p	  | print the line after the change is made
-## trick
+	\b{trick\}
 :s  : is the same as :s//~/
 :&  : same as :s
-# it's often useful to combine the substitute command with the ex 
-# global command, :g
+\b{it's often useful to combine the substitute command with the ex \}
+\b{global command, :g\}
 :g/Object Oriented/s//Buzzword compliant/g
 
-## offsets
+	\b{offsets\}
 /pattern/Offset	offset cursor from matches of pattern
     i.e. :
     /pattern/3  3 lines below the occurrence of "pattern"
@@ -160,7 +165,7 @@ Offset can be:
 
 
 
-# copying
+\b{copying\}
 "+  system register which enable you to copy and paste text between 
     different programs
 "Ayy	uppercase register, appending text into accordance lowercase 
@@ -168,17 +173,17 @@ Offset can be:
 CTRL-A in insert mode	    insert the text you typed the last time
 			    you were in insert mode
 
-# marks
+\b{marks\}
 :marks [args]
-## special marks
+	\b{special marks\}
 '   the last place where cursor lies
 "   line 1
 [   the start of last insert
 ]   the end of the insert
-## global marks
+	\b{global marks\}
 Uppercase Letter
 
-# filtering
+\b{filtering\}
 !motion command	    apply command through the block choose by motion
 		    and replace it with the filtered results.
     i.e.    !10Gsort	sort block from current line to line 10
@@ -190,7 +195,7 @@ Uppercase Letter
 		    standard input)
 !! pwd		    insert current PWD
 
-# Repeating
+\b{Repeating\}
 qchar	: record editing commands into register "char", char must be within a-z
 @char	: execute commands in register "char"
 CTRL-Rregister ( in insert mode)     insert the text in the register
@@ -203,32 +208,32 @@ editing content of a register:
 :&	repeat the last substitution
     :range & flags count
 
-# regular expression
+\b{regular expression\}
 .   match any single char
 \[special char]	    to match special char
 
-# binary files
+\b{binary files\}
 -b  : binary mode
 :setlocal display=uhex
 :%!xxd [-b]
 
-# multifiles
-## opening multifiles
+\b{multifiles\}
+	\b{opening multifiles\}
 :vi file    open file and close current one
 :view file  same as above but in read-only mode
 gf	    go to file whose name is under the cursor
 
-## position
+	\b{position\}
 :args	    show which file you are in
 :rewind	    go to and edit the first file no matter where you are
 :last	    the last file
 CTRL_^	    go to the alternate file( the last modified file)
 
-## options
+	\b{options\}
 set isfname	defines what chars can be used as filenam
 WORD		any series of non-whitespace chars
 
-# buffers
+\b{buffers\}
 in anytime, there is only one swap file in disk for one window. When 
 you change to another buffer using :bNext or :bPrevious command, it 
 will write current buffer back to disk and load the required one. 
@@ -240,7 +245,7 @@ the content of a file in memory is called buffers.
 :hide	: allow you to hide a buffer(move it from active into inactive(not shown on window)) without save changes of it.
 :bunload    unloads a buffer from memory
 
-# line address
+\b{line address\}
 'Address'   |
 1,$	    | all lines
 x,y	    | lines x through y
@@ -257,12 +262,12 @@ x+n	    | n lines after x
 'x	    | line marked with x
 ''	    | previous mark
 /pat/|?pat? | ahead or back to line where pat matches.
-# auto completion
+\b{auto completion\}
 set complete=key,key,key    define the order of seraching file for auto
 			    completion, the key can be:
     .	current file
     b	files in loaded buffers, not in a window
-    d	definitions in the current file and in files included by a #include dir.
+    d	definitions in the current file and in files included by a \#include dir.
     i	files included
     k	files defined by the 'dictionary' option
     kfile   the file named {file}
@@ -274,13 +279,13 @@ CTRL-X	submode for auto completion:
 ^D  Macro definition
 ^F  filenames(current dir.)
 ^K  dictionary
-^I  current file and #included files
+^I  current file and \#included files
 ^L  whole lines
 ^]  tags
 ^P  same as ^P without ^X
 ^N  same as ^N without ^X
 
-# programming
+\b{programming\}
 [i		    Display the first line that	contains the keyword 
 		    under the cursor 
 ]i		    Display the first line that contains the keyword
@@ -333,15 +338,15 @@ gd,gD		    search for the definition of a var(d--local, D--global).
 [)		    next unmatched )
 [{		    find previous unmatched {
 [}		    next unmatched }
-[#		    previous unmatched #if or #else
+[\#		    previous unmatched \#if or \#else
 [*, [/		    previous unmatched start of a C comment /*
 ]*, ]/		    next unmatched end of a C comment */
-]#		    next unmatched #endif or #else
+]\#		    next unmatched \#endif or \#else
 ]{		    find next unmatched {
 ]}                  previous unmatched }
 ])		    next unmatched )
 
-## indent
+	\b{indent\}
 >%	place cursor on a left {, execute the command will indent the
 	content of the {} block.
 >i{	same as above, but don't include {} itself
@@ -350,7 +355,7 @@ gd,gD		    search for the definition of a var(d--local, D--global).
 ^R^O register
 ^R^P register(in insert mode)	to insert text in correct indent
 
-## tag
+	\b{tag\}
 help file: 29.1 or tagsrch.txt
 ctags *.c : create tags(table of contents file recording location
 	    of function definitions)
@@ -369,7 +374,7 @@ CTRL-T :	goes the preceding tag
 :tselect {name}	select one from the list returned by the above command
 :t[next][previous][Next][rewind][last]
 
-## c make
+	\b{c make\}
 :make	    make a program and positions you on the first error(if any)
 :c[next][previous][Next][rewind][last]	moving through error list produced by make
 :cnfile	    goes to the first error of next file
@@ -379,23 +384,23 @@ CTRL-T :	goes the preceding tag
 :cfile	error-file	read in the output of make 
 :cquit	    exit vim with an error status (exit code=1)
 
-# options
-## There are two ways to set options
+\b{options\}
+	\b{There are two ways to set options\}
 set opt = value	    " or 
 let &opt = value
 
 :set path^=dir.	    add dir. to the begin of search path for a function
 
-## filetype
+	\b{filetype\}
 Note that filetype is not set (though it has been detected, it only set an
 autocommand to set the ft), so any command that set ft before BufferRead
 is useless. Only command after BufferRead can overrule the detected one.
 
 
 
-# text file
+\b{text file\}
 
-## formating text file
+	\b{formating text file\}
 gq[motion]  format selected text
     gqip    format a paragraph(chosed by ip: inner a paragraph)
     gqgq-->gqq	format a line
@@ -414,18 +419,18 @@ gq[motion]  format selected text
     b	wrap only on blanks you type
     l	do dot break line in insert mode, only let gq break the lines
 
-# encryption
+\b{encryption\}
 :X | vim -x file | :set key=	set 'key=' decrypt the file
 vim -n file	prohibit swap file 
 
-# script or batch file
+\b{script or batch file\}
 vim -e file.txt < script    run Vim in ex mode(-e flag) on the file 
 			    file.txt reading commands from script
 vim -w script file	    edit file and write all characters entered
 			    by the user into file 'script'(appendix)
     -W			    Override existing one
 
-# regular expressions
+\b{regular expressions\}
 ############################################
 	       Sinple Atoms
 x	    literal x
@@ -499,14 +504,14 @@ $	    end of line
 \x		hexadecimal digits
 \X		non-hexadecimal chars
 
-# Note that the breckets in these class([:class:]) names are part of 
-# the symbolic names, and must be included in addition to the breackets
-# delimiting the bracket expression.
+\b{Note that the breckets in these class([:class:]) names are part of \}
+\b{the symbolic names, and must be included in addition to the breackets\}
+\b{delimiting the bracket expression.\}
 #-The reason why class need two braket [[]] is that [:class:] represent
-# a class, which is just a collection of chars. Enclosing them in 
-# another [ ] means match any one of them.
+\b{a class, which is just a collection of chars. Enclosing them in \}
+\b{another [ ] means match any one of them.\}
 #- Another explain for double braket "[[]]" is that [:class:] itself 
-# will be regarded as range rather than class
+\b{will be regarded as range rather than class\}
 ############################################
 		Sub Patters
 \(pattern\) Mark the pattern for later use.
@@ -568,20 +573,20 @@ precedence over alternation. A whole expression may be enclosed in
 perentheses to override these precedence rules and form a subexpression
 ############################################
 	    
-# command mode
+\b{command mode\}
 
 q:  # history command
-## auto completion
+	\b{auto completion\}
 <CTRL-D>: to see all possible values.
 :set i<CTRL-D>
 
-## source command
+	\b{source command\}
 :source $VIMRUNTIME/syntax/2html.vim	# convert to html file.
 :source $VIMRUNTIME/ftplugin/man.vim	# check man info.
 :source "$VIMRUNTIME/ftplugin/man.vim"	
-# be careful with source command, add a quote around the path will result in error: require argument. The argument ot source should always be a path, but not a string constant.
+\b{be careful with source command, add a quote around the path will result in error: require argument. The argument ot source should always be a path, but not a string constant.\}
 
-## range
+	\b{range\}
 :n,m	from line n to m
 :%	all file
 :.,n	from curremt line to line n
@@ -597,38 +602,38 @@ q:  # history command
 :range global! /pattern/ command
 		    all lines that don't contain pattern within range
 
-## external command
-# Vim provide two ways to execute external commands: ":!cmd" and "!cmd".
-# The former one equal to executing command in shell, the latter do input/output
-# redirection, which is pipe the chosed text as input to the commands, and then
-# replace the text with the output of the commands.
-# Of course, single way redirection is also allowed in Vim:
-# input redirection: :write !wc
-# output redirection: :read !ls
+	\b{external command\}
+\b{Vim provide two ways to execute external commands: ":!cmd" and "!cmd".\}
+\b{The former one equal to executing command in shell, the latter do input/output\}
+\b{redirection, which is pipe the chosed text as input to the commands, and then\}
+\b{replace the text with the output of the commands.\}
+\b{Of course, single way redirection is also allowed in Vim:\}
+\b{input redirection: :write !wc\}
+\b{output redirection: :read !ls\}
 :r!pwd	insert $PWD in next line
 !!pwd	same as above
 
 
-## write command
+	\b{write command\}
 :[range] write >> file	append text to  a file(file must exist)
 :[range] write! >> file	append text to a file(if file does not exist,
 			create it)
 :[range] write !command		pipe to another command
 
-# examples
-## remove blanks off an end-of-line
+\b{examples\}
+	\b{remove blanks off an end-of-line\}
 :%s/\s*$//g
-## changing last, first to first, last
+	\b{changing last, first to first, last\}
 :%s/\([^,]*\),\(.*$\)/\2 \1/g
 
-## in insert mode
+	\b{in insert mode\}
 <C-R>=getcwd()
 
 
-# variables
+\b{variables\}
 :let var = value
 :unlet[!] var; with [!], no error message
-## expression
+	\b{expression\}
 ### comparison ( return a 1 if succeeds and 0 if failed)
 var == var	equality
 var != var	inequality
@@ -645,19 +650,19 @@ string !=? string	not equal, ignore case
 string !=# string	not equal,case must match
 string [<,>,<=,>=][?,#]  
 	
-# setting
+\b{setting\}
 :set option&	set option to its default value
-## numeric options
+	\b{numeric options\}
 :set option += value	Add value to the option
 :set option -= value    Subtract value from the option
 :set option ^= value    Multiply the option by value
-## string related options
+	\b{string related options\}
 :set option += value	Add value to the end of the option
 :set option -= value    remove value( or characters) from the option
 :set option ^= value    Add value the beginning of the option
 
-# Vim Scripting
-## control statement
+\b{Vim Scripting\}
+	\b{control statement\}
 ### if
 :if {condition} 
 :   "statement
@@ -686,7 +691,7 @@ string [<,>,<=,>=][?,#]
 :   "Do something
 :endwhile
 
-## function
+	\b{function\}
 :function[!] {name}({var1},{var2},...) [range] [abort]
 :   DO something                       
 :   return var
@@ -723,18 +728,18 @@ e.g.
 echo function(arguments)
 
 
-## self-defined command
+	\b{self-defined command\}
 :command name content	define command "name" to execute "content"
     :command  Delete_first :1delete	delete first line
 -- user-defined commands must start with a captial letter
 :delcommand name    delete a user-defined command
 :comclear	    clear all user-defined commands
 
-# syntax
+\b{syntax\}
 :syntax clear	before define any new syntax
 :syntax case match
 :syntax case ignore	define whether case sensitive or insensitive
-## basic syntax command: define keyword
+	\b{basic syntax command: define keyword\}
 :syntax keyword group [word,word,...]
 -- group is the name of a highlight group
 i.e.	:syntax keyword xType int long char
@@ -742,24 +747,24 @@ i.e.	:syntax keyword xType int long char
     now connect the x group names to standard Vim names:
 	:highlight link xType Type
 	:highlight link xStatument Statement
-## defining matches
+	\b{defining matches\}
 :syntax match xIndetifier /[a-z]\+/
-i.e.	define a match for a comment(#..$)
-	:syntax match xComment /#.*$/
-## defining regions
+i.e.	define a match for a comment(\#..$)
+	:syntax match xComment /\#.*$/
+	\b{defining regions\}
 :syntax region xString start=/"/ end=/"/
 :syntax region xString start=/"/ skip=/\\"/ end=/"/  skip any \" appear
 				in "" region
-## nested regions
+	\b{nested regions\}
 :syntax keyword xTodo contained
-:syntax match xComment /#.*$/ contains=xTodo	highlight xTodo in 
+:syntax match xComment /\#.*$/ contains=xTodo	highlight xTodo in 
 						comments.
 
 :syntax region xComment start=/%.*/ end=/$/ contained
-:syntax region xPreProc start=/#.*/ end=/$/ contains=xComment keepend
+:syntax region xPreProc start=/\#.*/ end=/$/ contains=xComment keepend
     -- highlight comment within preprocess, the keepend at the end take
        care of the double end-of-line matching
-## multiple group options
+	\b{multiple group options\}
 :syntax match xSpecial "^>" nextgroup=xkey
 :syntax match xKey "KEY" contained
 ### we firstly define a syntax element consisting of > at the beginning
@@ -771,15 +776,15 @@ i.e.	define a match for a comment(#..$)
 ### the above command allow skipping whitespace
 ### And "skipnl","skipempty" option allow skipping newline and empty
 ### lines
-:syntax region xPreProc start=/^#/ end=/$/ online   
+:syntax region xPreProc start=/^\#/ end=/$/ online   
     -- the online option indicates that the region does not cross a 
     -- line boundary
-:syntax region xPreProc start=/^#/ end=/$/ online contains=xLineContinue
+:syntax region xPreProc start=/^\#/ end=/$/ online contains=xLineContinue
 :syntax match xLineContinues ""\\$"" contained
     -- though xPreProc itself is a single online, the groups contained
     -- in it let it go on for more than one line 
 
-:syntax region xPreProc start=/^#/ end=/$/ online contains=xLineContinue,xPreProcEnd
+:syntax region xPreProc start=/^\#/ end=/$/ online contains=xLineContinue,xPreProcEnd
 :syntax match xPreProcEnd excludenl /end$/ contained
     -- highlight "end" in xPreProc, but only at the end of the line,
     -- avoiding making the xPreProc continue on the next line.
@@ -787,24 +792,21 @@ i.e.	define a match for a comment(#..$)
 :syntax region xInside matchgroup=xParent start=/(/ end=/)/
     -- the matchgroup option allow matching inside and border of a 
     -- region with different highlight groups
-# customize VIM
-## indentation
+\b{customize VIM\}
+	\b{indentation\}
 when set autoindent -- :set autoindent
 ^T : Add one level of indentation; typed in insert mode
 ^D : Remove one level of indentation; in insert mode.
 
 
-# Note:
+\b{Note:\}
 r : the r command treats <Enter> in a special way. No matter how big 
     the count is , only one <Enter> is inserted. Therefore, 5r<Enter> 
     replaces five char with one <Enter>
     
 
-# doubts
+\b{doubts\}
 vsplit	    many command provide version of horizental spliting, what
 	    about vertical spliting
-autocommand It seems autocommand can't be remove with :au! command,
-	    (for my FileType autocommand in .vimrc)why be that?
-viminfo	    viminfo file
 
 

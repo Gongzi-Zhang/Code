@@ -9,3 +9,5 @@ let b:did_ftplugin = 1
 if has("conceal")
     setlocal concealcursor=c conceallevel=2
 endif
+
+inoremap {  {\}<esc>hi
