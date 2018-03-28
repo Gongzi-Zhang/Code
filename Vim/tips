@@ -1,4 +1,4 @@
-\b{help command\} 
+\b{HELP COMMAND\} 
 	:h helphelp 
 	    help on help files
 	:h index 
@@ -35,143 +35,143 @@
 
 
 	\b{user manual\}
-		Keyword	    Chapter
+		\i{Keyword\}     \i{Chapter\}
 		function    eval.txt
 		pattern	    pattern.txt
 		syntax	    syntax.txt
 
 
-\b{syntax\}
-    \red{1:\} How to display \i{cchar=}\} in the highlighted region. (link conceal to some highlighting)
+\b{SYNTAX\}
+	\red{1:\} How to display \i{cchar=}\} in the highlighted region. (link conceal to some highlighting)
 	   syn match txtTest /\\}/ conceal cchar=} contained transparent
 	   hi def link Conceal Statement
-      without the link statement, it will be shown uglily.
-\b{Concept\}
-in vim, when you made some change to a file, you are editing it.
-a file that you are editing (you have made some changes to it) but not
-  show on screen is called hidden one
-a file that you want to edit but don't make any change to it yet is in
-  inactive state
+	without the link statement, it will be shown uglily.
+
+\b{CONCEPT\}
+	in vim, when you made some change to a file, you are editing it.
+	a file that you are editing (you have made some changes to it) but not
+	show on screen is called hidden one. a file that you want to edit but 
+	don't make any change to it yet is in inactive state
 
 
-\b{command line options\}
-vim -n file	prohibit swap file 
-vim -r		list swap file and exit.
-vim -r file	recover crashed session		 
-vim -u <vimrc>	use <vimrc> instead of any .vimrc
-vim --noplugin	Don't load plugin scripts
-vim -S <session>    source file <session> after loading the first file
-vim -s <scriptin>   read normal mode commands from file <scriptin>
-vim -t <tag>	look up tag and start editing at its definition
-vim -w <scriptout>  Append all typed commands to file <scriptout>
-vim -W <scriptout>  Write all typed commands to file <scriptout> 
-vim --servername <name>	    Send to/become the Vim server <name>
-vim --startuptime <file>    Write startup timing message to <file>
-vim -i <viminfo>    use <viminfo> instead of .viminfo
+\b{USAGE\}
+	\b{command line options\}
+		vim -n <file>	    prohibit swap file 
+		vim -r		    list swap file and exit.
+		vim -r <file>	    recover crashed session		 
+		vim -u <vimrc>	    use <vimrc> instead of any .vimrc
+		vim --noplugin	    Don't load plugin scripts
+		vim -S <session>    source file <session> after loading the first file
+		vim -s <scriptin>   read normal mode commands from file <scriptin>
+		vim -t <tag>	    look up tag and start editing at its definition
+		vim -w <scriptout>  Append all typed commands to file <scriptout>
+		vim -W <scriptout>  Write all typed commands to file <scriptout> 
+		vim -x <file>	    set password 
+		vim --servername <name>	    
+				    Send to/become the Vim server <name>
+		vim --startuptime <file>    
+				    Write startup timing message to <file>
+		vim -i <viminfo>    use <viminfo> instead of .viminfo
 
-\b{color test\}
-:edit $VIMRUNTIME/syntax/colortest.vim	--and then:
-:source %
+	\b{color test\}
+		:edit $VIMRUNTIME/syntax/colortest.vim | source %
 	\b{customize syntax highlighting\}
-:highlight group-name [c]term=attribute
-    for term(black and white), attribute =
-	bold, underline reverse, italic, standout
-    for cterm(colored), attribute = 
-	cterm=, ctermfg=, ctermbg=
+		:highlight group-name [c]term=attribute
+		    for term(black and white), attribute = bold, underline reverse, italic
+		    for cterm(colored), attribute =, cterm=, ctermfg=, ctermbg=
 
-\b{indent\}
-=motion	    indent selected text by motion using Vim's internal formatting program
+	\b{indent\}
+		=motion	    indent selected text by motion using Vim's internal formatting program
 
-\b{special\}
-CTRL-C	: cancel any pending command
+	\b{special\}
+		CTRL-C	: cancel any pending command
 
-:split +command file: open file in new windows and apply command to it
-:split +/text file  : will open file in a new window and pose cursor 
-		      on text position
+		:split +command file: open file in new windows and apply command to it
+		:split +/text file  : will open file in a new window and pose cursor on text position
 
-g?motion    encrypt text with rot13 algorithm
+		g?motion    encrypt text with rot13 algorithm
 
-:mkvimrc file	save current options and setting into file
-:wviminfo[!] [file]	write viminfo to file
-:rviminfo[!] [file]	read viminfo from file
+		:mkvimrc file	save current options and setting into file
+		:wviminfo[!] [file]	write viminfo to file
+		:rviminfo[!] [file]	read viminfo from file
 
-:file	can change the name of current file
+		:file	can change the name of current file
 
-CTRL-A	increments the number under the cursor(decimal, octal, or hexadecimal)
-CTRL-X	decrements
+		CTRL-A	increments the number under the cursor(decimal, octal, or hexadecimal)
+		CTRL-X	decrements
 
-:set scrollbind	    bind two files for synchronized scrolling
+		:set scrollbind	    bind two files for synchronized scrolling
 
-grchar | gR	virtual replace mode, allow you replace <tab> without 
-		disturbing the format
+		grchar | gR	virtual replace mode, allow you replace <tab> without 
+				disturbing the format
 
-:set option^=value  add value to the beginning of option
+		:set option^=value  add value to the beginning of option
 
-\b{Moving\}
-basic : h j k l
-word :  w e ge b  
-WORD : W
-line :  0 ^ $ - + _
-sentence : ( )  (separated by ".")
-paragraph : { }
-section : [[ [](backward)  (section is defined as any text separated by a page break char CTRL-L)
-	  ]] ][ forward
-file :  
-    [n]G  go to line n
-    :[n]  go to line n
+	\b{Moving\}
+		basic : h j k l
+		word :  w e ge b  
+		WORD : W
+		line :  0 ^ $ - + _
+		sentence : ( )  (separated by ".")
+		paragraph : { }
+		section : [[ [](backward)  (section is defined as any text separated by a page break char CTRL-L)
+			  ]] ][ forward
+		file :  
+		    [n]G  go to line n
+		    :[n]  go to line n
 
-<CTRL-O>, <CTRL-I>: move to the previous, next cursor position.
+		<CTRL-O>, <CTRL-I>: move to the previous, next cursor position.
 
 	\b{option\}
-set iskeyword=	    defines what chars to be used as a word
-set option&	    recure default value for option
+		set iskeyword=	    defines what chars to be used as a word
+		set option&	    recure default value for option
 
 
-\b{Searching\}
-line : f F ; , t(until) T
-d'a	delete to the end of mark a
-g*, g\#	for unristic searching(not exact match)
+	\b{Searching\}
+		line : f F ; , t(until) T
+		d'a	delete to the end of mark a
+		g*, g\#	for unristic searching(not exact match)
 
-\b{Substitution\}
-:s//replacement/ : use the last serach or substitution RE.
-    flag: | 
-    c	  | Confirm
-    g	  | globally
-    p	  | print the line after the change is made
+	\b{Substitution\}
+		:s//replacement/ : use the last serach or substitution RE.
+		    flag: | 
+		    c	  | Confirm
+		    g	  | globally
+		    p	  | print the line after the change is made
 	\b{trick\}
-:s  : is the same as :s//~/
-:&  : same as :s
-\b{it's often useful to combine the substitute command with the ex \}
-\b{global command, :g\}
-:g/Object Oriented/s//Buzzword compliant/g
+		:s  : is the same as :s//~/
+		:&  : same as :s
+		it's often useful to combine the substitute command with the ex.
+	\b{global command, :g\}
+		:g/Object Oriented/s//Buzzword compliant/g
 
-	\b{offsets\}
-/pattern/Offset	offset cursor from matches of pattern
-    i.e. :
-    /pattern/3  3 lines below the occurrence of "pattern"
-    /pattern/b2 offset 2 chars from begin 
-    /pattern/e3 offset 3 chars from end 
+			\b{offsets\}
+		/pattern/Offset	offset cursor from matches of pattern
+		    i.e. :
+		    /pattern/3  3 lines below the occurrence of "pattern"
+		    /pattern/b2 offset 2 chars from begin 
+		    /pattern/e3 offset 3 chars from end 
 
-Offset can be:
-    [num]
-    +[num]	down [num] lines
-    -[num]	up [num] lines
-    e		end of the match
-    e[num]	end of the match, then move [num] chars, + for right, -		       for left
-    b
-    s		start of the match
-    b[num]
-    s[num]	same as e[num]
+		Offset can be:
+		    [num]
+		    +[num]	down [num] lines
+		    -[num]	up [num] lines
+		    e		end of the match
+		    e[num]	end of the match, then move [num] chars, + for right, -		       for left
+		    b
+		    s		start of the match
+		    b[num]
+		    s[num]	same as e[num]
 
 
 
-\b{copying\}
-"+  system register which enable you to copy and paste text between 
-    different programs
-"Ayy	uppercase register, appending text into accordance lowercase 
-	register (a here)
-CTRL-A in insert mode	    insert the text you typed the last time
-			    you were in insert mode
+		\b{copying\}
+		"+  system register which enable you to copy and paste text between 
+		    different programs
+		"Ayy	uppercase register, appending text into accordance lowercase 
+			register (a here)
+		CTRL-A in insert mode	    insert the text you typed the last time
+					    you were in insert mode
 
 \b{marks\}
 :marks [args]
