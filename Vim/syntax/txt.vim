@@ -25,9 +25,10 @@ syn clear	" clear out old definitions
 
 syn case ignore  " case insensitive
 
-syn keyword txtTodo	todo 
+syn keyword txtKeyword	todo 
+syn keyword txtKeyword	note 
 
-syn match txtComment /#.*/ contains=txtTodo
+syn match txtComment /#.*/ contains=txtKeyword
 
 syn region txtBold	    matchgroup=txtIgnore start="\\b{"	    skip="\\}" end="}" concealends skipnl
 syn region txtItalic	    matchgroup=txtIgnore start="\\i{"	    skip="\\}" end="}" concealends skipnl
@@ -65,7 +66,7 @@ hi def txtCyan		ctermfg=darkcyan
 hi def txtBrown		ctermfg=brown
 hi def txtGray		ctermfg=darkgray
 
-hi def link txtTodo	    txtReverse
+hi def link txtKeyword	    txtReverse
 hi def link txtComment	    txtBlue
 hi def link txtHighlight    txtRed
 hi def link txtIgnore	    Ignore

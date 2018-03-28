@@ -425,6 +425,9 @@ vim -w script file	    edit file and write all characters entered
 			    by the user into file 'script'(appendix)
     -W			    Override existing one
 
+# pattern
+Note that different match may have different pattern rule, like the
+search pattern is different from the aucommand pattern.
 # regular expressions
 ############################################
 	       Sinple Atoms
