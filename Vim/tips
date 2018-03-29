@@ -39,6 +39,7 @@
 		function    eval.txt
 		pattern	    pattern.txt
 		syntax	    syntax.txt
+		indent	    indent.txt
 		operator    motion.txt
 		motion	    motion.txt
 
@@ -159,7 +160,7 @@
 		    +[num]	down [num] lines
 		    -[num]	up [num] lines
 		    e		end of the match
-		    e[num]	end of the match, then move [num] chars, + for right, -		       for left
+		    e[num]	end of the match, then move [num] chars, + for right, - for left
 		    b
 		    s		start of the match
 		    b[num]
@@ -176,26 +177,33 @@
 					    you were in insert mode
 
 \b{marks\}
-:marks [args]
+	:marks [args]
+
 	\b{special marks\}
-'   the last place where cursor lies
-"   line 1
-[   the start of last insert
-]   the end of the insert
+	    '   the last place where cursor lies
+	    "   line 1
+	    [   the start of last insert
+	    ]   the end of the insert
 	\b{global marks\}
-Uppercase Letter
+	    Uppercase Letter
 
 \b{filtering\}
-!motion command	    apply command through the block choose by motion
+	!motion command	    
+		    apply command through the block choose by motion
 		    and replace it with the filtered results.
-    i.e.    !10Gsort	sort block from current line to line 10
-!! command	    filter current line
-    i.e.    !!ls    put files of current dir. in current position
-	    !!date  put in date
+		    i.e.    
+		    !10Gsort	sort block from current line to line 10
+
+	!! command  filter current line
+		    i.e.    
+		    !!ls    put files of current dir. in current position
+		    !!date  put in date
+
 		    (using !! like this is technically not filtering
 		    because commands like ls and date don't read 
 		    standard input)
-!! pwd		    insert current PWD
+
+	!! pwd	    insert current PWD
 
 \b{Repeating\}
 qchar	: record editing commands into register "char", char must be within a-z
