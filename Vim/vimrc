@@ -45,28 +45,6 @@ filetype plugin indent on   "  filetype detection
 if &t_Co > 1	
     syntax on  " syntax highlighting, make sure terminal supports colors
 endif
-    
-"  Abbreviation
-ab Teh	The
-ab teh	the
-ab hte	the
-ab cab	can
-ab waht what
-ab smae same
-ab wiht with
-ab fiel file
-ab adn	and
-ab fro	for
-ab taht	that
-ab htah that
-ab tahn	than
-ab tehn then
-ab fo	of
-ab ti	it
-ab ahs  has
-ab aHs  Has
-ab ahve have
-ab wehn when
 
 "  Mapping
 "  NOTE !!! when doing mapping and abbreviation, pay special attention to blank chars(<tab>
@@ -90,6 +68,29 @@ map <A-]>   :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " map zp  i(<esc>xea)<esc>
 map j	gj
 map k	gk
+
+
+"  Abbreviation
+ab Teh	The
+ab teh	the
+ab hte	the
+ab cab	can
+ab waht what
+ab smae same
+ab wiht with
+ab fiel file
+ab adn	and
+ab fro	for
+ab taht	that
+ab htah that
+ab tahn	than
+ab tehn then
+ab fo	of
+ab ti	it
+ab ahs  has
+ab aHs  Has
+ab ahve have
+ab wehn when
 
 " session
 " autocmd VimEnter * call LoadSession()
@@ -117,14 +118,14 @@ augroup END
 augroup HTML
     au!
     au	FileType php,html,xhtml,css  inoremap  <  <><Esc>i
-    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDO
+    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDko
 "    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>eldt>ko
 "    Why this command doesn't open new line automatically when there is only
 "    one word in tag ???
     au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
     au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
-    au  FileType html,xhtml,js	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
-    au  FileType php,js		     inoremap  ;   <esc>A;<esc>
+    au  FileType html,xhtml,javascript	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
+    au  FileType php,javascript   inoremap  ;   <esc>A;<esc>
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
 augroup END
@@ -154,6 +155,7 @@ augroup END
 augroup TEX
     au!
     au BufRead,BufNewFile *.tex set ft=tex
+    au FileType tex	let g:tex_conceal="abdgmsS" | set concealcursor=c conceallevel=2
     au FileType tex	set nosmartindent
     au FileType tex	inoremap    $	$$<esc>i
     au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
@@ -183,6 +185,13 @@ augroup END
 
 
 "	    A NEW VIM CONFIGURE    -- ZHANG WEIBIN   2016/03/22
+
+"--------------------   DOUBTS   -------------------------
+"in line 59,"or" change color because it's the name of a function,
+" then how do I input a word(or) literally here  ?
+
+" in line 65, what other combination can be used for expressing 
+" delete to <End> except D. Why dt<End> doesb't work.
 
 " loading local definition
 if filereadable(expand("~/.vim/vimrc"))
