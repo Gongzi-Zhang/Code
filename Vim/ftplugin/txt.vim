@@ -9,3 +9,12 @@ let b:did_ftplugin = 1
 if has("conceal")
     setlocal concealcursor=c conceallevel=2
 endif
+
+inoremap {  {\}<esc>hi
+
+" indent
+if filereadable(expand("~/.vim/indent/txt.vim"))
+    source ~/.vim/indent/txt.vim
+else
+    set autoindent
+endif

@@ -17,7 +17,7 @@ set tabstop=8  " hard tab
 set shiftwidth=4   " indent
 set softtabstop=4   " soft tab
 
-set tw=76   " why 78 ???
+" set tw=76   " why 78 ???
 
 set showcmd	" show incomplete commands
 
@@ -46,16 +46,27 @@ if &t_Co > 1
     syntax on  " syntax highlighting, make sure terminal supports colors
 endif
     
-" txt filetype
-" if (expand("%") =~ ".*\.txt\|[^\.]*)	    doesn't work because of \| ???
-au BufNewFile,BufRead *.txt,*.text 
-    \	if filereadable(expand("~/.vim/syntax/txt.vim")) && filereadable(expand("~/.vim/ftplugin/txt.vim"))
-    \	| set ft=txt	| endif
-
-au BufNewFile,BufRead [^.]\\\{1,\}
-    \ if !exists(&ft) &&  filereadable(expand("~/.vim/syntax/txt.vim")) 
-    \ && filereadable(expand("~/.vim/ftplugin/txt.vim")) | set ft=txt | endif
-
+"  Abbreviation
+ab Teh	The
+ab teh	the
+ab hte	the
+ab cab	can
+ab waht what
+ab smae same
+ab wiht with
+ab fiel file
+ab adn	and
+ab fro	for
+ab taht	that
+ab htah that
+ab tahn	than
+ab tehn then
+ab fo	of
+ab ti	it
+ab ahs  has
+ab aHs  Has
+ab ahve have
+ab wehn when
 
 "  Mapping
 "  NOTE !!! when doing mapping and abbreviation, pay special attention to blank chars(<tab>
@@ -69,7 +80,6 @@ inoremap   iii	<esc>2la
 inoremap   iiii	<esc>3la
 inoremap   bb	<esc>i
 inoremap   bbb	<esc>hi
-au Filetype * if &ft != "vim" | inoremap "	""<esc>i| endif
 " inoremap   '	''<Esc>i
 
 nnoremap  <F3>	:noh<return><esc>
@@ -97,6 +107,13 @@ endfunction
 
 " au! group event filetype command  " remove autocommand 
 "   Autocmd
+au Filetype * if &ft != "vim" | inoremap "	""<esc>i| endif
+
+augroup TXT
+au BufNewFile,BufRead *.txt,*.text if filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
+au BufNewFile,BufRead [^.]\+ if !exists(&ft) && filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
+augroup END
+
 augroup HTML
     au!
     au	FileType php,html,xhtml,css  inoremap  <  <><Esc>i
@@ -167,25 +184,12 @@ augroup END
 
 "	    A NEW VIM CONFIGURE    -- ZHANG WEIBIN   2016/03/22
 
-
-"  Abbreviation
-ab Teh	The
-ab teh	the
-ab hte	the
-ab cab	can
-ab waht what
-ab smae same
-ab wiht with
-ab fiel file
-ab adn	and
-ab fro	for
-ab taht	that
-ab htah that
-ab tahn	than
-ab tehn then
-ab fo	of
-ab ti	it
-ab ahs  has
-ab aHs  Has
-ab ahve have
-ab wehn when
+" loading local definition
+if filereadable(expand("~/.vim/vimrc"))
+"   exec "source /home/".$USER."/.vim/vimrc"
+    source ~/.vim/vimrc
+"    source "/home/".$USER."/.vim/vimrc"    " this one doesn't work
+"    It looks like source command needs something naked, but not included in
+"    a quotes
+endif
+" vim: set ft=vim:
