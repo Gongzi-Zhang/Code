@@ -133,7 +133,7 @@ hi def link txtHighlight    txtRed
 hi def link txtIgnore	    Ignore
 
 " very important for showing conceal word, otherwise, it is displayed uglily
-hi! def link Conceal	    Ignore  
+hi! def link Conceal	    Normal
 
 
 let b:current_syntax = "txt"

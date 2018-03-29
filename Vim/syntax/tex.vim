@@ -47,5 +47,5 @@ syn match texGreek  /\\Omega/	conceal cchar=Ω
 " Operators
 syn match texOperator /\\partial/ conceal cchar=∂
 
-hi! def link Conceal Normal
+hi! def link Conceal Ignore
 setlocal concealcursor=c conceallevel=2
