@@ -53,11 +53,12 @@ endif
 inoremap   (	()<Esc>i
 inoremap   {	{}<Esc>i
 inoremap   [	[]<Esc>i
-inoremap   ii	<esc>la
-inoremap   iii	<esc>2la
-inoremap   iiii	<esc>3la
-inoremap   bb	<esc>i
-inoremap   bbb	<esc>hi
+inoremap   gf	<esc>la
+inoremap   gff	<esc>2la
+inoremap   gfff	<esc>3la
+inoremap   gb	<esc>i
+inoremap   gbb	<esc>hi
+inoremap   g<return>	<esc>o
 " inoremap   '	''<Esc>i
 
 nnoremap  <F3>	:noh<return><esc>
@@ -111,8 +112,8 @@ endfunction
 au Filetype * if &ft != "vim" | inoremap "	""<esc>i| endif
 
 augroup TXT
-au BufNewFile,BufRead *.txt,*.text if filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
-au BufNewFile,BufRead [^.]\+ if !exists(&ft) && filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
+au BufNewFile,BufRead * if empty(&ft) && filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
+au FileType text if filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
 augroup END
 
 augroup HTML
@@ -149,17 +150,16 @@ augroup END
 augroup TEXT
     au!
     au FileType text,txt set nosmartindent
-    au FileType text,txt setlocal textwidth=72
 augroup END
 
 augroup TEX
     au!
     au BufRead,BufNewFile *.tex set ft=tex
-    au FileType tex	let g:tex_conceal="abdgmsS" | set concealcursor=c conceallevel=2
+    au FileType tex	let g:tex_conceal="abdgm" | set concealcursor=c conceallevel=2 
     au FileType tex	set nosmartindent
     au FileType tex	inoremap    $	$$<esc>i
     au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
-    au FileType tex	inoremap    \[  \[<return>\]<esc>ko
+    au FileType tex	inoremap    \[  \[\]<esc>hi
 augroup END
 
 "augroup VIM
@@ -201,4 +201,3 @@ if filereadable(expand("~/.vim/vimrc"))
 "    It looks like source command needs something naked, but not included in
 "    a quotes
 endif
-" vim: set ft=vim:
