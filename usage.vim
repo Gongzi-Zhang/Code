@@ -590,13 +590,6 @@ etc
 
 
 
-
-
-
-
-
-
-
  REDO AND UNDO
 some doubts i am unable to through through is that how "vim" store the
 changes made to the buffer,an exact copy of previous buffer, or just

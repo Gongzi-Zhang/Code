@@ -1,6 +1,7 @@
-" :g/pattern/action
-:g/pattern/d	" delete all lines containing 'pattern'
+#!/usr/bin/env vim -S
 
+echo "this is a Vim script"
+quit
 
 
 " variables

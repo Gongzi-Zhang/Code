@@ -72,26 +72,9 @@ map k	gk
 
 
 "  Abbreviation
-ab Teh	The
-ab teh	the
-ab hte	the
-ab cab	can
-ab waht what
-ab smae same
-ab wiht with
-ab fiel file
-ab adn	and
-ab fro	for
-ab taht	that
-ab htah that
-ab tahn	than
-ab tehn then
-ab fo	of
-ab ti	it
-ab ahs  has
-ab aHs  Has
-ab ahve have
-ab wehn when
+if filereadable(expand("~/.vim/abbreviation.vim"))
+    source ~/.vim/abbreviation.vim
+endif
 
 " session
 " autocmd VimEnter * call LoadSession()
@@ -162,10 +145,6 @@ augroup TEX
     au FileType tex	inoremap    \[  \[\]<esc>hi
 augroup END
 
-"augroup VIM
-"    au!
-"augroup END
-
 "augroup CMAKE
 "    au!
 "    au BufNewFile,BufRead CMakelist,CMakeLists,CMakeList.txt,CMakeLists.txt set filetype=cmake
@@ -185,19 +164,3 @@ augroup END
 
 
 "	    A NEW VIM CONFIGURE    -- ZHANG WEIBIN   2016/03/22
-
-"--------------------   DOUBTS   -------------------------
-"in line 59,"or" change color because it's the name of a function,
-" then how do I input a word(or) literally here  ?
-
-" in line 65, what other combination can be used for expressing 
-" delete to <End> except D. Why dt<End> doesb't work.
-
-" loading local definition
-if filereadable(expand("~/.vim/vimrc"))
-"   exec "source /home/".$USER."/.vim/vimrc"
-    source ~/.vim/vimrc
-"    source "/home/".$USER."/.vim/vimrc"    " this one doesn't work
-"    It looks like source command needs something naked, but not included in
-"    a quotes
-endif

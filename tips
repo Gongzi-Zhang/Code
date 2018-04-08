@@ -146,6 +146,9 @@
 		:&  : same as :s
 		it's often useful to combine the substitute command with the ex.
 	\b{global command, :g\}
+		:g/pattern/action
+		:g/pattern/d	" delete all lines containing 'pattern'
+
 		:g/Object Oriented/s//Buzzword compliant/g
 
 			\b{offsets\}
