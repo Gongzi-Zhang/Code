@@ -1,0 +1,5 @@
+augroup HTML
+    au!
+    au filetype html nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
+    au filetype html nnoremap <c-j> <esc>/<+.\{-1,}+><cr>c/+>/e<cr>
+augroup END

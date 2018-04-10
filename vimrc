@@ -58,7 +58,7 @@ inoremap   gff	<esc>2la
 inoremap   gfff	<esc>3la
 inoremap   gb	<esc>i
 inoremap   gbb	<esc>hi
-inoremap   g<return>	<esc>o
+inoremap   g<return>	<esc>A
 " inoremap   '	''<Esc>i
 
 nnoremap  <F3>	:noh<return><esc>
@@ -142,7 +142,7 @@ augroup TEX
     au FileType tex	set nosmartindent
     au FileType tex	inoremap    $	$$<esc>i
     au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
-    au FileType tex	inoremap    \[  \[\]<esc>hi
+    au FileType tex	inoremap    \[  \[<return>\]<esc>ko
 augroup END
 
 "augroup CMAKE
