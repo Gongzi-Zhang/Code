@@ -154,6 +154,8 @@
 :%s/[\x00-\x1f\x80-\xff]//g	
     " delete non-ascii chars
 :%s/[<C-V>128-<C-V>255]//g
+    " delete DOS returns
+:%s/[Ctrl-V][Enter]//g
 
 
 

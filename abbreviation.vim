@@ -1,3 +1,4 @@
+ab eb	be
 ab Teh	The
 ab teh	the
 ab hte	the
@@ -18,3 +19,4 @@ ab ahs  has
 ab aHs  Has
 ab ahve have
 ab wehn when
+ab tehy they

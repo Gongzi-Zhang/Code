@@ -124,10 +124,17 @@ augroup END
 augroup C
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
-    au FileType c,cc,C,cpp,h  inoremap  ;  <Esc>A;<Esc>
-    au FileType c,cc,C,cpp,h  inoremap  /* /*<esc>o/<esc>kA
+    au FileType c,cc,C,cpp,h  inoremap  ;  <Esc>A;
+    au FileType c,cc,C,cpp,h  inoremap  {  {}<Esc>i
+    au FileType c,cc,C,cpp,h  inoremap  /* /*<Return>/<esc>kA
     au FileType c,cc,C,cpp,h  ab	#i  #include
     au FileType c,cc,C,cpp,h  ab	#d  #define
+augroup END
+
+augroup DOT
+    au!
+"    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
+    au FileType dot  inoremap  ;  <Esc>A;
 augroup END
 
 augroup TEXT
@@ -140,11 +147,16 @@ augroup TEX
     au BufRead,BufNewFile *.tex set ft=tex
     au FileType tex	let g:tex_conceal="abdgm" | set concealcursor=c conceallevel=2 
     au FileType tex	set nosmartindent
-    au FileType tex	inoremap    $	$$<esc>i
+    au FileType tex	inoremap    ;	<Esc>A;
+    au FileType tex	inoremap    $	$$<Esc>i
     au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
     au FileType tex	inoremap    \[  \[<return>\]<esc>ko
 augroup END
 
+augroup MATHEMATICA
+    au!
+    au FileType mma	inoremap    (*	(*  *)<esc>2hi
+augroup END
 "augroup CMAKE
 "    au!
 "    au BufNewFile,BufRead CMakelist,CMakeLists,CMakeList.txt,CMakeLists.txt set filetype=cmake
