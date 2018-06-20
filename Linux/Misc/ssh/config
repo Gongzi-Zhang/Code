@@ -1,0 +1,34 @@
+Host ustc
+    HostName	ui01.lcg.ustc.edu.cn
+    User	zhangwb
+    Compression	yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
+Host ustc1
+    HostName	202.141.161.66
+    User	zhangwb
+    Compression	yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
+Host mocha
+    HostName	mocha.physics.sunysb.edu
+    User	weibin
+    Compression	yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
+Host moller
+    HostName	kk-router.physics.sunysb.edu
+    User	weibin
+    Compression	yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
+Host boson
+    HostName	129.49.62.204
+    User	weibin
+    Compression	yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
+Host sb
+    HostName	mysbfiles.stonybrook.edu
+    User	weibzhang
+    Compression	yes

@@ -1,0 +1,44 @@
+FILE
+    regular file
+    directory
+    block special file:   /dev
+    character special file
+    pipe (FIFO)
+    network file: Internet socket, NFS file or UNIX domain socket
+
+FILE DESCRIPTOR (FD)
+    an bastract indicator (handle) used to access afile or other I/O 
+    resource, e.g. a pipe or network socket.
+
+    Every process has three standard FD: stdin(0), stdout(1), stderr(2).
+
+PROCESS/PROGRAM
+    process = program + permission + pid
+    A process is a program in running state, a program can stimulate multiple
+    processes.
+
+PRIORITY/NICE
+    Priority(new) = priority(old) + nice (root: -20~19; user: 0~19)
+    priority is administrated by system, user can only change nice.
+
+RUNNING STATUS
+    r	running
+    s	sleep
+    b	sleep state that can't be waked up, usually waiting for I/O
+    t	stop
+    z	zombie
+
+SIGNALS	    
+    kill -l	show signal tbale
+    man 7 signal
+
+SUID/SGID
+    * SUID are only effective to \b{binary program\}
+    * user should have 'x' permission
+    * SUID is only effective in run-time (execution)
+    * User will own the permission of the owner of this program.
+
+SELinux
+    Security Enhanced Linux.
+    DAC :   Discretionary Access Control: access control centres on user
+    MAC :   Mandatory Access Control: access control centers on program.

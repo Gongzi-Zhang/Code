@@ -1,0 +1,7 @@
+# system commands
+
+sysctl	# configure kernel parameters at runtime
+
+
+ldd $(which sshd)
+    # list dynamic library of a executive file

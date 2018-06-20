@@ -1,0 +1,4 @@
+/etc/selinux/config # config file
+getenforce  # SELinux mode
+sestatus    # SELinux status (policy)
+
