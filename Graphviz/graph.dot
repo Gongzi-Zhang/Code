@@ -1,0 +1,143 @@
+graph {
+    center="true";
+    a -- b;
+    b -- c;
+    a -- c;
+    d -- c;
+    e -- c;
+    e -- a;
+}
+
+digraph G_1 {
+    center="true";
+    main -> parse -> execute;
+    main -> init 
+    main -> cleanup;
+    execute -> make_string; 
+    execute -> printf;
+    init -> make_string;
+    main -> printf;
+    execute -> compare;
+}
+
+digraph G_2 {
+    center="true";
+    size = "4, 4";   // 4 * 4 inches
+    main [shape = box];	/* comment */
+    main -> parse [weight = 8];
+    parse -> execute;
+    main -> init [style = dotted];
+    main -> cleanup;
+    execute -> {make_string; printf};
+    init -> make_string;
+    main -> printf;
+    execute -> compare;
+}
+
+/*
+ * graph attributes:
+ * rankdir=LR;	// left ot right
+ ** B-bottom;	T-top;	L-left;	R-right;
+ * ranksep = "1.0", ranksep = "equally"
+ * notesep = "1.0"  // unit in inches
+ * ratio = x, compress, auto, fill
+ * size = "x,y"
+ * rotate = 90
+ * orientation = landscape, portrait
+ * page = ["8.5, 11"], "x,y"
+ * margin = "x,y" , "x"
+ * pagedir = BL	// from Bottom to Top, Left to Right
+ * center = true
+ * compound = true
+ * concentrate = true
+ *
+ *** subgraph ***
+ * rank = same, min, source, max, sink
+ * ordering = out
+ */
+
+/*
+ * attributes: [name=value]
+ * color = [black] red, orchid, ".7, .3, 1.0"(hsb), "#DA70D6"(rgb)
+ * fixedsize = [false], true
+ * height = .5
+ * PORT
+ * weight = [1] 8
+ * width = .75
+
+ *** label ***
+ * label = "string \n next line", "string\l left justified", "string\r right justified"
+ * labelloc = b, t
+ * labeljust = l, r
+ * labelfloat = true	// allow overlap
+ * decorate = true, false   // draw a line between the label and its edge.
+ **** font ****
+ ** fontpath = 
+ ** fontname = [Times-Roman] Times-Italic, Times-Bold, Helvetica, Courier
+ ** fontsize = [14]
+ ** fontcolor = [black] 
+ **** label at non-standard place ****
+ * headlabel    // put label near head
+ * taillabel	// put label near ends
+ * labelfontname
+ * labelfontsize
+ * labelfontcolor
+ * labelangle	// [degree]
+ * labeldistance    // scale factor
+ **** HTML-like label ****
+
+ *** parameters of shape family: polygon ***
+ * distortion
+ * orientation
+ * peripheries
+ * regular
+ * sides
+ * skew = -1.0~1.0
+ */
+
+/*
+ ***** node *****
+ * port = "n", "ne", "e", "se", "s", "sw", "w", "nw"
+ * shape = [plaintext], box, circle, ellipse, invtriangle, point, triangle, Mdiamond, Msquare; record, Mrecord
+ * style = diagonals, filled, rounded 
+ ** fillcolor
+
+ */
+
+/*
+ ***** edge *****
+ * headport, tailport = "n", "ne", "e", "se", "s", "sw", "w", "nw"
+ *** a -> b [tailport=se]   | a->b:se ***
+ * arrowhead, arrowtail = normal, inv, dot, invdot, odot, invodot, none
+ * arrowsize = 2.0
+ * dir = [forward] back, both, none // direction of arrowhead
+ * style = bold, dashed, dotted, invis, solid
+ * lhead / ltail
+ */
+
+digraph structs {
+    center="true";
+    node [shape=record];
+	struct1 [shape=record, label="<f0> left|<f1> mid\ dle|<f2> right"];
+	struct2 [shape=record, label="<f0> one|<f1> two"];
+	struct3 [shape=record, label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+	struct1 -> struct2;
+	struct1 -> struct3;
+    }
+
+digraph html {
+    center="true";
+    abc [shape=none, margin=0, label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+	<TR><TD ROWSPAN="3"><FONT COLOR="red">hello</FONT><BR/>world</TD>
+	    <TD COLSPAN="3">b</TD>
+	    <TD ROWSPAN="3" BGCOLOR="lightgrey">g</TD>
+	    <TD ROWSPAN="3">h</TD>
+	</TR>
+	<TR><TD>c</TD>
+	    <TD PORT="here">d</TD>
+	    <TD>e</TD>
+	</TR>
+	<TR><TD COLSPAN="3">f</TD></TR>
+    </TABLE>>];
+    }
