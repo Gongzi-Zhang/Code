@@ -1,0 +1,514 @@
+\chapter{Math}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Font}
+Fonts in mathematical mode.
+\begin{description}
+    \item [\textbackslash{}mathit]  italic (default)
+    \item [\textbackslash{}mathrm]  roman
+	\[
+	    \mathrm ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+	\verb|\rm|
+	\[
+	    \rm ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+    \item [\textbackslash{}mathbf]  bold
+    \item [\textbackslash{}mathsf]  sans serif
+	\[
+	    \mathsf ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+	\verb|\sf|
+	\[
+	    \sf ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+    \item [\textbackslash{}mathtt]  typewritter
+    \item [\textbackslash{}mathcal] calligraphic (upper case only)
+	\[
+	    \mathcal ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+	\verb|\cal|
+	\[
+	    \cal ABCDEFGHIJKLMNOPQRSTUVWXYZ
+	    \]
+\end{description}
+The recommended way to obtain ordinary text in displayed mathematical 
+formulae is to use \verb|\hbox|.
+\[
+    M^\bot = \{ f \in V' : f(m) = 0 \hbox{ for all } m \in M \}.
+    \]
+Note the space before and after 'for all' in the input.
+
+\subsection{Space}
+\begin{lstlisting}[language=TeX]
+    \begin{equation*}
+	\begin{aligned}
+	    f(x) =& x^2\! + 3x\! + 2 \\
+	    f(x) =& x^2 + 3x + 2 \\
+	    f(x) =& x^2\, + 3x\, + 2 \\
+	    f(x) =& x^2\: + 3x\: + 2 \\
+	    f(x) =& x^2\; + 3x\; + 2 \\
+	    f(x) =& x^2\ + 3x\ + 2 \\
+	    f(x) =& x^2\quad + 3x\quad + 2 \\
+	    f(x) =& x^2\qquad + 3x\qquad + 2 \\
+	\end{aligned}
+    \end{equation}
+\end{lstlisting}
+
+\begin{equation*}
+    \begin{aligned}
+	f(x) =& x^2\! + 3x\! + 2 \\
+	f(x) =& x^2 + 3x + 2 \\
+	f(x) =& x^2\, + 3x\, + 2 \\
+	f(x) =& x^2\: + 3x\: + 2 \\
+	f(x) =& x^2\; + 3x\; + 2 \\
+	f(x) =& x^2\ + 3x\ + 2 \\
+	f(x) =& x^2\quad + 3x\quad + 2 \\
+	f(x) =& x^2\qquad + 3x\qquad + 2 \\
+    \end{aligned}
+\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Symbols}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Greek Letters}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}}
+	\verb|\epsilon|	& $\epsilon$	& \verb|\varepsilon|	& $\varepsilon$    \\
+	\verb|\theta|	& $\theta$	& \verb|\vartheta|	& $\vartheta$   \\
+	\verb|\pi|	& $\pi$		& \verb|\varpi|		& $\varpi$    \\
+	\verb|\rho|	& $\rho$	& \verb|\varrho|	& $\varrho$    \\
+	\verb|\sigma|	& $\sigma$	& \verb|\varsigma|	& $\varsigma$    \\
+	\verb|\phi|	& $\phi$	& \verb|\varphi|	& $\varphi$    \\
+	\hline
+	\verb|\zeta|	& $\zeta$	& \verb|\iota|		& $\iota$    \\
+	\verb|\kappa|	& $\kappa$	& \verb|\xi|		& $\xi$    \\
+	\verb|o|	& $o$		& \verb|\upsilon|	& $\upsilon$    \\
+	\verb|\chi|	& $\chi$	& \verb|\psi|		& $\psi$    \\
+    \end{tabular}
+\end{table}
+
+\subsection{Uppercase Greek Letters}
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\Gamma|	& $\Gamma$  &
+	\verb|\Xi|	& $\Xi$  &
+	\verb|\Phi|	& $\Phi$    \\
+	\verb|\Delta|	& $\Delta$  &
+	\verb|\Pi|	& $\Pi$  &
+	\verb|\Psi|	& $\Psi$    \\
+	\verb|\Theta|	& $\Theta$  &
+	\verb|\Sigma|	& $\Sigma$  &
+	\verb|\Omega|	& $\Omega$	\\
+	\verb|\Lambda|	& $\Lambda$  &
+	\verb|\Upsilon|	& $\Upsilon$  &
+	&   \\
+    \end{tabular}
+\end{table}
+
+\subsection{Miscellaneous Symbols}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\aleph|	& $\aleph$	&
+	\verb|\prime|	& $\prime$	&
+	\verb|\forall|	& $\forall$	    \\
+	\verb|\hbar|	& $\hbar$	& 
+	\verb|\emptyset|	& $\emptyset$	& 
+	\verb|\exists|	& $\exists$	    \\ 
+	\verb|\imath|	& $\imath$	& 
+	\verb|\nabla|	& $\nabla$	&   
+	\verb|\neg|	& $\neg$	    \\ 
+	\verb|\jmath|	& $\jmath$	& 
+	\verb|\surd|	& $\surd$	& 
+	\verb|\flat|	& $\flat$	    \\ 
+	\verb|\ell|	& $\ell$	& 
+	\verb|\top|	& $\top$	& 
+	\verb|\natural|	& $\natural$	    \\ 
+	\verb|\wp|	& $\wp$	& 
+	\verb|\bot|	& $\bot$	& 
+	\verb|\sharp|	& $\sharp$	    \\ 
+	\verb|\Re|	& $\Re$	& 
+	\verb/\|/	& $\|$	& 
+	\verb|\clubsuit|	& $\clubsuit$	    \\
+	\verb|\Im|	& $\Im$	& 
+	\verb|\angle|	& $\angle$	& 
+	\verb|\diamondsuit|	& $\diamondsuit$    \\
+	\verb|\partial|	& $\partial$	& 
+	\verb|\triangle|	& $\triangle$	& 
+	\verb|\heartsuit|	& $\heartsuit$	\\
+	\verb|\infty|	& $\infty$	& 
+	\verb|\backslash|	& $\backslash$	& 
+	\verb|\spadesuit|	& $\spadesuit$	\\
+    \end{tabular}
+\end{table}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{``Large" Operators}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\sum|	    & $\sum$	&
+	\verb|\bigcap|	    & $\bigcap$	&
+	\verb|\bigodot|	    & $\bigodot$	\\
+	\verb|\prod|	    & $\prod$	&
+	\verb|\bigcup|	    & $\bigcup$	&
+	\verb|\bigotimes|   & $\bigotimes$	\\
+	\verb|\coprod|	    & $\coprod$	&
+	\verb|\bigsqcup|    & $\bigsqcup$	&
+	\verb|\bigoplus|    & $\bigoplus$	\\
+	\verb|\int|	    & $\int$	&
+	\verb|\bigvee|	    & $\bigvee$	&
+	\verb|\biguplus|    & $\biguplus$	\\
+	\verb|\oint|	    & $\oint$	&
+	\verb|\bigwedge|    & $\bigwedge$	&
+	&   \\
+    \end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Binary Operators}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\pm|	    & $\pm$	&
+	\verb|\cap|	    & $\cap$	&
+	\verb|\vee|	    & $\vee$	\\
+	\verb|\mp|	    & $\mp$	&
+	\verb|\cup|	    & $\cup$	&
+	\verb|\wedge|	    & $\wedge$	\\
+	\verb|\setminus|    & $\setminus$	&
+	\verb|\uplus|	    & $\uplus$	&
+	\verb|\oplus|	    & $\oplus$	\\
+	\verb|\cdot|	    & $\cdot$	&
+	\verb|\sqcap|	    & $\sqcap$	&
+	\verb|\ominus|	    & $\ominus$	\\
+	\verb|\times|	    & $\times$	&
+	\verb|\sqcup|	    & $\sqcup$	&
+	\verb|\ominus|	    & $\ominus$	\\
+	\verb|\ast|	    & $\ast$	&
+	\verb|\triangleleft|	    & $\triangleleft$	&
+	\verb|\oslash|	    & $\oslash$	\\
+	\verb|\star|	    & $\star$	&
+	\verb|\triangleright|	    & $\triangleright$	&
+	\verb|\odot|	    & $\odot$	\\
+	\verb|\diamond|	    & $\diamond$	&
+	\verb|\wr|	    & $\wr$	&
+	\verb|\dagger|	    & $\dagger$	\\
+	\verb|\circ|	    & $\circ$	&
+	\verb|\bigcirc|	    & $\bigcirc$	&
+	\verb|\ddagger|	    & $\ddagger$	\\
+	\verb|\bullet|	    & $\bullet$	&
+	\verb|\bigtriangleup|	    & $\bigtriangleup$	&
+	\verb|\amalg|	    & $\amalg$	\\
+	\verb|\div|	    & $\div$	&
+	\verb|\bigtriangledown|	    & $\bigtriangledown$	&
+	&   \\
+    \end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Standard Functions and Embedded Text}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\arccos|	& $\arccos$ &
+	\verb|\arcsin|	& $\arcsin$ & 
+	\verb|\arctan|	& $\arctan$	\\ 
+	\verb|\arg|	& $\arg$    & 
+	\verb|\cos|	& $\cos$    & 
+	\verb|\cosh|	& $\cosh$	\\ 
+	\verb|\cot|	& $\cot$    & 
+	\verb|\csc|	& $\csc$    & 
+	\verb|\deg|	& $\deg$	\\ 
+	\verb|\det|	& $\det$    & 
+	\verb|\exp|	& $\exp$    & 
+	\verb|\gcd|	& $\gcd$	\\ 
+	\verb|\hom|	& $\hom$    & 
+	\verb|\inf|	& $\inf$    & 
+	\verb|\ker|	& $\ker$	\\ 
+	\verb|\lg|	& $\lg$	& 
+	\verb|\lim|	& $\lim$    & 
+	\verb|\liminf|	& $\liminf$	\\ 
+	\verb|\limsup|  & $\limsup$ & 
+	\verb|\ln|	& $\ln$	&   
+	\verb|\log|	& $\log$	\\ 
+	\verb|\max|	& $\max$    & 
+	\verb|\min|	& $\min$    & 
+	\verb|\Pr|	& $\Pr$		\\   
+	\verb|\sec|	& $\sec$    & 
+	\verb|\sin|	& $\sin$    & 
+	\verb|\sinh|	& $\sinh$	\\ 
+	\verb|\sup|	& $\sup$    & 
+	\verb|\tan|	& $\tan$    & 
+	\verb|\tanh|	& $\tanh$	\\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Relations}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\leq|	& $\leq$ &
+	\verb|\geq|	& $\geq$ & 
+	\verb|\equiv|	& $\equiv$	\\ 
+	\verb|\prec|	& $\prec$    & 
+	\verb|\succ|	& $\succ$    & 
+	\verb|\sim|	& $\sim$	\\ 
+	\verb|\preceq|	& $\preceq$    & 
+	\verb|\succeq|	& $\succeq$    & 
+	\verb|\simeq|	& $\simeq$	\\ 
+	\verb|\ll|	& $\ll$    & 
+	\verb|\gg|	& $\gg$    & 
+	\verb|\asymp|	& $\asymp$	\\ 
+	\verb|\subset|	& $\subset$    & 
+	\verb|\supset|	& $\supset$    & 
+	\verb|\approx|	& $\approx$	\\ 
+	\verb|\subseteq|	& $\subseteq$	& 
+	\verb|\supseteq|	& $\supseteq$    & 
+	\verb|\cong|	& $\cong$	\\ 
+	\verb|\sqsubseteq|  & $\sqsubseteq$ & 
+	\verb|\sqsupseteq|	& $\sqsupseteq$	&   
+	\verb|\bowtie|	& $\bowtie$	\\ 
+	\verb|\in|	& $\in$    & 
+	\verb|\ni|	& $\ni$    & 
+	\verb|\propto|	& $\propto$		\\   
+	\verb|\vdash|	& $\vdash$    & 
+	\verb|\dashv|	& $\dashv$    & 
+	\verb|\models|	& $\models$	\\ 
+	\verb|\smile|	& $\smile$    & 
+	\verb|\mid|	& $\mid$    & 
+	\verb|\doteq|	& $\doteq$	\\
+	\verb|\frown|	& $\frown$    & 
+	\verb|\parallel|	& $\parallel$    & 
+	\verb|\perp|	& $\perp$	\\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Negated Relations}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\not<|		& $\not<$ &
+	\verb|\not>|		& $\not>$ & 
+	\verb|\not=|		& $\not=$	\\ 
+	\verb|\not\leq|		& $\not\leq$ &
+	\verb|\not\geq|		& $\not\geq$ & 
+	\verb|\not\equiv|	& $\not\equiv$	\\ 
+	\verb|\not\prec|	& $\not\prec$    & 
+	\verb|\not\succ|	& $\not\succ$    & 
+	\verb|\not\sim|		& $\not\sim$	\\ 
+	\verb|\not\preceq|	& $\not\preceq$    & 
+	\verb|\not\succeq|	& $\not\succeq$    & 
+	\verb|\not\simeq|	& $\not\simeq$	\\ 
+	\verb|\not\subset|	& $\not\subset$    & 
+	\verb|\not\supset|	& $\not\supset$    & 
+	\verb|\not\approx|	& $\not\approx$	\\ 
+	\verb|\not\subseteq|    & $\not\subseteq$	& 
+	\verb|\not\supseteq|    & $\not\supseteq$    & 
+	\verb|\not\cong|	& $\not\cong$	\\ 
+	\verb|\not\sqsubseteq|  & $\not\sqsubseteq$ & 
+	\verb|\not\sqsupseteq|  & $\not\sqsupseteq$	&   
+	\verb|\not\asymp|	& $\not\asymp$	\\ 
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Arrows}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\leftarrow|	& $\leftarrow$	&
+	\verb|\longleftarrow|	& $\longleftarrow$	&
+	\verb|\uparrow|		& $\uparrow$	    \\
+	\verb|\Leftarrow|	& $\Leftarrow$	&
+	\verb|\Longleftarrow|	& $\Longleftarrow$	&
+	\verb|\Uparrow|		& $\Uparrow$	    \\
+	\verb|\rightarrow|	& $\rightarrow$	&
+	\verb|\longrightarrow|	& $\longrightarrow$	&
+	\verb|\downarrow|	& $\downarrow$	    \\
+	\verb|\Rightarrow|	& $\Rightarrow$	&
+	\verb|\Longrightarrow|	& $\Longrightarrow$	&
+	\verb|\Downarrow|	& $\Downarrow$	    \\
+	\verb|\leftrightarrow|	& $\leftrightarrow$	&
+	\verb|\longleftrightarrow|	& $\longleftrightarrow$	&
+	\verb|\updownarrow|	& $\updownarrow$	    \\
+	\verb|\Leftrightarrow|	& $\Leftrightarrow$	&
+	\verb|\Longleftrightarrow|	& $\Longleftrightarrow$	&
+	\verb|\Updownarrow|	& $\Updownarrow$	    \\
+	\verb|\mapsto|		& $\mapsto$	&
+	\verb|\longmapsto|	& $\longmapsto$	&
+	\verb|\nearrow|		& $\nearrow$	    \\
+	\verb|\hookleftarrow|	& $\hookleftarrow$	&
+	\verb|\hookrightarrow|	& $\hookrightarrow$	&
+	\verb|\searrow|		& $\searrow$	    \\
+	\verb|\leftharpoonup|	& $\leftharpoonup$  &   
+	\verb|\rightharpoonup|	& $\rightharpoonup$  &   
+	\verb|\swarrow|		& $\swarrow$	    \\
+	\verb|\leftharpoondown|	& $\leftharpoondown$  &   
+	\verb|\rightharpoondown|	& $\rightharpoondown$  &   
+	\verb|\nwarrow|		& $\nwarrow$	    \\
+	\verb|\rightleftharpoons|	& $\rightleftharpoons$  &   
+	&   &	&   \\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Openings}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\lbrack|	& $\lbrack$ &
+	\verb|\lfloor|	& $\lfloor$ &
+	\verb|\lceil|	& $\lceil$  \\
+	\verb|\lbrace|	& $\lbrace$ &
+	\verb|\langle|	& $\langle$ &
+	&   \\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Closings}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}lp{2cm}}
+	\verb|\rbrack|	& $\rbrack$ &
+	\verb|\rfloor|	& $\rfloor$ &
+	\verb|\rceil|	& $\rceil$  \\
+	\verb|\rbrace|	& $\rbrace$ &
+	\verb|\rangle|	& $\rangle$ &
+	&   \\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Alternative to some symbols}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+	$\ne$	    & \verb|\rbrack| or \verb|\neq| & (\verb|\not=|)	\\
+	$\le$	    & \verb|\le|    & (\verb|\leq|)	\\
+	$\ge$	    & \verb|\ge|    & (\verb|\geq|)	\\
+	$\{$	    & \verb|\{|	    & (\verb|\lbrace|)	\\
+	$\}$	    & \verb|\}|	    & (\verb|\rbrace|)	\\
+	$\to$	    & \verb|\to|    & (\verb|\rightarrow|)	\\
+	$\gets$	    & \verb|\gets|  & (\verb|\leftarrow|)	\\
+	$\owns$	    & \verb|\owns|  & (\verb|\ni|)	\\
+	$\land$	    & \verb|\land|  & (\verb|\wedge|)	\\
+	$\owns$	    & \verb|\owns|  & (\verb|\vee|)	\\
+	$\lor$	    & \verb|\lor|   & (\verb|\neg|)	\\
+	$\vert$	    & \verb|\vert|  & (|)	\\
+	$\Vert$	    & \verb|\Vert|  & (\verb/\|/)	\\
+	$\iff$	    & \verb|\iff|   & (\verb|\Longleftrightarrow|, but with extra space at each end)	\\
+	$\colon$    & \verb|\colon| & (:, but with less space around it and less likelihood of a line break after it.)	\\
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Accent}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ll}
+	{\bf Command}	    & {\bf Accent}    \\
+	\verb|\underline{a}|	& $\underline{a}$  \\
+	\verb|\overline{a}|	& $\overline{a}$  \\
+	\verb|\hat{a}|		& $\hat{a}$  \\
+	\verb|\check{a}|	& $\check{a}$  \\
+	\verb|\tilde{a}|	& $\tilde{a}$  \\
+	\verb|\acute{a}|	& $\acute{a}$  \\
+	\verb|\grave{a}|	& $\grave{a}$  \\
+	\verb|\dot{a}|		& $\dot{a}$  \\
+	\verb|\ddot{a}|		& $\ddot{a}$  \\
+	\verb|\breve{a}|	& $\breve{a}$  \\
+	\verb|\bar{a}|		& $\bar{a}$  \\
+	\verb|\vec{a}|		& $\vec{a}$  \\
+    \end{tabular}
+\end{table}
+You should bear in mind that when a character is underlined in a mathematical
+manuscript, then it is normally typeset in bold face without any underlining. Underlining is used very rarely in print.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other Physical and Mathematical Symbols}
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{lp{2cm}lp{2cm}}
+	\verb|\binom{n}{k}| & $\binom{n}{k}$	&   &	\\
+    \end{tabular}
+\end{table}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Matrix}
+\subsection{pmatrix}
+\[
+    \sigma^{0} =
+    \begin{pmatrix}
+	1   & 0	\\
+	0   & 1
+    \end{pmatrix}
+\]
+\subsection{vmatrix}
+\[
+    \sigma^{0} =
+    \begin{vmatrix}
+	1   & 0	\\
+	0   & 1
+    \end{vmatrix}
+\]
+\subsection{bmatrix}
+\[ \sigma^{0} =
+    \begin{bmatrix}
+	1   & 0	\\
+	0   & 1
+    \end{bmatrix}
+\]
+\subsection{aligned}
+\begin{equation*}
+    \left.  % \left and \right should match, but the delimiters need not to.
+    \begin{aligned}
+	u_x & = v_y \\
+	u_y & = -v_x
+    \end{aligned}
+    \right\} \quad \text{Cauchy-Riemann Equations}
+\end{equation*}
+Spacing in math mode:
+\begin{lstlisting}[language=TeX]
+\quad,
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{cases}
+\[
+    |x| = 
+    \begin{cases}
+	x	&if\ x \geq 0	\cr
+	-x	&if\ x < 0	\cr
+    \end{cases}
+    \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Example}
+
+\subsection{Integral}
+\[
+    \int_0^{+\infty} x^n e^{-x}\,dx = n!
+    \]
+Note the extra space before the $d$, which is produce by \verb|\,|.
+Compare to case without \verb|\,|:
+\[
+    \int_0^{+\infty} x^n e^{-x} dx = n!
+    \]
+
+\[
+    \int_0^1 \! \int_0^1 x^2 y^2 \,dx\,dy
+    \]
+In multiple integral, use \verb|\!| to remove a thin strip of unwanted space
+to improve the appearance. Compare to case without \verb|\!|:
+\[
+    \int_0^1 \int_0^1 x^2 y^2 \,dx\,dy
+    \]

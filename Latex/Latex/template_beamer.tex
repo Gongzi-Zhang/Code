@@ -1,0 +1,34 @@
+%%%%%%%%%% outer %%%%%%%%%%%
+%%% \footnote   : three equally divided sections, with colors shade from left to right, showing "name", "topic" and "coference && page number" respectly
+%%% no sidebar
+%%% \logo
+
+%%%%%%%%%% inner %%%%%%%%%%%
+%%% \theorem    : theorem have a title with shadow background 
+%%% \list	: use ball as the list mark
+%%% \alert	: red
+
+%%%%%%%%%% color %%%%%%%%%%%
+%%% the color should mostly use blue (lightblue)
+%%% normal text
+%%% altered text
+%%% example text
+%%% structure
+%%% math text
+\definecolor{MidnightBlue}{rgb}{0.2, 0.2, 0.7}
+
+%%% \usetheme{Madrid}
+\documentclass{beamer}
+
+%%%%%%%%%% color %%%%%%%%%%%
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+
+
+%%%%%%%%%% inner %%%%%%%%%%%
+\setbeamertemplate{itemize item}[ball]{}
+
+\begin{document}
+\frame{\titlepage}
+\end{document}

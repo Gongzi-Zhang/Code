@@ -1,0 +1,45 @@
+\documentclass{ctexrep}
+% \documentclass{ctexart}
+% \usepackage{ctex}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[colorlinks]{hyperref}
+    \hypersetup{
+	colorlinks = ture,
+	linkcolor = black,
+	urlcolor = blue,
+    }
+\usepackage{listings}
+\usepackage{tikz}
+    \usetikzlibrary{arrows,shapes,chains,positioning}
+\graphicspath{{figures/}}
+
+\setCJKmainfont{WenQuanYi Micro Hei}	% 设置字体
+
+\title{中文\TeX{}简介}
+\author{张卫斌}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{简介}
+你好吗？
+
+\section{文件类}
+可用的文件类有: ctexart, ctexrep, ctexbook.
+即只需在原类的基础上加上ctex，同时缩写类名即可。    \\
+\textbf{注意:并没有ctexletter类型}。
+
+\subsection{安装包}
+为了适用 ctexart, ctexrep, ctexbook 等文件类，我们需要安装 
+{\color{red} texlive-lang-chinese} 包以安装相关的类文件: ctexart.cls ...
+
+\subsection{字体}
+中文字体可用文泉驿字体(http://wenq.org/wqy2/index.cgi?Home), 下载选中字体，
+解压缩后将字体文件(*.ttc) 放置在 /usr/share/fonts/wenquanyi 目录下即可。
+
+\section{编译}
+中文\LaTeX{} 文档需用 xelatex 编译。
+
+\include{fonts}
+\end{document}

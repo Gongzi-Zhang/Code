@@ -1,0 +1,44 @@
+This is \TeX.
+
+\beginsection
+Space
+
+To force a space input, preceeding a blank space by a backslash.
+For example, here is a \  space. 
+
+``quotation''
+
+{\it italic}, {\bf boldface}
+
+\beginsection 
+Fractions, Roots and Ellipsis
+
+\indent$numerator$ {\tt\string\over} $denominator$: $x-y \over x+y$
+
+{\tt\string\sqrt}: $\sqrt{x^2+y^2}$
+
+{\tt\string\root} n {\tt\string\of} {\it expression}: $\root n \of {x^2+y^2}$
+
+\beginsection
+Multiline Formulae
+
+{\tt\string\eqalign}$\{\}$ or {\tt\string\eqalignno}$\{\}$
+The later produce equation number on each line for which you insert
+`$\&equation\ number$' immediately before the {\tt\string\cr}
+
+$$ \eqalign{\cos 2\theta &= \cos^2\theta - \sin^2\theta \cr
+			 &= 2\cos^\theta - 1 \cr} $$
+
+$$ \eqalignno{\sin 2\theta &= 2\sin\theta \cos\theta	&(6)\cr
+     \cos 2\theta   &= \cos^2\theta - \sin^2\theta \cr
+		    &= 2\cos^2\theta - 1	&(7)\cr} $$
+
+cases
+$$ |x| = \cases{ 
+	    x	&if $x \geq 0$ \cr
+	    -x  &if $x < 0$ \cr
+	    }$$
+
+{\tt\string\hbox}  creates a box of text within mathematices.
+
+\bye

@@ -1,0 +1,115 @@
+\chapter{Advanced}
+\label{chap:Advanced}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Style}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Page Numbers}
+How to change the numbering of pages:
+\begin{lstlisting}{language=TeX}
+\seccounter[page]{123}
+\end{lstlisting}
+
+How to remove all page numbers:
+\begin{lstlisting}{language=TeX}
+\pagestyle{empty}[page]{123}
+\end{lstlisting}
+
+\subsection{Citation}
+How do I choose the square bracket or superscript style for citations:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fonts}
+\begin{lstlisting}[language=TeX]
+\setmainfont{Times New Roman}	% serif fonts, for latin alphabetics
+\setsansfont{helverica}	% latin non-serif alphabetics, usually for titles
+\setmonofont{courier}	% same-width fonts, usually for code layout
+
+% Chinese corresponding
+\setCJKmainfont{simsun}
+\setCJKsansfont{}
+\setCJKmonofont{}   
+
+% example: Linux Libertine
+\setmainfont{LinLibertine\_R.otf}[
+    BoldFont	= LinLibertine\_RZ.otf,
+    ItalicFont	= LinLibertine\_RI.otf,
+    BoldItalicFont = LinLibertine\_RZI.otf,
+]
+% sans-serif: Linux Biolinum
+\setsansfont{LinLibertine\_R.otf}[
+    BoldFont	= LinBiolimum\_RB.otf,
+    ItalicFont	= LinBiolimum\_RI.otf,
+    BoldItalicFont = LinBiolimum\_RBO.otf,
+]
+% typewriter type: Linux Libertine Mono
+\setmonofont{LinLibertine\_M.otf}[
+    BoldFont	= LinBiolimum\_MB.otf,
+    ItalicFont	= LinBiolimum\_MI.otf,
+    BoldItalicFont = LinBiolimum\_MBO.otf,
+]
+
+\setCJKmainfont[
+    BoldFont	= Source Han Sans CN Medium,
+    ItalicFont	= Adobe Kaiti Std R]
+{Source Han Sans CN Light}
+\setCJKsansfont[    % same as main
+    BoldFont	= Source Han Sans CN Medium,
+    ItalicFont	= Adobe Kaiti Std R]
+{Source Han Sans CN Light}
+\setCJKmonofont[
+    BoldFont	= Source Han Sans CN Medium,
+    ItalicFont	= Adobe Kaiti Std R]
+{Source Han Sans CN Light}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mode}
+Using mode in \LaTeX{} allow one to choose different document class in one
+tex file, for example:
+\begin{lstlisting}[language=TeX]
+\mode<presentation>{
+    some preamble...
+}
+
+\mode<article>{
+    preamble for article ...
+}
+\end{lstlisting}
+Then if you compile a tex file (use the above one as input), then if the
+documentclass is \textbf{beamer}, then mode \textbf{presentation} will be
+used; if the documentclass is \textit{article}, then mode \textit{article}
+will be choosed.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Adding note using tikz}
+\newcommand{\annmark}[1]{%
+    \textcolor{red}{$\langle$#1$\rangle$}%
+}%
+
+\newcommand{\ann}[1]{%
+    \begin{tikzpicture}[remember picture, baseline=-0.75ex]%
+        \node[coordinate] (inText) {};%
+    \end{tikzpicture}%
+    \marginpar{%
+        \renewcommand{\baselinestretch}{1.0}%
+        \begin{tikzpicture}[remember picture]%
+            \definecolor{orange}{rgb}{1,0.5,0}%
+            \draw node[fill=red!20,rounded corners,text width=\marginparwidth] (inNote){\footnotesize#1};%
+    \end{tikzpicture}%
+    }%
+    \begin{tikzpicture}[remember picture, overlay]%
+        \draw[draw = orange, thick]
+            ([yshift=-0.2cm] inText)
+                -| ([xshift=-0.2cm] inNote.west)
+                -| (inNote.west);%
+    \end{tikzpicture}%
+}%
+
+\setlength{\marginparwidth}{2.5cm}
+\renewcommand{\baselinestretch}{1.3}
+
+Freshness is the most important property for food \annmark{of course not 
+for dry product }. And a good cooker will always keep food's freshness
+and even enlarge the freshness using all kinds of methods.\ann{If one try to use spicy to hide all other flavor, then he must not a top cooker.} If you don't know how to cook a food, then the most obvious and simplest way is to boil it with water, which will sustain most of its freshness.

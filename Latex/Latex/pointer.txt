@@ -1,0 +1,32 @@
+TeX Catalogue
+
+  http://tug.ctan.org/tex-archive/help/Catalogue
+
+Building your own layout: Memoire
+
+  http://tug.ctan.org/tex-archive/macros/latex/contrib/memoir/
+
+Creating Presentations: Beamer
+
+  http://bitbucket.org/rivanvx/beamer/wiki/Home
+
+Type setting Isotopes: Isotope
+
+  http://tug.ctan.org/tex-archive/macros/latex/contrib/isotope/
+
+Macros for typesetting high energy physics particle names.
+
+  http://tug.ctan.org/tex-archive/macros/latex/contrib/hepparticles/
+
+Managing acronyms
+
+  http://tug.ctan.org/tex-archive/macros/latex/contrib/acronym/
+
+About Typesetting of Tables
+
+  http://tug.ctan.org/tex-archive/help/Catalogue/bytopic.html#settables
+  http://tug.ctan.org/tex-archive/help/Catalogue/entries/tabsatz
+
+XyMTeX System for Drawing Chemical Structures
+
+  http://xymtex.com/fujitas3/xymtex/indexe.html

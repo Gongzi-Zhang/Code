@@ -1,0 +1,109 @@
+\chapter{Fantacy in \LaTeX{}}
+
+\section{Display}
+When you find something abnormal about mathmetics (wrong color), check that
+if there is blank \$\$ pair without anything in it.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Package}
+Updating package, if you update your texlive, and then encounter some errors
+that you never met before, then it is the problem of old-packages. Remember 
+to update corresponding packages so that everything work properly. Especially
+when you install a new system and a new texlive but import old personal configuration.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In \LaTeX, you can load a package many times, but the option list of each 
+package loading must be a subset of the options given at the first loading (exception
+\package{fontenc})
+
+However sometimes packages might be loaded in the document class already, or
+there are constraints in the package order that prevents the reordering of the 
+packages. Then \command{\textbackslash{}PassOptionsToPackage} helps. It can even
+be loaded before \command{\textbackslash{}documentclass}. It gives the specified 
+options to the package without loading the package.
+
+Adding the options to the global options can also be a solution, but it is not the
+best strategy, because also other unrelated packages see that options. Unknown global 
+options are ignored by package, but known are then executed with unintended side effects.
+
+\subsection{physics \& imakeidx}
+If I put package imakeidx before physics, then the compiler will complain
+something like this:
+\begin{verbatim}
+(/usr/share/texlive/texmf-dist/tex/latex/imakeidx/imakeidx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty))
+(/home/weibin/texmf/tex/latex/physics/physics.sty
+(/home/weibin/texmf/tex/latex/l3packages/xparse/xparse.sty
+(/home/weibin/texmf/tex/latex/l3kernel/expl3.sty
+(/home/weibin/texmf/tex/latex/l3kernel/expl3-code.tex
+! Missing number, treated as zero.
+<to be read again> 
+                   \pdftex_shellescape:D 
+l.23338	    }
+\end{verbatim}
+But if I put physics before imakeidx, then no error happen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{tikz \& graphicx}
+It looks like \textbf{tika} package will load \emph{graphicx} package
+automatically, so if you load \emph{graphicx} package manually with some
+options, it will cause problem. For example, if I load them as
+\begin{verbatim}
+\usepackage[dvips]{graphicx}
+\usepackage{tikz}
+\end{verbatim}
+it will result in:
+\begin{verbatim}
+Non-PDF special ignored!
+\end{verbatim}
+On the other hand, if I load them as:
+\begin{verbatim}
+\usepackage{tikz}
+\usepackage[dvips]{graphicx}
+\end{verbatim}
+We get such error:
+\begin{verbatim}
+! LaTeX Error: Option clash for package graphicx.
+\end{verbatim}
+
+So this should be the conflicts between different options used in loading
+\emph{graphicx} package. If you load only the \textbf{tikz} package, 
+then everything works perfectly.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{xcolor}
+\package{xcolor} option error:
+\begin{verbatim}
+! LaTeX Error: Option clash for package xcolor.
+\end{verbatim}
+Package \package{pgf} also load \package{xcolor}, so
+\package{xcolor} should be loaded before \package{pgf} or 
+other packages that loads \package{pgf}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{gathered}
+No blank line allowed with \emph{gathered} environment, otherwise, it will show
+error message:
+\begin{verbatim}
+! Missing $ inserted.
+<inserted text> $
+\end{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Options}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{aligned}
+In the \emph{aligned} environment, if you begin you equation with \textbf{square bracket},
+they will not be output normally, because aligned env. is set by the \emph{amsmath} package to scan ahead for a positioning augument such as [t] of [p]. Material that's found there but doesn't meet this format is simply discarded.	
+
+The possible solutions are:
+\begin{itemize}
+    \item Insert \verb|\relax| before the left square bracket. It will stop the bracket from being interpreted as an argument.
+    \item Insert \{\} before the left square brackedt.
+\end{itemize}

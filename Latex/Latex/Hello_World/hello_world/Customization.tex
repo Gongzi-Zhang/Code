@@ -1,0 +1,108 @@
+\chapter{Customization}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Renewcommand}
+You can modify default command by the command \verb|\renewcommand| to make
+it fit your personal situation.
+\begin{lstlisting}[language=TeX]
+\renewcommand{\abstractname}{Executive Summary}	% Modify the title of your abstract
+\renewcommand{\labelitemi}{$\triangleright$}
+\renewcommand{\labelitemii}{\ding{43}}
+\renewcommand{\labelitemiii}{\ding{44}}
+\renewcommand{\labelitemiv}{\ding{45}}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Configuration}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Color}
+\begin{lstlisting}[language=TeX]
+\pagecolor[green!50!black!30]	% set page bg color
+\end{lstlisting}
+\subsubsection{Length}
+\begin{lstlisting}[language=TeX]
+\setlength{\paperwidth}{48in} 
+\setlength{\paperheight}{36in}
+\setlength{\sepwid}{0.024\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.22\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.464\paperwidth} % Width of two columns
+\setlength{\threecolwid}{0.708\paperwidth} % Width of three columns
+\setlength{\topmargin}{-0.5in} % Reduce the top margin size
+\addtolength{\voffset}{-2.5cm}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{New Command}
+\begin{lstlisting}[language=TeX]
+\newcommand{\SB}{Stony Brook}
+\end{lstlisting}
+Note that if type only \verb|\SB|, then the macro will eat up the following
+space, producing ugly layout. To avoid that, you have to invoke it with an
+empty statement after it: \verb|\SB{}|. 
+
+The reason behind this is that \LaTeX ignores space directly after the
+macro(which just stop the scanning for the macro's name). You need to break
+that using either a protected space \verb|\SB\ | or an empty statement
+\{\}.An empty statement is recommanded, as using a protected space can
+generate nasty effects -- for example, if that protected space is directly
+followed by a line break. In that case \LaTeX might pring two spaces
+instead. Using an empty statement prevents this.
+
+\verb|\def| command in {\bf plain \TeX{}} also do the work.
+\begin{lstlisting}[language=TeX]
+\def\intwrtx#1{\int_{-\infty}^{+\infty} #1 \,dx}
+\end{lstlisting}
+\def\intwrtx#1{\int_{-\infty}^{+\infty} #1 \,dx}
+e.g.
+$$ \intwrtx{f(x)}.$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{New Length}
+\begin{lstlisting}[language=TeX]
+\newlength{\onecolwid}{10cm}
+\end{lstlisting}
+
+or 
+
+\begin{lstlisting}[language=TeX]
+\newlength{\onecolwid}
+\setlength{\onecolwid}{10cm}
+\end{lstlisting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{New count}
+\begin{lstlisting}[language=TeX]
+\newcount{\opaqueness}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{New dimension}
+\begin{lstlisting}[language=TeX]
+\newdimen{\offset}
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Color}
+\begin{lstlisting}[language=TeX]
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mypurple}{rgb}{0.58, 0, 0.82}
+\end{lstlisting}
+
+\subsection{xcolor}
+\begin{lstlisting}[language=TeX]
+\colorlet{LightRubinRed}{RubineRed!70!}	% xcolor; 70% or the intersity of 
+% original RubineRed color. Or you can think of it as a mixture of 70% RubineRed
+% and 30% white.
+\colorlet{mycolor1}{green!10!orange!90!}
+\definecolor{mycolor2}{HTML}{00F9DE}	% HTML model, the character A,B,C,D,E and F must be upper-case.
+\end{lstlisting}
+
+The color models that only \textbf{xcolor} support are:
+\begin{itemize}
+    \item \textbf{cmy} cyan, magenta, yellow
+    \item \textbf{hsb} hue, saturation, brightness
+    \item \textbf{HTML} RRGGBB
+    \item \textbf{Gray} Grey scale, a number between 1 and 15.
+    \item \textbf{wave} Wave length. Between 363 and 814    	
+\end{itemize}

@@ -1,0 +1,58 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[orientation=portrait, size=a0, scale=1.4]{beamerposter}
+\usetheme{Berlin}
+
+\title{Beamer Poster}
+\author{ShareLaTeX Team}
+\institute{ShareLaTeX Ins.}
+\date{\today}
+% \logo{\includegraphics{logo}}	% this command won't work in most of the
+% themes, and has to be set by hand in the themes's.sty file.
+
+\begin{document}
+\begin{frame}{}
+    \maketitle
+    \vfill
+    \begin{block}{Introduction}
+	The package \textbf{beamerposter} enhances the capabilities of 
+	the \textcolor{red}{standard beamer class}, making it possible
+	to create scientific posters with the same syntax of a beamer 
+	presentation.
+
+	By now there are not many themes for this package, and it is
+	slightly less flexible than \textbf{tikzposter}, but if you
+	are familiar with beamer, using \textbf{beamerposter} don't
+	require learning new commands.
+    \end{block}
+    \begin{block}{}
+	Since the document class is \textbf{beamer}, to create the poster
+	all the contents must be typed inside a frame environment.
+    \end{block}
+    \begin{block}{preamble}
+	poster size: a0, a1, a2, a3 and a4, but the dimensions can be 
+	arbitrarilly set with the options \textcolor{RawSienna}{\textbf{width=x, height=y}}. \\
+	scale: scale the fonts
+    \end{block}
+    \begin{columns}[t]
+	\begin{column}{0.35\linewidth}
+	    \begin{block}{Column1}
+		\begin{itemize}
+		    \item first
+		    \item second
+		\end{itemize}
+	    \end{block}
+	\end{column}
+	\begin{column}{0.55\linewidth}
+	    \begin{block}{Column2}
+		\begin{itemize}
+		    \item third
+		    \item fourth
+		\end{itemize}
+	    \end{block}
+	\end{column}
+    \end{columns}
+\end{frame}
+\end{document}

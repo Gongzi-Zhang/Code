@@ -1,0 +1,114 @@
+\documentclass[tikz,10pt,oneside,a4paper]{report}
+
+% \usepackage[utf8]{inputenc} % specify input encoding, this should match the encoding of your editor
+% \usepackage[]{fontenc}	    % specify the output encoding of PDF file.
+\usepackage[english]{babel} % hyphenation patterns
+
+% \usepackage{syntonly}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{bm}	% bold math
+\usepackage{enumitem}	% style of list item
+\usepackage{fancyhdr}	% set header and footer
+\usepackage{float}	% provide the placement option 'H', enforcing the placement exactly at that point of floating env.
+%    \pagestyle{fancy}
+\usepackage[colorlinks]{hyperref}   % make colored hyperlink
+    \hypersetup{
+	colorlinks = true,
+	linkcolor = black,
+	urlcolor = blue,
+    }
+\usepackage{listings}	% Code presentation
+% \lstset{
+%     language = TeX,
+%     backgroundcolor = \color{white},
+%     basicstyle = \footnotesize,
+%     breakatwhitespace = false,	% automatics breaks at whitespace
+%     breaklines = true,		% automatics line break
+%     captionpos = b,		% caption-position at bottom
+%     commentstyle = \color{blue},
+%     escapeinside = {\%*}{*)},	% 
+%     identifierstyle=,		% nothing happen
+%     keepsapces = true,		% keep spaces in text
+%     keywordstyle = \color{brown},
+%     numbers = none,		% line numbers
+%     numbersep = 5pt,		% how far line-numbers away from code
+%     numberstyle = \tiny\color{gray}
+%     stepnumebr = 2,		% If this option is 1, then each line will be numbered
+%     stringstyle = \color{cyan},	% string literal style
+%     tablesize = 2,		
+% }
+\usepackage{makeidx}
+\usepackage{multicol}	% multicolumns environment
+% \usepackage{tabbing}	% tabbing env.
+\usepackage[dvipsnames]{xcolor}   % colored text
+\usepackage{tikz}
+    \usetikzlibrary{arrows,shapes,chains,positioning}
+    \usetikzlibrary{decorations.markings}
+% \usepackage{graphicx} % when used with tikz package, don't load
+	% this one, otherwise it will be loaded twice, and causing errors.
+\graphicspath{{figures/}}    % note the double {} here.
+\usepackage{wrapfig}	% wrap figures with text
+
+\usepackage{eso-pic}	% AddToShipoutPictureBG
+\usepackage{geometry}	% set margin
+    \geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}  % margin
+\usepackage{lipsum} % produce random text
+% \lipsum[1-4]	% produce 4 paragraphs
+\usepackage{tabularx}	% align cell of fixed width 
+\usepackage[most]{tcolorbox}	% color box (background)
+\tcbset{
+%    frame code={},
+%    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!70,
+    colframe=white,
+%    width=\dimexpr\textwidth\relax,
+%    enlarge left by=0mm,
+%    boxsep=5pt,
+%    arc=0pt, outer arc=0pt,
+}
+
+\newcommand{\TOC}{Table of Contents}
+\newcommand{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\newcommand{\Rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\package}[1]{\colorbox{gray!15!}{\textcolor{red}{\textbf{#1}}}}
+\newcommand{\command}[1]{\colorbox{gray!15!}{\textcolor{OliveGreen}{\textbf{#1}}}}
+\newcommand{\option}[1]{\colorbox{gray!15!}{\textcolor{RawSienna}{\textbf{#1}}}}
+% add a 'Go to TOC' button in every page
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{
+    \put(\LenToUnit{\paperwidth},\LenToUnit{-0.1\paperheight}){#1}}}
+\AddToShipoutPictureBG{
+    \AtPageUpperRight{\put(-60,0){\hyperref[toc]{TOC}}}
+}
+
+\title{Hello World}
+\author{Weibin Zhang \\ \url{weibin.zhang@stonybrook.edu} \\ 
+\url{personal url} }
+\date{\today}
+
+% \setlength\parindent{0pt}
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{2}
+    \tableofcontents\label{toc}    % to make a clickable toc, need hyperref package.
+\end{multicols}
+
+\include{hello_world/Introduction}
+\include{hello_world/Basic}
+\include{hello_world/Math}
+\include{hello_world/Tikz}
+\include{hello_world/Customization}
+\include{hello_world/Advanced}
+\include{hello_world/Metaphysics}
+\include{hello_world/Bibliography}
+% \input{}
+% \include{hello_world/Package}
+\end{document}

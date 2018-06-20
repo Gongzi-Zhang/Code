@@ -1,0 +1,38 @@
+digraph frame {
+    rankdir=LR;	// left ot right
+    frame -> headline;
+    frame -> footline;
+    frame -> sidebar -> {"sidebar left", "sidebar right"};
+    frame -> "navigation bars";
+    frame -> "navigation symbols";
+    frame -> logo;
+    frametitle;
+    framesubtitle;
+    "background canvas";
+    "main background";
+    frame -> "normal text";
+    }
+digraph background_canvas {
+    "normal text" -> "background canvas" -> "background" [label="color"];
+    "background canvas"-> {bg};
+    }
+
+digraph theme {
+    subgraph cluster {
+	label="theme";
+	N1 [label=template];
+	N2 [label=color];
+	N3 [label=font];
+	}
+    }
+
+digraph toc {
+    "section/subsection in toc" -> {"section  in toc", "subsection in toc"};
+    "section/subsection in toc shaded" -> {"section  in toc shaded", "subsection in toc shaded"};
+    }
+
+digraph list {
+    "items" -> {"itemize items", "enumerate items"} [label="template"];
+    "itemize items" -> {"itemize item", "itemize subitem", "itemize subsubitem"} label="template";
+    "enumerate items" -> {"enumerate item", "enumerate subitem", "enumerate subsubitem", "enumerate mini template"} [label="template"];
+    }

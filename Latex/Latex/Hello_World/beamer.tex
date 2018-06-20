@@ -1,0 +1,737 @@
+\documentclass[11pt,pdf,aspectratio=43]{beamer}
+% aspectratio: set the aspect ration and the paper size.
+% \mode<presentation>
+% \usepackage{pgfpages}	
+% \setbeameroption{show notes on second screen}	% need pgfpages package
+\usetheme{Madrid}
+\usefonttheme[onlylarge]{structuresmallcapsserif}
+\usefonttheme[onlysmall]{structurebold}
+\usecolortheme{orchid}
+\setbeamercolor{frametitle}{bg=blue!30!black!80}
+%\mode<presentation>{%
+%    \usetheme[hideothersubsections, right,width=22mm]{Goettingen}
+%    \usetheme{boxes}
+%}
+% \mode<presentation>{\usetheme{Warsaw}}
+% General theme of presentation:
+%	default	    Antibes	Berlin	    Copenhagen
+%	Madrid	    Montpelier	Ilmenau	    Malmoe
+%	Cambridge   Berkeley	Singapore   Warsaw
+% Color themes:	beetle,	beaver,	orchid,	whale,	dolphin
+% Inner themes:	circles,    rectanges,	rounded,    inmargin	% inner element: usually blocks
+% Outer themes:	infolines,  smoothbars,	sidebar,    split,  tree    % headline, footline, and sidebar
+%  Font thems:	serif,	structurebold,	structureitalicserif,	structuresmallcapseserif
+
+\usepackage{fancybox}	%   to add fancy borders
+\usepackage{listings}
+\lstset{
+    breaklines	= true,
+    breakatwhitespace	= true,
+}
+\graphicspath{{figures/}}
+
+\setbeamertemplate{navigation symbols}{}
+
+%%%%% footline
+
+% \setbeamertemplate{footline}[frame number]
+
+% \setbeamertemplate{footline}{
+%     \begin{beamercolorbox}[sep=1ex]{author in head/foot}
+% 	\rlap{\textit{weekly meeting}}\hfill weibin zhang\hfill\llap{\insertframenumber}
+%     \end{beamercolorbox}
+% }
+
+% \setbeamertemplate{footline}{
+%     \hbox{
+%     \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fill,rightskip=.3cm]{title in head/foot}
+% 	\usebeamerfont{title in head/foot}\insertshorttitle
+%     \end{beamercolorbox}
+%     \begin{beamercolorbox}[wd=0.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fill]{title in head/foot}
+% 	\usebeamerfont{title in head/foot}\insertframenumber
+%     \end{beamercolorbox}
+%     }
+%     \vskip0pt
+% }
+
+% title
+\setbeamertemplate{frametitle}[default][center]
+\setbeamercolor{frametitle}{fg=black}
+\setbeamerfont{title}{shape=\itshape, family=\rmfamily}
+
+\setbeamersize{text margin left=1cm, text margin right=1cm}
+% \setbeamercolor{structure}{fg=craneblue}
+
+% list
+% \setbeamertemplate{itemize item}{X}
+
+\title{Simple Presentation}
+\subtitle{Beamer}   % optional
+\author{Weibin Zhang}
+\institute{
+    \begin{tabular}{r@{ }l}
+	1:& Univ. of Sci. and Tech. of China \\
+	2:& Stony Brook University
+    \end{tabular} 
+}
+\titlegraphic{\includegraphics[width=20mm]{SBU-circle}}
+\date{\today}
+\logo{\includegraphics[scale=0.05]{SBU-circle}}
+
+% \definecolor{uofsgreen}{rgb}{.125,.5,.25}
+% \usecolortheme[named=uofsgreen]{structure}
+
+\AtBeginSection[]   % have this if you'd like a recurring outline
+{
+    \begin{frame}<beamer>
+	\frametitle{Outline}
+	\tableofcontents[currentsection]    % show ToC and highlight current section
+    \end{frame}
+}
+
+\begin{document}
+%\beamerdefaultoverlayspecification{<+->}   % If you always want to pause after items.
+
+% \includeonlyframes{test1,test2}   % a comma-separated lsit (without spaces) of the names of frames.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Frame]{What's a Frame}
+% \section{A very long section name\breakhere second line}
+% \section{A very long section name\protect\\ second line}
+% \section{A very long section name\newline second line}
+
+\begin{frame}
+    \frametitle{Frame Components}
+
+    \begin{enumerate}
+	\item headline and footline
+	\item left and right sidebar
+	\item navigation bars
+	\item navigation symbols
+	\item logo
+	\item frametitle [framesubtitle]
+	\item background
+	    \begin{itemize}
+		\item background canvas
+		\item main background
+	    \end{itemize}
+	\item contents
+    \end{enumerate}
+
+%    \note[item] {Hello World}
+%    \note[item] {No longer than 2 mins}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Headline}
+
+    \begin{lstlisting}[language=TeX]
+\setbeamertemplate{headline}
+{
+    \begin{beamercolorbox}{section in head/foot}
+	\vskip2pt\insertnavigation{\paperwidth} \vskip2pt
+    \end{beamercolorbox}
+}
+    \end{lstlisting}
+\end{frame}
+
+\section{Themes}
+\label{sec:themes}
+\begin{frame}[allowframebreaks]
+    \frametitle{Themes in Beamer}
+    \begin{itemize}
+	\item No Navigation bar: default, boxes, Bergen, Pittsburgh and Rochester.
+	\item Top bar:	Antibes, Darmstadt, Frankfurt, JuanLesPins, Montpellier and Singapore.
+	\item Bottom bar: AnnArbor, Berlin, CambridgeUS, Copenhagen, Dresden, Ilmenau, Luebeck, Malmoe, Szeged and Warsaw.
+	\item Side Bar: Berkeley, Goettingen, Hannover, Marburg and PaloAlto.
+    \end{itemize}
+
+    Actually, each themes is divided into four subthemes: Outer theme, Inner theme, Color theme and Font theme.
+    \begin{itemize}
+	\item Outer theme: set top bar, bottom bar and side bar and their constructure. Set with \textbackslash{useoutertheme\{outertheme\}}, 
+	    possible value include: \\
+	    default, infolines, miniframes, sidebar, smoothbars, split, shadow, tree and smoothtree.
+	\item Inner theme: set the layout of main content(Headline, Table, Theorem etc.). Set with \textbackslash{useinnertheme\{innertheme\}},
+	    possible value include: \\
+	    default, circles, rectangles and rounded.
+	\item Color theme: set color configuration. set with \textbackslash{usecolorthem}\{colortheme\}, possible value include: \\
+	    default, albatross, beaver, beetle, crane, dolphin, dove, fly, lily, orchid, rose, seagull, seahorse, sidebartab, 
+	    structure, whale and wolverine.
+	\item Font theme. Set with \textbackslash{usefonttheme}\{fonttheme\}, possible value is: \\
+	    default, serif, structurebold, structureitalicserif and structuresmallcapsserif.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{mode}
+
+    \begin{lstlisting}[language=TeX]
+\mode<mode>
+    \end{lstlisting}
+    \begin{itemize}
+	\item article
+	\item presentation
+	    \begin{itemize}
+		\item beamer
+		\item handout
+		\item trans
+	    \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{Basic Ideas}
+\label{sec:basic ideas}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Adding Slides}
+\newenvironment{slide}
+    {\begin{frame}[fragile,environment=slide]}
+    {\end{frame}}
+
+\begin{slide}
+    \frametitle{Adding slides}
+    \begin{itemize}
+	\item Create a slide use the following code: \\
+	\begin{lstlisting}[language=TeX]
+\begin{frame}[options]
+    \frametitle{title}
+    \framesubtitle{subtitle} "optional" 
+	<contents> 
+\end{frame}
+	\end{lstlisting}
+	\item The possible options include: \\
+	    \begin{itemize}
+		\item \textbf{plain} removes all slide decorations ( useful for larger images and first slide )
+		\item \textbf{c and b} align contents of the slide in the middle or bottom (default alignment is top,
+		    but this can easily be changed in the document class options)
+		\item \textbf{fragile} is necessary for slides that use the verbatim
+		\item \textbf{shrink} automagically makes the contents fit on one slide
+		\item \textbf{allowframebreaks} splits contents of a frame if it does not fit.
+	    \end{itemize}
+    \end{itemize}
+\end{slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[c]    % vertical options: t--top; c--center; b--bottom;
+    \frametitle{Title}
+    \framesubtitle{Subtitle}
+    \centering
+    Title Page.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Table of Contents}
+\begin{frame}
+    \frametitle{Table of Contents}
+    \begin{itemize}
+	\item Create outline using \textbackslash{}tableofcontents[options ]
+	\item The possible options:
+	    \begin{itemize}
+		\item	\textbf{currentsection} (all sections but current are greyed out)
+		\item	\textbf{currentsubsection} ( all subsection but current are greyed out)
+		\item	\textbf{hideallsubsections} (all subsections are hidden)
+		\item	\textbf{hideothersubsections} (all subsections of sections other than the current are hidden)
+		\item	\textbf{pausesections} (shows the table of contents incrementally)
+		\item	\textbf{pausesubsections} (finer increments than \textbackslash{}pausesections)
+		\item	\textbf{sections=\{2-3\}} (only section 2 and 3 displayed)
+		\item	\textbf{sectionstyle=1/2}  
+			(define style of current section (1), 
+			other sections (2) using show, shaded and hide, e.g. sectionstyle=shaded/show)
+		\item	\textbf{subsectionstyle=1/2/3}  
+			(define style for current subsection(1), 
+			other subsections in current section(2), 
+			subsections in other sections(3))   
+	    \end{itemize}
+	\item The commands \textbackslash{}section, \textbackslash{}subsection, etc. make a struture for
+	      tables of contents (outline are independent of slide titles)
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Fonts}
+\begin{frame}
+    \frametitle{Fonts}
+    \begin{itemize}
+	\item There are five font themes:
+	    \begin{itemize}
+		\item \textbf{default} (sans serif)
+		\item \textbf{serif}
+		\item \textbf{structurebold} (titles, headlines, etc. are typeset in a bold font)
+		\item \textbf{structureitalicserif} (titles, headlines, etc. are typeset in an italic serif font)
+		\item \textbf{structuresmallcapsserif} (titles, headlines, etc. are typeset in a small caps serif font)
+	    \end{itemize}
+	\item Change the document-wise font size to 10, 11(default), 12 points in the options of documentclass.
+	\item Colour text using \textbackslash{}textcolor\{colour\}\{text\}
+	\item \textbackslash{}alert\{text\} command colours text red
+    \end{itemize}
+
+    Two extra font sizes defined within {\bf beamer}:
+    \begin{itemize}
+	\item \textbackslash{Tiny}
+	\item \textbackslash{TINY}
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{semiverbatim}
+\begin{frame}
+    \frametitle{semiverbatim Environment}
+    semiverbatim works like verbatim except that \fbox{\textbackslash}, \fbox{\{} and \fbox{\}} retain their meaning. \\
+    This allows you to access Beamer formatting commands. If you want the command or environment to be
+    ignored, you simply put a \fbox{\textbackslash} in front of it.
+
+    NOTE: to use verbatim environment within a frame, be sure to declare the frame \emph{fragile}.
+
+    \color{brown}   Example \\
+    Using the \textbf{semiverbatim} environment, you can still \alert{format} verbatim text with Beamer
+    commands or you can display commands \textbackslash{}alert\{like this\}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Spacing}
+\begin{frame}
+    \frametitle{Spacing}
+    \begin{itemize}
+	\item	Vertical space:	\textbackslash{vskip}[\emph{N}][unit]:	\textbackslash{vskip15pt}
+	\item	Horizontal space: \textbackslash{hskip}[\emph{N}][unit]
+	\item	Negative valuse can also be used to squeeze text or graphics together.
+    \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Overlay}
+\begin{frame}
+    \frametitle{Overlay}
+    There maybe more than one slide in some frames, which is called overlays.
+    It come into effect by specifying the slides using \textless and \textgreater, or some special command: \textbackslash{pause}. \\
+    Some commands have special overlay specification effects:	\\
+    \begin{table}
+	\scriptsize
+	\begin{tabular}{c | p{0.75\textwidth} }
+	    \hline
+	    \textbackslash{onslide}\textless\textgreater	&   Text only appears on specified slides. If no text is given,
+		text following the command will only appear on the specified slides.	\\
+	    \hline
+	    \textbackslash{only}\textless\textgreater\{\}	&   Text only appears on specified slides. When the text is hidden, it will
+		occupy no space. \\ % corresponding environment: onlyenv
+	    \hline
+	    \textbackslash{visible}\textless\textgreater	&   Text only appears on specified slides and is completely transparent, 
+		but still occupies space. \\	% corresponding environment: visibleenv
+	    \hline
+	    \textbackslash{invisible}\textless\textgreater	&   the opposite of visible.	\\  % invisibleenv
+	    \hline
+	    \textbackslash{alt}\textless\textgreater\{\}\{\}	&   Takes two arguments: one for the default text and a 
+		second for the alternate text. The default text shows up on the specified slides. The alternate 
+		text shows up on all unspecified slides.    \\	% altenv
+	    \hline
+	    \textbackslash{temporal}\textless\textgreater\{\}\{\}\{\} &   Takes three arguments: one for the text that
+		will appear if the current slide comes before the specified slides, a second for the text that
+		appears while currently on the specified slides, and a third for the text that appears after the
+		specified slides have appeared.	\\
+	    \hline
+	    \textbackslash{uncover}\textless\textgreater\{\}	&   The text will only be ``uncovered" on the specified 
+		slides. On other slides, the text will still be typeset and will appear transparent. \\	    % uncoverenv
+	    \hline
+	\end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Other control commands}
+    \begin{itemize}
+	\item \textbackslash{}textbf\textless\textgreater\{\}
+	\item \textbackslash{}textit\textless\textgreater\{\}
+	\item \textbackslash{}color\textless\textgreater[]\{\}
+	\item \textbackslash{}alert\textless\textgreater\{\}
+	\item \textbackslash{}item\textless\textgreater
+    \end{itemize}
+\end{frame}
+\begin{frame}{Overlay example}
+    \onslide<1,2>{onslide}
+
+    \only<1>{only}
+
+    \visible<3,4>{visible}
+
+    \invisible<2>{invisible}
+
+    \alt<1>{default}{alternate}	
+
+    \temporal<2>{fisrt}{second}{third}    
+
+    \uncover<2,3>{uncover}
+
+    \only<1-3,5> {specification style}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Columns}
+\begin{frame}[fragile, label=columns]
+    \frametitle{Columns}
+    call column environment: \\
+    \begin{lstlisting}[language=TeX]
+\begin{columns}
+    \column{.5\textwidth}
+	First column text and/or code
+
+    \column{.5\textwidth}
+	Second column text and/or code
+\end{columns}
+    \end{lstlisting}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Blocks}
+\begin{frame}
+    \frametitle{Blocks}
+    Blocks can be used to separate a specific section of text or graphics from the rest of the frame: \\
+    \begin{block}{Blocks in Beamer}
+	``Beamer is a \LaTeX{} class for creating presentations that are held using a projector \ldots "
+    \end{block}
+    Other block environments:
+    \begin{block}{Other Block Environments}
+	\begin{tabular}{c|c}
+	    \textbf{Content Type}   & \textbf{Corresponding Environment}    \\
+	    \hline
+	    Generic &	block	\\
+	    Theorems	&   theorem \\
+	    Lemmas  &	lemma	\\
+	    Proofs  &	proof	\\
+	    Corollaries	&   corollary	\\
+	    Examples	&   example	\\
+	    Hilighted Title &	alertblock  \\  
+	    \hline
+	\end{tabular}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Text Boxes}
+\begin{frame}
+    Use package `fancybox' to add fancy borders to your presentation.   \\
+    \begin{block}{Text Border Examples}
+	\shadowbox{shadow}
+	\fbox{flat box}
+	\doublebox{double box}
+	\ovalbox{oval box}
+	\Ovalbox{Oval box}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Graphics}
+\begin{frame}[fragile]
+    \frametitle{Graphics}
+
+    Sometimes you want to explain great details of a complex graphic, in
+    this case, you can use \verb|\framezoom| to create anticipated 
+    zoomings of interesting parts of the graphics.
+
+\end{frame}
+
+\subsection*{Transitions}
+\begin{frame}{allowframebreaks}
+    \frametitle{Transitions}
+    A slide transition is composed of a single command. Slide transitions are overlay specification aware.
+    And there are two possible options for each transition:
+    \begin{itemize}
+	\item duration=\textless seconds\textgreater specifies the number of seconds the transitions effect needs
+	\item direction=\textless degree\textgreater specifies the direction for directed effects.
+    \end{itemize}
+
+    \begin{block}{Available Transitions}
+	\small
+	\begin{tabular}{rl}
+	    \textbackslash{transblindshorizontal}   &	\textbf{Horizontal blinds pulled away}	\\
+	    \textbackslash{transblindsvertical}	    &	\textbf{Vertical blinds pulled away}	\\
+	    \textbackslash{transboxin}		    &	\textbf{Move to center from all sides}	\\
+	    \textbackslash{transboxout}		    &	\textbf{Move to all sides from center}	\\
+	    \textbackslash{transdissolve}	    &	\textbf{Slowly dissolve what was shown before}	\\
+	    \textbackslash{transglitter}	    &	\textbf{Glitter sweeps in specified direction}	\\
+	    \textbackslash{transslipverticalin}	    &	\textbf{Sweeps two vertical lines in}	\\
+	    \textbackslash{transslipverticalout}    &	\textbf{Sweeps two vertical lines out}	\\
+	    \textbackslash{transsliphorizontalin}   &	\textbf{Sweeps two horizontal lines in}	\\
+	    \textbackslash{transsliphorizontalout}  &	\textbf{Sweeps two horizontal lines out}\\
+	    \textbackslash{transwipe}		    &	\textbf{Sweeps single line in specified direction}  \\
+	    \textbackslash{transduration\{2\}}	    &	\textbf{Show slide specified number of seconds}	
+	\end{tabular}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Transitions (continue)}
+    \centering
+    \transboxin
+    Hello world
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Blocks}
+\label{sec:blocks}
+
+\subsection*{Theorem}
+\begin{frame}
+    \frametitle{Theorem}
+    \begin{Theorem}<1->
+	There is no largest prime number.
+    \end{Theorem}
+
+    \begin{proof}<2->
+	\begin{itemize}[<+->]
+	    \item Assume there is largest prime number: \textbf{p}
+	    \item let \textbf{N} be the product of all prime numbers $\le$ \textbf{p} plus 1:
+		\[
+		    N = 2 \times 3 \times 5 \times \cdots \times p + 1
+		    \]
+	    \item So \textbf{N} is larger than \textbf{p} and it can't be divided 
+		    by any prime number $\le$ \textbf{p}, so it should be
+		    a prime number; which conflicts with the assumption.
+	\end{itemize}
+    \end{proof}
+\end{frame}
+
+
+\appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Overlay}
+\label{sec:overlay}
+
+\begin{frame}
+    \frametitle{Overlay using \textbackslash{}pause}
+
+    \begin{itemize}
+	\item First \pause
+	\item Second \pause
+	\item Third
+    \end{itemize}
+
+    \onslide<4->\hyperlink{columns<1>}
+    {\beamergotobutton{Go To Columns Slide}}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Overlays in List Environment}
+    \begin{itemize}
+	\item<1> On slide 1 only
+	\item<2,4> On slides 2 and 4
+	\item<3-> On slides from 3 on
+	\item<4> On slide 4 only
+	\item<-4> slides up to slide 4
+	\item<5> On slide 5
+    \end{itemize}
+\end{frame}
+
+\setbeamercovered{transparent}	% show covered parts in transparent style
+
+\begin{frame}[<+->]
+    \frametitle{Overlays using option to frame}
+    \begin{itemize}
+	\item First 
+	\item Second
+	\item Third
+    \end{itemize}
+\end{frame}
+
+\setbeamercovered{transparent=70}   % set transparent to 70%
+
+\begin{frame}
+    \frametitle{Overlays using option to itemize}
+    \begin{itemize}[<+->]
+	\item First 
+	\item Second
+	\item Third
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Overlays using \textbackslash{}item specification}
+    \begin{itemize}
+	\item<+-> First 
+	\item<+-> Second
+	\item<+-> Third
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Overlays with alert}
+    \begin{itemize}[<+-|alert@+>]
+	\item First
+	\item Second
+	\item Third
+    \end{itemize}
+\end{frame}
+
+\begin{frame}<1>[label=Cantor]
+    \frametitle{againframe}
+
+    \begin{Theorem}
+	God doesn't exist.
+    \end{Theorem}
+
+    \begin{overprint}
+	\onslide<1>
+	\hyperlink{Cantor<2>}{\beamergotobutton{Proof}}
+
+	\onslide<2->
+	\begin{proof}
+	    If god exist, why he/she never publish any important papers ?
+	\end{proof}
+
+	\hfill\hyperlink{Cantor<1>}{\beamerreturnbutton{Return}}
+    \end{overprint}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Advanced}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Template}
+
+\begin{frame}[fragile]
+    \frametitle{Set beamertemplate}
+
+    \begin{lstlisting}[language=TeX]
+\setbeamertemplate{some beamer element} {your def. for this template}
+    \end{lstlisting}
+
+    options:
+    \begin{itemize}
+	\item [square] causes a small square to be used to render the template
+	\item [circle]\{{\it radius}\} causes a circle of the given radius to ...
+    \end{itemize}
+
+    \begin{lstlisting}[language=TeX]
+\setbeamertemplate{some beamer element} [square]
+\setbeamertemplate{some beamer element} [circle]{3pt}
+    \end{lstlisting}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Color}
+\begin{frame}[fragile]
+    \frametitle{Color}
+
+    \begin{lstlisting}[language=TeX]
+\setbeamercolor{some beamer element}{fg=red}
+\setbeamercolor{some beamer element}{bg=black}
+\setbeamercolor{some beamer element} {fg=red,bg=black}
+    \end{lstlisting}
+
+    \begin{itemize}
+	\item structure color
+	\item normal text color
+    \end{itemize}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Font}
+\begin{frame}[fragile]
+    \frametitle{Font}
+    \begin{lstlisting}[language=TeX]
+\setbeamerfont{some beamer element} {family=\sffamily, series=\bfseries, shape=\itshape, size=\large}
+    \end{lstlisting}
+    Add a star to the command to first ``reset'' the font.
+\end{frame}
+
+\subsection{Template-Color-Font}
+\begin{frame}[allowframebreaks]
+    \frametitle{Beamer-Template/-Color/-Font}
+
+    \begin{columns}[t]
+	\column{0.5\textwidth}
+	    \begin{itemize}
+		\item head/foot
+		    \begin{itemize}
+			\item headline
+			\item footline
+			\item page number in head/foot
+			\item section in head/foot
+			\item subsection in head/foot
+			\item subsubsection in head/foot
+		    \end{itemize}
+		\item sidebar
+		    \begin{itemize}
+			\item sidebar left
+			\item sidebar right
+			\item section in sidebar
+			\item subsection in sidebar
+			\item subsubsection in sidebar
+		    \end{itemize}
+		\item navigation
+		    \begin{itemize}
+			\item mini frame
+			\item navigation symbols
+		    \end{itemize}
+		\item logo
+		\end{itemize}
+
+	    \column{0.5\textwidth}
+		\begin{itemize}
+		\item toc
+		    \begin{itemize}
+			\item section in toc
+			\item section in toc shaded
+			\item subsection in toc
+			\item subsection in toc shaded
+			\item subsubsection in toc
+			\item subsubsection in toc shaded
+		    \end{itemize}
+		\item title
+		    \begin{itemize}
+			\item frametitle
+			\item frametitle continuation
+			\item title page
+		    \end{itemize}
+		\item background
+		    \begin{itemize}
+			\item background canvas
+			\item background
+		    \end{itemize}
+		\item button
+	    \end{itemize}
+    \end{columns}
+
+    \begin{columns}
+	\column{0.5\textwidth}
+	    \begin{itemize}
+		\item itemize
+		    \begin{itemize}
+			\item itemize item
+			\item itemize subitem
+			\item itemize subsubitem
+		    \end{itemize}
+		\item enumerate
+		    \begin{itemize}
+			\item enumerate item
+			\item enumerate subitem
+			\item enumerate subsubitem
+			\item enumerate mini template
+		    \end{itemize}
+		\item description
+		    \begin{itemize}
+			\item description item
+		    \end{itemize}
+		\item qed symbol
+	    \end{itemize}
+    \end{columns}
+\end{frame}
+
+\subsection*{Color-Font}
+\begin{frame}
+    \frametitle{Beamer-Color/-Font}
+
+    \begin{description}
+	\item[title]	{\bf title, author, institute, date}
+    \end{description}
+\end{frame}
+
+\againframe<2>{Cantor}
+\end{document}
+
