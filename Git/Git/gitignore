@@ -1,0 +1,46 @@
+# write ignored files line by line
+# it supports glob syntax
+# use '/' to ignore dir
+# to exclude something, add "!" before the file name
+
+# global ignore dir.  
+# before version 1.8.2, the right way to ignore all dir. anywhere below the
+# current level in a dri. tree has such a pattern:
+reference/
+tmp/
+test/
+build/
+
+# while from version 1.8.2, git support ** to mean zero or more sub-dir.
+# /**/reference/
+# /**/tmp/
+# /**/test/
+# /**/build/
+
+# latex auxiliary files 
+*.aux
+*.bib
+*.idx
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.x.gnuplot
+*.x.table
+
+# backup file
+*~
+*.bak
+*.bac
+*.bck
+
+# building files
+*.[oa]	# ignore tmp files appears in building process
+!lib.a	# but exclude lib.a
+
+# cached file
+*.swp
