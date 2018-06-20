@@ -1,0 +1,11 @@
+digraph data_type{
+    ordering="out";
+    {"Logical", "Numeric", "Integer", "Complex", "Character", "Raw"} -> "vector";
+    "Character" -> "Character" [label="string", headport="n", tailport="n"];
+    "vector" -> "matrix" -> "list";
+    "vector" -> "array" -> "list";
+    "vector" -> "list";
+    "vector" -> "factor" -> "list";
+    "vector" -> "data.frame" -> "list";
+    "list" -> "list";
+    }
