@@ -1,0 +1,12 @@
+[ alias ll &> /dev/null ] || alias ll='ls -alF'
+[ alias la &> /dev/null ] || alias la='ls -A'
+[ alias l &> /dev/null ]  || alias l='ls -CF'
+alias cp='cp -r'
+alias grep='grep -i'
+alias info='info --vi-keys'
+
+
+######################## personal #########################
+alias cleanlatex='rm *.aux *.bib *.idx *.lof *.log *.lot *.nav *.out *.snm *.toc *.vrb'
+alias vimdigraph='vim ~/.vim/digraphs'
+# vim: set ft=sh : 
