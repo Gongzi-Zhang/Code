@@ -1,0 +1,92 @@
+In[#]:= ?f
+Out[#]= the definition of f
+
+In[#]:= Directory[]
+Out[#]= CWD
+In[#]:= FileNames[]
+Out[#]= List files in CWD
+In[#]:= SetDirectory["/path/to/wanted/directory/"]
+Out[#]= Changing to another WD
+In[#]:= << file
+Out[#]= import a file
+
+
+In[1]:= 119 / 11 + 47 / 13
+Out[1]= 2064/143 
+
+## %: refer to last output ##
+In[2]:= % - 107 / 23	
+Out[2]= 32171 / 3289 
+
+In[]:= %%   (* the second last output *)
+
+## Or you can refer to previous output with Out[N] ##
+In[3]:= Out[1]
+Out[3]= 2064/143
+
+## Precission: evaluate a symbolic expression in floating point in specified precision ##
+In[4]:= N[Pi, 100]  
+Out[4]= 3.1415926...	(* 100 effective number *)
+
+In[5]:= ClearAll[x, y, z]
+Out[5]=
+
+## Solution ##
+In[6]:= u[x_] = C2 + C1 x - x^2/2 - x^3/6
+Out[6]= 
+
+In[7]:= Solve[{u(0) == 0, u[1] == 0}, {C1, C2}]
+Out[7]=
+
+(* Mathematica has another commands for solving equations, one which uses numerical rather than symbolic methods: FindRoot. You needs to specify a starting point for it. *)
+FindRoot[u[x], {x, 0}]
+
+## Simplification ##
+In[8]:= Simplify[%]	    
+
+In[#]:= Integrate[Sin[n Pi x/l] Sin[m Pi x/l], {x, 0, 1}]
+In[#]:= Simplify[%]
+In[#]:= Simplify[%, Element[{m, n}, Integers]]	(* Simplify the result when m,n are integers *)
+
+## gather like terms ##
+In[9]:= p1[x_] = 1
+	p2[x_] = x - 1/2
+	p3[x_] = x^2 - x + 1/6
+	q[x_] = a x^2 + b x + c
+Out[9]=
+
+In[10]:= q[x] - (c1 p1[x] + c2 p2[x] + c3 p3[x])
+Out[10]=
+
+In[11]:= Collect[%, x]
+Out[11]= c - c1 + c2/2 - c3/6 + (b - c2 + c3) x + (a - c3) x^2 
+
+In[12]:= Solve[{Coefficient[%, x, 0] == 0, Coefficient[%, x, 1] == 0, Coefficient[%, x, 2] == 0}, {c1, c2, c3}]
+Out[12]=
+
+## replacement operator "/." ##
+In[13]:= x^2 + 3 x + 1 /. x->3	(* the value for x only apply to the foregoing expression; it has no permanent effect. In particular, x has not beenassigned the value of 3 *)
+Out[13]= 19
+
+In[14]:= x
+Out[14]= x
+
+In[15]:= Solve[2 x + 1 ==0, x]
+Out[15]= {{x->-1/2}}
+
+In[16]:= x/.%[[1]]  (* extract solution *)
+Out[16]= -1/2
+
+## delay evaluation assignment operator ":=", compared to immediate-evaluation assignment operator "=". With delay evaluation, it will not be evaluated until called with specific inputs ##
+In[17]:= f[x_] = x x
+Out[17]= x^2
+
+In[18]:= g[x_] = x x
+Out[18]= x x
+
+In[N]:= 
+Out[N]=
+
+In[N]:= 
+Out[N]=
+

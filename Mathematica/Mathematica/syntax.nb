@@ -1,0 +1,68 @@
+(* Comments *)
+
+# Table #
+(* The Table command produces a list of points that is indexed from 1 to
+n+1. *) 
+Table[f[x], {x,min,max,step}]
+Table[f[x], {x,4,20,2}]
+t = Table[f[x], {x, {5, 10, 20, 10, 5}}]
+ListPlot[t]	(* scatter plot of list points *)
+tf = Interpolation[t]	(* create an interpolating function from the list points *)
+v = Table[{i/5, N[Sin[Pi i/5]]}, {i, 0, 5}]
+p = Interpolation[v, InterpolationOrder->1] (* linear interpolation *)
+
+# List #
+u = {{2,3}, {4,5,6}}
+Flatten[u]  (* flattern a nested list *)
+Flatten[{0, u, 0}]  (* add 0 to both ends of a list *)
+Take[Flatten[u], {3,6}]	(* extract a sublist *)
+
+
+# Patterns #
+_  any expression
+Cases[{f[1], g[2], f[5], g[3]}, f[_]]
+
+x_(x:_)	stands for a pattern whose value will be names x:
+Rapleca[f[100], f[x_]->x+5]
+
+/. replace everywhere
+{f[1], g[2], f[5], g[3] /. f[x_] -> x+5}
+
+__ stands for any sequence of expression
+Cases[{f[1,2], f[1], g[3]},f[__]]
+
+a|b|c or
+Cases[{f[1], g[2], f[2], f[5], g[3]}, f[1|5]]
+Cases[{f[1], g[2], f[2], f[5], g[3]}, (f|g)[2]]
+
+_h any expression with head h
+Cases[{1, 2.5, 3.5, 4}, _Real]
+
+
+# Plot #
+Plot[f, {x, x_min, x_max}]
+# options:
+Plot[f, {x, 0, 10}, PlotRange->All]
+Plot[f, {x, 0, 10}, PlotLabels->"Expressions", Filling->Bottom]
+Plot[{f1, f2}, {x, 0, 10}, Filling->{1->{2}}]
+Plot[Evaluate[Table[BasselJ[n,x], {n,4}]], {x, 0, 10}, Filling->Axis]
+Plot[{Sin[x], Cos[x]}, {x, 0, 2Pi}, PlotLegends->{Sin[x], Cos[x]}]
+Plot3D[u[x,y], {x, -5, 5}, {y, 0, 10}]
+Plot3D[u[x,y], {x, -5, 5}, {y, 0, 10}, PlotPoints->k]	(* the PlotPoints->k option cause Mathemetica to use a grid with k^2 points [default k=15]  *)
+FindRoot[BesselJ[1, x], {x, 4.}]
+s = (x /. %)
+phi[r_, t_] = BesselJ[1, s r] Cos[t]
+ParametricPlot3D[{r Cos[t], r Sin[t], phi[r,t]}, {r, 0, 1}, {t, 0, 2 Pi}]
+(* Cylindrical coordinates *)
+
+
+# Do #
+Do[expr, {i, imin, imax}]   (* do the expr imax-imin+1 times  *)
+# If #
+If[i == j, 1, 0]
+
+# System Functions #
+tmp = TimeUsed[]    (* the CPU time used by the Mathematica kernel since the beginning of the session *)
+
+# Miscellaneous #
+Length[f]   (* number of elements of an object: list, table .... *)

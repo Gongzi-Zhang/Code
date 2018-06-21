@@ -1,0 +1,24 @@
+Plot[u[x], {x,0,1}]	(* Plot u(x) in x range 0 to 1 *)
+Plot[u[x], {x,0,1}, PlotRange->{0,25}]	(* PlotRange specifies the y range *)
+Plot[u[x], {x,0,1},
+     PlotRange->{0,25},
+     AxesLabel->{"x", "u(x)"}, PlotLabel->"Solution to a simple BVP"]
+(* AxesLabel: Label for axes;
+   PlotLabel: title of the plot; *)
+
+Plot[{u[x], v[x]}, {x,0,1}] (* Plot u(x) and v(x) on the same canvas *)
+plot1 = Plot[u[x], {x, 0, 1}]
+plot2 = Plot[v[x], {x, 0, 1}]
+Show[plot1, plot2]
+
+## ListPlot ##
+(* to use ListPlot, the data must be stored as (x,y) "pairs" in a table or a matrix with "two" columns *)
+x = {0.1, 0.2, 0.3, 0.4, 0.75, 0.9}
+y = {1.7805, 2.2285, 2.3941, 3.2226, 3.5697}
+data = Transpose[{x, y}]
+ListPlot[data]
+plot1 = ListPlot[data,
+		 PlotStyle->PointSize[0.02]]	(* plotstyle *)
+
+## Export ##
+Export["plot.png", plot1]

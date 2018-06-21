@@ -1,0 +1,94 @@
+# Functions #
+
+## Definition ##
+f[x_,y_]:=x+y
+f::usage = "usage about f; f is an example function"
+
+p[1][x_] = 1
+p[2][x_] = x
+p[3][x_] = x^2
+(* So you can call a function with p[i] *)
+
+euler[f_, t0_, T_, u0_, n_] :=
+    Module[{U, i, dt}, U = Table[{Null, Null}, {i, 0, n}];
+      U[[1, 1]] = t0;
+      U[[1, 2]] = u0;
+      dt = (T-t0) / n;
+      Do[
+        U[[i+1, 1]] = U[[i, 1]] + dt;
+        U[[i+1, 2]] = U[[i, 2]] + dt*f[U[[i,1]], U[[i, 2]]], {i, 1, n}];
+      U]
+(* The Module command localize every variable used in this function *)
+
+## Clear ##
+Clear[f]    (* 'Clear' delete the definition of a symbol but not necessarily all of the info associated with it. In this case, use 'ClearAll' *)
+ClearAll[f]
+
+## /; restrict a definition to apply only when a particular conditions holds ##
+f[x_,y_]:=x-y/;x>y
+
+f[{x_,y_}, z_] := {x+z, y-z}
+
+## Map ##
+Map[f, {a,b,c,d}]	
+    ==> {f[a], f[b], f[c], f[d]}
+f/@{a,b,c,d}
+Apply[f, {a,b,c,d}]	
+    ==> f[a,b,c,d]
+
+## Options ##  
+Options[Framed]	  (* gives the default options of a functiona *)
+
+## Expansion ##
+Series[expr, {x, x0, n}]    (* find the power series expansion of expr about the point x=x0 to order at most (x-x0)^n *)
+
+## Derivative ##
+D[f[x], {x, n}]	(* n_th order derivative *)
+D[f[x], x, x]	(* the second order derivative of x *)
+D[f[x], x, y]	(* mixed partial derivative of x and y *)
+(* note: it is f[x], not f. D computes the derivative of an expression, 
+not of a function. f is a function while f[x] is an expression *)
+D[f, x]	: gives out 0
+
+### Solve PDE ###
+DSolve[{v'[t] == v[t]^2, v[0] == 1/(1+s^2)}, v[t], t]
+DSolve[v'[t] == v[t]^2, v[t], t]    (* no initial condition *)
+sol = DSolve[{x'[t] == v[t], y'[t] == y[t], v'[t] == x[t], x[0] == s, y[0] == 1, v[0] == 2s}, {x[t], y[t], v[t]}, t]	(* solve a system of ODEs *)
+x[t_] = (x[t]/.sol[[1]])
+y[t_] = (y[t]/.sol[[1]])
+v[t_] = (v[t]/.sol[[1]])
+
+## Integrate ##
+Integrate[f[x], x]  (* indefinite integral *)
+Integrate[Sin[x], {x,0,1}]
+NIntegrate[E^Cos[x], {x,0,1}]	(* 2.34157, Numerical integration *)
+
+## Built in ##
+Floor[x]    (* largest integral smaller than x *)
+Ceiling[x]  (* smallest integral larger than x *)
+Sign[x]	    
+Round[x]    (* integral closet to x *)
+Abs[x]
+Max[x1, x2, x3, x4]
+Min[x1, x2, x3, x4]
+Random[]    (* random number between 0-1 *)
+Random[real, xmax]  (* random number between 0-xmax *)
+Exp[x]
+Log[x]
+Log[b,x]    (* log with base b *)
+Sin[x], Cos[x], Tan[x], Csc[x], Sec[x], Cot[x]
+Sinh[x], Cosh[x], Tanh[x], Csch[x], Sech[x], Coth[x]
+Mod[m,n]    (* mod of m%n *)
+Sum[n Sin[n Pi x], {n, 1, M}]
+
+
+LegendreP[n,x]
+BesselJ[n,x], BesselY[n,x]  (* Bessel function of 1st and 2nd kind *) 
+BesselI[n,x], BesselK[n,x]  (* modified Bessel function *)
+
+
+# Fourier Transformation #
+f = N[{0, -(2/3)^3, -(1/3)^3, 0, (1/3)^3, (2/3)^3}]
+f1 = {f[[4]], f[[5]], f[[6]], f[[1]], f[[2]], f[[3]]}
+F1 = Fourier[f1, FourierParameters->{-1, -1}]	(* FFT *)
+

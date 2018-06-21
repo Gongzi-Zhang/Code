@@ -1,0 +1,50 @@
+x = {1,2,3}	(* a vector *)
+MatrixForm[x]	(* transform into a column matrix *)
+x//MatrixForm	(* alternative *)
+
+## A matrix is a list of row vectors ##
+A = {{1,2,-1}, {4,0,1}, {-7,-2,3}}
+A//MatrixForm
+
+## Transpose ##
+Transpose[A]	
+
+## Multiplication is indicated by the Dot(.) operator ##
+A.x
+A.A
+c = LinearSolve[A, x]   (* A.c = x *)
+
+## Indexing ##
+x[[3]]	(* The third vector component *)
+A[[2,3]]    (* matrix entry *)
+A[[2]]	(* the second row of matrix A *)
+A[[2, All]] (* the second row *)
+A[[All, 2]] (* the second column of the A matrix *)
+
+## NullSpace: it returns a list of vectors, which forms a basis for the nullspace of the given matrix ##
+NullSpace[A]
+y=%[[1]]
+A.y	(* {0,0,0} *)
+
+## Determinant && Inverse ##
+Det[A]
+Ainv = Inverse[A]
+(* Note that the computing of determinant is not a good way to check that
+the matrix is nonsingular. If the matrix is large and the entries are 
+floating point numbers, the determinant is likely to give a misleading 
+answer due to round-off error. A better command is MatrixRand. *)
+MatrixRand[A]
+
+## Eigenvalues and Eignevectors ##
+evals = Eigenvalues[A]
+evecs = Eigenvectors[A]	(* There is no guarantee that the order in these two lists is the same *)
+{evals, evecs} = Eigensystem[A]	(* Produce eigenvalues and eigenvectors at the same time and make sure that their order are correpond to each other. *)
+
+## Identity ##
+IdentityMatrix[4]   (* Identity of dimention 4 *)
+
+## SparseArray ##
+A = {{1, 0, 0, 0}, {1, 2, 0, 0}, {0, 0, 3, 4}, {0, 0, 0, 4}}
+B = SparseArray[A]
+M = SparseArray[{
+    {1, 1}->1, {2, 1}->1, {2, 2}->2, {3, 3}->3, {3, 4}->4, {4, 4}->4 }]

@@ -1,0 +1,5 @@
+/*
+!.gitignore
+/*/**/reference/
+/*/**/test/
+!/Mathematica
