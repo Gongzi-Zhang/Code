@@ -1,0 +1,29 @@
+# host Access Point daemon
+
+## configure hostapd
+sudo vim /etc/hostapd/hostapd.conf
+interface=wlan0
+driver=[choose suitable drive or delete this item](nl80211)
+ssid=Pi
+hw_mode=g
+channel=6
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=3.1415926
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+## test hostapd
+sudo hostapd /etc/hostapd/hostapd.conf	
+    right now, one should be able to detect the AP, and able to connect
+    to it with passphrase, but unable to get IP
+
+or:
+sudo reboot
+sudo hostapd -dd /etc/hostapd/hostapd.conf
+
+If everything works well, then we can do the following:(configure its configure file's path)
+sudo vim /etc/dafault/hostapd
+DAEMON_CONF="/etc/hostapd/hostapd.conf"

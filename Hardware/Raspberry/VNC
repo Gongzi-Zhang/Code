@@ -1,0 +1,8 @@
+# remote desktop display
+
+# install vncserver
+sudo apt-get install tightvncserver
+# set password
+tightvncserver
+# turn on
+vncserver :2 -geometry 800x600 -depth 24 -dpi 96

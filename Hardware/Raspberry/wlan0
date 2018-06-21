@@ -1,0 +1,34 @@
+# configure wlan0 interface 
+allow-hotplug wlan0
+iface wlan0 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
+    network 192.168.1.0
+    broadcast 192.168.1.0
+#iface wlan0 inet manual
+#wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf	# set to connect automatically
+
+
+# use as a bridge
+If there is a Wifi Hot-Spot already,and you just want your Raspberry 
+to expand the wifi range ,then set Raspberry as a wifi-bridge, under 
+which the clients connect to Raspberry will share same LAN with the 
+old clients connect to original Hot-Spot
+
+1: Install bridge package
+$ sudo apt-get install bridge-utils
+2: configure
+$ sudo vim /etc/network/interfaces
+auto lo
+
+iface lo inet loopback
+iface eth0 inet dhcp
+
+#allow-hotplug wlan0
+#iface wlan0 inet manual
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface default inet dhcp
+
+auto br0
+iface br0 inet dhcp
+bridge_ports eth0 wlan0 

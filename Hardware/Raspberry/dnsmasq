@@ -1,0 +1,8 @@
+# dnsmasq
+another daemon to provide DHCP and DNS service
+configure file:	/etc/dnsmasq.conf
+interface=wlan0
+dhcp-range=192.168.200.100,192.168.200.200,255.255.255.0,12h
+
+sudo ifconfig wlan0 192.168.200.1
+sudo service dnsmasq restart

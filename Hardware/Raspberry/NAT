@@ -1,0 +1,31 @@
+# turn on NAT:network address translation
+
+1: turn on IP forward
+sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+
+# or manual setting
+sudo vi /etc/sysctl.conf
+uncomment:
+#   net.ipv4.ip_forward=1
+
+2: set iptables
+#  sudo iptables -F
+#  sudo iptables -F -t nat
+  sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+  sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+  sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+# save iptables setting, save it to /etc/iptables.ipv4.nat:
+sudo bash -c 'iptables-save > /etc/iptables.ipv4.nat'
+# restore it automatically when booting:
+add the following line to the end of /etc/network/interfaces
+up iptables-restore < /etc/iptables.ipv4.nat
+
+# sudo bash -c 'iptables-save > /etc/network/iptables'
+# sudo iptables-restore < /etc/network/iptables
+# set it as auto-loading
+#   sudo vim /etc/rc.local    # add this:
+# sudo iptables-restore < /etc/network/iptables
+
+5: turn on hostapd service
+  sudo service hostapd restart
+$ sudo update-rc.d hostapd defaults	# set it as auto-loaded while booting

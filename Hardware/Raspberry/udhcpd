@@ -1,0 +1,16 @@
+# assign ip for devices connected to the hot-spot
+sudo apt-get install udhcpd
+
+configure file: /etc/udhcpd.conf
+start 192.168.42.2  # start of IP range
+end   192.168.42.20 # end of IP range
+interface wlan0	# the device uDHCP listens on
+remaining yes	# ???
+opt dns 8.8.8.8 4.2.2.2	#  the DNS servers client devices will use
+opt subnet  255.255.255.0
+opt router 192.168.42.1	# The Pi's IP address on wlan0 
+opt lease 864000    # 10 days DHCP lease time in seconds
+
+
+2: and then in file /etc/default/udhcpd, comment the following:
+# DHCPD_ENABLED="no"
