@@ -1,0 +1,449 @@
+# string and expression 
+_
+    in interactive mode, the last printed expression is assigned to 
+    the variable _, which should be read-only, don't explicity assign
+    a value to it -- you would create an independent local variable
+    with the same name masking the build-in var. with its magic 
+    behavior
+j/J
+    to express complex: 3+5j
+raw strings
+    >>> print('C:\some\name')   # here \n means newline!
+    C:\some
+    ame
+    >>> print(r'C:\some\name')	# note the r before the quote
+    C:\some\name
+triple-quotes: """...""" or '''...'''
+    >>> print ("""\
+    Usage: thingy [OPTIONS]
+    -h		    Display this usage message
+    -H hostname	    Hostname to connect ot
+    """)
+* + used in string concatenation
+    >>> 3 * 'un' + 'ium'
+    unununium
+index of string
+    >>> word = "Python"
+    >>> word[0]	    #  index begin with 0
+    P
+    >>> word[5]
+    n
+    >>> word[-1]    # minus index, counting from last, begin from -1
+    n
+    >>> word[-6]
+    P
+    >>> word[0:2]   # char from position 0 (included ) to 2 (excluded)
+    Py
+    >>> word[:2] + word[2:]	# note that the start is always included, and the end always excluded. 
+    Python
+    >>> word[-2:]   # chars from the second-last to the end
+    on
+    >>> word[4:42]  # out of range slice indexes are handled gracefuuly
+    'on'
+    >>> word[42:]
+    ''
+    >>> word[42]    # but index out of range leads to error
+    !!! Error
+
+# list
+# list might contain items of different types, but usually the items 
+# all have the same type.
+
+## list is mutable, unlike string, which is immutable
+    >>> letters = ['a', 'b', 'c', 'd', 'e', 'f']
+    >>> letters
+    ['a', 'b', 'c', 'd', 'e', 'f'] 
+    >>> letters[2:5] = ['C', 'D', 'E']
+    >>> letters
+    ['a', 'b', 'C', 'D', 'E', 'f'] 
+    >>> letters[:] = []
+    >>> letters
+    []
+
+# programming
+## example
+    a, b = 0, 1
+    while b < 10:
+	print(b)
+	a, b = b, a+b
+
+## for loop
+    >>> words = ['cat', 'window', 'defenstrate']
+    >>> for w in words[:]:  # think about what will happen for such sentence: for w in words
+    ...	    inf len(w) > 6:
+    ...		words.insert(0,w)
+    ...
+    >>> words
+    ['defenstrate', 'cat', 'window', 'defenstrate']
+# made a slice copy of original list while you want to change it.
+
+## pass
+# the pass statement does nothing. It can be used when a statement is 
+# required syntactically but the program requires no action.
+# Another place pass can be used is as a place-holder for a function
+# or conditional bod when you are working on new code, allowing you
+# keep thinking at a more abstract level.
+
+
+
+# functions
+    >>> def func(arg1, arg2, ...):
+    ...	    pass
+
+## default arguments
+# default value is evaluated only once.
+    >>> def f(a, L=[]):
+    ...	    L.append(a)
+    ...	    return L
+    ...
+    >>> print(f(1))
+    [1]
+    >>> print(f(2))
+    [1, 2]
+    >>> print(f(3))
+    [1, 2, 3]
+# if you don't want the default to be share between subsequent calls, 
+# you can write the function like this istead:
+    >>> def f(a, L=None):
+    ...	    if L is None:
+    ...		L = []
+    ...	    L.append(a)
+    ...	    return L
+    ...
+# Gild the Lily, just remove L in the argument list
+
+## arbitrary argument lists
+# these undefined arguments will be wrapped up in a tuple. Normally,
+# these variadic arguments will be last in the list of formal 
+# parameters, because they scoop up all remaining input arguments
+# that are passed to the function. Any formal parameters which occur 
+# after the *args parameter are 'keyword-only' arguments.
+    >>> def concat(*args, sep="/"):
+    ...	    return sep.join(args)
+
+## lambda function
+    >>> def make_incrementor(n):
+    ...	    return lambda x: x + n
+    ...
+    >>> f = make_incrementor(42)
+    >>> f(0)
+    42
+    >>> f(1)
+    43
+
+## documentation
+    >>> def my_function():
+    ...	    """ Do nothing, but document it.
+    ...
+    ...	    No, really, it doesn't do anything.
+    ...	    """
+    ...	    pass
+    >>> print(my_function.__doc__)
+    Do nothing, but document it.
+
+	No, really, it doesn't do anything.
+	
+## annotation
+# Function annotations are completely optional metadata information 
+# about the types used by user-defined functions 
+# Annotations are stored in the __annotations__ attribute of the 
+# function as a dictionary and have no effect on any other part of the 
+# function. Parameter annotations are defined by a colon after the 
+# parameter name, followed by an expression evaluating to the value of 
+# the annotation. Return annotations are defined by a literal ->, 
+# followed by an expression, between the parameter list and the colon 
+# denoting the end of the def statement.
+    >>> def f(ham: str, eggs: str = 'eggs') -> str:
+    ...     print("Annotations:", f.__annotations__)
+    ...     print("Arguments:", ham, eggs)
+    ...     return ham + ' and ' + eggs
+    ...
+    >>> f('spam')
+    Annotations: {'ham': <class 'str'>, 'return': <class 'str'>, 'eggs': <class 'str'>}
+    Arguments: spam eggs
+    'spam and eggs'
+
+
+# list
+list.append(x)  
+    append an item to a list, equivalent to a[len(a):] = [x]
+list.extend(L)
+    extend the list by appending all the items in the given list. 
+    same as a[len(a):] = L
+list.insert(i,x)
+    insert an item x in position i
+list.remove(x)
+    remove the first occurence of value of x, error if no such item
+list.pop(i)
+    pop out the item at the given position in the list, and return it.
+    if no index is spicified, a.pop() removes and returns the last item
+    in the list.
+list.clear()
+    clear all items in the list, equivalent to del a[:]
+list.index(x)
+    return the index in the list of the first item whose value is x.
+    error thrown out if no such item.
+list.count(x)
+    return the number of times x appears in the list
+list.sort(key=None, reverse=False)
+    sort the items of the list in place 
+list.reverse()
+    reversation of the list
+list.copy()
+    return a shadow copy of the list. Equivalent to a[:]
+
+
+# tuple
+# a tuple consists of a number of values separated by commas, which
+# are is enclosed in parentheses and immutable
+a tuple with one item is constructed by following a value with a 
+comma(it is not sufficient to enclose a single value in parentheses)
+    >>> singleton = 'hello',
+
+for tuples with more than one item:
+    >>> multituple = 1234, 4563, "a"
+
+
+# sets  -- an unordered collection with no duplicate elements, which 
+# is usually closed in curly brace.
+to create an empty set, use set(), not {}
+
+# dictionary
+d = {key:value, ...}
+d = dict(key=value, ....)
+## iterate through dictionary
+for key, value in dic.items():
+    blabla....
+
+
+# enumerate
+    >>> photofiles = ['img_1074.jpg', 'img_1075.jpg', 'img_1076.jpg']
+    >>> for i, filename in enumerate(photofiles):
+    ...	    print (i, filename)
+    ...
+    0 img_1074.jpg
+    1 img_1075.jpg
+    2 img_1076.jpg
+
+# class
+## Instance Objects
+Valid method names of an instance object depend on its class. By 
+definition, all attributes of a class that are function objects 
+define corresponding methods of its instance. But 'method object'
+is not the same thing as 'function object'.
+
+i.e.
+    >>> class MyClass:
+    ...	    """ A simple example class """
+    ...	    i = 12345
+    ...	    def f(self):
+    ...		return 'hello world'
+    ...
+    x = MyClass()   # instance object
+    >>> x.f()	# method object, which is not the same as MyClass.f()
+    'hello world'
+    >>> MyClass.f()
+    TypeError: f() missing 1 required positional argument: 'self'
+    
+#   Actually, when x.f() is called, the special thing about method is 
+#   that the object is passed as the first argument of the function. 
+#   So, x.f() is exactly equivalent to MyClass.f(x). 
+
+## inheritance
+When a class object is constructed, the base class is remembered. This
+is used for resolving attribute references: if a requested attribute is
+not found in the class, the search proceeds to look in the base clas.
+The rule is applied recursively if the base class itself is derived 
+from some other class.
+
+## private variables
+"Private" instance vai. that cannot be accessed except from inside an 
+object do not exist in Python. However, there is a convention that is
+followed by most Python code: a name prefixed with an underscore shouldbe treated as a non-public part of the API.
+
+
+Each value is an object.
+
+# module
+
+## standard modules
+### os
+    >>> import os
+    >>> os.getcwd()	# current working dir.
+    >>> os.chdir('dir-name')	# change to specified dir.
+    >>> os.system('mkdir new-dir')  # system command, make new dir.
+
+### shutil  shell utilities
+    >>> import shutil
+    >>> shutil.copyfile('destinated file', 'target file')
+    >>> shutil.move('old', 'new')
+
+### file glob
+    >>> import glob
+    >>> glob.glob('*.py')
+
+### command line arguments
+    >>> import sys
+    >>> sys.argv    # command line arguments are stored in the sys 
+		    # module's argv attribute as a list
+### string pattern matching
+    >>> import re
+    >>> re.findall(r'\bf[a-z]*', 'which foot or hand fell fastest')
+    ['foot', 'fell', 'fastest']
+    >>> re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')
+    'cat in the hat'
+
+### mathematics
+    >>> import math
+    >>> math.log(1024, 2)
+    10.0
+
+    >>> import random
+    >>> random.choice(['apple', 'pear', 'banana'])
+    'apple'
+    >>> random.sample(range(100), 10)	# sample without replacement
+    [30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
+    >>> random.random()
+    0.17834529579325
+    >>> random.randrange(6)
+    4
+
+    >>> import statistics
+    >>> data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
+    >>> statistics.mean(data)
+    1.6071428571428572
+    >>> statistics.median(data)
+    1.25
+    >>> statistics.variance(data)
+    1.3720238095238095
+#### the SciPy project <https://scipy.org/> has many other modules
+    #for numerical computations
+
+
+### internet access
+    >>> from urllib.request import urlopen
+    >>> with urlopen('http://tycho.usno.navy.mil/cgi-bin/timer.pl') as response:
+    ...	    for line in respoonse:
+    ...		line = line.decode('utf-8') # decoding the binary data to textt
+    ...		if 'EST' in line or 'EDT' in line:
+    ...		    print(line)
+
+    >>> import smtplib
+    >>> server = smtplib.SMTP('localhost')
+    >>> server.sendmail('soothsayer@example.org', 'jcaesar@example.org',
+    ... """To: jcaesar@example.org
+    ... From: soothsayer@example.org
+    ...
+    ... Beware the Ides of March.
+    ... """)
+    >>> server.quit()
+    #  note that the second example needs a mailserver running on localhost
+
+
+### dates and times
+    >>> from datetime import data
+    >>> now = date.today()
+    >>> now
+    datetime.date(2016, 7, 21)
+    >>> now.strftiem("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+    '07-21-16. 21 Jul 2016 is a Thursday on the 21 day of July.'
+     
+     >>> birthday = date(1998, 2, 17)
+     >>> age = now - birthday
+     >>> age.days
+     6729
+
+### Data compression
+     >>> import zlib
+     >>> s = b'witch which has which witches wrist watch' # note the b in front of the string, pure string is not appliable for compress. only bytes can be compressed.
+     >>> len(s)
+     41
+     >>> t = zlib.compress(s)
+     >>> len(t)
+     37
+     >>> zlib.decompress(t)
+     b'witch which has which witches wrist watch'
+
+
+### performance measurement
+     >>> from timeit import Timer
+     >>> Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+     0.05756356399979268
+     >>> Timer('a,b = b,a', 'a=1; b=2').timeit()
+     0.0498731730003783
+
+### templating
+# the format uses placeholder names formed bu $ with valid Python 
+# identifiers.
+    >>> from string import Template     
+    >>> t = Template('${village}folk send $$10 to $cause.') # $$ means liberal $
+    >>> t.substitute(village='Nottingham', cause='the ditch fund')
+    'Nottinghamfolk send $10 to the ditch fund.'
+
+### multi-threading
+    >>> import threading, zipfile
+    >>> class AsyncZip(threading.Thread):
+    ...	    def __init__(self, infile, outfile):
+    ...		threading.Thread.__init__(self)
+    ...		self.infile = infile
+    ...		self.outfile = outfile
+    ...
+    ...	    def run(self):
+    ...		f = zipfile.ZipFile(self.outfile, 'w', self.infile)
+    ...		f.write(self.infile)
+    ...		f.close()
+    ...		print('Finished background zip of:', self.infile)
+    ...
+    >>> background = AsyncZip('mydata.txt', 'myarchive.zip')
+    >>> background.start()
+    >>> print('the main program continues to run in foreground.')
+    the main program continues to run in foreground.
+    >>> background.join() # wait for the background task to finish
+    >>> print('Main program waited until background was done.')
+#   The principal challenge of multi-threaded applications is 
+#   coordinating threads that share data or other resources. To that 
+#   end, the threading module provides a number of synchronization 
+#   primitives including locks, events, condition variables, and 
+#   semaphores. While those tools are powerful, minor design errors 
+#   can result in problems that are difficult to reproduce. So, the 
+#   preferred approach to task coordination is to concentrate all 
+#   access to a resource in a single thread and then use the queue 
+#   module to feed that thread with requests from other threads. 
+#   Applications using Queue objects for inter-thread communication and
+#   coordination are easier to design, more readable, and more reliable
+
+### logging, At its simplest, log messages are sent to a file or to sys.stderr
+    >>> import logging
+    >>> logging.debug('Debugging information')
+    >>> logging.info('Informational message')
+    >>> logging.warning('Warning: config file %s not found', 'server.conf')
+    >>> logging.error('Error occurred')
+    >>> logging.critical('Critical error -- shutting down')
+
+### Decimal floating point arithmetic
+    # the decimal module offers a Decunak datatype for decimal floating
+    # point arithmetic. Compared to the built0in float implementation 
+    # of binary floating point, it has more control over precision.
+    >>> import decimal
+    >>> round(Decimal('0.70') * Decimal('1.05'), 2)
+    Decimal('0.74')
+    >>> round(.70 * 1.05, 2)
+    0.73
+
+
+# virtual environment, provide different version of libraries
+3.4.0 ships the script, however, 3.4.3 in trusty-proposed does not.So 
+we need to call pyvenv in the way like this:
+    $ python3 -m venv --withou-pip venv  # this will create a venv 
+					 # virtual environment
+    $ source venv/bin/activate	    # activate it
+
+# binary floating point arithmetic
+due to binary nature of computing machine, some decimal expression is 
+unable to store with a binary expression of exactly the same value as
+the decimal one. therefore, binary storage is only the most closest
+value to the decimal expression, which may sometimes cause some 
+problem. for example:
+    .1 + .1 + .1 == .3  
+    false
+
