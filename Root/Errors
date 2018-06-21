@@ -1,0 +1,7 @@
+# some common errors you may come across in running root
+
+*: Error in macro "VBFNLO_Raw.cxx" not found in path .:/home/zhangweibin/bin/root/macros:
+    reason:
+    .L "VBFNLO_Raw.cxx"
+    change to :
+    .L VBFNLO_Raw.cxx
