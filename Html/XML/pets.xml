@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pets>
+    <pet>
+	<animal> cat </animal>
+	<name> Lucy </name>
+	<breed> American Shorthair </breed>
+	<note> She raised me </note>
+    </pet>
+    <pet>
+	<animal> cat </animal>
+	<name> Homer </name>
+	<breed> unknown </breed>
+	<note> Named after a world-famous bassoonist </note>
+    </pet>
+    <pet>
+	<animal> dog </animal>
+	<name> Muchacha </name>
+	<breed> mutt </breed>
+	<note> One of the ugliest dogs I've ever met </note>
+    </pet>
+</pets>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.ort/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="EN" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/xml; charset=utf-8" />
+<title> Regular Expression </title>
+<style>
+    td {text-align: center;}
+</style>
+</head>
+
+<body>
+<h1> Summarizes the main operators in JavaScript regular expressions. </h1>
+<table  border = "1" align = "center">
+    <tr>
+	<th colspan = "5">
+	    <h3> Regular Expression Operators in JavaScript </h3> 
+	</th>
+    </tr>
+    <tr>
+	<th> Operator </th>
+	<th> Description </th> 
+	<th> Sample Pattern </th>
+	<th> Matches </th>
+	<th> Doesn't Match </th>
+    </tr>
+    <tr>
+	<td> .(period) </td>
+	<td> Any single character except newline </td>
+	<td> . </td>
+	<td> E </td>
+	<td> \n </td> 
+    </tr>
+    <tr>
+	<td> ^ </td>
+	<td> Begining of string </td>
+	<td> ^a </td>
+	<td> apple </td> 
+	<td> Banana </td>
+    </tr>
+    <tr>
+	<td> $ </td>
+	<td> End of string </td>
+	<td> a$ </td>
+	<td> Banana </td>
+	<td> apple </td>
+    </tr>
+    <tr>
+	<td> [characters] </td>
+	<td> Any of a list of characters in braces </td>
+	<td> [abcABC] </td>
+	<td> A </td>
+	<td> D </td>
+    </tr>
+    <tr>
+	<td> [char range] </td>
+	<td> Any character in the range </td>
+	<td> [a-zA-Z] </td>
+	<td> F </td>
+	<td> 9 </td>
+    </tr>
+    <tr>
+	<td> \d </td>
+	<td> Any single numeracal digit </td>
+	<td> \d\d\d-\d\d\d\d </td>
+	<td> 123-4567 </td>
+	<td> The-thing </td>
+    </tr>
+    <tr>
+	<td> \b </td>
+	<td> A word boundary </td>
+	<td> \bthe\b </td>
+	<td> the </td>
+	<td> theater </td>
+    </tr>
+    <tr>
+	<td> + </td>
+	<td> One or more occurrences of the previous character </td>
+	<td> \d+ </td>
+	<td> 1234 </td>
+	<td> Text </td>
+    </tr>
+    <tr>
+	<td> * </td>
+	<td> Zero or more occurrences of the previous character </td>
+	<td> [a-zA-Z]d* </td>
+	<td> B17,g </td>
+	<td> 7 </td>
+    </tr>
+    <tr>
+	<td> {digit} </td>
+	<td> Repeat preceding character digit times </td>
+	<td> \d{3}-\d{4} </td>
+	<td> 123-4567 </td>
+	<td> 999-99-9999 </td>
+    </tr>
+    <tr>
+	<td> {min,max} </td>
+	<td> Repeat precedint character at least min but not more than max times </td>
+	<td> .{2,4} </td>
+	<td> Ca,com,info </td>
+	<td> watermelon </td>
+    </tr>
+    <tr>
+	<td> (pattern segment) </td>
+	<td> Store results in pattern memory returned with code </td>
+	<td> ^(.).*\1$ </td>
+	<td> gig,wallow </td>
+	<td> Bobby </td>
+    </tr>
+</table>
+</body>
+</html>
