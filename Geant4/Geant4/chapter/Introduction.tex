@@ -1,0 +1,30 @@
+\section{Introduction}
+This is a personal introduction to \G{}.
+https://www.ge.infn.it/geant4/events/nss2003/geant4lectures.html
+
+Event biasing (variance reduction) techniques:
+\begin{itemize}
+    \item Primary event biasing	\\
+	Biasing primary events/particles in terms of type of event, momentum
+	distribution. 
+    \item Leading particle biasing \\
+	Taking only the most energetic (or most important) secondary. \\
+	Simulating of a full shower is an expensive calculation. Instread of
+	generating a full shower, trace only the most energetic secondary.
+	Other secondary particles are immediately killed befoer being
+	stacked. In this way, it is convenient to roughly estimate, e.g. the
+	thickness of a shielf. Of course, physical quantities such as energy
+	are not conserved for each event.
+    \item Physics based biasing \\
+	Biasing secondary production in terms of particle type, momentum
+	distribution, cross-section, etc.
+    \item Geometry based biasing \\
+	Importance weighting for volume/region. \\
+	Duplication of sudden death of tracks.	\\
+	Define importance for each geometrical region, duplicate a track
+	with relative weight if it goes toward more important region.
+	Russian-roulette in another direction.
+	Scoring particle flux with weights.
+    \item Forced interaction \\
+	Force a particular interaction, e.g. within a volume.
+\end{itemize}

@@ -1,0 +1,65 @@
+\section{Basic}
+Basic ideas and concepts in \G{}.
+
+\begin{description}
+    \item [Step]
+	Sample NMFP (Number of Mean Free Path) by the \emph{material independent way}	$\Rightarrow$ Using the xsection in the material where the particle is currently in, converts NMFP to the PL (physical length) $\Rightarrow$ The process which has the minimum PL determines the step length.
+\end{description}
+\subsection{Example}
+\begin{enumerate}
+    \item General
+	\begin{enumerate}
+	    \item Configure the \textbf{Run}
+	    \item Configure the \textbf{Event} Loop
+	\end{enumerate}
+    \item Experimental set-up
+	\begin{enumerate}
+	    \item geometrical set-up.
+	    \item the coordinates of impact of tracks in the layers of the
+		tracker, energy release in the strips of the tracker.
+	    \item energy deposited in calorimeter
+	    \item energy deposited in anticoincidence(?)
+	    \item Digitise the hits, setting a threshold for the energy
+		deposit in the tracker
+	    \item Generate a trigger signal combining signals from different
+		detectors.
+	\end{enumerate}
+    \item Physics
+	\begin{enumerate}
+	    \item Primary events
+	    \item Electromagnetic processes appropriate to the energy range
+		of the experiment
+	    \item Hadronic processes
+	\end{enumerate}
+    \item Analysis
+	\begin{enumerate}
+	    \item x-y distribution of impact of the track
+	    \item histograms during the simulation execution
+	    \item store significant quantities in a ntuple
+	    \item Plot energy distribution in the calorimeter
+	\end{enumerate}
+    \item Visualisation
+	\begin{enumerate}
+	    \item Visualize the experimental set-up
+	    \item trakcs
+	    \item hits
+	\end{enumerate}
+    \item UI
+	\begin{enumerate}
+	    \item Configure the tracker, by modifying the number of active
+		planes, the pitch of the strips, the area of silicon tiles,
+		the material of the converter.
+	    \item Configure the calorimeter, by modifying the number of
+		active elements, the number of layers.
+	    \item Sources
+	    \item Digisation by modifying threshold
+	    \item Histograms
+	\end{enumerate}
+    \item Persistency
+	\begin{enumerate}
+	    \item Produce an intermediate output of the simulation at the
+		level of hits in the tracker
+	    \item Store significant results in FITS format
+	    \item Read in an intermediate output for further elaboration.
+	\end{enumerate}
+\end{enumerate}

@@ -1,0 +1,98 @@
+\section{Visulization}
+Visulization can be performed either with commands or by C++ codes of
+user-action classes.
+\subsection{Visualisable Objects}
+\begin{itemize}
+    \item Detector components
+    \item Physical volumes, logical volumes, solid
+    \item trajectory, tracking step
+    \item hits in detector components
+    \item polyline, marker, texts
+\end{itemize}
+
+\subsection{Visulization Attributes}
+A set of visulization attributes is held by the class G4VisAttributes.
+A G4VisAttributes object is assigned to a visualisable object with its
+mtheod \textbf{SetVisAttributes()}:
+\begin{verbatim}
+volume->SetVisAttributes(G4VisAttributes::Invisible);
+\end{verbatim}
+Class G4LogicalVolume holds a pointer of G4VisAttributes.
+
+\begin{itemize}
+    \item Color, forced-wireframe style(What's this ??)
+\end{itemize}
+
+\subsection{Commands}
+\begin{description}
+    \item[Scene]    A set of visualizable 3D data
+    \item[Scene hadler]	computer graphics data modeler, which uses raw data
+	in a scen
+    \item[Viewer] Image generator
+\end{description}
+Each scene handler is assigned to a scene and each viewer is assigned to a
+scene handler. "Visualisation driver" = "scene handler" + "viewer".
+
+Examples:
+\begin{lstlisting}[language=bash]
+# Invoke the OGLIX driver:
+# Create a scene handler and a viewer
+/vis/open OGLIX
+# Set the camera and drawing style
+/vis/viewer/reset
+/vis/viewer/viewpointThetaPhi 70 20
+/vis/viewer/set/style wireframe
+# Visualizw the whole detector geometry
+# The "/vis/drawVolume" create as cene, add the world volume to it, and let
+# viewer execute visualisation
+/vis/drawVolume
+# the end of visualisation
+/vis/viewer/update
+
+
+# Visualizing Events
+# Store particle trajactories for visualisation
+/tracking/storeTrajactory 1
+# DAWN driver, scene handler and viewer:
+/vis/open DAWN
+# Create a new empty scene
+/vis/scene/create
+# Add the world volume and trajectories to the current scene:
+/vis/scene/add/volume
+/vis/scene/add/trajectories
+# Let the viewer visualise the scene, and declare the end of visualisation
+/run/beamOn 10
+\end{lstlisting}
+
+\begin{lstlisting} [language=bash]
+# List available driver 
+help /vis/open
+help /vis/sceneHandler/create
+\end{lstlisting}
+
+\subsection{C++}
+To perform visualisation in C++ code, use the \textbf{ApplyCommand()} method
+of the US amnager, as for any other command:
+\verb|pUI->ApplyCommand("/vis/...");|
+Or use Draw() methods of visualizable classes.
+
+\subsection{(G)UI}
+\begin{description}
+    \item[G4UIterminal]	C-shell like character terminal
+    \item[G4UItcsh] tcsh term, with command completion, history
+    \item[G4UIGAG] Java based GUI
+    \item[G4UIXm] Motif-based GUI, command completion.
+\end{description}
+
+\subsection{DAVID}
+{\color{red}{DA}}WN-based {\color{red}{V}}isual {\color{red}{V}}olume
+{\color{red}{I}}ntersection {\color{red}{D}}ebugger
+Automatically detects and highlights overlapping volumes. It also generates
+log files describing detailed info on the detected overlap.
+
+\subsection{DTREE}
+DTREE is the function to visualisa detector-geometry tree.
+How to display a tree:
+\verb| /vis/drawTree ! XXXTree|
+XXX = Atree(ASCII), GAGTree(GAG), XMLTree(XML), etc.
+Detail level: \verb|/vis/XXXTree/verbose n|
