@@ -1,0 +1,40 @@
+#
+
+!!! do not use pointer pointing to a local variable as function's return value,
+    which will be clear automatically when the function call returns, cause 
+    unpredictable result.
+
+the difference between a reference and a pointer:
+    - assignment of reference using the instance itself, rather than address.
+    - A reference can't point at nothing.
+    - It can't change what instance it point to
+    
+    MyClass obj;    MyClass obj2;
+    MyClass& objRef = obj; objRef = obj2; // error
+
+MyClass&& is not a reference to a reference. It's a c++11 thing called
+an "rvalue" reference.
+
+    MyClass a = MyClass();
+    MyClass() = a;  // wrongm MyClass() is a rvalue
+    MyClass&& b = MyClass();	// ok, b is now an alias for MyClass()
+
+
+# cast
+1: All casting requires the inhreitance to be public
+2: Implicit cast compiles and works when you upcast from a derived 
+   to a parent class.
+3: static_cast compiles with either upcasting or downcasting, but it is
+   'undefined behaviour' if you downcast beyond the type of object you
+   actually have.
+4: dynamic_cast requires at least one virtual method defined in the
+   class or base class( be polymorphic ). Then it works like 
+   static_cast except if you downcast too far it will give you NULL.
+
+!!! Why do we need downward cast, to use the specific virtual methods ?
+static_pointer_cast
+const_pointer_cast
+dynamic_pointer_cast
+
+
+

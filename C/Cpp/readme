@@ -1,0 +1,18 @@
+defined in header file:
+
+function.h:
+    int function(int arg);
+
+function.cxx
+    #include "function.h"
+    #include <stdio.h>
+    int function(int arg) { printf("arg is : %d", arg); return arg;}
+
+call.cxx
+    #include "function.h"
+    #include
+    int i=5;
+    function(i);
+
+gcc -o call call.cxx function.cxx
+
