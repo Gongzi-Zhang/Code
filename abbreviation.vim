@@ -20,3 +20,4 @@ ab aHs  Has
 ab ahve have
 ab wehn when
 ab tehy they
+ab ot	to

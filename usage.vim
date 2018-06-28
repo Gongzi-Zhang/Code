@@ -194,6 +194,10 @@
 :g/fred/t'a		    " copy (transfer) lines matching fred to marker a                    
 :g/^Chapter/t. | s/./-/g    " Automatically underline selecting headings
 
+" tab space
+:set ts=4		    " set hard tab space
+:retab			    " transform tab into space
+
 " incrementing numbers ( type <c-a> as 5 characters )
 :.,$g/^\d/exe "norm! \<c-a>"    
     " increment numbers
@@ -295,89 +299,91 @@ q:			" commandline history window
 :<C-F>			" history window
 
 " Register
-### "ayy@a		: execute "Vim command" in a text fiel
-### yy@"		: same thing using unnamed Register
-"ddw			: store what you delete in register d
+"ayy@a			" execute Vim command in a text file
+"yy@"			" same thing using unnamed Register
+"ddw			" store what you delete in register d
 "ccaw			" store what you change in register c
 
 " Get output from other commands 
-!!date			: insert date in current line
+!!date			" insert date in current line
 " Sorting
-:g/^$/;/^$/-1!sort	: sort each block (note the crucial ;)
-:sort /.*\%2v/		: sort all lines on second column 
+:g/^$/;/^$/-1!sort	" sort each block (note the crucial ;)
+:sort /.*\%2v/		" sort all lines on second column 
 
 " buffer
-"b main			: go to buffer with main in name
-:sav! %:r.cfm		: save current file to alternative extension
-:mv % %:r.bak		: rename current file
+"b main			" go to buffer with main in name
+:sav! %:r.cfm		" save current file to alternative extension
+:mv % %:r.bak		" rename current file
 " create a new buffer, paste a register "q" into it, then sort it
 :new +put q|%!sort
 
 " Recording
-qq			: record to q
-q			: end recording
-qqq			: empty register q
-@q			: to execute 
-[n]@@			: to repeat n times
-qQ@qq			: make an existing recording q recursive
-"qp			: display content of register p
-<c-R>q			: same [insert mode]
+qq			" record to q
+q			" end recording
+qqq			" empty register q
+@q			" to execute 
+[n]@@			" to repeat n times
+qQ@qq			" make an existing recording q recursive
+"qp			" display content of register p
+<c-R>q			" same [insert mode]
 
 " Visual 
-"*y or "+y		: yank visual area into paste buffer
-V%			: visualise what you match
-`[v`]			: highlight last insert
-:%s/\%Vold/new/g	: Do a substitution on last visual area
-gv			: re-select the previous visual area
+"*y or "+y		" yank visual area into paste buffer
+V%			" visualise what you match
+`[v`]			" highlight last insert
+:%s/\%Vold/new/g	" Do a substitution on last visual area
+gv			" re-select the previous visual area
 
-dat	dit		: delete a HTML tag(all , within)
-daB	diB		: Empty a function {}
-das			: delete a sentence
-D			: d$, delete to the end of this line
+dat	dit		" delete a HTML tag(all , within)
+daB	diB		" Empty a function {}
+das			" delete a sentence
+D			" d$, delete to the end of this line
 
 " Redirection & Paste register *
-:redir @*		: redirect commands to paste register
-:redir END		: end redirection
-:redir >> out.txt	: redirect to a file 
-"*yy			: yank current line to paste buffer
-:'a,'by*		: yank range into paste buffer (ex mode)
-:.y*			: yank current line into past buffer
+:redir @*		" redirect commands to paste register
+:redir END		" end redirection
+:redir >> out.txt	" redirect to a file 
+"*yy			" yank current line to paste buffer
+:'a,'by*		" yank range into paste buffer (ex mode)
+:.y*			" yank current line into past buffer
 " filter non-printable characters from the paste buffer
 :let @* = substitute(@*,'[^[:print:]]','','g')<cr>"*p
-:set paste		: prevent vim from formmatting pasted in text
+:set paste		" prevent vim from formmatting pasted in text
 
 " Re-fromatting text
-gq}			: Format a paragragh
-gqap			: same
-ggVGgq			: Reformat entire file
-Vgq			: Re-format current line
+gq}			" Format a paragragh
+gqap			" same
+ggVGgq			" Reformat entire file
+Vgq			" Re-format current line
 
 " Operate command over multiple files
-:argdo %s/foo/bar/e	: operate on all files in :args
-:bufdo %s/foo/bar/e	: operate on all files in :buffers
-:windo %s/foo/bar/e	:
-:argdo exe '%!sort'|w!	: include an external command
-:bufdo exe "normal @q!" | w : perform a recording on open files
-:silent bufdo !zip proj.zip %:p	    : zip all current files
+:argdo %s/foo/bar/e	" operate on all files in :args
+:bufdo %s/foo/bar/e	" operate on all files in :buffers
+:windo %s/foo/bar/e	"
+:argdo exe '%!sort'|w!	" include an external command
+:bufdo exe "normal @q!" | w " perform a recording on open files
+:silent bufdo !zip proj.zip %:p	    " zip all current files
 
 " command-line tricks
-vim -u NONE -U NONE -N  : load vim without .vimrc and plugins
+vim -u NONE -U NONE -N  " load vim without .vimrc and plugins
+
+
 
 " Vim traps
 In regular expressions,you must backslash 
- +	: match 1 or more
- |	: or
- (	: group
- {	: count
+ +	" match 1 or more
+ |	" or
+ (	" group
+ {	" count
 " \v magic for regular expressions
 
 " pulling objects onto command/search line
-:<C-R><C-W>		: pull word under the cursor into a command line
-:<C-R><C-A>		: pull WORD under the cursor into a command line
-:<C-R>-			: pull small register (also insert mode)
-:<C-R>[0-9a-z]		: pull named registers (also insert mode)
-:<C-R>%			: pull file name (also #) (also insert mode)
-:<C-R>=somevar		: pull contents of a variable 
+:<C-R><C-W>		" pull word under the cursor into a command line
+:<C-R><C-A>		" pull WORD under the cursor into a command line
+:<C-R>-			" pull small register (also insert mode)
+:<C-R>[0-9a-z]		" pull named registers (also insert mode)
+:<C-R>%			" pull file name (also #) (also insert mode)
+:<C-R>=somevar		" pull contents of a variable 
 
 " Registers
 "5p			: retrieve 5th "ring"

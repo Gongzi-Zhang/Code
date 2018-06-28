@@ -109,9 +109,14 @@ augroup HTML
     au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
     au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
     au  FileType html,xhtml,javascript	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
-    au  FileType php,javascript   inoremap  ;   <esc>A;<esc>
+    au  FileType php,javascript,css  inoremap  ;   <esc>A;
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
+    au	FileType javascript,json,css inoremap  {<return>  {<return>}<Esc>O
+    au  FileType json		     inoremap  ,    <esc>A,
+    au  FileType json		     inoremap  :    <esc>A:
+    au  FileType json		     inoremap  ,,   ,
+    au  FileType json		     inoremap  ::   :
 augroup END
 
 augroup XML
@@ -124,8 +129,8 @@ augroup END
 augroup C
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
-    au FileType c,cc,C,cpp,h  inoremap  ;  <Esc>A;
-    au FileType c,cc,C,cpp,h  inoremap  {  {}<Esc>i
+    au FileType c,cc,C,cpp,h  inoremap  ;<return>  <Esc>A;<return>
+    au FileType c,cc,C,cpp,h  inoremap  {<return>  {<return>}<Esc>O
     au FileType c,cc,C,cpp,h  inoremap  /* /*<Return>/<esc>kA
     au FileType c,cc,C,cpp,h  ab	#i  #include
     au FileType c,cc,C,cpp,h  ab	#d  #define
@@ -134,7 +139,7 @@ augroup END
 augroup DOT
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
-    au FileType dot  inoremap  ;  <Esc>A;
+    au FileType dot  inoremap  ;<return>  <Esc>A;<return>
 augroup END
 
 augroup TEXT
