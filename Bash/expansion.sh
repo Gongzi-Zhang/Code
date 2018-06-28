@@ -7,6 +7,7 @@
 #* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 ls abc[234] # abc2 | abc3 | abc4
 ls file[a-z] # filea | fileb ... | filey | filez
+# note that only the 'leading' tilde ~ will be expanded
 
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

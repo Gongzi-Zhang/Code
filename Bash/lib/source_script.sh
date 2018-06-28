@@ -5,3 +5,8 @@ if [ ! -d "$DIR" ]; then
     DIR="$PWD"
 fi
 source "$DIR/TERM_Format.sh"
+
+
+# OR
+tmp=$(realpath $BASH_SOURCE)
+DIR="${tmp%/*}"

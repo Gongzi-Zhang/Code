@@ -1,4 +1,19 @@
 # Concepts
+**font engine**	    : for rendering fonts
+    FreeType 2
+**font file formats**
+    TrueType fonts
+    Type 1	    : .pfb and .pfm
+    CID-keyed Type 1
+    CFF
+    OpenType (TrueType and CFF variants)
+    SFNT-based bitmap 
+    X11 PCF
+    Windows FNT
+    BDR
+    PFR
+    Type42
+
 **font**
 
 **encoding**

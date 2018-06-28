@@ -206,7 +206,7 @@ EXPANSION
 		|
 		|-- *
 		|-- ?
-		|-- [...]
+		|-- [...]   character classes
 
     Only brace expansion, word splitting, and pathname expansion can change
     the number of words of the expansion; other expansions expand a single
