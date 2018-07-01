@@ -1,3 +1,21 @@
+" Search in VIM
+"   |-- Pattern
+"	|-- Special chars
+"	|-- line address
+"	|-- offset
+"	|-- regexp
+"	    |-- single Atoms 
+"	    |-- range atoms
+"	    |-- class
+"	    |-- Sub Patterns
+"	    |-- Modifiers
+"	    |-- Gouring and Back-reference
+"	    |-- Operator Precedence
+"   |-- Examples
+
+
+
+
 " Special chars in Vim "
     .   " match any char
     *   " RE modifier
@@ -50,7 +68,7 @@ s[num]	    " same as e[num]
 
 " regular expressions "
 """"""""""""""""""""""""""""""""""""""""""""
-	       Sinple Atoms
+	       Single Atoms
 x	    " literal x
 ^	    " start of line
 $	    " end of line

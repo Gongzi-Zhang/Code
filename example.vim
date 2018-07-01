@@ -4,6 +4,20 @@
 "    Ran as slow as did he,
 " And that's not saying much for the turtle.
 
+" Examples of Using VIM
+"   |-- Summary and Tips
+"	|-- help 
+"	|-- global commands
+"	|-- repeat
+"	|-- changes
+"	|-- sort
+"	|-- tabs
+"   |-- do one thing
+"	|-- incrementing numbers
+"	|-- change case
+"	|-- formatting text
+"	|-- count
+"   |-- multiple files
 
 
 
@@ -35,29 +49,7 @@
 :g/fred/t'a		    " copy (transfer) lines matching fred to marker a                    
 :g/^Chapter/t. | s/./-/g    " Automatically underline selecting headings
 
-
-
-" tab space "
-:retab			    " transform tab into space
-/* vim:tabstop=8:expandtabs:shiftwidth=8 */
-
-
-
-" incrementing numbers (type <c-a> as 5 characters)
-:.,$g/^\d/exe "norm! \<c-a>"    
-    " increment numbers
-:'a,'bg/\d\+/norm! ^A		
-    " increment numbers
-"" advanced increment
-let g:I=0
-function! INC(increment)
-let g:I = g:I + a:increment
-return g:I
-endfunction
-
-
-
-" storing glob results, you need to empty reg a first with qaq. "
+"" storing global results, you need to empty reg a first with qaq. "
 :g/fred/y A		    " Append all lines containing fred to reg a
 :g/fred/y A | let @*=@a	    " put into paste buffer
 :g//y A | let @*=@a	    " put last glob into paste buffer
@@ -67,7 +59,7 @@ endfunction
 
 " Summary of editting repeats
 .		" last edit
-:&	    	" last substitute
+:[range]&	" last substitute
 :%&	    	" last substitute every line
 :%&gic	    	" last substitute every line and confirm needed
 g%	    	" normal mode repeat last substitute
@@ -89,7 +81,49 @@ UU		" undo undo, also mean redo
 
 
 
-" changing Case "
+" changes
+<C-O>			" jump back in jump list
+<C-I>			" jump forward in jump list
+:ju(mps)		" list of your movement
+:history		" list of all your commands
+:his c			" command line history
+:his s			" Search history
+q/			" search history window
+q:			" commandline history window
+:<C-F>			" history window
+
+
+
+" Sorting
+:g/^$/;/^$/-1!sort	" sort each block (note the crucial ;)
+:sort /.*\%2v/		" sort all lines on second column 
+
+
+
+" tab space "
+:retab			    " transform tab into space
+/* vim:tabstop=8:expandtabs:shiftwidth=8 */
+
+
+
+" incrementing numbers (type <c-a> as 5 characters)
+CTRL-A			" increments the number under the cursor (decimal, 
+			" octal, or hexadecimal)
+CTRL-X			" decrements
+:.,$g/^\d/exe "norm! \<c-a>"    
+    " increment numbers
+:'a,'bg/\d\+/norm! ^A		
+    " increment numbers
+"" advanced increment
+let g:I=0
+function! INC(increment)
+let g:I = g:I + a:increment
+return g:I
+endfunction
+
+
+
+" change Case "
 guu			" lowercase line
 gUU			" opposite to last one
 Vu			" same with guu
@@ -108,30 +142,11 @@ ggg?G			" same
 
 
 
-" History, Markers & moving about( what Vim Remember)
+" History, Markers & moving about (what Vim Remember)
 '.			" jump to last modification line
 `.			" jump to exact spot (line and column) in last modification
 g;	!!!		" cycle through recent changes
 g,	!!!		" reverse direction
-
-
-
-" changes
-<C-O>			" jump back in jump list
-<C-I>			" jump forward in jump list
-:ju(mps)		" list of your movement
-:history		" list of all your commands
-:his c			" command line history
-:his s			" Search history
-q/			" search history window
-q:			" commandline history window
-:<C-F>			" history window
-
-
-
-" Sorting
-:g/^$/;/^$/-1!sort	" sort each block (note the crucial ;)
-:sort /.*\%2v/		" sort all lines on second column 
 
 
 
@@ -193,7 +208,7 @@ nmap <Leader>man :Man 3 <cword><CR>
 " filter non-printable characters from the paste buffer
 :let @* = substitute(@*,'[^[:print:]]','','g')<cr>"*p
 
-" fromatting text "
+" formatting text "
 gq}			" Format a paragragh
 gqap			" same
 ggVGgq			" Reformat entire file

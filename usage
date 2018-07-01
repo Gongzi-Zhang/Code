@@ -1,7 +1,40 @@
+general usage of VIM
+    |-- command line options
+    |-- Normal commands
+	|-- help 
+	|-- motion
+	|-- search
+	|-- substitution
+	|-- global command
+	    |-- range
+	|-- write
+	|-- source
+	|-- function
+	|-- self-defined 
+	|-- external command
+    |-- option
+    |-- mark
+    |-- register
+    |-- filtering
+    |-- tab
+    |-- window
+    |-- view
+    |-- session
+    |-- vimrc && viminfo
+    |-- folding
+    |-- visual
+    |-- indent
+    |-- syntax
+    |-- auto completion
+    |-- insert mode
+    |-- buffer
+    |
+    |-- programming
+    |-- text file
 CTRL-D: to see all possible values.
 
 ############################################
-\b{command line options\}
+\b{command line option\}
 	vim -n <file>	    prohibit swap file 
 	vim -r		    list swap file and exit.
 	vim -r <file>	    recover crashed session		 
@@ -43,11 +76,11 @@ CTRL-D: to see all possible values.
 		:   ex-mode
 		c   command-line editing
 		-   vim command arguments
-		''  options
+		''  option
 	:h i_CTRL-R
 	    help for <C-R> in insert mode
 	:h \red{'\}option\red{'\}
-	    vim command \b{Options\}
+	    vim command \b{Option\}
 	:h /\r
 	    what's \r in a \b{regexp\}
 	:h <Up>
@@ -74,7 +107,7 @@ CTRL-D: to see all possible values.
 
 
 
-\b{Motion\}
+\b{motion\}
 	basic : h j k l
 	word :  w e ge b  
 	WORD : W
@@ -89,11 +122,11 @@ CTRL-D: to see all possible values.
 
 	<CTRL-O>, <CTRL-I>: move to the previous, next cursor position.
 
-\b{Searching\}
+\b{search\}
 	line : f F ; , t(until) T
 	g*, g\#	for unristic searching(not exact match)
 
-\b{Substitution\}
+\b{substitution\}
 	flag: | 
 	c	  | Confirm
 	g	  | globally
@@ -163,40 +196,15 @@ CTRL-D: to see all possible values.
 	:delcommand name    delete a user-defined command
 	:comclear	    clear all user-defined commands
 
-\b{special\}
+\b{miscellaneous\}
 	CTRL-C	: cancel any pending command
-
-
-	:split +command file
-		open file in new windows and apply command to it
-	:split +/text file  
-		will open file in a new window and pose cursor on text position
-
-	g?motion    
-		encrypt text with rot13 algorithm
-
-	:mkvimrc file	
-		save current options and setting into file
-		saving command line histroy, searching history, and some 
-		other marks,buffers etc into viminfo for following use.
-	:set viminfo='1000,f1,r/mnt/floppy,:100,/100,%,!
-	:wviminfo[!] [file]	write viminfo to file
-	:rviminfo[!] [file]	read viminfo from file
 
 
 	:file	can change the name of current file
 
-	CTRL-A	increments the number under the cursor(decimal, octal, or hexadecimal)
-	CTRL-X	decrements
-
-	:set scrollbind	    bind two files for synchronized scrolling
 
 	grchar | gR	virtual replace mode, allow you replace <tab> without 
 			disturbing the format
-	:[range]&	
-		repeat the last substitution
-	CTRL-A (in insert mode)	    
-		insert the text you typed the last time you were in insert mode
 	gf	    go to file whose name is under the cursor
 	dat	dit		" delete a HTML tag(all , within)
 	daB	diB		" Empty a function {}
@@ -237,7 +245,7 @@ CTRL-D: to see all possible values.
 
 
 ############################################
-\b{options\}
+\b{option\}
 	:set i<CTRL-D>	    : all options begin with i
 	:set option	    
 	:set nooption
@@ -271,7 +279,7 @@ CTRL-D: to see all possible values.
 
 
 
-\b{marks\}
+\b{mark\}
 	:marks [args]
 
 	\b{special marks\}
@@ -323,23 +331,40 @@ CTRL-D: to see all possible values.
 
 
 
-\b{tabs\}
+\b{tab\}
 	vim -p file1 file2	" open files in different tabs
 	:tabe file		" open file in a new tab
 	:close			" close a tab but leave the buffer ????
+
+\b{window\}
+	:split +command file
+		open file in new window and apply command to it
+	:split +/text file  
+		will open file in a new window and pose cursor on text position
+	:set scrollbind	    
+		bind two files for synchronized scrolling
 
 \b{view\}
 	:mkview	VIEW
 	:set viewdir=~/.vim/views
 	:loadview VIEW.vim
 
-\b{Session\}   
+\b{session\}   
 	:mksession			" make a session file (default session.vim)
 	:mksession Mysession.vim	" Make a Session file named My...
 	vim -S				" reload all files in Session.vim(by default)
 	vim -S Mysession.vim		" reload all files in session
 
-\b{Folding\}
+\b{vimrc && viminfo\}
+	:mkvimrc file	
+		save current options and setting into file
+		saving command line histroy, searching history, and some 
+		other marks,buffers etc into viminfo for following use.
+	:set viminfo='1000,f1,r/mnt/floppy,:100,/100,%,!
+	:wviminfo[!] [file]	write viminfo to file
+	:rviminfo[!] [file]	read viminfo from file
+
+\b{folding\}
 	zf1G			: fold everything before this line
 	zf}			: fold paragraph using motion
 	v}zf			: fold paragraph using visuality
@@ -348,7 +373,7 @@ CTRL-D: to see all possible values.
 	zc			: re-close fold
 	zfG			: fold everything after this line
 
-\b{Visual\} 
+\b{visual\} 
 	"*y | "+y		" yank visual area into paste buffer
 	V%			" visualise what you match
 	`[v`]			" highlight last insert
@@ -469,10 +494,11 @@ CTRL-D: to see all possible values.
 	
 
 
-\b{Inset-mode\}
+\b{Insert-mode\}
 	<C-U>			: delete all entered
 	<C-W>			: delete last word
 	<C-X><C- >		: scroll while staying put in insert mode
+	<C-A>                   : insert the text you typed the last time you were in insert mode
 
 
 
@@ -604,6 +630,8 @@ gq[motion]  format selected text
     l	do dot break line in insert mode, only let gq break the lines
 
 \b{encryption\}
+    g?motion    
+	    encrypt text with rot13 algorithm
     :X | vim -x file | :set key=	
 		    set 'key=' decrypt the file
     vim -n file	    prohibit swap file 
@@ -620,7 +648,7 @@ r : the r command treats <Enter> in a special way. No matter how big
 ############################################
 ############################################
 ############################################
-\b{buffers\}
+\b{buffer\}
 	:hide	    : allow you to hide a buffer (move it from active into 
 		    : inactive (not shown on window)) without save changes of it.
 	:bunload    : unloads a buffer from memory
