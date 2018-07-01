@@ -129,7 +129,8 @@ augroup END
 augroup C
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
-    au FileType c,cc,C,cpp,h  inoremap  ;<return>  <Esc>A;<return>
+    au FileType c,cc,C,cpp,h  inoremap  ;   <Esc>A;
+    au FileType c,cc,C,cpp,h  inoremap  ;;  ;
     au FileType c,cc,C,cpp,h  inoremap  {<return>  {<return>}<Esc>O
     au FileType c,cc,C,cpp,h  inoremap  /* /*<Return>/<esc>kA
     au FileType c,cc,C,cpp,h  ab	#i  #include

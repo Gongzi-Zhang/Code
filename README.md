@@ -1,10 +1,34 @@
-# Vim usage
+# How to use this dir.
+README.md:	structure and basic concepts about VIM
+usage:		general command and usage about VIM
+example.vim:	explict problem and solution
+search.vim:	every thing about search and regep in VIM
+
+# VIM Structure and Basic Concepts
+
+# Doubts:   some doubts about vim
+=================================
+*   When you use vim in bash script like the following:
+    vim file << END
+    :%s/thta/that/g
+    :wq
+    END
+
+    vim will complain that Warning: Input is not from a terminal
+    It seems that vim must have input from stty, but not other place.
+
+*   How does Vim open a file, when it open a very large file (say, hundreds of MB), 
+    it will be a totally disaster.
+*   vsplit many command provide version of horizental spliting, what about vertical spliting
 
 # to_do
 > plugin: auto completion of code key words. like what we have with tab in
   shell.
+> I want the background to be 'dark', and the words shown somewhat fuzzy
 
-# vim concepts:
+----------------
+vim concepts
+----------------
 	mode:-----
 	    |
 	    |---normal mode
@@ -48,7 +72,12 @@
 	    	|
 	    	|---hidden: not in a window, text loaded.
 	    	|
-	    	|---inactive: not in a window, no text loaded ??????
+	    	|---inactive: not in a window, no text loaded 
+                |
+		|   in vim, when you made some change to a file, you are editing it.
+		|   a file that you are editing (you have made some changes to it) but not
+		|   show on screen is called hidden one. a file that you want to edit but 
+		|   don't make any change to it yet is in inactive state
 	options:
 	    |
 	    |---set option
@@ -89,6 +118,8 @@
 	    |---
 
 relationship between some elements within vim:
+==============================================
+
 +-----------+    +-----------+      +-----------+
 |buffer1    |    |buffer2    |      |buffer3    |
 |content    |    |content    |      |content    |
@@ -121,7 +152,7 @@ relationship between some elements within vim:
 			|
 			|
 		+---------------+
-		|	vim	|  <<------- syntax file
+		|      vim	|  <<------- syntax file
 		|		|
 		+---------------+
 		     /     \
@@ -139,18 +170,6 @@ relationship between some elements within vim:
 	        |	        |
 	        +---------------+
 
-
-
-###                                     
-Oh my god, I finally know what <CR> stands for, carriage return, which
-dates back to the early days when teletype machines used this two chars
-to start a new line, one is <CR>, to move the carriage back to the 
-first position, another to move the paper up(line feed, <LF>)
-
->>>>>> about the file format, what is narratived in the user manual 
-usr_23.txt lose effectiveness, when I try to convert a MS-dos file 
-into a unix one, nothing happen? and the option ++ff=unix also fail 
-to remove the ^M mark at the end of each line. What's the problem<<<<<<
 
 
 a nice layout to use:
@@ -171,9 +190,15 @@ a nice layout to use:
 	|					 |
 	+----------------------------------------+
 
-OK, this is very convenient for editing files.
+This isn't nice at all, a more practical consideration is add a command,
+e.g. open, which when called, will open a file browser on the left of
+current window, allowing user to choose the file to be edited. And the
+help window is needless.
 
-# Terminology 
+-------------
+Terminology 
+-------------
+
 ## display
 > screen
     The whole area that Vim uses to work in. This can be a terminal emulator
@@ -184,6 +209,7 @@ OK, this is very convenient for editing files.
 > session
     collections of views and related info
     :mksession SESSION
+
 ## Motion
 > jump
     jump move between files.
@@ -198,6 +224,7 @@ OK, this is very convenient for editing files.
 > changes
     list of the modifications we make to each buffer during the course of an
     editing session.
+
 ## Identifier
 > marker
     marker only available in a buffer
@@ -208,53 +235,27 @@ OK, this is very convenient for editing files.
     some kind of identifier across several file, which is stored in a file:
     tags, and needed to be produced by software like ctags.
 > register
-    >> Unnamed register (default one)
-    >> Named register ("a - "z)
-    >> Black Hole Register ("_)
-    >> System clipboard ("+), Selection register ("*)
-    >> Expression register ("=)
-    >> "%   Name of the current file
-    >> "#   name of alternate file
-    >> "/   Last search patterni
-    >> ".   Last inserted text
-    >> ":   Last Ex command
     
 ## Storation
 > buffer
-    content in memory, one file may correspond to several buffers, and there
-    is empty buffer. 
+    The content of a file in memory is called buffers. In anytime, there 
+    is only one swap file in disk for one window. And there is empty buffer. 
+    When you change to another buffer using :bNext or :bPrevious command, 
+    it will write current buffer back to disk and load the required one. 
+    To summary up, there is only one beffer in memory for all the files
+    that you are editing, though it will record all the buffers for you. 
 > files
     something lies in hard disk
 > Macros
 
-## Searching
-### Pattern
-* use parentheses to capture Submatches
-* zero-width items: < > \zs \ze
+## Options
+> filetype
+    Note that filetype is not set (though it has been detected, it only set an
+    autocommand to set ft), so any command that set ft before BufferRead
+    is useless. Only command after BufferRead can overrule the detected one.
 
-# Options
-:set option
-:set nooption
-:set option!	" toggle the setting
-:set option?	" find out the value of the option
-:set option&	" reset to its default value
-
-## colorscheme
-I want the background to be 'dark', and the words shown somewhat fuzzy
-
-match group /pattern/
-    " colorscheme affects the entire color setup, match colors a small
-    " combination of background (or foreground) colors.
-
-# Vim Completion
-* C standard include head files in /usr/include/
-* CPP STL
-* linux API
-* boost 
-
-
-# Variable 
-## Scope
+## Variable 
+### Scope
     - v:    Vim predefined global scope
     - g:    Global scope
     - b:    Buffer scope
@@ -263,41 +264,46 @@ match group /pattern/
     - l:    Function scope
     - s:    Sourced file scope -- local to a Vim script loaded using :source
     - a:    Argument scope  -- used in arguments for functions.
-### Map hot-keys, to extract current word under mouse curser to vim command.
-nmap <Leader>man :Man 3 <cword><CR>
+
+## some other definition
+Cursor		: The charcter under the cursor
+Directory	: Directory names (and other special names in listing)
+ErrorMsg	: Error messages displayed on the bottom line
+IncSearch	: The result of an incremental search
+ModeMsg		: The mode shown in the lower-left corner
+MoreMsg		: The prompt displayed if Vim is displaying a long
+		  message at the bottom of the screen and must dispaly more etc
+
+----------
+Reference
+----------
+
+key words
+=========
+    - key-notation, key-codes, keycodes
+	names for keys used in the documentation
+    - search-pattern, pattern, regular-expression, regexp, Pattern
+	search pattern
 
 
-Special chars in Vim
----------------------
-    .   match any char
-    *   RE modifier
-    []	match any one withing []
-    ^	begin of line
-    %	
-    /
-    \	escape char
-    ?	match previous char 0 or 1 time
-    ~
-    $	end of line
+the suggested **colour** name for vim
+=================================
+Black		Blue		Brown		Cyan
+DarkBlue    	DarkCyan	DarkGray    	DarkGreen
+DarkMagenta	DarkRed		Gray		Green
+LightBrue	LightCyan	LightGray	LightGreen
+Orange		Purple		Red		SeaGreen
+SlateBlue	Violet		White		Yellow 
 
 
+ **Syntax** Elements
+====================
+Boolean		Character	Comment		Conditional
+Error		Debug		Define		Function
+Identifier	Include		Keyword		Label
+Macro		Number		Operator	PreCondit
+PreProc		Repeat		Special		SpecialChar
+SpecialComment	Statement	StorageClass	String
+Structure	Tag		Todo		Type
+Typedef
 
-
-
-# Doubts:   some doubts about vim
-*   When you use vim in bash script like the following:
-    vim file << END
-    :%s/thta/that/g
-    :wq
-    END
-
-    vim will complain that Warning: Input is not from a terminal
-    It seems that vim must have input from stty, but not other place.
-
-
-*   command-line options:
-    -b  : binary mode, A few options will be set that makes it possible 
-	  to edit a binary or executable file.
-
-*   How does Vim open a file, when it open a very large file (say, hundreds of MB), 
-    it will be a totally disaster.
