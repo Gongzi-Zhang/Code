@@ -1,0 +1,25 @@
+# PC Boot Process
+
+FIRMWARE: BIOS-based,  EFI-based systems (Independent from disk and boot software)
+GRUB(boot loader)
+# BIOS
+for BIOS booting process, BIOS will do POST(Power-On Self Test) to make
+sure hardware availability, and then pass on system control to the MBR
+(Main Boot Record: A small executable code which occupy the 0-446 Bytes
+in the MBR sector, the following 64 Bytes is DPT(Disk Partition Table))
+
+From how BIOS works, we can easily find that the combination of BIOS
+and MBR is more about a convertion, rather than a technical limitation
+
+Absoluty, MBR only support 4 primary records, but GPT( GUID Partition 
+Table supports up to 128 record), so we would like to combine MBR with 
+GPT, rather than MBR. Which is allow in Linux, but somewhat difficult
+in Windows. refer to here for more:
+	https://wzyboy.im/post/1049.html
+
+Q1: how BIOS call MBR:
+    Is BIOS call MBR to varify the DPT, and then find the OS loader, 
+and then pass on system control to the OS loader; Or BIOS just pass
+on system control to MBR, and do not take part in the following loadin
+process at all, and it's MBR loads the OS loader?
+

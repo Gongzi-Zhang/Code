@@ -1,0 +1,20 @@
+# time format
+
+now, midnight(12:00pm), noon(12:00am), teatime(4pm)
+today, tomorrow
+HH:MM
+AM  -- morning
+PM  -- evening
+month-name day [year]
+MMDDYY
+MM/DD/YY
+DD.MM.YY
+YYYY-MM-DD
+
+time + count time-units
+    the time-units can be mins, hours, days, or weeks
+
+example:
+4pm + 3 days
+10am Jul 31
+1am tomorrow

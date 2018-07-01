@@ -16,11 +16,17 @@ echo {23..45}	# 23 24 25 26 27 ... 41 42 43 44 45
 
 
 # Parameter Expansion
-'$ or ${'
+'$ or ${}'
 
 # Command Substitution
-'${ or `'
+'${} or ``'
 
 # Arithmetic Expansion
-'$((' 
+'$(())' 
 
+# Variable Expansion
+
+## escape happen before variable expansion
+a='"'
+a="ab$a"
+echo $a	    # ab"

@@ -1,3 +1,15 @@
+# Bash reference
+    |-- README.md	structure and concepts
+    |-- examples.sh	explicit examples using bash
+    |-- script.sh	how to script bash
+    |-- errors.md	errors encounted during using bash 
+    |-- topic.sh	explanation and usage about a topic or command
+    |-- bashrc	        config file
+    |-- bash_alias	alias
+
+
+# Doubts
+
 # Manual Page
 
 ##### Most ofter used #####
@@ -457,6 +469,28 @@ SHELL BUILTIN COMMANDS
 RESTRICTED SHELL
 
 
+
+----------
+ concepts
+----------
+
+Process
+=======
+
+### How parent process produce child process
+The parent process (pid=a) will firstly fort itself to produce a copied 
+process (pid=b, ppid=a), then the child process executes the command you
+give to form a new process. That's why the child process can inherites
+the environment of parent process.
+
+
+Variables
+=========
+
+Shell variables are local to the shell in which they were defined. If 
+a change is made to a shell variable, it must be explicitly **exported** 
+to the corresponding environment variable in order for any forked 
+**subprocesses** to see the change.
 
 
 # Completions

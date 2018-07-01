@@ -1,0 +1,33 @@
+# some concept
+## process attributes
+
+Controlling Terminal                       Real Group ID           
+Current Working Directory                  Real User ID            
+Effective Group ID                         Root Directory          
+Effective User ID                          Saved Set-Group-ID      
+File Descriptors                           Saved Set-User-ID       
+File Mode Creation Mask                    Session Membership      
+Process Group ID                           Supplementary Group IDs 
+Process ID
+
+
+# character classes. [:class:]
+[:alnum:]   A-Za-z0-9
+[:alpha:]   A-Za-z
+[:blank:]   space or tab
+[:cntrl:]   control chars
+[:digit:]   0-9
+[:graph:]   graphic printable chars. ASCII 33-126
+[:lower:]   a-z
+[:print:]   printable chars. ASCII 32-126, same as [:graph:], but addint the space char
+[:space:]   space and horizontal tab
+[:upper:]   A-Z
+[:xdigit:]  hexadecimal digits
+'POXIS char classes generally require quoting or double brackets([[]])'
+
+
+
+
+
+
+

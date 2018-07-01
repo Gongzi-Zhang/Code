@@ -1,0 +1,2 @@
+{ total += \$${column_number} }
+#	   ^^^

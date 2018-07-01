@@ -1,0 +1,7 @@
+[user]
+	name = Weibin
+	email = weibin.zhang@stonybrook.edu
+[push]
+	default = simple
+[core]
+	quotepath = false   # to show asian characters correctly, rather than octal-escaped UTF-8 form

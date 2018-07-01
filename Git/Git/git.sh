@@ -81,6 +81,11 @@ git log -n [limit]
 git log --oneline 
     # condense each commit to a single line.
 
+git log -M --summary
+    # show full summary of logs including rename history
+git log --name-status
+git log --name-status -M    # show renamed history
+    # logs shows which files changed
 git log --stat 
     # include more detailed log about changes to a file
 

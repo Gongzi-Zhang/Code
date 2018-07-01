@@ -9,3 +9,7 @@ in system settings:
 need to install it firstly: sudo apt-get install ibus-pinyin, assume you use ibus input system )	
 	
 
+# log
+# /etc
+/etc/rsyslog.conf:/etc/rsyslog.d/50-default.conf
+    turn on/off logging of some system services.

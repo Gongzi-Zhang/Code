@@ -1,29 +1,3 @@
-# Concepts
-**font engine**	    : for rendering fonts
-    FreeType 2
-**font file formats**
-    TrueType fonts
-    Type 1	    : .pfb and .pfm
-    CID-keyed Type 1
-    CFF
-    OpenType (TrueType and CFF variants)
-    SFNT-based bitmap 
-    X11 PCF
-    Windows FNT
-    BDR
-    PFR
-    Type42
-
-**font**
-
-**encoding**
-    T1, EU1, EU2, utf8
-
-**Example**
-    Type 1 outline fonts
-    Type 3 bitmap fonts
-
-
 find out out the fonts installed in your system:
 `fc-list`
 or
