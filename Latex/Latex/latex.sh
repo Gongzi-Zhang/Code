@@ -2,6 +2,30 @@
 
 #------------------------------------------------------------------------
 #
+# TeXLive installation
+#
+#------------------------------------------------------------------------
+### download image
+wget http://mirror.ctan.org/systems/texlive/Images/texlive2018.iso
+wget http://mirror.ctan.org/systems/texlive/Images/texlive2018.iso.sha512
+sha512sum -c texlive2018.iso.sha512
+### mount image
+sudo mkdir -p /media/iso
+sudo mount -o loop texlive2018.iso /media/iso
+### install, it will be installed in /usr/local/texlive
+cd /media/iso
+sudo ./install-tl
+### configure
+cat <<EOF >> $HOME/.bashrc
+export PATH="/usr/local/texlive/2018/bin/x86_64-linux:$PATH"
+export INFOPATH="/usr/local/texlive/2018/texmf-dist/dot/info:$INFOPATH"
+export MANPATH="/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH"
+EOF
+sudo apt install xzdec -y
+sudo tlmgr update --self --all
+
+#------------------------------------------------------------------------
+#
 # Latex management and configuration
 #
 #------------------------------------------------------------------------

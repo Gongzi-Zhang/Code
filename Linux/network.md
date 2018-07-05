@@ -28,3 +28,13 @@ PREROUTING:
     ip rule add fwmark 1 priority 1984 table vpn
     ip route add default dev pptp-VPN table vpn
 5. add 
+
+
+# interface
+ssid="wifi-name"
+psk="password"
+key_mgmt=WPA-PSK    # key
+proto=WPA2	    # protocol
+id_str="identification"
+priority=4
+group=WEP104

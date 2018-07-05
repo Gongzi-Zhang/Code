@@ -1,3 +1,7 @@
+pi@raspberrypi.local
+3.1415926
+
+
 # Tools and Configuration about PI
 
 
@@ -29,7 +33,6 @@ configure file: /boot/config.txt
 ^Q^
 1: If there are two Wifi-Hotspot with same IP-range, is there any way 
 to different them ???
-2: unable to connect to google through wifi: IPv6 ??? or MTU ???
     
 
 

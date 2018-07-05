@@ -18,3 +18,12 @@ see [wiki](https://en.wikipedia.org/wiki/End-of-Transmission_character)
 machines used this two chars to start a new line, one is <CR>, to move 
 the carriage back to the first position, another to move the paper 
 up (line feed, <LF>)
+
+* **\0** null character
+
+# date and time
+* time, date, time-zone
+* epoch: 1970-01-01 00:00:00
+* hardware clock
+
+

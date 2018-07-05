@@ -5,25 +5,26 @@
 <ctrl-alt-c>	    chromium
 <ctrl-alt-g>	    gimp
 
+### windows 
+<Alt-H>		    view split on left
+<Alt-L>		    view split on right
+<Alt-J>		    lower current window
+<Alt-K>		    raise current window
+<Alt-0>		    Hide current window
+<Alt-F>		    Maximize current window
+
 ## Terminal
+### tab
 <ctrl-space>	    switch to next termianl
 <ctrl-shift-space>  switch to previous termianl
-
-<Ctrl-A>	    begin of command line
-<Ctrl-E>	    End of command line
-<Ctrl-K>	    Delete all word after cursor
-<Ctrl-R>	    Search command history
-<Ctrl-Space>	    Next tab
-<Ctrl-U>	    Delete all word before cursor
-<Ctrl-W>	    Delete one word before cursor
-
-
-<Ctrl-Shift-Space>  Previous tab
 <Ctrl-Shift-T>	    New tab
 <Ctrl-Shift-W>	    Close current tab
 
-<Home-Space>	    Toggle input method
-
+### editing
+bind -P		    to see all possible shortcut
+<Ctrl-U>	    Delete all word before cursor
+<Ctrl-W>	    Delete one word before cursor
 <Up>/<Down>	    recall older/newer command
+
 
 ## vim

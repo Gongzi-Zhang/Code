@@ -48,6 +48,9 @@ access time: atime - the last time the file was read
 modify time: mtime - modify file content
 change time: ctime - change file meta data(e.g. permissions, ownership)
 
+## file system
+inode && superblock (backup)
+
 
 ## The kernel
 The kernel is the heart of the system. It manages the communication 

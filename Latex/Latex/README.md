@@ -1,4 +1,5 @@
 # Todo list
+- [] a macro to create table easily (adjust position automatically)
 - [] box and minipage
 - [] create a Poster style.
 

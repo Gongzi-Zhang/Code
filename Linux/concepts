@@ -6,6 +6,12 @@
     pipe (FIFO)
     network file: Internet socket, NFS file or UNIX domain socket
 
+\b{File GROUP\}
+    source
+    binary
+    config 
+    documentation
+
 \b{FILE DESCRIPTOR\} (FD)
     an bastract indicator (handle) used to access afile or other I/O 
     resource, e.g. a pipe or network socket.
