@@ -1,10 +1,20 @@
 pi@raspberrypi.local
 3.1415926
 
+# What can you do with pi
+* torrent server
+* personal cloud for file storage, sharing
+* weather monitor
+* FM radio station
+* twitter bot
+* Motion capture security system
+* Amazon Echo
+* HAB (High Altitude Ballooning) RPI sends Live images from Near Space
+
+* mail syncronizer
+* Git server
 
 # Tools and Configuration about PI
-
-
 
 
 *****************Pi As Hot-Spot***************

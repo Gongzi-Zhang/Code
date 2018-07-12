@@ -1,3 +1,28 @@
+\b{Filesystem\}
+  \b{Temporary FS\}
+    use memory (RAM) for short-term use. 
+    e.g. tmpfs
+  \b{Virtual FS\} 
+    the word "virtual" means that the supplied "files" (virtual files) 
+    are computed on request. 
+    e.g. procfs, sysfs
+  \b{Disk FS\}
+    e.g. FAT, HFS, ext
+  \b{Network FS\}
+    A FS that acts as a client for a remote file access protocol, 
+    providing access to files on a server.
+    e.g. NFS, AFS, SMB
+  \b{Special FS\}
+    A special FS presents non-file elements of an OS as files so they can 
+    be acted on using FS APIs. 
+    \b{Device FS\}
+	A device FS represents I/O devices and pseudo-device as files,
+	called device files. 
+	e.g. devfs, udev
+    \b{configfs and sysfs\} in Linux kernel provides files that can be
+    used to query the kernel for info and configure entities in the 
+    kernel.
+    \b{procfs\} maps processes and other OS structures into a filespace.
 \b{FILE\}
     regular file
     directory

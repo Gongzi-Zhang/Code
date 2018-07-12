@@ -30,6 +30,22 @@ PREROUTING:
 5. add 
 
 
+# hostname resolution
+The hostname resolution is currently supported by the NSS (Name Service Switch) mechanism. The flow of the resolution is the following:
+1. the "/etc/nsswitch.conf" file with stanza like "hosts: files dns" dictates the hostname resolution order. (This replaces the old functionality of the "order" stanza in "/etc/host.conf")
+2. The **files** method is invoked first. If the hostname is found in the "/etc/hosts" file, it returns all valid addresses for it and exits. (The "/etc/host.conf" file contains "multi on")
+3. the **dns** method is invoked. If the hostname is found by the query to the Internet Domain Name System (DNS) identified by the "/etc/resolv.conf" file, it returns all valid addresses for it and exits
+
+# Acronym (Terminology)
+WLAN		wireless LAN
+APs		Wireless Acees Points
+(E)SSID		(Extended) Service Set IDentifier: network name of the APs
+WEP(2)		Wired Equivalent Privacy: 1st generation 64-bit (128-bit) wireless encryption standard with 40-bit key (deprecated)
+WPA		Wi-Fi Protected Access: 2nd generation wireless encryption standard (most of 802.11i), compatible with WEP
+WPA2		Wi-Fi Protected Access 2: 3rd generation wireless encryption standard (full 802.11i), non-compatible with WEP
+
+# Vritual interface
+A single physical Ethernet interface can be configured as multiple virtual interfaces with different IP addresses.
 # interface
 ssid="wifi-name"
 psk="password"
@@ -38,3 +54,4 @@ proto=WPA2	    # protocol
 id_str="identification"
 priority=4
 group=WEP104
+

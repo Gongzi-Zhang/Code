@@ -1,4 +1,0 @@
-You can add your local public key to a remote server in the 
-\b{authorized_keys\} file, so that you don't need to input passwd for
-every connection (this only work when the ssh deamon in remote server
-allows passwordless login)

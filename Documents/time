@@ -1,7 +1,8 @@
 # time format
 
 now, midnight(12:00pm), noon(12:00am), teatime(4pm)
-today, tomorrow
+today, tomorrow, yesterday
+20 min ago
 HH:MM
 AM  -- morning
 PM  -- evening
