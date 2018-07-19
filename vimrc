@@ -52,6 +52,7 @@ endif
 "  result from your mapping command)
 inoremap   (	()<Esc>i
 inoremap   {	{}<Esc>i
+inoremap   {<return>  {<return>}<Esc>O
 inoremap   [	[]<Esc>i
 inoremap   gf	<esc>la
 inoremap   gff	<esc>2la
@@ -112,7 +113,6 @@ augroup HTML
     au  FileType php,javascript,css  inoremap  ;   <esc>A;
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
-    au	FileType javascript,json,css inoremap  {<return>  {<return>}<Esc>O
     au  FileType json		     inoremap  ,    <esc>A,
     au  FileType json		     inoremap  :    <esc>A:
     au  FileType json		     inoremap  ,,   ,
