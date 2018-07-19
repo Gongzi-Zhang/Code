@@ -1,4 +1,4 @@
-find out out the fonts installed in your system:
+find out all the fonts installed in your system:
 `fc-list`
 or
 `fc-list | grep target`
@@ -6,7 +6,7 @@ or
 # Fonts in linux
 you can install new font by package using apt-get
 
-Global: /usr/local/share/fonts
+Global: /usr/share/fonts/:/usr/local/share/fonts
 Local:	.fonts	or .local/share/fonts
 
 After installing a new font ( manually ), then you need to reboot your

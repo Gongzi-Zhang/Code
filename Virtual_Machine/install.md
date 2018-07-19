@@ -1,0 +1,2 @@
+# PXE booting with NAT
+    In virtualBox, in order to boot a system with PXE (Preboot Execution Environment), one need to set the network in 'NAT' mode (default), and thencreate a 'TFTP' dir. (exactly this name in CAPITAL, lower case will not work in Linux), which is regarded as a server that VirtialBox looks for .pxe file, in the dir. where VirtualBox.xml lies in (usually ~/.config/VirtualBox/), put you .pxe file in the 'TFTP' dir. then, it will work.

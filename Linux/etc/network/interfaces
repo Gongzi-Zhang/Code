@@ -1,0 +1,66 @@
+auto <if_name>		# start if. <if_name> upon start of the system
+allow-auto <if_name>	# same as above
+allow-hotplug <if_name>	# start if. <if_name> when the kernel detects a hotplug event from the interface
+Lines started with "iface <if_name> ..."	# define the network config. for <if_name>
+Lines started with "mapping <interface_name_glob>"  # define mapping value of <config_name> for the matching <if_name>
+A line starting with a hash	# comments; end-of-line comments are not uspported
+A line ending with a backslash "\"  # extend the config. to the next line
+
+
+
+
+# iface stanza
+iface <config_name> <address_family> <method_name>
+    <option1> <value1>
+    <option2> <value2>
+    ...
+
+
+
+# loopback interface
+auto lo
+iface lo inet loopback
+
+
+# eth0 -- DHCP
+allow-hotplug eth0
+iface eth0 inet dhcp
+# When the Linux kernel detects the physical if. eth0, the "allow-hotplug" stanza causes "ifup" to bring up the if. and the "iface" stanza causes "ifup" to use "DHCP" to configure the if.
+
+
+# eth0 -- static IP
+allow-hotplug eth0
+iface eth0 inet static
+    address 192.168.11.100
+    netmask 255.255.255.0
+    network 192.168.11.0
+    broadcast 192.168.11.0
+    gateway 192.168.11.1
+    mtu	1500
+    # the following dns-related config. can only be set with "resolvconf" package installed
+    dns-domain example.com
+    dns-nameservers 192.168.11.1
+
+
+# virtual if.
+iface eth0 inet dhcp
+  metric 0
+iface eth0:0 inet static
+    address 192.168.0.1
+    netmask 255.255.255.0
+    network 192.168.0.0
+    metric 1
+# WLAN
+allow-hotplug ath0
+iface ath0 inet dhcp
+    wpa-ssid Wifi_name
+    # hexadecimal psk is encoded from a plaintext passphrase
+    wpa-psk 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f
+
+
+# mapping 
+mappingg <if_name_glob>
+    script <script_name>
+    map <script_input1>
+    map <script_input2>
+    map ...
