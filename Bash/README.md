@@ -12,9 +12,15 @@
 
 # Manual Page
 
-##### Most ofter used #####
+##### Most often used #####
 CONDITIONAL EXPRESSOINS
 Parameter Expansion
+commnad substitution
+wildcarding 
+piping
+here documents
+variables
+control structures (condition-testing and iteration)
 
 
 * OPTIONS

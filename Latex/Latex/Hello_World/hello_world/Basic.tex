@@ -801,6 +801,15 @@ To import code from files, using command \verb|\lstinputlisting|.
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Box}
+Use \verb|\makebox| to fit wide table or figures.
+
+\makebox[\textwidth]{
+    \begin{tabular}{cc}
+	a very long sentences that will fill up the cell, but it will still be centerized.  & this it the right cell that will exceed the right margin.
+    \end{tabular}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Miscellaneous}
 \verb|\rule{length}{width}|
 

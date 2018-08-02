@@ -23,6 +23,11 @@ t->Branch("vp", vi);
 int n, v[100];
 t->Branch("n", &n, "n/I");  // specify the length of array
 t->Branch("v", v,  "v[n]/I");	// note the [n] in the note.
+/* Root doesn't support store multi-dim arrays with variable length;
+ * Only one-dim array with variable length is supported;
+ * to do jobs, one can store one more variable in one-dim array, which
+ * is can used for 2nd index in later analysis.
+ */
 
 // Branch
 // the Branch() function requires a pointer to a variable and a 

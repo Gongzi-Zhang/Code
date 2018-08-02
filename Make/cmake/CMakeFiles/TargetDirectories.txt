@@ -1,0 +1,2 @@
+/home/weibin/Code/C/Make/CMakeFiles/edit_cache.dir
+/home/weibin/Code/C/Make/CMakeFiles/rebuild_cache.dir

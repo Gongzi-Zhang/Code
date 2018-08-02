@@ -61,6 +61,7 @@ c%r: e%t# if you find a file src/eat, then src/a is stem, and the target will be
 
 
 # keyword
+# virtual path to specify the dir. to search for dependencies and target fiels.
 vpath <pattern> <directories>	# set search dir. for files match pattern
 vpath <pattern>		# clear search dir. for files match pattern
 vpath 			# clear all search dir.

@@ -16,6 +16,14 @@ TH1F * h = (TH1F*) f->GetObjectChecked("my_histogram", "TH1F");
 // function and a dynamic type cast, it is advisable to use 
 // GetObjectChecked ???  Why???
 
+// delete object
+f->Delete("T;1");   // delete a tree
+
+// save object
+// Any object created are linked to the last opened file, to save an 
+// object to another file, you have to specified it:
+h->SetDirectory("file_name");
+
 // file format
 // "": padname.ps
 // .[name]: the padname is added in front

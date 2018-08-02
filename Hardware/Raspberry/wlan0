@@ -1,3 +1,8 @@
+# wlan setup
+/etc/wpa_supplicant/
+
+
+
 # configure wlan0 interface 
 allow-hotplug wlan0
 iface wlan0 inet static

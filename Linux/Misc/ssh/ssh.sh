@@ -6,6 +6,8 @@ ls -al ~/.ssh
 # generating a new SSH key
 ssh-keygen -t rsa -b 4096 -C "email@host" # Here you will be prompted to enter a file where you want to save the key and your passphrase.
 
+ssh-keygen -p -f ~/.ssh/id_rsa	# to change password for a generated key
+
 # to add your SSH key to the ssh-agent.
 # ssh-agent: an management agency so that you won't have to reenter your passphrase every time you use your SSH keys.
 eval "$(ssh-agent -s)"

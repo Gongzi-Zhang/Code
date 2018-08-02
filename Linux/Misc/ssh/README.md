@@ -5,6 +5,9 @@ every connection (this only work when the ssh deamon in remote server
 allows passwordless login)
 > ssh-copy-id user@host
 
+# some possible reasons for failure of no-password login
+1) permission: .ssh-- 700; authorized_keys -- 600
+
 
 
 # socket proxy
