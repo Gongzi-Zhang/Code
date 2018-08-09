@@ -127,14 +127,15 @@ augroup XML
 augroup END
 
 augroup C
+    let s:CExtension="c,cc,cp,cxx,cpp,c++,C,CPP,h"
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
-    au FileType c,cc,C,cpp,h  inoremap  ;   <Esc>A;
-    au FileType c,cc,C,cpp,h  inoremap  ;;  ;
-    au FileType c,cc,C,cpp,h  inoremap  {<return>  {<return>}<Esc>O
-    au FileType c,cc,C,cpp,h  inoremap  /* /*<Return>/<esc>kA
-    au FileType c,cc,C,cpp,h  ab	#i  #include
-    au FileType c,cc,C,cpp,h  ab	#d  #define
+    exe 'au FileType' s:CExtension  'inoremap  ;   <Esc>A;'
+    exe 'au FileType' s:CExtension  'inoremap  ;;  ;'
+    exe 'au FileType' s:CExtension  'inoremap  {<return>  {<return>}<Esc>O'
+    exe 'au FileType' s:CExtension  'inoremap  /* /*<Return>/<esc>kA'
+    exe 'au FileType' s:CExtension  'ab	#i  #include'
+    exe 'au FileType' s:CExtension  'ab	#d  #define'
 augroup END
 
 augroup DOT

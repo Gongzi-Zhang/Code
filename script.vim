@@ -3,6 +3,13 @@
 echo "this is a Vim script"
 quit
 
+" Vim's evaluation rules are different from most programming languages. 
+" You need to use :execute in order to evaluatae a variable (or 
+" expression); otherwise, it's taken literally.
+let type = expand('%:e')
+execute 'au BufNewFile *.'  type 'so ~/.vim/'  type  '_header.txt'
+execute printf('au BufNewFile *.%s so ~/.vim/%s_header.txt', type, type)
+
 " variables "
 let var = value
 unlet[!] var;	" with [!], no error message
