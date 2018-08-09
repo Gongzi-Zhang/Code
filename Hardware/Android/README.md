@@ -1,3 +1,6 @@
+# todo
+how to run (display) apps in PC monitor -- scrcpy (https://github.com/Genymobile/scrcpy)    or try adb
+
 # anbox -- ANdroid in Linux
 Though share the same Linux kernel, Android is actually a totally 
 different system than PC Linux., which deployes the GNU user environment,
@@ -27,3 +30,9 @@ apps do.
 
 a walk around is to install a new ROM which include **su**. which means
 to install a new system.
+
+
+# 
+am  -- activity manager
+pm  -- package manager
+dpm -- device policy manager

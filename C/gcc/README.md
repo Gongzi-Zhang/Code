@@ -1,3 +1,4 @@
+error.md    errors encountered during compilation
 
 symbol table:	offset of each function
 > nm	list symbol table of object files
