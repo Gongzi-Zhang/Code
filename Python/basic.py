@@ -28,3 +28,7 @@ if isinstance(L, list): print ("L is list")     # prefer
 3+5j || 3+5J
 
 
+try:
+    import cookielib    # python2
+except:
+    import http.cookiejar as cookielib

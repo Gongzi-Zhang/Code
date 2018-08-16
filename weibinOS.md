@@ -20,3 +20,10 @@
 ## update policy
 * security update -- ASAP
 * features adding -- waiting for stable version
+
+
+
+tracing system:
+    trace hot topic in Physics; Society;  (chronology)
+    trace the progress of someone's assignment	(different phase)
+    trace the development of a topic	(the subtopics around the main line)

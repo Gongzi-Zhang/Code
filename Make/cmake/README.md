@@ -1,3 +1,6 @@
+CMake is a cross-platform build system generator. projects specify their 
+build process with platform-independent CMakelists.txt files included in each directory of a source tree. Users build a project by using CMake to 
+generate a build system for a native tool on their platform.
 #
 # CMake 
 #
@@ -5,17 +8,25 @@
 > parameters are separated by space.
 
 ## Help
-cmake --help-command-list   
+--help-manual <man> [<f>]
+    print one help manual. [print to <f>ile if given]
+--help-manual-list [<f>]
+    list available manuals
+--help-command-list   
     list all available commands
-cmake --help-command <command>
+--help-command <command>
     help for <command>
-cmake --help-variable-list   
+--help-commands [<f>]
+    cmake-commands manual
+--help-module-list
+--help-module <MOD>
+--help-variable-list   
     list all built-in variables
-cmake --help-variable <variable>
+--help-variable <variable>
     help for <variable>
-cmake --help-command cmake_policy
-cmake --help-policies
-cmake --help-policy CMP0003
+--help-command cmake_policy
+--help-policies
+--help-policy CMP0003
 
 
 # files

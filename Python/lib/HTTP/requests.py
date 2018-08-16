@@ -40,5 +40,24 @@ r = requests.get("http://xlzd.me", proxies=proxies)
 
 ### session(会话)
 session = requests.Session()
+### create cookie
+session.cookies = cookielib.LWPCookieJar(filename = "NameOfCookies")
 session.post("http://xlzd.me/login", data = {"user":"xlzd", "pass":"mypassword"})
 session.put('http://xlzd.me/new', data = {'title':'title of article', 'data':'content'})
+session.cookies.save()
+
+
+form = {
+        'pid': '-1',
+        'pidName': '',
+        'fid': '机构码',
+        'fidName': '机构名',
+        'allowJoin': '0',
+        'isCheckNumCode': '1',
+        'f': '0',
+        'productid': '',
+        'uname': 'account',
+        'password': 'pwd',
+        'numcode': 'check code',
+        'verCode': '',
+        }

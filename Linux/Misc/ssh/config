@@ -36,3 +36,9 @@ Host pi
     HostName raspberrypi.local
     User    pi
     Compression yes
+host mi
+    HostName 192.168.1.115
+    user     u0_a369
+    port 8022
+    Compression yes
+    ForwardX11Trusted	yes

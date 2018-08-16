@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+if __name__ = "__main__":
+    do something here
+
 # be careful with default real parameters
 def foo(x=[]):
     x.append(1)
