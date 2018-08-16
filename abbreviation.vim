@@ -3,6 +3,7 @@ ab Teh	The
 ab teh	the
 ab hte	the
 ab cab	can
+ab cna	can
 ab waht what
 ab smae same
 ab wiht with
