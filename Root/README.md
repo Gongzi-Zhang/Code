@@ -1,5 +1,9 @@
 # Root
 
+# Navigation
+basic	    Basic usage, class, color, font, style, attribute
+samples	    some usage examples
+
 ## Online tutorials
 cd $ROOTSYS/tutorials
 
