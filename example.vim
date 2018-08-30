@@ -171,9 +171,12 @@ g,	!!!		" reverse direction
 " duplicate every line in a file and wrap a print '' around each duplicate
 
 " Inserting DOS Carriage Returns
-:%s/$/\<C-V><C-M>&/g	: that's what you type
-:%s/$/\<C-Q><C-M>&/g	: for Win32
+:%s/$/<C-V><C-M>&/g	: that's what you type
+:%s/$/<C-Q><C-M>&/g	: for Win32
 :%s/$/\^M&/g		: what you'll see where ^M is ONE character
+
+" delete DOS Carriage return
+:%s/<C-V><C-M>//g
 
 " inserting line number into file
 :%s/^/\=strpart(line(".")."  ",0, 4)

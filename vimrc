@@ -103,7 +103,7 @@ augroup END
 augroup HTML
     au!
     au	FileType php,html,xhtml,css  inoremap  <  <><Esc>i
-    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDko
+    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>elr>lDkA 
 "    au  FileType php,html,xhtml,css  inoremap  >  <Esc>yyp^a/<Esc>eldt>ko
 "    Why this command doesn't open new line automatically when there is only
 "    one word in tag ???
