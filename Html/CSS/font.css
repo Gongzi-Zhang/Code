@@ -2,24 +2,18 @@ body {
     font-style: normal;
     font-style: italic;
     font-style: oblique;  /* look same as italic in most browsers */
-}
- 
-body {
+
     font-variant: normal;  /* default */
     font-variant: small-caps;
     font-variant: inherit;  /* inherit from parent element */
-}
 
-body {
     font-weight: 100-900;
     font-weight: normal;   /* 400 */
     font-weight: bold;
     font-weight: bolder;   /* 700 */
     font-weight: lighter;
     font-weight: inherit;
-}
 
-body {
     font-size: xx-small;
     font-size: x-small;
     font-size: small;

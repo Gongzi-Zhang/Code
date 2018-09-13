@@ -694,6 +694,21 @@ flush right fixed width:
     \hline
 \end{tabular}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{centering a wide table}
+To center a very wide table, you can take the following ways:
+\begin{itemize}
+    \item \verb|\makebox[\textwidth][c]{<table>}|
+    \item use adjustbox (from package \emph{adjustbox})
+	\begin{verbatim}
+	\begin{adjustbox}{center}
+	    \begin{tabular}{ccc}
+		table content
+	    \end{tabular}
+	\end{adjustbox}
+	\end{verbatim}
+    \item \verb|\centerline{<table>}|
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Figure}
 

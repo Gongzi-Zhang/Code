@@ -1,24 +1,25 @@
-  p {border-color: red;
-     border-width: .25em;
+p {
+    border-color: red;
+    border-width: .25em;
 
-     border-style: double;
-     border-style: solid;
-     border-style: groove; /*use shading to simulate a groove etched*/ 
-     border-style: ridge;  /*use shading to simulate a ridge drawn */
-     border-style: inset;  /*use shading to simulate a pressed-in button*/
-     border-style: outset; /*use shading to simulate a button sticking out */ 
-     border-style: dashed; 
-     border-style: dotted; 
-  }
+    border-style: double;
+    border-style: solid;
+    border-style: groove; /*use shading to simulate a groove etched*/ 
+    border-style: ridge;  /*use shading to simulate a ridge drawn */
+    border-style: inset;  /*use shading to simulate a pressed-in button*/
+    border-style: outset; /*use shading to simulate a button sticking out */ 
+    border-style: dashed; 
+    border-style: dotted; 
+}
 
-  p {
+p {
     border: red 5px solid;
-  }
+}
 
-  /* partical border */
-  p {
+/* partical border */
+p {
     border-bottom: black 3px dashed;
     border-top: 4px green dotted;
     border-left: 2px cyan ridge;
     border-right: 1em magenta groove;
-  }
+}

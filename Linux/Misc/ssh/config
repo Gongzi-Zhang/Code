@@ -36,6 +36,8 @@ Host pi
     HostName raspberrypi.local
     User    pi
     Compression yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
 host mi
     HostName 192.168.1.115
     user     u0_a369
