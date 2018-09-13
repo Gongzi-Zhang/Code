@@ -109,8 +109,8 @@ augroup HTML
 "    one word in tag ???
     au  FileType php,html,xhtml,css  inoremap  <! <!----><esc>2hi
     au  FileType php,css       	     inoremap  /*  /**/<esc>1hi
-    au  FileType html,xhtml,javascript	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
-    au  FileType php,javascript,css  inoremap  ;   <esc>A;
+    au  FileType html,xhtml	     inoremap  //<  //<![CDATA[<CR><CR><CR><CR>//]]><esc>2ka
+    au  FileType php,css	     inoremap  ;   <esc>A;
     au  FileType php		     inoremap  <?  <?php?><Esc>hi<CR><Esc>ko
     au  FileType php		     inoremap  or<Space>die  or<Space>die(mysql_error)
     au  FileType json		     inoremap  ,    <esc>A,
@@ -127,7 +127,7 @@ augroup XML
 augroup END
 
 augroup C
-    let s:CExtension="c,cc,cp,cxx,cpp,c++,C,CPP,h"
+    let s:CExtension="c,cc,cp,cxx,cpp,c++,C,CPP,h,javascript"
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
     exe 'au FileType' s:CExtension  'inoremap  ;   <Esc>A;'
