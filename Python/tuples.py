@@ -14,5 +14,11 @@ print mytuple[2]    # World
 mytuple[1] = 23 # TypeError: ’tuple’ object does not support item assignment
 not_a_tuple = (24)
 print not_a_tuple   # 24
-a_tuple = (24,)
+a_tuple = (24,)     # note the trailing comma
 print a_tuple   # (24,)
+
+
+# unpacking 
+t = 12345, 54321, 'hello'
+x, y, z = t     
+# sequnce unpacking requires that there are as many variables on the left side of the equals sign as there are elements in the sequence

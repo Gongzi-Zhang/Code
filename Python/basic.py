@@ -1,24 +1,7 @@
-#!/usr/bin/env python3.5
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # declare encoding, it must be the first line or second line after "shebang" line
 
-##########################  intepreter  ##########################
-# class, everything is an object, and therefore has a class (type)
-object.__class__
-# the dir() built-in prints the members fo a module or class.
-dir(math)
-help(obj.func)  # help for the func of object
-
-# in order to know the type of a variable, use type()
-type(math.asin) # <type 'builtin_function_or_method'>
-type(math.pi)   # <type 'flaot'>
-
-## while in script, we can test type by the following ways:
-if type(L) == type([]): print("L is list")
-if type(L) == list: print("L is list")
-if isinstance(L, list): print ("L is list")     # prefer
-
-#-- 
 
 ##########################  Math  ##########################
 # floor division
@@ -28,7 +11,61 @@ if isinstance(L, list): print ("L is list")     # prefer
 3+5j || 3+5J
 
 
+
+##########################  String  ##########################
+# raw string
+print('Hello \nWorld')
+### Hello
+### World
+print(r'Hello \nWrold')
+### Hello \nWrold
+
+# long string
+print("""\
+        This is a very long string
+        End of lines are automatically included in the string
+        To prevent this, add a \ at the end of the line\
+        no new line here.
+""")
+print('''\
+        This is a very long string
+        End of lines are automatically included in the string
+        To prevent this, add a \ at the end of the line\
+        no new line here.
+''')
+
+# string index
+word = 'Python'
+word[0]     # P
+word[-1]    # n
+
+
+
+##########################  Functions  ##########################
+def func(kind, *arguments, **keywords):
+    print("arguments is a tuple (positional), and keywrods is a dictionary")
+    for arg in arguments:
+        print(arg)
+    print("-" * 40)
+    for kw in keywords:
+        print(kw, ":", keywords[kw])
+
+
+# range() returns an iterator
+# default start: 0
+# default step:  1
+range(5)        # 0 1 2 3 4
+range(5, 10)    # 5 6 7 8 9
+range(10, 5)    # error
+range(10, 5, -1)# 10 9 8 7 6
+range(0, 10, 3) # 0 3 6 9
+
+
+
+##########################  Compatibility  ##########################
 try:
     import cookielib    # python2
 except:
     import http.cookiejar as cookielib
+
+

@@ -9,10 +9,19 @@ phone_nos = {"home"  : "988988988",
             "office" : "0803332222", 
             "integer": 25}
 print phone_nos[0]  # KeyError: 0
-print phone_nos[’home’] # 988988988
+print phone_nos['home'] # 988988988
 
 # Dictionaries can also be created from lists of tuples.
 myinfo = [("name","ershaad"), ("phone","98989898")]
 mydict = dict(myinfo)
 print mydict    # {’phone’: ’98989898’, ’name’: ’ershaad’}
 print mydict["name"]    # ershaad
+
+
+# unpack
+for key in (**phone_nos):
+    print (key, phone_nos[key])
+
+# looping techniques
+for k, v in phone_nos.items():
+    print(k, v)

@@ -1,0 +1,6 @@
+li {
+    display: inline; // make block elements listed in one line item by item   
+    display: block; // make inline elements listed in block (line by line)
+
+    display: none;  // show nothing in browser
+}
