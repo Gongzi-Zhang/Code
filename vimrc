@@ -155,6 +155,7 @@ augroup TEX
     au FileType tex	let g:tex_conceal="abdgm" | set concealcursor=c conceallevel=2 
     au FileType tex	set nosmartindent
     au FileType tex	inoremap    ;	<Esc>A;
+    au FileType tex	inoremap    ;;	;
     au FileType tex	inoremap    $	$$<Esc>i
     au FileType tex	inoremap    }   <esc>yyp^lcwend<esc>kA
     au FileType tex	inoremap    \[  \[<return>\]<esc>ko

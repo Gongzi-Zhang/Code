@@ -20,6 +20,7 @@ search.vim:	every thing about search and regep in VIM
 *   How does Vim open a file, when it open a very large file (say, hundreds of MB), 
     it will be a totally disaster.
 *   vsplit many command provide version of horizental spliting, what about vertical spliting
+*   vim will automatically add a newline char (\n) in the end of your file, be careful with it.
 
 # to_do
 > plugin: auto completion of code key words. like what we have with tab in
