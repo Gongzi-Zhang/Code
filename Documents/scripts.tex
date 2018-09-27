@@ -1,0 +1,178 @@
+\documentclass[landscape]{article}
+
+\usepackage{geometry}
+    \geometry{left=2cm, right=2cm}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+
+\begin{document}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\begin{adjustbox}{center}
+    \begin{tabular}{|c|C{0.06\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|}
+    \hline
+    \multicolumn{2}{|c|}{Language}    & shell & python	& Js	& Lua   \\
+    \hline
+    \multirow[c]{1}{*}{Features}	& 
+	Functions   &
+	% shell
+	placehoder  &	
+	% python
+	index from 0; 
+	multiple assignment;  &	
+	named arguments, variable arguments;
+	0 and empty string '' is False;
+	% Js
+	index from 0  &
+	% Lua
+	index from 1; 
+	multiple assignment and return multi values;
+	named arguments, variable arguments;
+	0 and empty string '' is False;
+	... 
+	\\	% Lua
+    \hline
+    \multirow[c]{6}{*}{Basic}	& 
+	Keywords  & 
+	% shell keywords
+	if, then, else, elfi, fi; for  in/while, do, done; until    
+	true, false &	
+	% python keywords
+	if  is  elif  else, for  in, while, break  continue  pass; 
+	from, import  as, with, def, class, lambda, return, self;
+	try except finally, raise, del; 
+	yield;
+	and, or, not;
+	True, False, None; &
+	% Js
+	if, for  in/while, do  
+	var, new, function, this, return;
+	undefined, null &	
+	% Lua
+	if, then, else, elseif; while/for in, do, break, end; repeat, until; 
+	and, or, not; nil, local, return    \\ 
+    \cline{2-6}
+    &	Control	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &	Math	&
+	Integer calculation \$(()): +, -, *, /, \%, **	&   % shell
+	+, -, *, /, \%, **, // &	% python
+	+, -, *, /, \%, **  &	% Js
+	+, -, *, /, \%, \^{}  \\    % Lua
+    \cline{2-6}
+    &	Logic	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	==, ===  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &	String	&
+	% shell
+	\$\{a\%\}, \$\{a\%\%\}, \$\{a\#\}, \$\{a\#\#\}, \$\{a:2\}	&
+	% python
+	+, *,	&   
+	% Js
+	+, \[\],  sub, &   
+	% Lua
+	..	\\  
+    \cline{2-6}
+    &	Data Structure	&
+	% shell
+	placehoder	&
+	% python
+	string, list, tuple, set;
+	dictionary	&
+	% Js
+	placehoder	&
+	% Lua
+	placehoder	\\
+    \cline{2-6}
+    &	Miscellaneous	&
+	% shell
+	placehoder	&
+	% python
+	type()	&
+	% Js
+	typeof()    &
+	% Lua
+	type()
+    
+    \hline
+    \multirow[c]{3}{*}{Functions}	& 
+	Math	&
+	placehoder  &	% shell
+	% pytho
+	math.pi, math.sin()  &	
+	placehoder  &	% Js
+	math.sin, cos,   \\	% Lua
+    \cline{2-6}
+    &   String	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	% Js
+	str.method;
+	length, search("locate"), indexOf("locate"), lastIndexOf("locate");
+	slice(start, end), substring(start, end), substr(start, length);
+	charAt(pos), charCodeAt(pos),
+	replace("old", "new");
+	toUpperCase(), toLowerCase(), concat(), trim(), split();
+	&	
+	% Lua
+	string.format() \\	
+    \cline{2-6}
+    &	RegExp	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \hline
+    \multirow[c]{5}{*}{Libraries}	& 
+	Plot	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &   OS	&
+	placehoder  &	% shell
+	% Python
+	os, sys, io  &	
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &   Network	&
+	placehoder  &	% shell
+	% Python
+	json, csv, xml  &	
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &   Database	&
+	placehoder  &	% shell
+	% python
+	sqlite3  &	
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \cline{2-6}
+    &   Debug	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \hline
+    \multirow[c]{1}{*}{Advanced}	& 
+	Plot	&
+	placehoder  &	% shell
+	placehoder  &	% pytho
+	placehoder  &	% Js
+	placehoder  \\	% Lua
+    \hline
+\end{tabular}
+\end{adjustbox}
+
+\end{document}
