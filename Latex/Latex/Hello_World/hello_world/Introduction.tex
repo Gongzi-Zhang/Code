@@ -9,7 +9,7 @@ within LaTeX is collectively referred to as \textit{top matter}.
 \section{Definition}
 Following conventions will be used in this report:  \\
 \package{package}   \\
-\command{command}   \\
+\command|command|   \\
 \option{option}	    \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -75,9 +75,9 @@ are placed relative to the boxes which contains them.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{parbox, minipage, and pbox}
-A \command{\textbackslash{}parbox} is a box of specific width formatted in paragraph mode. 
+A \command|\parbox| is a box of specific width formatted in paragraph mode. 
 In paragraph mode, text is broken into lines and lines are broken into pages.
-\command{\textbackslash{}parbox[pos][height][contentpos]\{width\}\{text\}}
+\command|\parbox[pos][height][contentpos]{width}{text}|
 
 \option{width} defines the width of the paragraph box. Text will be broken 
 into lines so that it fits within this width. 
@@ -91,4 +91,4 @@ that \option{contentpos} has no effect if the box is not larger than the
 text it contains.
 
 
-\command{\textbackslash{}pbox[pos][height]\{width\}\{text\}}
+\command|\pbox[pos][height]{width}{text}|

@@ -38,8 +38,10 @@
 %     tablesize = 2,		
 % }
 \usepackage{makeidx}
-\usepackage{multicol}	% multicolumns environment
+\usepackage{makecell}	% line breaking in a table cell
+\usepackage{multicol}	% multicolumns environment in a table
 % \usepackage{tabbing}	% tabbing env.
+\usepackage{tabularx}	% another table environment
 \usepackage[dvipsnames]{xcolor}   % colored text
 \usepackage{tikz}
     \usetikzlibrary{arrows,shapes,chains,positioning}
@@ -77,9 +79,15 @@
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{green}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
-\newcommand{\package}[1]{\colorbox{gray!15!}{\textcolor{red}{\textbf{#1}}}}
-\newcommand{\command}[1]{\colorbox{gray!15!}{\textcolor{OliveGreen}{\textbf{#1}}}}
-\newcommand{\option}[1]{\colorbox{gray!15!}{\textcolor{RawSienna}{\textbf{#1}}}}
+
+\newcommand{\package}[1]{\colorbox{gray!15!}{\textcolor{red}{\it{#1}}}}
+% \newcommand{\package}[1]{\lstinline[language=TeX, backgroundcolor=\color{gray}, basicstyle=\ttfamily\color{red}]{#1}}
+\newcommand{\option}[1]{\colorbox{gray!15!}{\textcolor{blue}{\it{#1}}}}
+% \newcommand{\option}[1]{\lstinline[language=TeX, backgroundcolor=\color{gray}, basicstyle=\color{blue}]{#1}}
+\newcommand{\command}{\lstinline[language=TeX, backgroundcolor=\color{gray}, basicstyle=\color{RawSienna}]}
+% \newcommand{\error}{\lstinline[language=sh, backgroundcolor=\color{gray}, basicstyle=\bfseries]}
+\newcommand{\error}[1]{\colorbox{gray!15!}{\textbf{#1}}}
+
 % add a 'Go to TOC' button in every page
 \newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{
     \put(\LenToUnit{\paperwidth},\LenToUnit{-0.1\paperheight}){#1}}}

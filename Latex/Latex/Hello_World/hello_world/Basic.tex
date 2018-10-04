@@ -264,7 +264,7 @@ switch to sffamily  \\
 switch back to default one. \\
 
 To change the default fonts, use the commands:	\\
-\verb|\renewcommand{\familydefault}{\sfdefault}|
+\command|\renewcommand{\familydefault}{\sfdefault}|
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Style}
@@ -307,7 +307,7 @@ All the sizes of other commands depends on the size of normal text.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Color}
-To color text in \LaTeX{}, use \textcolor{red}{xcolor} package. There are 
+To color text in \LaTeX{}, use \package{xcolor} package. There are 
 two syntax to add color to text:
 \begin{lstlisting}[language=TeX]
 \colorbox{color}{text}	% background color
@@ -520,6 +520,12 @@ W.\textasciitilde R.\textasciitilde Hamilton.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Commands}
 
+\subsection{newcommand}
+\command|\def| can define commands that take delimiters other than braces,
+while \command|\newcommand| can't.  \\
+\command|\def\foo<#1>{something #1}|	\\
+\command|\foo<happy>|
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{List}
 Three are three kinds of list in \LaTeX{}: 
@@ -593,8 +599,6 @@ Alph:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Table}
 
-{\color{red}??? How to wrap text within a table cell ???}
-
 \verb|\toprule, \midrule, \bottomrule| used as seperation line.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -637,8 +641,9 @@ The alighment of text can be: l,c,r or p{length}
 	\hline
     \end{tabular}
 \end{center}
-Similarly, we can apply \verb|multirow[pos]{num}{*}{item}| when include
-\emph{multirow} package.
+Similarly, we can apply 
+\command|\multirow[pos]{num}{*}{item}| when include
+\package{multirow} package.
 
 \begin{center}
     \begin{tabular}{|l|r|r|}
@@ -668,9 +673,17 @@ Similarly, we can apply \verb|multirow[pos]{num}{*}{item}| when include
     \end{tabular}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{rowcolor}
+When use \command|\rowcolor| in \command|\multirow|
+or \command|\multicolumn| environment, if it is not put at the start
+of a new line, it will raise a \error{Misplace noalign}. You can either ignore it 
+or you can use \command|\cellcolor| from the same package.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{alignment}
-Using package \textbf{tabularx}, one can manipulate the alignment of the
+Using package \package{tabularx}, one can manipulate the alignment of the
 cells.
 
 flush left fixed width:
@@ -699,7 +712,7 @@ flush right fixed width:
 To center a very wide table, you can take the following ways:
 \begin{itemize}
     \item \verb|\makebox[\textwidth][c]{<table>}|
-    \item use adjustbox (from package \emph{adjustbox})
+    \item use adjustbox (from package \package{adjustbox})
 	\begin{verbatim}
 	\begin{adjustbox}{center}
 	    \begin{tabular}{ccc}
@@ -709,12 +722,61 @@ To center a very wide table, you can take the following ways:
 	\end{verbatim}
     \item \verb|\centerline{<table>}|
 \end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Line height}
+\command|\renewcommand{\arraystretch}{2}| to increase the row height to 
+2 times of original one. Don't forget to change it back to original value
+with \command|\renewcommand{\arraystretch}{1}|. 
+
+To change only height of one row, you can use \command|\rule{0pt}{height} | in the start of a row. 
+
+This trick also change the height of a row by adding extra space to it: 
+\command|\\[distance]|. For example: \
+command|\\[-1em]|. \command|\\|: add one line of space, 
+\command|[\-1em]|: minus 1em from previous spacing.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Line break in a table cell}
+
+\subsubsection{makecell}
+Using the \command|\thead| and \command|\makecell| command from package \package{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+\begin{center}
+    \begin{tabular}{ | c | c | c |}
+	\hline
+	\thead{A Head}	& \thead{A Second \\ Head}  & \thead{A Third \\ Head}	\\
+	\hline
+	Some text   & \makecell{Some really \\ long text}   & \makecell{Another \\ long text}	\\
+	\hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{tabularx}
+Use the \emph{tabularx} environment instead of \emph{tabular} from package \package{tabularx}
+\begin{center}
+    \begin{tabularx}{\textwidth}{lX}
+	Section:    & This is my \newline 
+		      long paragraph	\\
+    \end{tabularx}
+\end{center}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{wrapfig}
-Surrounding figures with text using package \emph{wrapfig}. Note
+Surrounding figures with text using package \package{wrapfig}. Note
 that text can't follow the wrapfig env. directly.
 
 \begin{wrapfigure}{L}{0.3\textwidth}
@@ -735,6 +797,18 @@ that text can't follow the wrapfig env. directly.
 \lipsum[2]
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{minipage}
+To use \emph{minipage} environment, note that add a \% behind every 
+\verb|\end{minipage}| statement.
+\begin{lstlisting}[language=TeX]
+    \begin{figure}
+	\begin{minipage}{0.5\textwidth}
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}
+	\end{minipage}
+    \end{figure}
+\end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Equation}
 
@@ -762,8 +836,8 @@ Verbatim-like text can also be used in paragraph by means of the
 delimiter. For instance \verb+Delimiter+ use + as delimiter.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Highlighting code: listings package}
-To produce highlight code, we need \textbf{listings}
+\subsection{Highlighting code}
+To produce highlight code, we need \package{listings}
 \begin{lstlisting}[language=Python]
     import numpy as np
 
@@ -786,7 +860,7 @@ To import code from files, using command \verb|\lstinputlisting|.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Code Style}
-\textbf{listings} is highly customisable.  
+\package{listings} is highly customisable.  
 \begin{lstlisting}[language=TeX]
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -814,6 +888,24 @@ To import code from files, using command \verb|\lstinputlisting|.
 
 \lstset{style=mystyle}
 \end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{listings}
+
+\subsubsection{lstinline}
+To wrap \command|lstinline|, one need to avoid to read the argument with
+the wrapper macro. Currently, I can't find any method to add background
+to inline code using \command|\lstinline|. We have no way to wrap 
+\command|\lstinline| in other environments, like \command|\colorbox|
+to make background color for it. Even the following fails compilation:	\\
+\command|\newcommand{\command}{\lstinline[language=TeX, basicstyle=\color{RawSienna}]}|	\\
+\command|\colorbox{gray}{\command#\color#}|
+
+\command|\newcommand\codeinline{\lstinline[style=inlinecode]}|	\\
+\command|\codeinline+&$%+|  
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Box}
@@ -852,7 +944,7 @@ BIBTeX style:
     \item [abbrv] compact style, first name, month, and journal names are
 	abbrevitated
     \item [acm]	it hse author name in small caps, and numbers as labels.
-    \item [apalike] require \emph{apalike} package. Entries formatted
+    \item [apalike] require \package{apalike} package. Entries formatted
 	alphabetically, last name first, each entry having a hanging
 	indentation and no label.
 \end{description}
