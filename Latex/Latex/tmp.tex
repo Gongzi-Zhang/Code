@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{graphics}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xparse}
+\usepackage{listings}
+
+\def\lstcode{\lstinline[language=TeX, basicstyle=\color{RawSienna}]}
+
+\def\command|#1|{\colorbox{gray}{\expandafter\lstcode\expandafter|#1|}}
+
+\begin{document}
+
+% \command|\hello world|
+\colorbox{gray}{\lstinline[basicstyle=\color{RawSienna}]|\hello|}
+
+
+\end{document}
