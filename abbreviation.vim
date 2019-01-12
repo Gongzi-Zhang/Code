@@ -2,6 +2,8 @@ ab eb	be
 ab Teh	The
 ab teh	the
 ab hte	the
+ab ned  end
+ab edn	end
 ab cab	can
 ab cna	can
 ab waht what
