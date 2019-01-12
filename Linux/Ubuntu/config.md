@@ -10,6 +10,11 @@ need to install it firstly: sudo apt-get install ibus-pinyin, assume you use ibu
 
 For Japanese: choose Japanese (Mozc)
 	
+## problem shooting 
+    if you still can't switch to Pinyin input after previous steps, then you are missing some packages:
+	sudo apt install ibus-pinyin (ibus-sunpinyin)
+    then restart ibus service:
+	ibus restart
 
 # log
 # /etc

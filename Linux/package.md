@@ -1,3 +1,9 @@
+# interesting packages
+* fortune
+> > increasing your coockie (following the right format)
+>   in /usr/share/games/fortunes:
+>   strfile -c % your-coockie
+>   fortune your-coockie
 # package dependce
 Error:	Could not find X11
     X11 header files are missing.
