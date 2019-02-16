@@ -12,6 +12,7 @@ reference/
 tmp/
 test/
 build/
+# /**/figures/
 
 # while from version 1.8.2, git support ** to mean zero or more sub-dir.
 # /**/reference/

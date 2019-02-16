@@ -28,6 +28,12 @@ Host boson
     Compression	yes
     ForwardX11	yes
     ForwardX11Trusted	yes
+Host office
+    HostName	129.49.57.128
+    User	weibin
+    Compression yes
+    ForwardX11	yes
+    ForwardX11Trusted	yes
 Host sb
     HostName	mysbfiles.stonybrook.edu
     User	weibzhang

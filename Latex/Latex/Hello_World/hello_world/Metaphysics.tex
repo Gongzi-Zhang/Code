@@ -110,3 +110,10 @@ The possible solutions are:
     \item Insert \verb|\relax| before the left square bracket. It will stop the bracket from being interpreted as an argument.
     \item Insert \{\} before the left square brackedt.
 \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{order of commands}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{label and caption}
+If you put \verb|\label| command before the \verb|\cpation| command, then \verb|\ref| will not show the correct citation;
+if you just exchange their place, then you get everything work well, weird.
