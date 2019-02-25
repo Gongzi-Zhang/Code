@@ -24,6 +24,7 @@ ab ahve have
 ab wehn when
 ab tehy they
 ab ot	to
+ab tiem	time
 
 
 ab shoudl should
