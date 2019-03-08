@@ -25,6 +25,9 @@ ab wehn when
 ab tehy they
 ab ot	to
 ab tiem	time
+ab farc frac
 
 
 ab shoudl should
+ab sigam  sigma
+ab corss  cross
