@@ -47,6 +47,16 @@ tlmgr update --list
 tlmgr update --all
     # update 
 
+
+
+## Document
+texdoc <package>
+### Trouble shooting: update kpathsea database
+sudo mktexlsr [path]
+### Where path is texlive installation path, usually:
+### /usr/share/texlive/texmf-dist
+
+
 ## error
 "cannot setup TLPDB in /home/USER/texmf at /usr/bin/tlmgr line 5604"
 tlmgr init-usertree
