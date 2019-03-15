@@ -30,4 +30,5 @@ ab farc frac
 
 ab shoudl should
 ab sigam  sigma
+ab oemga  omega
 ab corss  cross
