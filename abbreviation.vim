@@ -7,10 +7,12 @@ ab edn	end
 ab cab	can
 ab cna	can
 ab waht what
+ab wnat want
 ab smae same
 ab wiht with
 ab fiel file
 ab adn	and
+ab ans	and
 ab fro	for
 ab taht	that
 ab htah that
@@ -28,7 +30,8 @@ ab tiem	time
 ab farc frac
 
 
-ab shoudl should
-ab sigam  sigma
-ab oemga  omega
-ab corss  cross
+ab shoudl   should
+ab sigam    sigma
+ab oemga    omega
+ab corss    cross
+ab ligth    light
