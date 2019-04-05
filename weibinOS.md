@@ -6,6 +6,7 @@
 * Intelligence system (智能系统): Capable of thinking with network relationship (网状思维), as a supplement to human brain which is only good at linear thinking (tree structural relationship)
 * stock system
     * 社会舆情指数: 大V (权重) 与群众的态度值 (点赞、转发、评论)
+    * 信息（小道消息）传播的范围，源头以及关键节点
 * database system (MySQL)
 * Coding system 
 * Gimp system (image)
