@@ -13,6 +13,7 @@ ab ahve have
 ab ahs  has
 ab aHs  Has
 ab si	is
+ab soem	some
 ab ti	it
 ab fo	of
 ab pre  per
