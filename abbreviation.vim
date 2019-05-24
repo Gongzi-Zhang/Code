@@ -13,6 +13,7 @@ ab ahve have
 ab ahs  has
 ab aHs  Has
 ab si	is
+ab lief	life
 ab soem	some
 ab ti	it
 ab fo	of
