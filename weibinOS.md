@@ -34,3 +34,6 @@ tracing system:
     trace the development of a topic	(the subtopics around the main line)
 
     热点事件追踪，在特定时间段关注特定网站
+
+# Tools
+* PDF reader: jump back; dictionary
