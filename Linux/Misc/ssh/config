@@ -1,3 +1,4 @@
+### USTC
 Host ustc
     HostName	ui01.lcg.ustc.edu.cn
     User	zhangwb
@@ -10,6 +11,10 @@ Host ustc1
     Compression	yes
     ForwardX11	yes
     ForwardX11Trusted	yes
+
+
+
+### SB
 Host mocha
     HostName	mocha.physics.sunysb.edu
     User	weibin
@@ -38,6 +43,10 @@ Host sb
     HostName	mysbfiles.stonybrook.edu
     User	weibzhang
     Compression	yes
+
+
+
+### personal
 Host pi
     HostName raspberrypi.local
     User    pi
@@ -49,4 +58,14 @@ host mi
     user     u0_a369
     port 8022
     Compression yes
+    ForwardX11Trusted	yes
+
+
+
+### JLab
+host hallgw
+    HostName	hallgw
+    User    weibin
+    Compression yes
+    ForwardX11	yes
     ForwardX11Trusted	yes
