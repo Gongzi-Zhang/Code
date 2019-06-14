@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "materials.xml">
+]>
+
+<gdml>
+    <define>
+	<constant name="hello_world" value="hello_world"/>
+	<constant name="cons1" value="10"/>
+	<constant name="cons2" value="20"/>
+	<constant name="const" value="cons1*1.01"/>
+	<constant name="alternative" 
+		  value="52.4"/><!-- 53.4 -->
+	<position unit="cm" name="position" x="0" y="0" z="0"/>
+	<position unit="cm" name="position1" x="0" y="0" z="(-cons1 + cons2 + 2.5)/2"/>
+	<rotation unit="deg" name="rot" x="90" y="0" z="0"/>
+	<rotation name="identity"/>
+
+	<!-- matrix: to access matrix elements, use matrix_name[row, col]-->
+	<matrix name="matrix" coldim="5" values="1 2 3 4 5 
+						 6 7 8 9 10
+						 11 12 13 14 15"/>
+    </define>
+    &materials;
+
+    <solids>
+	<box lunit="cm" name="box" x="cons1" y="cons2" z="const"/>
+
+	<tube aunit="deg" startphi="0" deltaphi="360"
+	    lunit="cm" name="tube" 
+	    rmin="0.0" rmax="4" z="alternative"/>
+
+	<cone aunit="deg" startphi="0" deltaphi="360"
+	    lunit="cm" name="cone"
+	    rmin1="0.0" rmax1="2.0"
+	    rmin2="0.0" rmax1="4.0"
+	    z="alternative"/>
+
+	<subtraction name="subtraction">
+	    <first ref="tube"/>
+	    <second ref="cone"/>
+	    <positionref ref="position"/>
+	    <rotationref ref="identity"/>
+	</subtraction>
+
+	<union name="union">
+	    <first ref="subtraction"/>
+	    <second ref="box"/>
+	    <positionref ref="position1"/>
+	    <rotationref ref="identity"/>
+	</union>
+
+	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="cm" name="polycone">
+	    <zplane rmin="0" rmax="4" z="10"/>
+	    <zplane rmin="0" rmax="4" z="9"/>
+	    <zplane rmin="1" rmax="4" z="9"/>
+	</polycone>
+	<polycone aunit="deg" startphi="0" deltaphi="360" lunit="cm" name="polycone1">
+	    <zplane rmin="0" rmax="4" z="10"/>
+	    <zplane rmin="0" rmax="4" z="9"/>
+	    <zplane rmin="1" rmax="4" z="9"/>
+	    <zplane rmin="2" rmax="5" z="10"/>
+	</polycone>
+
+	<trap aunit="deg" lunit="cm" name="trap" z="10" theta="10" phi="300"
+	    y1="1" x1="23" x2="32" alpha1="2"
+	    y2="2" x1="24" x2="33" alpha2="5"/>
+
+	<sphere aunit="deg" startphi="0" deltaphi="360" starttheta="0" deltatheta="180" lunit="cm" name="sphere" rmin="2" rmax="10"/>
+
+	<intersection name="intersection">
+	    <first ref="tube"/>
+	    <second ref="subtraction"/>
+	    <positionref ref="position"/>
+	    <rotationref ref="rotation"/>
+	</intersection>
+    </solids>
+
+    <structure>
+	<volume name="volume1">
+	    <materialref ref="material"/>
+	    <solidref ref="box"/>
+	    <auxiliary auxtype="auxtype" auxvalue="auxvalue"/>
+	</volume>
+
+	<volume name="logicMother">
+	    <materialref ref="Vacuum"/>
+	    <solidref ref="box"/>
+
+	    <physvol name="collimator">
+		<volumeref ref="volume1"/>
+		<positionref ref="positionref"/>
+	    </physvol>
+
+	    <physvol name="collimator">
+		<volumeref ref="volume2"/>
+		<positionref ref="positionref"/>
+	    </physvol>
+	</volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+	<world ref="logicMother"/>
+    </setup>
+</gdml>

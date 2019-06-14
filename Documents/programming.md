@@ -1,3 +1,45 @@
+* Interactive learning
+* Consistent and Easy interface (API)
+* Rich and Complete documents
+
+# each programming language should has the following data and data structure implementation
+* Numbers
+    +-- int
+    +-- float
+    
+* String 
+
+* Pointer, multilevel pointer
+
+## Data structure
+* list (vector)
+    +-- insert
+	++-- append (push)
+	++-- prepend
+    +-- remove (delete)
+	++-- popd
+    +-- extract
+    +-- search (find)
+    +-- replace (delete and then insert)
+
+* matrix
+* associate list (dictionary)
+
+
+# lib
+* random
+* date time  
+* timer
+
+## Gui
+    +-- widgets (frame, button, window, layout)
+	+-- size: fit, fix
+
+
+### scope (parent/child relationship)
+* * name space
+* * heritage of function (object)
+
 函数式编程:
 >   函数是纯粹的，不能修改传递给函数的变量，不能修改全局变量，对于同样的输入参数，返回值总是相同的。
 >   用递归解决循环

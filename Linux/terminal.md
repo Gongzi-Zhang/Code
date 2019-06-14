@@ -1,3 +1,5 @@
+# Hierarchy
+Terminal (terminal simulator) >>>>> Shell >>>>> Program run by shell
 # Terminals Color -- Select Graphic Rendition (SGR)
 The SGR substring values are integers in decimal representation and can
 be concatenated with semicolons.

@@ -10,6 +10,7 @@
 * database system (MySQL)
 * Coding system 
 * Gimp system (image)
+    XPM, XBM, PBM format support
 * Script system (for management and automation)
 * network system (Chrome)
 * Bibliography system
