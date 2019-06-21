@@ -1,0 +1,17 @@
+# Variables
+
+## Systematic variables
+CMAKE_SYSTEM_NAME
+
+
+
+
+## Search path
+CMAKE_MODULE_PATH
+CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES
+
+
+
+## Compilation variables
+CMAKE_INSTALL_PREFIX
+CMAKE_SOURCE_DIR

@@ -673,14 +673,115 @@ Similarly, we can apply
     \end{tabular}
 \end{center}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Colors}
+To setup row and column color, use package:
+\package{\textbackslash{}usepackage[table]\{xcolor\}}
+
+\definecolor{lightgray}{gray}{0.9}
 %%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{rowcolor}
+\subsubsection{Single row or column and single cell}
+\begin{center}
+    \rowcolors{1}{}{lightgray}	% change color in odd and pair rows
+    \begin{tabular}{| l | c |}
+	\hline
+	J.\ S.\ Bach	& 1685--1750	\\
+	\rowcolor{lightgray}
+	W.\ A.\ Mozart	& 1756--1791	\\
+	L.\ Beethoven	& 1770--1827	\\
+	\hline
+    \end{tabular}
+\end{center}
+
+\newcolumntype{r}{>{\columncolor{red}}c}
+\newcolumntype{g}{>{\columncolor{green}}c}
+\newcommand{\ra}{\rand0.\arabic{rand}}
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{c | r | c | g | c | >{\columncolor{blue}}c | c}
+    \hline
+	& col1	& col2	& col3	& col4	& col5	& col6	\\
+    \hline
+    row1 & \ra & \ra & \ra & \ra & \ra & \ra \\
+    row2 & \ra & \ra & \ra & \ra & \ra & \ra \\
+    row3 & \ra & \ra & \ra & \ra & \ra & \ra \\
+    row4 & \ra & \ra & \ra & \ra & \ra & \ra \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\begin{center}
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      A & B & C \\
+      \hline
+      D & E & \cellcolor{green}F \\
+      \hline
+      G & H & I \\
+      \hline
+    \end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Alternating row}
+\begin{center}
+    \rowcolors{1}{}{lightgray}	% change color in odd and pair rows
+    \begin{tabular}{| l | c |}
+	\hline
+	J.\ S.\ Bach	& 1685--1750	\\
+	W.\ A.\ Mozart	& 1756--1791	\\
+	L.\ Beethoven	& 1770--1827	\\
+	F.\ Chopin	& 1810--1849	\\
+	R.\ Schumann	& 1810--1856	\\
+	B.\ Bartok	& 1881--1945	\\
+	\hline
+    \end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{multirow or multicol}
 When use \command|\rowcolor| in \command|\multirow|
 or \command|\multicolumn| environment, if it is not put at the start
-of a new line, it will raise a \error{Misplace noalign}. You can either ignore it 
-or you can use \command|\cellcolor| from the same package.
+of a new line, it will raise a \error{Misplace noalign}. You can either ignore it or you can use \command|\cellcolor| from the same package.
+
+\begin{table}[ht]
+    \rowcolors{1}{}{lightgray}
+    \centering
+    \caption{Multirow table with all cells in the same color.}
+    \label{tab:multi row}
+    \begin{tabular}{p{5cm}p{5cm}}
+	\hline
+	Column 1 & Column 2\\
+	\hline
+	-&-\\
+	-&-\\
+	\cellcolor{lightgray}&Single-row\\
+	\cellcolor{lightgray}&Single-row\\
+	\multirow{-3}{*}{\cellcolor{lightgray}Multi-row (3)}	& Single-row	\\
+	-&-\\
+	-&-\\
+	\hline
+    \end{tabular}
+\end{table}%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Line color}
+use command \command|\arrayrulecolor{color}|:
+
+\arrayrulecolor{blue}
+
+\begin{center}
+    \begin{tabular}{ | l | l | l | }
+      \hline
+      A & B & C \\
+      \hline
+      D & E & F\\
+      \hline
+      G & H & I \\
+      \hline
+    \end{tabular}
+\end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{alignment}
 Using package \package{tabularx}, one can manipulate the alignment of the

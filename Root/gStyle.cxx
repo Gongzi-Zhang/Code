@@ -2,6 +2,11 @@
 
 // show statistics box
 gStyle->SetOptStat(11..1);
+gStyle->SetStatY(0.9);	// set stats box y position
+gStyle->SetStatX(0.9);	// set stats box x position
+gStyle->SetStatW(0.4);	// set stats box width
+gStyle->SetStatX(0.2);	// set stats box height
+
 // show fit parameters in statistics box
 gStyle->SetOptStat(11..1);
 // suppress title boxes on graphs and histograms 

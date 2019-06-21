@@ -66,6 +66,7 @@ E0-4
 SAME
     Draw the histogram on the canvas without replacing what is 
     already there. Use to plot one histogram on top of another.
+    With this option, the statistic box is not redrawn.
 B
     Bar chart
 P
