@@ -7,3 +7,7 @@ st->SetX1NDC(0.4);
 st->SetX2NDC(0.6);
 st->Set41NDC(0.5);
 st->SetY2NDC(0.7);
+
+
+st->SetName("MyStats");	// !!!Very important!!!, in order to change contents in stats box
+h->SetStats(0);	// avoid automatic redrawing of stats
