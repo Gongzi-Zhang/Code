@@ -11,3 +11,11 @@ gROOT->SetStyle("MyStyle"); // use personal style
 gPad->UseCurretStyle();	    // this makes everything black and white
 gROOT->ForceStyle();	    // force the style chosen above to be used.
 
+
+// GetListOfFiles()
+/* when you use any object in a root file, for example, draw a histogram from
+ * a tree in the root file, then the copy of files will increase. Be Careful!!! 
+ */
+gROOT->GetListOfFiles();    // assume 1
+tree->Draw("var");	    // draw something with tree in the file
+gROOT->GetListOfFiles();    // This will return 2 now.
