@@ -1,0 +1,92 @@
+digraph hier {
+    /*
+    subgraph layer0 {
+	note TQObject; 
+	note TAttMarker; 
+	note TObject; 
+	note TAttLine; 
+	note TAttFill; 
+	note TAttPad;
+    }
+
+    subgraph layer1 {
+	note TNamed; 
+	note TVirtualPad;
+	note TAttBBox2D;
+    }
+
+    subgraph layer2 {
+	note TTree;
+	note TPad;
+    }
+
+    subgraph layer3 {
+	note TChain; 
+	note THbookTree; 
+	note TNtuple; 
+	note TNtupleD; 
+	note TTreeSQL;
+	note TButton;
+	note TCanvas;
+	note TEvePad;
+	note TSlider;
+    }
+
+    subgraph layer4 {
+	note TProofChain; 
+	note TGroupButton;
+	note TDialogCanvas;
+	note TInspectCanvas;
+    }
+    */
+
+    rank0 [style=invisible];
+    rank1 [style=invisible];
+    rank2 [style=invisible];
+    rank3 [style=invisible];
+    rank4 [style=invisible];
+    rank5 [style=invisible];
+    rank0 -> rank1 -> rank2 -> rank3 -> rank4 -> rank5 [color=white];
+
+    { 
+	rank = same; 
+	rank0 -> TObject -> TAttMarker -> TAttLine -> TAttFill -> TQObject [style = invis];
+	rankdir = LR;
+    }
+    { 
+	rank = same; 
+	// rank1 -> TNamed -> TVirtualPad -> TAttBBox2D [style = invis];
+	rankdir = LR;
+    }
+    { 
+	rank = same; 
+	rank2 -> TTree -> TPad [style = invis];
+	rankdir = LR;
+    }
+
+    TObject -> TNamed;
+
+    // Histergram
+    {TNamed, TAttMarker, TAttLine, TAttFill} -> TH1 -> {TH1C, TH1D, TH1F, TH1I, TH1K, TH1S, TH2, TH3};
+    TH1D -> TProfile;
+    TH2 -> {TH2C, TH2D, TH2F, TH2I, TH2Poly, TH2S};
+    TH2Poly -> TProfile2Poly;
+    TH3 -> {TH3C, TH3D, TH3F, TH3I, TH3S};
+    TH3C -> TGLTH3Composition;
+    TH3D -> TProfile3D;
+
+    // TTree
+    {TNamed, TAttMarker, TAttLine, TAttFill} -> TTree;
+    TTree -> {TChain, THbookTree, TNtuple, TNtupleD, TTreeSQL};
+
+    TChain -> TProofChain;
+
+    // TPad
+    TObject -> TVirtualPad;
+    {TAttLine, TAttFill} -> TVirtualPad;
+    {TAttPad, TQObject} -> TVirtualPad;
+    {TVirtualPad, TAttBBox2D} -> TPad -> {TButton, TCanvas, TEvePad, TSlider};
+    TButton -> TGroupButton;
+    TCanvas -> {TDialogCanvas, TInspectCanvas};
+
+}
