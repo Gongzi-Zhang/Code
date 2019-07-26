@@ -16,3 +16,32 @@ parameters:
     default
     range
     candidate lists (units)
+
+
+# programming 
+* file IO 
+    -- read
+    -- write (append)
+    -- substitution, change
+* datetime
+    -- epoch time <==> all kinds of format
+    -- time diff, comparison
+* string
+    -- length, begins_with, ends_with
+    -- comparison
+    -- substring
+    -- containing and replacement
+    -- split
+* regex
+    -- standard (supported class, group, oeprator)
+* sys/os
+    -- exec system command
+    -- check out command result
+* math
+* visulization
+
+## data structure
+* list [array]: 
+    -- sort
+    -- unique
+* associate array (dictionary):

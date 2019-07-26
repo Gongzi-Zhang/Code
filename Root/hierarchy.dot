@@ -50,7 +50,7 @@ digraph hier {
 
     { 
 	rank = same; 
-	rank0 -> TObject -> TAttMarker -> TAttLine -> TAttFill -> TQObject [style = invis];
+	rank0 -> TAttAxis -> TObject -> TAttMarker -> TAttLine -> TAttFill -> TQObject [style = invis];
 	rankdir = LR;
     }
     { 
@@ -65,6 +65,9 @@ digraph hier {
     }
 
     TObject -> TNamed;
+
+    // Axis
+    {TAttAxis, TNamed} -> TAxis;
 
     // Histergram
     {TNamed, TAttMarker, TAttLine, TAttFill} -> TH1 -> {TH1C, TH1D, TH1F, TH1I, TH1K, TH1S, TH2, TH3};

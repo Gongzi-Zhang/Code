@@ -16,3 +16,7 @@ call.cxx
 
 gcc -o call call.cxx function.cxx
 
+# Default value
+Defaults should always go to the header file, if the function is declared in a header file.
+
+This is because the compiler will use the header file for ALL compile units that use your class
