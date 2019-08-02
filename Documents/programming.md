@@ -38,6 +38,7 @@
 
 ### scope (parent/child relationship)
 * * name space
+    A scope is a textual region of a program where a namespace is directly accessible.
 * * heritage of function (object)
 
 函数式编程:

@@ -44,4 +44,11 @@ parameters:
 * list [array]: 
     -- sort
     -- unique
-* associate array (dictionary):
+* associate array (dictionary, hash table):
+* stack (first in, last out)
+* queue (first in, first out)
+
+
+## Some questions
+* how to express inf?
+    Wallis formula: π = 2*Π_{i=1}^{∞} 4i²/(4i²-1)

@@ -3,6 +3,7 @@ import os
 import commands
 import time
 import sys
+import sh
 
 path = os.getcwd()
 os.system("mkdir tmp")

@@ -1,3 +1,9 @@
+'''
+small anonymous functions, it can be used whereever function objects
+are required. They are syntactically restricted to a single 
+expression. Semantically, they are just syntactic sugar for a 
+normal funciton definition.
+'''
 def make_incrementor(n):
     return lambda x: x + n
 

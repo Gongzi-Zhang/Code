@@ -41,13 +41,16 @@ mylist.copy()
 #+ follow the initial for. 
 powertwo = [2**i for i in range(10)]
 powertwo = [2**i for i in range(10) if i%2 != 0]
+listOfList = [[i, j] for i in range(10) for j in range(15) ]
+dic = {i for i in range(10) }   # set comprehension
+dic = {i:j for i in range(10) for j  in range(15)}  # dict comprehension
 
 # iterate through a list 
 a = ['a', 'b', 'c', 'd', 'e']
 for index, item in enumerate(a):
     print (index, item)
 
-# unpack list
+# unpack list: *
 args = [3, 6]
 range(*args)        # 3 4 5
 

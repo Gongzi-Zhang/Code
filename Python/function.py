@@ -12,6 +12,65 @@ foo()   # [1]
 foo()   # [1,1]
 foo()   # [1,1,1]
 
+'''
+default values are evaluated when the function is defined, not when 
+it is called. Be careful with mutable types
+'''
+bigx = 10
+def double (x = bigx):
+    return x*2
+
+bigx = 1e9
+double_it() # 20
+
+
+''' Passing by value
+Parameters to functions are references to objects, which are passed by value.
+When you pass a variable to a function, python passes the reference to the 
+object to thich the variable refers (the value), no the variable itself
+
+If the value passed in a funciton is immutable, the function doesn't modify 
+the caller's variable. If the value is mutable (e.x. list), the function may
+modify the caller's variable in-place
+'''
+def try_to_modify(x, y, z):
+    x = 23
+    y.append(42)
+    z = [99]
+    print (x)
+    print (y)
+    print (z)
+
+a = 77      # immutable value
+b = [99]    # mutable value
+c = [28]
+try_to_modify(a, b, c)
+# 23
+# [99, 42]
+# [99]
+print(a)    # 77
+print(b)    # [99, 42]
+print(c)    # [28]
+
+''' Variable number of parameters
+Special forms of parameters:
+    *args: any number of positional arguments packed into a tuple
+    **kwargs: any number of keyword arguments packed into a dictionary
+'''
+def variable_args(*args, **kwargs):
+    print('args is', args)
+    print('kwargs is', kwargs)
+
+variable_args('one', 'two', x=1, y=2, z=3)
+# args is ('one', 'two')
+# kwargs is {'y': 2, 'x': 1, 'z': 3}
+
+''' Functions are first-class objects '''
+va = variable_args
+va('three', x=1, y=2)
+# args is ('three')
+# kwargs is {'y': 2, 'x': 1}
+
 
 # a generator object can't be printed directly, but can be iterate through
 a_generator = (item**2 for item in range(5))
