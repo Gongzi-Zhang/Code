@@ -4,4 +4,5 @@
 * math	    : mathematical functions, random, statistic
 * HTTP	    : Internet access
 * datetime  : date and time
+* data	    : data processing: database, data compression
 

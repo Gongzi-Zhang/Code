@@ -1,0 +1,244 @@
+#!/usr/bin/wish
+
+# create a widget
+## Creates a button widget
+button
+
+## Creates a canvas widget on which you can display text, bitmaps, lines, boxes, polygons, and other widgets
+canvas
+
+## Creates a toggle button and associates it with a Tcl variable
+checkbutton
+
+## Creates a one-line text-entry widget
+entry
+
+## Creates a frame widget that is capable of holding other widgets
+frame
+
+## Creates a read-only, one-line label widget
+label
+
+## Creates a list-box widget that is capable of scrolling lines of text
+listbox
+
+## Creates a menu
+menu
+
+## Creates a menu-button widget that pops up an associated menu when clicked
+menubutton
+
+
+## Creates a read-only, multiple-line message widget
+message
+
+## Creates a radio-button widget that is linked to a Tcl variable
+radiobutton
+
+## Creates a scale widget that can adjust the value of a variable
+scale
+
+## Creates a scroll bar widget that you can link to another widget
+scrollbar
+
+## Creates a text widget where the user can enter and edit text
+text
+
+## Creates a top-level widget (a widget whose window is a child of the X Window system’s root window)
+toplevel
+
+
+# manipulating widgets
+
+## Executes a command after a specified amount of time elapses
+after
+
+## Associates a Tcl command with an X event, so that the Tcl command is automatically invoked whenever the X event occurs
+bind
+
+## Destroys one or more widgets
+destroy
+
+## Directs keyboard events to a particular window (gives that window the input focus)
+focus
+
+## Confines pointer and keyboard events to a specified widget and its children
+grab
+
+## Lowers a window in the stacking order. (The stacking order refers to the order in which various windows overlap one another on the display screen.)
+lower
+
+
+## Provides access to the X resource database
+option
+
+## Automatically positions widgets in a frame, based on specified constraints
+pack
+
+## Allows manual positioning of a widget relative to another widget
+place
+
+## Raises a window’s position in the stacking order
+raise
+
+## Manipulates the X PRIMARY selection (the standard name of a selection in X)
+selection
+
+## Sends a Tcl command to a different Tk application (used for interprocess communications)
+send
+
+## Provides information about the internal state of the Tk interpreter
+tk
+
+## Handles any error that occurs in Tk applications (the interpreter calls this command when errors occur in Tk applications)
+tkerror
+
+## Waits for an event, such as the destruction of a window, or a change in the value of a variable
+tkwait
+
+## Processes all pending events and updates the display
+update
+
+## Returns information about a widget
+winfo
+
+## Provides access to the window manager. (You can send commands to the window manager, requesting a size for your top-level window, for example.)
+wm
+
+
+# different forms of pack command
+
+## Packs the listed widgets according to the specified options (same as pack configure). Table 25-7 shows the list of available options.
+pack widgetNames options
+
+## Packs the listed widgets according to the specified options
+pack configure widgetNames options
+
+## Hides (unpacks) the specified widgets
+pack forget widgetNames
+
+## Returns the packing configuration (a list of options and values) of the specified widget
+pack info widget
+
+## If boolean is 1, this enables geometry propagation for the specified widget; otherwise, this command disables propagation. (When geometry propagation is enabled, the size of a widget’s window is determined by the sizes of the widgets contained in that window.)
+pack propagate widget boolean
+
+## Returns the list of widgets managed by a specified widget
+pack slaves widget
+
+## Places the widget that is being packed after the widget specified by widgetName
+-after widgetName
+
+## Determines where the managed widget is placed. (This applies only when the containing widget is larger than the managed widget.) The anchorPos value can be center, e, n, ne, nw, s, se, sw, or w; the default is center.
+-anchor anchorPos
+
+## Places the widget that is being packed before the widget specified by widgetName
+-before widgetName
+
+## If boolean is 1, the contained widget expands to use any space left over in the containing widget
+-expand boolean
+
+## Indicates how to expand the containing widget, if it becomes bigger than what the widgets contained in it require. The style value can be both, none, x, or y.
+-fill style
+
+## Indicates the widget in which the widgets specified in the pack command line are placed. If you do not use this option, widgets are packed in their parent widget (.f.b is packed in .f).
+-in widgetName
+
+## Specifies extra horizontal space inside the widget being packed (in addition to the space that it already needs). The amount value is a number, in screen units.
+-ipadx amount
+
+## Specifies extra vertical space inside the widget being packed (in addition to the space it already needs). The amount value is a number, in screen units.
+-ipady amount
+
+## Specifies extra horizontal space outside the border of the widget that is being packed. The amount value is a number, in screen units.
+-padx amount
+
+## Specifies extra vertical space outside the border of the widget being packed. The amount value is a number, in screen units.
+-pady amount
+
+## Packs against the specified side. The sideName value is bottom, left, right, or top; the default is top.
+-side sideName
+
+# place command and options
+
+## Positions the listed widgets according to the specified options (same as place configure). Table 25-9 shows the list of available options.
+place widgetNames options
+
+## Positions the listed widgets according to the specified options
+place configure widgetNames options
+
+## Stops managing the specified widgets and unmaps (hides) them
+place forget widgetNames
+
+## Returns the list of options and their values for the specified widget
+place info widget
+
+## Returns the list of widgets managed by the specified widget
+place slaves widget
+
+### Options
+
+## Specifies which point of the managed widget is placed in the specified position in the managing window. The anchorPos value can be center, e, n, ne, nw, s, se, sw, or w; the default is nw (upper-left corner).
+-anchor anchorPos
+
+
+## Indicates how the managing widget’s borders are used when the managed widgets are positioned. The bordermode value must be ignore, inside, or outside.
+-bordermode bmode
+
+
+## Specifies the height of the managed widget
+-height size
+
+## Indicates the widget relative to which the positions of the widgets specified in the place command line are specified. If you do not use this option, widgets are placed relative to their parent widgets (.f.b is positioned relative to .f).
+-in widgetName
+
+
+## Specifies the height of the managed widget as a fraction of the managing widget. The fraction is a floating-point value.
+-relheight fraction
+
+## Specifies the width of the managed widget as a fraction of the managing widget. The fraction is a floating-point value.
+-relwidth fraction
+
+## Specifies the horizontal position of the managed widget as a fraction of the managing widget’s width. The fraction is a floating-point value; 0.0 means the left edge, and 1.0 means the right edge.
+-relx fraction
+
+## Specifies the vertical position of the managed widget as a fraction of the managing widget’s height. The fraction is a floating-point value; 0.0 means the top edge, and 1.0 means the bottom edge.
+-rely fraction
+
+## Specifies the horizontal position of the managed widget’s anchor point in the managing widget. The coord value is specified in screen coordinates.
+-x coord
+
+## Specifies the vertical position of the managed widget’s anchor point in the managing widget. The coord value is specified in screen coordinates.
+-y coord
+
+## Specifies the width of the managed widget
+-width size
+
+
+# examples
+## button
+### a blue button with red label
+button .b -text test -fg red -bg blue
+pack .b
+
+## frame
+frame .f
+button .f.b1 -text Configure
+button .f.b2 -text Quit
+pack .f.b1 .f.b2 -side left
+place .f -relx 0.5 -rely 0.5 -anchor center
+
+## tool help 
+wm geometry . 180x60
+
+frame .f
+button .f.b -text File
+label .bh -text "Quit program"
+.bh config -bg yellow
+button .f.q -text Quit -command { exit }
+
+bing .f.q <Enter> { place .bh -in .f.q -relx 0.5 -rely 1.0 }
+bind .f.q <Leave> { place forget .bh }
+
+pack .f.b .f.q -side left
+pack .f -fill x

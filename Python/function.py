@@ -17,7 +17,7 @@ default values are evaluated when the function is defined, not when
 it is called. Be careful with mutable types
 '''
 bigx = 10
-def double (x = bigx):
+def double_it (x = bigx):
     return x*2
 
 bigx = 1e9

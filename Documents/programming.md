@@ -12,7 +12,7 @@
 * Pointer, multilevel pointer
 
 ## Data structure
-* list (vector)
+* list (vector, array)
     +-- insert
 	++-- append (push)
 	++-- prepend
@@ -23,13 +23,15 @@
     +-- replace (delete and then insert)
 
 * matrix
-* associate list (dictionary)
+* associate list (dictionary, hash table)
 
 
 # lib
 * random
 * date time  
 * timer
+* regex
+    +-- extract substring
 
 ## Gui
     +-- widgets (frame, button, window, layout)
@@ -40,6 +42,14 @@
 * * name space
     A scope is a textual region of a program where a namespace is directly accessible.
 * * heritage of function (object)
+* * why named arguments
+    this is helpful when the function has many parameters, and many of them are optional
+     
+
+
+# rules
+* if you can use **strict** syntax, then use it; it is always easier to detect syntax error than semantic error. provide as **less** optional as possible.
+
 
 函数式编程:
 >   函数是纯粹的，不能修改传递给函数的变量，不能修改全局变量，对于同样的输入参数，返回值总是相同的。
