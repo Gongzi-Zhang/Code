@@ -1,5 +1,13 @@
-# Tools
-* makeheaders   generate ".h" files from ".c" or ".cpp" files.
+# Language
+C/C++	: General Purpose, large application, efficiency orientated
+Java	: General Purpose, network application ?
+Python	: General Purpose, statistic, machine learning, deep learning
+Bash	: PreProcess, file operation, text processing
+Awk	: help bash in formatted text processing
+Perl	: RegEx, large text processing
+Tcl/Tk	: Gui
+Lua	: Tex language, data description as code
+Js	: HTML processing
 
 # Variables
 prefix: "the" for local variable
@@ -39,6 +47,7 @@ parameters:
     -- check out command result
 * math
 * visulization
+* network
 
 ## data structure
 * list [array]: 

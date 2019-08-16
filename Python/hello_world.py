@@ -37,6 +37,12 @@ x = decimal.Decimal('1.0')  # precise decimal
 x = fractions.Fraction(4, 6)    # precise fraction: 4/6
 x = "Hello, World"  # str
 x = 'x' * 1_00      # 'xxxx...xxx':  100 'x'
+x = r'raw\string'   # raw str: treat backslash as literal
+x = R'raw\string'   # raw str
+x = r"\""           # result in two char raw string: \"
+# x = r"\"          # raw string can't end with single backslash
+x = f'formated string'  # formated string
+x = b'hello'        # bytes type
 
 x, y = y, x     # exchange
 t = 1, 2.4, 'hello'

@@ -25,6 +25,10 @@ range()
 input()
 print()
 repr()
+format()
+
+
+round()
 
 
 type(x)
@@ -49,3 +53,9 @@ min()
 
 isinstance(obj, cls)    # check if object come (derive) from a class
 issubclass(c1, c2)      # check if class 1 is a subclass of (derive from) c2
+
+
+
+# built in module
+# numbers
+## float

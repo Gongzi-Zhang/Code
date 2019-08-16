@@ -1,0 +1,21 @@
+digraph linux {
+    kernel -> device drivers -> hardware;
+    GNOME -> {GTK+, lmlib, libxml2}
+    GTK+ (Gimp Tool Kit) -> X;
+}
+
+service (module) -> init;
+
+gdm: GNOME desktop manager
+kdm: KDE desktop manager
+xdm: X desktop manager
+window manager: A window manager is a special X application that handles interactions for various applications that are displaying windows onscreen. You need a window manager to control the placement and size of each application’s window. Without a window manager, you cannot change a window’s location or alter its size.
+
+socket: A socket is an abstraction that represents an endpoint of a connection. 
+A socket has three attributes:
+
+1. The network address (the IP address) of the system
+2. The port number identifying the process that exchanges data through the socket
+3. The type of socket (such as stream or datagram) identifying the protocol for data exchange
+Essentially, the IP address identifies a network node, the port number identifies a process on the node, and the socket type determines the manner in which data is exchanged—through a connection-oriented or connectionless protocol.
+

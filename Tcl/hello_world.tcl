@@ -8,7 +8,15 @@ set word "Hello World"
 puts $word
 puts [set word]		;# w/o a new value, set return the value of its argument; so this equals to puts $word
 
+set cmd expr
+set x 11
+$cmd $x*$x
 
+### command substitution
+set a 44
+set b [expr $a*4]
+set c "$a + $b is [expr $a + $b]"   ;# 44 + 176 is 220
+set d {$a + $b is [expr $a + $b]}   ;# no substitution: $a + $b is [expr $a + $b]
 # control flow
 ## if..elseif..else
 if { expression } {
@@ -97,7 +105,15 @@ proc total args {
     return $sum
 }
 
+## command line arguments
+foreach f $argv {
+    puts -nonewline stdout [read stdin]
+    puts stderr $argc
+    puts $argv
+}
 ## global command
 proc func arg1 {
     global theCanvas	;# make a global variable visible inside the procedure
 }
+
+
