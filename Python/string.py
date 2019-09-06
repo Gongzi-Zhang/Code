@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import os
 
+'''
+A string is a sequence of values that represent Unicode code points within range U+000 - U+10FFF. Python doesn't have a char type, every code point in the string is represented as astring object with length 1.
+'''
 # compare the index with list and Bash string.
 mystring = "Hello, World"
     +---+---+---+---+---+---+---+---+---+---+---+---+

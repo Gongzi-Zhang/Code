@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+$|=1;	# disable output buffering
 
 use strict;
 use warnings;
@@ -121,3 +122,7 @@ This allows one to intermix the source code with documentation
 =cut back to compiler
 # Miscellaneous
 1 .. 10		# range oeprator, creates a list of numbers or strings
+
+
+# time
+my $starttime = time();

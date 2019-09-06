@@ -46,6 +46,7 @@ grep
 ### system, process, threads
 fork
 getppid
+die
 
 ### misc
 map

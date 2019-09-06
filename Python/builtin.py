@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+''' Built-in objects '''
+NotImplemented
+Ellipsis
+
+
 ''' Built-in functions '''
 
 dir(module)     # return all module functions
@@ -7,16 +12,20 @@ help(module)    # help doc of the module
 
 
 str()
+    str.encode()
 int()
 float()
 hex()       # hexadecimal
 oct()       # octary
 bin()       # binary
-bytes()     # 
+bytes()     # bytes object, an immutable array of 8-bite bytes
+    bytes.decode()      # opposite of str.encode()
+bytearray() # same as bytes, but mutable
 complex()
 list()
 tuple()
-set()
+set()       # mutable set, one can add or remove elements to it: unhashable
+frozenset() # immutable set: hashable
 dict()
 
 
@@ -26,15 +35,19 @@ input()
 print()
 repr()
 format()
+del
 
 
 round()
 
 
+id(x)
 type(x)
 exec()
 eval()
 
+ord()       # Integer representation of Unicode code point
+chr()       # reversion of ord
 
 zip()
 map()

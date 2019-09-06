@@ -1,0 +1,17 @@
+How Pipes Are Implemented
+* Linux has a VFS (virtual file system) module called pipefs, that gets mounted in kernel space during boot
+* pipefs is mounted alongside the root file system (/), not in it (pipe's root is pipe:)
+* pipefs cannot be directly examined by the user unlike most file systems
+* The entry point to pipefs is the pipe(2) syscall
+* The pipe(2) syscall is used by shells and other programs to implement piping, and just creates a new file in pipefs, returning two file descriptors (one for the read end, opening using O_RDONLY, and one for the write end, opened using O_WRONLY)
+* pipefs is stored using an in-memory file system
+
+
+Pipe I/O, buffering, and capacity
+    A pipe has a limited capacity in Linux. When the pipe is full, a write(2) will block (or fail if the O_NONBLOCK flag is set). Different implementations of pipes have different limits, so applications shouldn’t rely on a pipe having a particular size. Applications should be designed to consume data as soon as it is available so the writing process doesn’t block. That said, knowing the pipe size is useful. Since Linux 2.6.35, the default pipe capacity is 65,536 bytes (it used to be the size of the page file, e.g. 4096 bytes in i386 architectures).
+
+    When a process attempts to read from an empty pipe, read(2) will block until data is available in the pipe. If all file descriptors pointing to the write end of the pipe have been closed, reading from the pipe will return EOF (read(2) will return 0).
+
+    If a process attempts to write to a full pipe, write(2) will block until enough data has been read from the pipe to allow the write call to succeed. If all file descriptors pointing to the read end of the pipe have been closed, writing to the pipe will raise the SIGPIPE signal. If this signal is ignored, write(2) fails with the error EPIPE.
+
+    All of this is important when understanding pipe performance. If a process A is writing data at roughly the same speed as process B is reading it, pipes work very well and are highly performance. An imbalance here can cause performance problems. See the next section for more information/examples.

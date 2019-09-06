@@ -1,5 +1,6 @@
 #!/usr/bin/tclsh
 
+set starttime [clock clicks -milliseconds]
 puts "Hello World!";	# comments
 puts "Hello World!"	# (note the semicolon) this is wrong, can't start comment  within a command
 # If you put comments at the end of a Tcl command, remember to precede the pound sign (#) with a semicolon (;).

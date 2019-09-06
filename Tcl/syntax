@@ -1,0 +1,10 @@
+commands	::= words words*
+
+keyword		::= 
+		    break |
+		    continue |
+		    else |
+		    for | foreach |
+		    if |
+		    switch |
+		    while

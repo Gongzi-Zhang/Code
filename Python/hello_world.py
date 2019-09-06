@@ -10,7 +10,8 @@ import fractions
 print("Hello, World!")
 
 # primitive data type
-x = None        # Nonetype
+x = None        # Nonetype (truth value: false)
+x = NotImplemented  # NotImplemented (truth value: true)
 x = True        # bool
 x = False
 x = 1           # int

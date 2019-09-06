@@ -1,5 +1,10 @@
 #!/usr/bin/lua
+
+io.stdout:setvbuf "no";
+
 require "io"
+
+starttime = os.time()
 
 print("Hello World")
 print [[ a multi-line

@@ -3,6 +3,7 @@ print(a)	--> helloworld
 string.len(a)	--> 12, NOT 10
 s, e = string.find("hello Lua users", "Lua")	--> the start and end index
 string.format("%d%s", var1, var2, ...)
+string.gsub(a, "hello", "nihao")
 
 
 --> long string <--

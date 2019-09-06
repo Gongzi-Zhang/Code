@@ -2,6 +2,7 @@
 * Consistent and Easy interface (API)
 * Rich and Complete documents
 
+* every object has an identity, a type and a value
 # each programming language should has the following data and data structure implementation
 * Numbers
     +-- int
@@ -9,7 +10,7 @@
     
 * String 
 
-* Pointer, multilevel pointer
+* Pointer (associated array), multilevel(nested) pointer
 
 ## Data structure
 * list (vector, array)

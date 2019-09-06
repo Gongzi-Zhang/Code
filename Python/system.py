@@ -17,6 +17,7 @@ sys.path    # module searching path
 base, ext = os.path.splittext(filename)
 sys.ps1     # prompt 1
 sys.ps2     # prompt 2
+sys.stdout.flush()
 sys.stderr.write('Warning, log file not found, starting a new one\n')
 sys.exit()
 

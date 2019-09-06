@@ -1,0 +1,97 @@
+# tokens
+tokens	    ::= NEWLINE | INDENT | DEDENT | identifiers | keywords | literals | operators | delimiters
+
+logical_lines	::= physical_lines physicalLines* NEWLINE
+physical_lines	::= anything end-of-line
+
+# identifiers
+identifiers ::= id_start id_continue*
+id_start    ::= _a-zA-Z
+id_continue ::= (_a-zA-Z0-9) id_continue*
+
+# keywords
+keywords    ::= and | as | assert | async | await |
+		break |
+		class | continue |
+		def | del |
+		elif | else | except 
+		False | finally | for | from | 
+		global |
+		if | import | in | is |
+		lambda |
+		None | nonlocal | not 
+		or |
+		pass |
+		raise | return |
+		True | try |
+		while | with |
+		yield
+
+# literals
+literals	::= stringLiteral | bytesLiteral | numericLiterals
+stringLiteral	::= [stringPrefix](shortString | longString)
+stringPrefix	::= r | u | R | U | f | F | fr | Fr | fR | FR | rf | rF | Rf | RF
+shortString	::= "'" shortStringItem* "'" | '"' shortStringItem* '"'
+longString	::= "'''" longStringItem* "'''" | '"""' longStringItem* '"""'
+shortStringItem	::= shortStringChar | stringEscapeSeq
+longStringItem	::= longStringChar | stringEscapeSeq
+shortStringChar	::= any source code char except "\" or newline or the quote
+longStringChar	::= any source code char except "\"
+stringEscapeSeq	::= "\" [any source char]
+
+bytesLiteral	::= bytesPrefix(shortBytes | longBytes)
+bytesPrefix	::= b | B | br | Br | bR | BR | rb | rB | Rb | RB
+shortbytes	::= "'" shortBytesItem* "'" | '"' shortBytesItem* '"'
+longbytes	::= "'" longBytesItem* "'" | '"' longBytesItem* '"'
+shortBytesItem	::= shortBytesChar | bytesEscapeSeq
+longBytesItem	::= longBytesChar | bytesEscapeSeq
+shortBytesChar	::= any ASCII char except "\" or newline or the quote
+longBytesChar	::= any ASCII char except "\"
+bytesEscapeSeq	::= "\" [any ASCII char]
+
+# formatted string literal
+fString		::= (literal_char | "{{" | "}}" | replacement_field)*
+replacement_field   ::= "{" f_expression ["!" conversion] [":" formatSpec] "}"
+f_expression	::= (conditional_expression | "*" or_expr) 
+		    ("," conditional_expression | "," "*" or_expr)* [","] 
+		    | yield_expression
+conversion	::= s | r | a
+format_spec	::= (literal_char | NULL | replacement_field)*
+literal_char	::= <any code point except "{", "}" or NULL>
+
+# Numeric Literals
+numericLiterals	::= integer | float | imaginary
+integer		::= decInteger | binInteger | octInteger | hexInteger
+decInteger	::= nonzeroDigit (["_"] digit)* | "0"+ (["_"] "0")*
+binInteger	::= "0" ("b" | "B") (["_"] binDigit)+ 
+octInteger	::= "0" ("o" | "O") (["_"] octDigit)+ 
+hexInteger	::= "0" ("x" | "X") (["_"] hexDigit)+ 
+nonzeroDigit	::= 1..9
+digit		::= 0..9
+binDigit	::= 0 | 1
+octDigit	::= 0..7
+hexDigit	::= digit | a..f | A..f
+
+float		::= pointFloat | exponentFloat
+pointFloat	::= [digitPart] fraction | digitpart "."
+exponentFloat	::= (digitPart | pointfloat) exponent
+digitPart	::= digit (["_"] digit)*
+fraction	::= "." digitPart
+exponent	::= ("e" | "E") ["+" | "-"] digiPart
+
+### imaginary literals
+imaginary	::= (float | digitPart) ("j" | "J")
+
+# operators
+operators	::= +	-   *	**  /	//  %	@
+		    <<	>>  &	|   ^	~
+		    <	>   <=	>=  ==	!=
+
+# Delimiters
+delimiters	::= (	)   [	]   {	}
+		    ,	:   .	;   @	=   ->
+		    +=	-=  *=	/=  //=	%=  @=
+		    &=	|=  ^=	>>= <<=	**=
+
+# unused char, their occurrence outside string literals and comments is an unconditional error:
+$   ?	`
