@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://www.divio.com/blog/documentation/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        
+        What nobody tells you about documentation - 
+            Blog - Divio
+        
+    </title>
+    
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+    
+        <meta name="title" content="What nobody tells you about documentation">
+    
+
+    
+        <meta name="description" content="However hard you work on documentation, it won&#39;t work for your software - unless you do it the right way.
+">
+    
+
+
+    <meta property="og:url" content="https://www.divio.com/blog/documentation/">
+    <meta name="twitter:url" content="https://www.divio.com/blog/documentation/">
+    <meta property="og:type" content="blog">
+
+    <meta property="og:locale" content="en">
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+    
+<link rel="canonical" href="https://www.divio.com/blog/documentation/">
+
+    <link rel="icon" type="image/png" href="https://www.divio.com/static/favicon.6a9f78a6db7b.png">
+    <!--[if IE]><link rel="shortcut icon" href="/static/favicon.ad9cfae1ee51.ico"><![endif]-->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.divio.com/static/apple-icon-180x180.66545591f7b5.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.divio.com/static/android-icon-192x192.d1b9a22bed5c.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.divio.com/static/favicon-32x32.9dfb67115c3f.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.divio.com/static/favicon-96x96.15510b797d18.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.divio.com/static/favicon-16x16.0ac9bb8d46df.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/ms-icon-144x144.91d85fe48431.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="preconnect" href="https://cdn.segment.com/" crossorigin="">
+    <link rel="dns-prefetch" href="https://divioag2017-live-e9fe0b8244c24280878375-8ae4759.divio-media.net/">
+    <link rel="preload" href="./How to write good documentation_files/base.bundle.bff547709758.js" as="script">
+    <link rel="preload" href="./How to write good documentation_files/base.307b84a568cd.css" as="style">
+
+    
+
+    
+        <style>
+    
+    *,::after,::before{box-sizing:border-box}html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}header{display:block}body{margin:0;font-family:Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1rem;font-weight:400;line-height:1.5;color:#1a406b}p{margin-top:0;margin-bottom:1rem}ul{margin-top:0;margin-bottom:1rem}strong{font-weight:bolder}a{color:#0bf;text-decoration:none}img{vertical-align:middle;border-style:none}svg:not(:root){overflow:hidden}button{border-radius:0;text-transform:none}button,input{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,input{overflow:visible}[type=button]::-moz-focus-inner,button::-moz-focus-inner{padding:0;border-style:none}[hidden]{display:none!important}h1,h2,h3,h4,h5{margin-top:0;margin-bottom:1rem;font-family:inherit;font-weight:400;line-height:1.1;color:inherit}h1{font-size:2.5rem}h2{font-size:2.375rem}h3{font-size:2.25rem}h4{font-size:2rem}h5{font-size:1.5rem}.lead{font-size:1.375rem;font-weight:300}.display-1{font-size:3.125rem;font-weight:300;line-height:1.2}.display-2{font-size:2.5rem;font-weight:300;line-height:1.2}.small{font-size: .875rem;font-weight:400}.img-fluid{max-width:100%;height:auto}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width: 576px){.container{max-width:540px}}@media (min-width: 768px){.container{max-width:720px}}@media (min-width: 992px){.container{max-width:960px}}@media (min-width: 1200px){.container{max-width:1140px}}.row{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col,.col-12,.col-lg-10,.col-lg-2,.col-md-3,.col-md-5,.col-md-6,.col-md-9{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}.col{-ms-flex-preferred-size:0;flex-basis:0;-ms-flex-positive:1;flex-grow:1;max-width:100%}.col-12{-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}.order-1{-ms-flex-order:1;order:1}@media (min-width: 768px){.col-md-3{-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}.col-md-5{-ms-flex:0 0 41.6666666667%;flex:0 0 41.6666666667%;max-width:41.6666666667%}.col-md-6{-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%}.col-md-7{-ms-flex:0 0 58.33333333%;flex:0 0 58.33333333%;max-width:58.33333333%}.col-md-9{-ms-flex:0 0 75%;flex:0 0 75%;max-width:75%}.order-md-2{-ms-flex-order:2;order:2}.offset-md-1{margin-left:8.3333333333%}}@media (min-width: 992px){.col-lg-2{-ms-flex:0 0 16.6666666667%;flex:0 0 16.6666666667%;max-width:16.6666666667%}.col-lg-10{-ms-flex:0 0 83.3333333333%;flex:0 0 83.3333333333%;max-width:83.3333333333%}}.btn{display:inline-block;font-weight:400;text-align:center;white-space:nowrap;vertical-align:middle;border:2px solid transparent;padding: .375rem .75rem;font-size:1rem;line-height:1.5;border-radius: .25rem}.btn-primary{color:#fff;background-color:#0bf;border-color:#0bf;box-shadow:0 1px 1px rgba(0,0,0,.075)}.btn-lg{padding: .5rem 1rem;font-size:1.125rem;line-height:1.5;border-radius: .3rem}.btn-block{display:block;width:100%}.fade:not(.show){opacity:0}.collapse:not(.show){display:none}.dropdown{position:relative}.dropdown-toggle::after{display:inline-block;width:0;height:0;margin-left: .255em;vertical-align: .255em;content:"";border-top: .3em solid;border-right: .3em solid transparent;border-bottom:0;border-left: .3em solid transparent}.dropdown-menu{display:none}.nav-link{display:block;padding: .5rem 1rem}.navbar{position:relative;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between;padding: .5rem 1rem}.navbar>.container{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:justify;justify-content:space-between}.navbar-nav{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}.navbar-nav .nav-link{padding-right:0;padding-left:0}.navbar-collapse{-ms-flex-preferred-size:100%;flex-basis:100%;-ms-flex-positive:1;flex-grow:1;-ms-flex-align:center;align-items:center}.navbar-toggler{padding:0;font-size:1.125rem;line-height:1;background-color:transparent;border:1px solid transparent;border-radius: .25rem}.navbar-toggler-icon{display:inline-block;width:22px;height:18px;vertical-align:middle;content:"";background:no-repeat center center;background-size:100% 100%}@media (max-width: 991.98px){.navbar-expand-lg>.container{padding-right:0;padding-left:0}}@media (min-width: 992px){.navbar-expand-lg{-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-pack:start;justify-content:flex-start}.navbar-expand-lg .navbar-nav{-ms-flex-direction:row;flex-direction:row}.navbar-expand-lg .navbar-nav .dropdown-menu{position:absolute}.navbar-expand-lg .navbar-nav .nav-link{padding-right: .5rem;padding-left: .5rem}.navbar-expand-lg>.container{-ms-flex-wrap:nowrap;flex-wrap:nowrap}.navbar-expand-lg .navbar-collapse{display:-ms-flexbox!important;display:flex!important;-ms-flex-preferred-size:auto;flex-basis:auto}.navbar-expand-lg .navbar-toggler{display:none}}.modal{display:none}.d-block{display:block!important}.d-flex{display:-ms-flexbox!important;display:flex!important}@media (min-width: 1200px){.d-xl-none{display:none!important}}.justify-content-center{-ms-flex-pack:center!important;justify-content:center!important}.justify-content-between{-ms-flex-pack:justify!important;justify-content:space-between!important}.align-items-center{-ms-flex-align:center!important;align-items:center!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.mb-3{margin-bottom:1rem!important}.my-7{margin-top:7rem!important;margin-bottom:7rem!important}@media (min-width: 768px){.mb-md-0{margin-bottom:0!important}}@media (min-width: 992px){.pt-lg-6{padding-top:5rem!important}.mx-lg-auto{margin-right:auto!important}.mx-lg-auto{margin-left:auto!important}}.text-muted{color:#889eb3!important}.main-nav{background-color:transparent;min-height:40px;padding-top:0;padding-bottom:0}@media (min-width: 576px){.main-nav .container{padding-left:15px;padding-right:15px}}@media (min-width: 992px){.main-nav{top:0;left:0;right:0;margin-top:20px;z-index:1030;position:absolute}}.main-nav .icon.navbar-logo{width:100px;height:18px}.main-nav .icon.navbar-logo svg, .main-nav .icon.navbar-logo use{fill:#00416a}@media (max-width: 991.98px){.main-nav .icon.navbar-logo svg, .main-nav .icon.navbar-logo use{fill:#1a406b}}.main-nav .nav-link{letter-spacing: .86px;text-transform:uppercase;display:-ms-flexbox;display:flex;font-size:12px;-ms-flex-align:center;align-items:center;font-weight:700;color:#5f7998;padding-left:0;padding-right:0;padding-top:10px;padding-bottom:10px}@media (max-width: 991.98px){.main-nav .nav-link{color:#1a406b}}@media (min-width: 992px){.main-nav .nav-link{display:-ms-inline-flexbox;display:inline-flex;padding-left:15px!important;padding-right:15px!important}}@media (min-width: 1200px){.main-nav .nav-link{padding-left:20px!important;padding-right:20px!important}}.main-nav .nav-link .icon{width:8px;height:8px;margin-left:6px}.main-nav .nav-link .dropdown-arrow{transform:rotate(90deg)}@media (max-width: 991.98px){.main-nav .navbar-nav{padding-top:10px;-ms-flex-positive:1;flex-grow:1;-ms-flex-negative:0;flex-shrink:0;margin-bottom:30px}}.main-nav .dropdown-toggle::after{display:none}.main-nav .nav-btnlinks{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row}@media (max-width: 991.98px){.main-nav .nav-btnlinks{-ms-flex-direction:column;flex-direction:column;-ms-flex-align:center;align-items:center;padding-bottom:15px}.main-nav .nav-btnlinks .nav-link{color:#1a406b;padding-bottom:20px;padding-top:20px;-ms-flex-order:2;order:2}}.main-nav .nav-btnlinks .nav-link.nav-link-get-started{padding-right:0!important;color:#1a406b}@media (max-width: 991.98px){.main-nav .nav-btnlinks .nav-link.nav-link-get-started{-ms-flex-order:1;order:1;color:#0bf;padding-left:30px!important;padding-right:30px!important;border-radius:30px;font-size:14px;height:40px;border:2px solid transparent;color:#0bf;background-color:transparent;background-image:none;border-color:#0bf}}@media (max-width: 991.98px){.main-nav .nav-btnlinks .nav-link.nav-link-get-started .icon{display:none}}.main-nav .dropdown-item{padding:0}.main-nav .dropdown-menu{border:none;padding:0}.main-nav .navbar-collapse{transform:translateZ(0)}@media (max-width: 991.98px){.main-nav .navbar-collapse{opacity:0;transform:scale(.95) translateZ(0);position:fixed;background:#ecf1f5;top:0;left:0;right:0;bottom:0;z-index:9999}}@media (min-width: 992px){.main-nav .navbar-collapse{opacity:1!important}}@media (max-width: 991.98px){.main-nav .navbar-toggler, .main-nav .navbar-logo-wrapper, .main-nav .navbar-logo{z-index:10000}}.navbar-collapse-container{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-negative:0;flex-shrink:0}@media (max-width: 991.98px){.navbar-collapse-container{margin-top:50px;height:calc(100% - 50px);overflow-y:auto;-webkit-touch-scrolling:auto;width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}}@media (max-width: 991.98px) and (min-width: 576px){.navbar-collapse-container{max-width:540px}}@media (max-width: 991.98px) and (min-width: 768px){.navbar-collapse-container{max-width:720px}}@media (min-width: 992px){.navbar-collapse-container{-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between;width:100%;padding-top:0;padding-left:0;padding-right:0}}.navbar-toggler{position:relative}.navbar-toggler .icon-bar{margin-left:3px;display:block;width:22px;height:2px;border-radius:2px;background-color:#5f7998;position:absolute}.navbar-toggler .icon-bar:nth-child(1){transform:rotate(45deg);transform-origin:left center;top:0px}.navbar-toggler .icon-bar:nth-child(2){opacity:0;top:8px}.navbar-toggler .icon-bar:nth-child(3){transform:rotate(-45deg);transform-origin:left center;top:16px}.navbar-toggler.collapsed .icon-bar{transform:rotate(0);margin-left:0}.navbar-toggler.collapsed .icon-bar:nth-child(2){opacity:1}.main-nav .navbar-toggler-icon{background-image:none!important}.icon-dropdown .dropdown-menu{box-shadow:none;background:0 0}@media (max-width: 991.98px){.icon-dropdown .dropdown-menu{padding:0 10px;margin:2px -10px}}@media (min-width: 992px){.icon-dropdown .dropdown-menu:before{content:'';position:absolute;box-shadow:0 0 1rem rgba(0, 0, 0, .175);width:20px;height:20px;transform:rotate(45deg);background-color:#fff;z-index:-9;left:50%;margin-left:-10px;top:-9px}}.icon-dropdown .dropdown-menu .dropdown-item{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;max-width:400px}@media (min-width: 992px){.icon-dropdown .dropdown-menu .dropdown-item{background:#fff}}.icon-dropdown .dropdown-menu .dropdown-item .icon{margin-top:-2px;-ms-flex-negative:0;flex-shrink:0}.icon-dropdown .dropdown-menu .dropdown-item .icon svg, .icon-dropdown .dropdown-menu .dropdown-item .icon use{fill:#0bf;width:220%;height:220%}.icon-dropdown .dropdown-menu .dropdown-item .dropdown-desc{white-space:normal;margin-left:2.4rem;font-size: .875rem;color:#6c85a0}@media (max-width: 991.98px){.icon-dropdown .dropdown-menu .dropdown-item .dropdown-desc{margin-bottom:1rem}}.icon-dropdown .dropdown-menu .dropdown-item .dropdown-desc .dropdown-desc-title{display:block;font-weight:600;text-transform:uppercase;color:#0bf;margin-bottom:5px}.main-footer .footer-help .icon{width:20px;height:20px}.btn{display:-ms-inline-flexbox;display:inline-flex;-ms-flex-direction:row;flex-direction:row;white-space:nowrap;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;font-weight:700}@media (max-width: 767.98px){.btn{min-height:40px}}.btn-block{display:-ms-flexbox;display:flex}.btn{border-radius:100px;padding-left:30px;padding-right:30px;padding-top:0;padding-bottom:0;height:2.5rem;font-size: .875rem;text-transform:uppercase;font-weight:700}.btn-lg{height:2.8125rem}.icon{display:inline-block;vertical-align:top;width:1em;height:1em}.icon svg{display:block;width:100%;height:100%}a .icon svg, a .icon use{fill:currentColor}html{margin:0;padding:0;min-height:100vh;font-size:13px}@media (min-width: 768px){html{font-size:16px}}body{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;overflow-y:scroll;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden!important}@media (min-width: 992px){body{padding-top:80px}}.content{-ms-flex-positive:1;flex-grow:1}@media (min-width: 992px){.icon-dropdown .dropdown-menu{width:350px;margin-left:-120px;margin-top:10px;background:#fff;box-shadow:0 0 1rem rgba(0, 0, 0, .175)}.icon-dropdown .dropdown-menu .dropdown-item{padding:20px 20px 0}.icon-dropdown .dropdown-menu .dropdown-item:last-child{padding-bottom:20px}.icon-dropdown .dropdown-menu .dropdown-item .dropdown-desc{line-height:1.2rem}.icon-dropdown .dropdown-menu .dropdown-item .dropdown-desc-more{display:block}.main-nav .navbar-nav{padding:0}}.section-fullwidth{margin-left:-15px;margin-right:-15px}@media (min-width: 576px){.section-fullwidth{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}}@media (min-width: 576px){.page-header{padding-top:80px}}.page-header .lead{margin-bottom:25px}.page-header-with-image{position:relative;padding-top:210px}@media (max-width: 991.98px){.page-header-with-image{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;padding-top:0}.page-header-with-image .page-header-image{position:relative;-ms-flex-order:-1;order:-1}.page-header-with-image .btn{margin-bottom:5px;margin-right:0!important}}@media (min-width: 576px){.page-header-with-image{margin-top:-70px}}@media (min-width: 992px){.page-header-with-image{padding-top:0;margin-top:0}}.page-header-image{width:100%;position:absolute;z-index:-1;top:0;left:0}@media (min-width: 768px){.page-header-image{left:auto;width:100%;height:auto;z-index:-1;top:0;right:0}}@media (min-width: 992px){.page-header-image{top:50%;transform:translateY(-50%);width:auto;height:calc(100% - 10px)}}@media (min-width: 1200px){.page-header-image{height:calc(100% + 100px)}}.display-1{color:#0bf;line-height:3.75rem}.display-2{color:#0bf;line-height:3.125rem}.lead{line-height:2rem;color:#6c85a0}h1,h2,h3,h4{color:#0bf}h5{font-weight:600;font-size:1.5rem;line-height:1.875rem;color:#0bf}.spitzmarke{display:block;font-weight:700;text-transform:uppercase;font-size: .75rem;line-height:1.25rem;letter-spacing: .125rem;color:#6c85a0;margin-bottom:1.125rem}p:last-child{margin-bottom:0}.testimonial{visibility:hidden}.page-header~.container{visibility:hidden}.text-center{text-align:center}.main-footer{visibility:hidden}.sub-menu{display:none}.breadcrumb-item{visibility:hidden}
+</style>
+
+    
+    
+    
+<script type="text/javascript" id="www-widgetapi-script" src="./How to write good documentation_files/www-widgetapi.js" async=""></script><script src="./How to write good documentation_files/iframe_api" async=""></script><script src="./How to write good documentation_files/conversations-embed.js" type="text/javascript" id="hubspot-messages-loader" data-loader="hs-scriptloader" data-hsjs-portal="4822193" data-hsjs-env="prod"></script><script type="text/javascript" async="" src="./How to write good documentation_files/analytics.js"></script><script async="" src="./How to write good documentation_files/js"></script><script async="" src="./How to write good documentation_files/461816"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(1)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(2)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(3)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(4)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(5)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(6)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(7)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(8)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(9)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(10)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(11)"></script><script type="text/javascript" async="" src="./How to write good documentation_files/t(12)"></script></head>
+<body id="page-top" class="lang-en tpl-base"><style type="text/css">html.hs-messages-widget-open.hs-messages-mobile,html.hs-messages-widget-open.hs-messages-mobile body{height:100%!important;overflow:hidden!important;position:relative!important}html.hs-messages-widget-open.hs-messages-mobile body{margin:0!important}#hubspot-messages-iframe-container{display:initial!important;z-index:2147483647;position:fixed!important;bottom:0!important}#hubspot-messages-iframe-container.widget-align-left{left:0!important}#hubspot-messages-iframe-container.widget-align-right{right:0!important}#hubspot-messages-iframe-container.internal{z-index:1016}#hubspot-messages-iframe-container.internal iframe{min-width:108px}#hubspot-messages-iframe-container .shadow{display:initial!important;z-index:-1;position:absolute;width:0;height:0;bottom:0;content:""}#hubspot-messages-iframe-container .shadow.internal{display:none!important}#hubspot-messages-iframe-container .shadow.active{width:400px;height:400px}#hubspot-messages-iframe-container iframe{display:initial!important;width:100%!important;height:100%!important;border:none!important;position:absolute!important;bottom:0!important;right:0!important;background:transparent!important}</style>
+
+
+
+
+
+
+
+
+    <div data-id="" style="display: block;" class="alert alert-info js-global-alert alert-dismissible fade mx-0 px-0 rounded-0 show" role="alert">
+        <div class="container">
+            <p class="mb-0">
+                Need some help making sense of cloud technologies? <a href="https://www.divio.com/get-cloud-help">meet our cloud doctor</a>
+            </p>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+
+
+
+
+
+    <header class="navbar navbar-expand-lg main-nav main-nav-scrolled">
+        <div class="container">
+            <a class="navbar-logo-wrapper d-block" href="https://www.divio.com/">
+                <span class="sr-only">Divio</span>
+                <span class="icon icon-divio navbar-logo d-block">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#divio"></use>
+    </svg>
+    
+        <span class="sr-only">Divio</span>
+    
+</span>
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="custom-collapse" data-target="#main-nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main-nav">
+                <div class="navbar-collapse-container">
+                    
+                        <ul class="navbar-nav mx-lg-auto" id="navbarSupportedContent">
+                            
+
+
+    <li class="nav-item ">
+        <a class="nav-link" href="https://www.divio.com/how-it-works/">
+            How it works
+            
+        </a>
+        
+    </li>
+
+    <li class="nav-item dropdown icon-dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown-agencies" href="https://www.divio.com/blog/documentation/#">
+            Agencies
+            
+                <span class="icon icon-arrow-right dropdown-arrow">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#arrow-right"></use>
+    </svg>
+    
+</span>
+            
+        </a>
+        
+            <div class="dropdown-menu" aria-labelledby="dropdown-agencies">
+                
+
+
+    <a class="dropdown-item" href="https://www.divio.com/agencies/perfect-for-agencies/">
+        
+            <span class="icon icon-perfect-for-agencies">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#perfect-for-agencies"></use>
+    </svg>
+    
+</span>
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Features</span>
+            
+                <span class="dropdown-desc-more">Never worry about your hosting infrastructure again.</span>
+            
+        </span>
+    </a>
+
+    <a class="dropdown-item" href="https://www.divio.com/agencies/find-an-agency/">
+        
+            <span class="icon icon-find-an-agency">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#find-an-agency"></use>
+    </svg>
+    
+</span>
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Find an agency</span>
+            
+                <span class="dropdown-desc-more">Some of the most experienced Django and Python agencies.</span>
+            
+        </span>
+    </a>
+
+    <a class="dropdown-item" href="https://www.divio.com/agencies/become-a-partner/">
+        
+            <span class="icon icon-become-a-partner">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#become-a-partner"></use>
+    </svg>
+    
+</span>
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Become a partner</span>
+            
+                <span class="dropdown-desc-more">Our partnership programme gives access to additional services &amp; commission.</span>
+            
+        </span>
+    </a>
+
+
+            </div>
+        
+    </li>
+
+    <li class="nav-item ">
+        <a class="nav-link" href="https://www.divio.com/enterprise/">
+            Enterprise
+            
+        </a>
+        
+    </li>
+
+    <li class="nav-item dropdown icon-dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown-developers" href="https://www.divio.com/blog/documentation/#">
+            Developers
+            
+                <span class="icon icon-arrow-right dropdown-arrow">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#arrow-right"></use>
+    </svg>
+    
+</span>
+            
+        </a>
+        
+            <div class="dropdown-menu" aria-labelledby="dropdown-developers">
+                
+
+
+    <a class="dropdown-item" href="https://www.divio.com/developers/">
+        
+            <span class="icon icon-custom-upgrades">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#custom-upgrades"></use>
+    </svg>
+    
+</span>
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Developers</span>
+            
+                <span class="dropdown-desc-more">Write code. Not deployment scripts. Automate your DevOps and put your apps on autopilot.</span>
+            
+        </span>
+    </a>
+
+    <a class="dropdown-item" href="https://www.divio.com/nodejs/">
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Node.js</span>
+            
+        </span>
+    </a>
+
+    <a class="dropdown-item" href="https://www.divio.com/php/">
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">PHP</span>
+            
+        </span>
+    </a>
+
+    <a class="dropdown-item" href="https://www.divio.com/python/">
+        
+        <span class="dropdown-desc">
+            <span class="dropdown-desc-title">Python</span>
+            
+        </span>
+    </a>
+
+
+            </div>
+        
+    </li>
+
+    <li class="nav-item ">
+        <a class="nav-link" href="https://www.divio.com/plans/">
+            Price Plans
+            
+        </a>
+        
+    </li>
+
+
+                        </ul>
+                    
+                    <div class="nav-btnlinks">
+                        <a href="https://control.divio.com/" class="nav-link">Login</a>
+                        <a href="https://www.divio.com/get-started/" class="nav-link nav-link-get-started js-analytics-link" data-event="Clicked get started (header)" data-page="Blog">
+                            Get started <span class="icon icon-arrow-right">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#arrow-right"></use>
+    </svg>
+    
+</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<hr class="sr-only" id="page-content">
+
+    
+        
+
+    
+    <div class="content">
+        
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 text-center mb-5">
+                <ul class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="https://www.divio.com/blog/">Divio blog</a></li>
+                </ul>
+                <h1 class="h2">What nobody tells you about documentation</h1>
+                
+                    <ul class="breadcrumb justify-content-center">
+                        
+                            <li class="breadcrumb-item">
+                                <a href="https://www.divio.com/blog/category/code/">Code</a>
+                            </li>
+                        
+                    </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+<div class="container">
+    <div class="section-fullwidth mt-5">
+        <div class="stripe stripe-up">
+            <div class="container">
+                
+    <div class="aldryn-newsblog-detail mt--7">
+        
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8 text-center">
+                    <img src="./How to write good documentation_files/documentation-blogpost-teaser.webp" alt="" class="img-fluid mb-5">
+                </div>
+            </div>
+        
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-9 col-lg-7">
+                
+                <div class="lead mb-3">
+                    <p>However hard you work on documentation, it won't work for your software - unless you do it&nbsp;the right&nbsp;way.</p>
+                </div>
+                
+
+                <div class="text-block">
+                    <blockquote>
+
+<blockquote class="blockquote text-left">
+    <span class="icon icon-quote">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#quote"></use>
+    </svg>
+    
+</span>
+    There is a secret that needs to be understood in order to write good software documentation: there isn’t one thing called documentation, there are four.
+    
+</blockquote>
+
+
+<p>They are: <em>tutorials</em>, <em>how-to guides</em>, <em>explanation</em> and <em>technical reference. </em>They represent four different purposes or functions, and require four different approaches to their creation. Understanding the implications of this will help improve most software documentation - often immensely.</p>
+
+<p>If you'd prefer to watch a video covering this topic, see&nbsp;<a href="https://youtu.be/t4vKPhjcMZg" target="_blank" class="">What nobody tells you about documentation</a>, from PyCon Australia 2017.</p>
+
+<h3>Introduction</h3>
+
+<p>It doesn’t matter how good your software is, because <strong>if the documentation is not good enough, people will not use it</strong>.</p>
+
+<p>Even if for some reason they have to use it because they have no choice, without good documentation, they won’t use it effectively or the way you’d like them to.</p>
+
+<p>Nearly everyone understands this. Nearly everyone knows that that they need good documentation, and <strong>most people try to create good documentation</strong>.</p>
+
+<p>And <strong>most people fail</strong>.</p>
+
+<p>Usually, it’s not because they don’t try hard enough. Usually, it’s because they are not doing it the right way.</p>
+
+<p>In this article I will explain how you can make your documentation better, not by working harder at it, but by doing it the right way. <strong>The right way is the easier way</strong> - easier to write, and easier to maintain.</p>
+
+<p>There are some very simple principles that govern documentation that are very rarely if ever spelled out. They seem to be a secret, though they shouldn’t be.</p>
+
+<p>If you can put these principles into practice, it will make your documentation better and your project, product or team more successful - that’s a promise.</p>
+
+<h3>The secret</h3>
+
+<p>Documentation needs to include and be structured around its <strong>four different functions: </strong><em>tutorials</em>, <em>how-to guides</em>, <em>explanation</em> and <em>technical reference. </em>Each of them <strong>requires a distinct mode of writing</strong>. People working with software need these four different kinds of documentation at different times, in different circumstances - so software usually needs them all.</p>
+
+<p>And documentation needs to be explicitly structured around them, and they all must be kept separate and distinct from each other.</p>
+</blockquote>
+
+<div class="row">
+    
+        
+
+<div class="col col-12 col-lg-6">
+    
+        <h4>Tutorials</h4>
+
+<p>A tutorial:</p>
+
+<ul>
+	<li>is <strong>learning-oriented</strong></li>
+	<li>allows the newcomer to get started</li>
+	<li>is a lesson</li>
+</ul>
+
+<p><em>Analogy: teaching a small child how to cook</em></p>
+
+    
+</div>
+
+    
+        
+
+<div class="col col-12 col-lg-6">
+    
+        <h4>How-to guides</h4>
+
+<p>A how-to guide:</p>
+
+<ul>
+	<li>is <strong>goal-oriented</strong></li>
+	<li>shows how to solve a specific problem</li>
+	<li>is a series of steps</li>
+</ul>
+
+<p><em>Analogy: a recipe in a cookery book</em></p>
+
+    
+</div>
+
+    
+</div>
+
+
+<div class="row">
+    
+        
+
+<div class="col col-12 col-lg-6">
+    
+        <h4>Explanation</h4>
+
+<p>An explanation:</p>
+
+<ul>
+	<li>is <strong>understanding-oriented</strong></li>
+	<li>explains </li>
+	<li>provides background and context</li>
+</ul>
+
+<p><em>Analogy: an article on culinary social history</em></p>
+
+    
+</div>
+
+    
+        
+
+<div class="col col-12 col-lg-6">
+    
+        <h4>Reference</h4>
+
+<p>A reference guide:</p>
+
+<ul>
+	<li>is <strong>information-oriented</strong></li>
+	<li>describes the machinery</li>
+	<li>is accurate and complete</li>
+</ul>
+
+<p><em>Analogy: a reference encyclopaedia article</em></p>
+
+    
+</div>
+
+    
+</div>
+<p>This division makes it obvious to both author and reader what information goes where. It tells the author <em>how to write</em>, and <em>what to write</em>, and <em>where to write it</em>. It saves the author from wasting a great deal of time trying to wrestle the information they want to impart into a shape that makes sense, because <strong>each of these kinds of documentation has only one job</strong>.</p>
+
+<p>In fact, it’s extremely hard to maintain good documentation that doesn’t implicitly or explicitly recognise the quadrants of this scheme. The demands of each kind are different from those of the others, so <strong>any attempt at documentation that fails to maintain this structure suffers</strong>, as it’s pulled in different directions at once.</p>
+
+<p>Once you understand the structure, it becomes a very useful tool for analysing existing documentation, and understanding what needs to be done to improve it.</p>
+
+<h4>Project documentation</h4>
+
+<p>You may well ask: where do things like changelogs, contribution policies, and other information about the project fit into this scheme? The answer is that they do not - because they are, strictly speaking, <em>project documentation</em> rather than <em>documentation of the software itself</em>,</p>
+
+<p>They can simply be kept in appropriately-named sections alongside the other material - as long as they are not mixed up <em>in</em> it.</p>
+
+<p>With that in mind, let's explore each of the four key functions.</p><hr>
+<h3>Tutorials</h3>
+
+<p>Tutorials are <em>lessons</em> that take the reader by the hand through a series of steps to complete a project of some kind. They are what your project needs in order to show a beginner that they can achieve something with it.</p>
+
+<p>They are wholly <strong>learning-oriented</strong>, and specifically, they are oriented towards <em>learning how</em> rather than <em>learning that</em>.</p>
+
+<p><strong><em>You</em> are the teacher</strong>, and you are <strong>responsible</strong> for what the student will do. Under <strong>your</strong> instruction, the student will execute a series of actions to achieve some <strong>end</strong>.</p>
+
+<p>The end and the actions are up to you, but deciding what they should be can be hard work. The end has to be <em>meaningful</em>, but also <em>achievable</em> for a complete beginner.</p>
+
+<p><em>Consider an analogy of teaching a child to cook.</em></p>
+
+<p><em>What</em> you teach the child to cook isn’t really important. What’s important is that the child finds it enjoyable, and gains confidence, and wants to do it again.</p>
+
+<p><em>Through</em> the things the child does, it will learn important things about cooking. It will learn what it is like to be in the kitchen, to use the utensils, to handle the food.</p>
+
+<p>This is because <strong>using software, like cooking, is a matter of <em>craft</em></strong>. It’s knowledge - but it is <em>practical</em> knowledge, not <em>theoretical</em> knowledge. When we learn a new craft or skill, we always begin learning it by doing.</p>
+
+<p>The important thing is that having done the tutorial, the learner is in a position to make sense of the rest of the documentation, and the software itself.</p>
+
+<p>Most software projects have really bad - or non-existent - tutorials. Tutorials are what will turn your learners into users. <strong>A bad or missing tutorial will prevent your project from acquiring new users.</strong></p>
+
+<p>Good tutorials are very difficult to write. They need to be useful for the beginner, easy to follow, meaningful and extremely robust.</p>
+
+<h4>How to write good tutorials</h4>
+
+<h5>ALLOW THE USER TO LEARN BY DOING</h5>
+
+<p><strong>In the beginning, we only learn anything by doing</strong> - it’s how we learn to talk, or walk.</p>
+
+<p>In your software tutorial, your learner needs to <em>do</em> things. The different things that they do while following your tutorial need to cover a wide range of tools and operations, building up from the simplest ones at the start to more complex ones.</p>
+
+<h5>GET THE USER STARTED</h5>
+
+<p>It’s perfectly acceptable if your beginner’s first steps are hand-held baby steps. It’s also perfectly acceptable if what you get the beginner to do is not the way an experienced person would, or even if it’s not the ‘correct’ way - a tutorial for beginners is not the same thing as a manual for best practice.</p>
+
+<p>The point of a tutorial is to get your learner <strong>started on their journey</strong>, not to get them to a final destination.</p>
+
+<h5>MAKE SURE THAT YOUR TUTORIAL WORKS</h5>
+
+<p>One of your jobs as a tutor is to inspire the beginner’s confidence: in the software, in the tutorial, in the tutor and, of course, in their own ability to achieve what’s being asked of them.</p>
+
+<p>There are many things that contribute to this. A friendly tone helps, as does consistent use of language, and a logical progression through the material. <strong>But the single most important thing is that what you ask the beginner to do <em>must work</em></strong>. The learner needs to see that the actions you ask them to take have the effect you say they will have.</p>
+
+<p>If the learner's actions produce an error or unexpected results, your tutorial has failed - even if it’s not your fault. When your students are there with you, you can rescue them; if they’re reading your documentation on their own you can’t - so you have to prevent that from happening in advance. This is without doubt easier said than done.</p>
+
+<h5>ENSURE THE USER SEES RESULTS IMMEDIATELY</h5>
+
+<p><strong>Everything the learner does should accomplish something comprehensible, however small.</strong> If your student has to do strange and incomprehensible things for two pages before they even see a result, that’s much too long. The effect of every action should be visible and evident as soon as possible, and the connection to the action should be clear.</p>
+
+<p>The conclusion of each section of a tutorial, or the tutorial as a whole, must be a meaningful accomplishment.</p>
+
+<h5>MAKE YOUR TUTORIAL REPEATABLE</h5>
+
+<p><strong>Your tutorial must be reliably repeatable.</strong> This not easy to achieve: people will be coming to it with different operating systems, levels of experience and tools. What’s more, any software or resources they use are quite likely themselves to change in the meantime.</p>
+
+<p>The tutorial has to work for all of them, every time.</p>
+
+<p>Tutorials unfortunately need regular and detailed testing to make sure that they still work.</p>
+
+<h5>FOCUS ON CONCRETE STEPS, NOT ABSTRACT CONCEPTS</h5>
+
+<p><strong>Tutorials need to be <em>concrete</em></strong>, built around specific, particular actions and outcomes.</p>
+
+<p>The temptation to introduce abstraction is huge; it is after all how most computing derives its power. But all learning proceeds from the <em>particular and concrete</em> to the <em>general and abstract</em>, and asking the learner to appreciate levels of abstraction before they have even had a chance to grasp the concrete is poor teaching.</p>
+
+<h5>PROVIDE THE MINIMUM NECESSARY EXPLANATION</h5>
+
+<p><strong>Don’t explain anything the learner doesn’t need to know in order to complete the tutorial.</strong> Extended discussion is important - just not in a tutorial. In a tutorial, it is an obstruction and a distraction. Only the bare minimum is appropriate. Instead, link to explanations elsewhere in the documentation.</p>
+
+<h5>FOCUS ONLY ON THE STEPS THE USER NEEDS TO TAKE</h5>
+
+<p><strong>Your tutorial needs to be focused on the task in hand.</strong> Maybe the command you’re introducing has many other options, or maybe there are different ways to access a certain API. It doesn’t matter: right now, your learner does not need to know about those in order to make progress.</p><hr>
+<h3>How-to guides</h3>
+
+<p>How-to guides take the reader through the steps required to solve a real-world problem.</p>
+
+<p>They are recipes, directions to achieve a specific end - for example: <em>how to create a web form</em>; <em>how to plot a three-dimensional data-set</em>; <em>how to enable LDAP authentication</em>.</p>
+
+<p>They are wholly <strong>goal-oriented</strong>.</p>
+
+<p><em>If you'd like an analogy, think about a recipe, for preparing something to eat.</em></p>
+
+<p>A recipe has a clear, defined end. It addresses a specific question. It shows someone - who can be assumed to have some basic knowledge already - how to achieve something.</p>
+
+<p>How-to guides are quite distinct from tutorials. A how-to guide is an answer to a question that a true beginner might not even be able to formulate.</p>
+
+<p>In a how-to guide, you can assume some knowledge and understanding. You can assume that the user already knows how to do basic things and use basic tools.</p>
+
+<p>How-to guides in software documentation tend to be done fairly well. They’re also fun and easy to write.</p>
+
+<h4>How to write good how-to guides</h4>
+
+<h5>PROVIDE A SERIES OF STEPS</h5>
+
+<p><strong>How-to guides must contain a list of steps, that need to be followed in order</strong> (just like tutorials to). You don’t have to start at the very beginning, just at a reasonable starting point. How-to guides should be reliable, but they don’t need to have the cast-iron repeatability of a tutorial.</p>
+
+<h5>FOCUS ON RESULTS</h5>
+
+<p><strong>How-to guides must focus on achieving a practical goal</strong>. Anything else is a distraction. As in tutorials, detailed explanations are out of place here.</p>
+
+<h5>SOLVE A PROBLEM</h5>
+
+<p><strong>A how-to guide must address a specific question or problem</strong>: <em>How do I …?</em></p>
+
+<p>This is one way in which how-to guides are distinct from tutorials: when it comes to a how-to guide, the reader can be assumed to know <em>what</em> they should achieve, but don’t yet know <em>how</em> - whereas in the tutorial, <em>you</em> are responsible for deciding what things the reader needs to know about.</p>
+
+<h5>DON’T EXPLAIN CONCEPTS</h5>
+
+<p><strong>A how-to guide should not explain things.</strong> It’s not the place for discussions of that kind; they will simply get in the way of the action. If explanations are important, link to them.</p>
+
+<h5>ALLOW FOR SOME FLEXIBILITY</h5>
+
+<p><strong>A how-to guide should allow for slightly different ways of doing the same thing. </strong>It needs just enough flexibility in it that the user can see how it will apply to slightly different examples from the one you describe, or understand how to adapt it to a slightly different system or configuration from the one you’re assuming. Don’t be so specific that the guide is useless for anything except the exact purpose you have in mind.</p>
+
+<h5>LEAVE THINGS OUT</h5>
+
+<p><strong>Practical usability is more valuable than completeness.</strong> Tutorials need to be complete, end-to-end guides; how-to guides do not. They can start and end where it seems appropriate to you. They don’t need to mention everything that there is to mention either, just because it is related to the topic. A bloated how-to guide doesn’t help the user get speedily to their solution.</p>
+
+<h5>NAME THEM WELL</h5>
+
+<p><strong>The title of a how-to document should tell the user exactly what it does.</strong> <em>How to create a class-based view</em> is a good title. <em>Creating a class-based view</em> or worse, <em>Class-based views</em>, are not.</p><hr>
+<h3>Reference guides</h3>
+
+<p>Reference guides are <em>technical descriptions of the machinery</em> and how to operate it.</p>
+
+<p>Reference guides have one job only: to describe. They are code-determined, because ultimately that's what they describe: key classes, functions, APIs, and so they should list things like functions, fields, attributes and methods, and set out how to use them.</p>
+
+<p>Reference material is <strong>information-oriented</strong>.</p>
+
+<p>By all means technical reference can contain examples to illustrate usage, but it should not attempt to explain basic concepts, or how to achieve achieve common tasks.</p>
+
+<p>Reference material should be <strong>austere and to the point</strong>.</p>
+
+<p><em>The culinary analogy might be an ecyclopaedia article about an ingredient</em>, describing its provenance, its behaviour, its chemical constituents, how it can be cooked.</p>
+
+<p>Note that description <strong>does</strong> include basic description of how to use the machinery - how to instantiate a particular class, or invoke a certain method, for example, or precautions that must be taken when passing something to a function. However this is simply part of its function as technical reference, and emphatically <strong>not</strong> to be confused with a how-to guide - <em>describing correct usage of software</em> (technical reference) is not the same as <em>showing how to use it to achieve a certain end </em>(how-to documentation).</p>
+
+<p>For some developers, reference guides are the only kind of documentation they can imagine. They already understand their software, they know how to use it. All they can imagine that other people might need is technical information about it.</p>
+
+<p>Reference material tends to be written well. It can even - to some extent - be generated automatically, but this is never sufficient on its own.</p>
+
+<h4>How to write good reference documentation</h4>
+
+<h5>STRUCTURE THE DOCUMENTATION AROUND THE CODE</h5>
+
+<p><strong>Give reference documentation the same structure as the codebase</strong>, so that the user can navigate both the code and the documentation for it at the same time. This will also help the maintainers see where reference documentation is missing or needs to be updated.</p>
+
+<h5>BE CONSISTENT</h5>
+
+<p><strong>In reference guides, structure, tone, format must all be consistent</strong> - as consistent as those of an encyclopaedia or dictionary.</p>
+
+<h5>DO NOTHING BUT DESCRIBE</h5>
+
+<p><strong>The only job of technical reference is to describe</strong>, as clearly and completely as possible. Anything else (explanation, discussion, instruction, speculation, opinion) is not only a distraction, but will make it harder to use and maintain. Provide examples to illustrate the description when appropriate.</p>
+
+<p>Avoid the temptation to use reference material to instruct in how to achieve things, beyond the basic scope of using the software, and don’t allow explanations of concepts or discussions of topics to develop. Instead, link to how-to guides, explanation and introductory tutorials as appropriate.</p>
+
+<h5>BE ACCURATE</h5>
+
+<p><strong>These descriptions must be accurate</strong> and kept up-todate. Any discrepancy between the machinery and your description of it will inevitably lead a user astray.</p><hr>
+<h3>Explanation</h3>
+
+<p>Explanation, or discussions, <em>clarify and illuminate a particular topic</em>. They <em>broaden</em> the documentation’s coverage of a topic.</p>
+
+<p>They are <strong>understanding-oriented</strong>.</p>
+
+<p>Explanations can equally well be described as <em>discussions</em>. They are a chance for the documentation to relax and step back from the software, taking a wider view, illuminating it from a higher level or even from different perspectives. You might imagine a discussion document being read at leisure, rather than over the code.</p>
+
+<p>This section of documentation is rarely explicitly created, and instead, snippets of explanation are scattered amongst other sections. Sometimes, the section exists, but has a name such as <em>Background</em> or <em>Other notes</em> and doesn't really do justice to the function.</p>
+
+<p>Discussions are less easy to create than it might seem - things that are straightforward to explain when you have the starting-point of someone’s question are less easy when you have a blank page and and have to write down something about it.</p>
+
+<p>A topic isn’t defined by a specific task you want to achieve, like a how-to guide, or what you want the user to learn, like a tutorial. It’s not defined by a piece of the machinery, like reference material. It’s defined by what <strong>you</strong> think is a reasonable area to try to cover at one time, so the division of topics for discussion can sometimes be a little arbitrary.</p>
+
+<h4>How to write good explanation</h4>
+
+<h5>PROVIDE CONTEXT</h5>
+
+<p><strong>Explanations are the place for background and context</strong> - for example, an <em>Web forms and how they are handled in Django</em>, or <em>Search and django CMS</em>.</p>
+
+<p>They can also explain <em>why</em> things are so - design decisions, historical reasons, technical constraints.</p>
+
+<h5>DISCUSS ALTERNATIVES AND OPINIONS</h5>
+
+<p><strong>Explanation can consider alternatives</strong>, or multiple different approaches to the same question. For example, in an article on Django deployment, it would be appropriate to consider and evaluate different web server options,</p>
+
+<p>Discussions can even consider and weigh up contrary <em>opinions</em> - for example, whether test modules should be in a package directory, or not.</p>
+
+<h5>DON’T INSTRUCT, OR PROVIDE TECHNICAL REFERENCE</h5>
+
+<p><strong>Explanation should do things that the other parts of the documentation do not.</strong> It’s not the place of an explanation to instruct the user in how to do something. Nor should it provide technical describe. These functions of documentation are already taken care of in other sections.</p><hr>
+<h3>About the structure</h3>
+
+<h4>Why isn't this obvious?</h4>
+
+<p>This structure is clear, and it works, but there is a reason why it's not so obvious, and that is the way the characteristics of each quadrant of the documentation overlap with those of its neighbours in the scheme.</p>
+
+
+
+
+
+
+
+<img src="./How to write good documentation_files/what_nobody_tells_you_about_documentation_extract_3001.webp" class="img-fluid" alt="">
+
+
+
+
+
+
+
+
+<p><em>Tutorials and how-to guides</em> are similar because they are both concerned with <strong>describing practical steps</strong>, while what <em>how-to guides</em> share with <em>technical reference</em>is that they’re <strong>what we need when we are actually at work, coding</strong>. <em>Reference guides</em> and <em>explanation</em> are similar because they’re concerned with <strong>theoretical knowledge</strong>, and finally, what <em>tutorials</em> have in common with <em>explanation</em> is that they<strong> are most useful when we are studying</strong>, rather than actually working:</p>
+
+<p>&nbsp;</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="row">&nbsp;</th>
+			<th scope="col">Most useful when we’re studying</th>
+			<th scope="col">Most useful when we’re working</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">Practical steps</th>
+			<td>Tutorials</td>
+			<td>How-to guides</td>
+		</tr>
+		<tr>
+			<th scope="row">Theoretical knowledge</th>
+			<td>Explanation</td>
+			<td>Reference</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Given these overlaps, it's not surprising that the different kinds of documentation become confused and mixed in with each other.</p>
+
+<p>Though it's rare to find it clear examples of it used fully, a great deal of documentation recognises, in different ways, each of these four functions.</p>
+
+<p>Some projects do adopt it fully, including <a href="https://docs.djangoproject.com/en/1.11/#how-the-documentation-is-organized">Django</a> (though <a href="https://docs.djangoproject.com/en/1.8/">this wasn't made explicit in earlier versions</a>), and <a href="http://docs.django-cms.org/en/release-3.4.x/">django CMS</a>. It has proved its worth in both projects.</p>
+
+<h4>About the analysis</h4>
+
+<p>The analysis of documentation in this article is based on several years of experience writing and maintaining documentation, and much time spent considering how to improve it.</p>
+
+<p>It’s also based on sound principles that come from a variety of disciplines. For example, its conception of tutorials has a pedagogical basis; it posits a tutor and a learner, and considers using software to be a craft in which abstract understanding of general principles follows from concrete steps that deal with particulars.</p>
+
+<h3>Making documentation work</h3>
+
+<p>One of the biggest headaches that documentation maintainers have to deal with is not having a clear picture of what they should be doing. They write and rewrite, but find it hard to make it fit together in satisfactory ways.</p>
+
+<p>This structure resolves those questions by making clear distinctions and separations. They make documentation that is easier to write and maintain, that’s easier to use and to find one's way around in.</p>
+
+<p>The documentation doesn’t write itself - but it’s now possible to write it without <em>also</em>having to wrestle with poor fit, or unclear scope or doubt about what should be included or what style to adopt. It becomes much clearer <em>what</em> to write, <em>how</em> to write it, and <em>where</em> to put it.</p>
+
+<p>It serves users better, because for all the different phases in the cycle of their interaction with the software they will find the right kind of documentation, that serves the needs of that moment.</p>
+
+<p>Writing documentation that explicitly and distinctly addresses each of the four quadrants helps the software attract and keep more users, who will use it more effectively - and <em>that</em> is one of the things the creators of software want most of all.</p>
+
+<h3>About the Divio Expert series</h3>
+
+<p><a href="https://www.divio.com/en/company/about/">Our experts</a> really do deserve the name. Between them they have decades of Django development experience; the depth and breadth of the expertise we are able able to offer is world-class. They include core developers of Django, django CMS and other notable projects, and the architects of very large systems such as the Divio Cloud infrastructure.</p>
+
+<p>The new Divio Expert weblog series aims to share some of this expertise. For updates on new articles, follow <a href="https://twitter.com/divio">our Twitter feed</a>, or subscribe to our (very low volume) newsletter.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8 mt-5">
+                <a href="https://www.divio.com/blog/author/daniele-procida/" class="aldryn-newsblog-detail-author">
+                    <div class="media">
+                        
+                            
+                            <img class="rounded-circle img-fluid mr-4" src="./How to write good documentation_files/danieleprocida.webp" alt="">
+                        
+
+                        <div class="media-body">
+                            <p class="h5">Daniele Procida</p>
+                            
+                                <p class="text-secondary">Author at Divio</p>
+                            
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="aldryn aldryn-newsblog">
+        
+    <div class="pb-4">
+        
+        
+    </div>
+
+    </div>
+</div>
+
+    </div>
+
+<hr class="sr-only">
+
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-2 pt-4 order-5 d-flex flex-column order-lg-1">
+                <a href="https://www.divio.com/"><span class="icon icon-divio footer-logo">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#divio"></use>
+    </svg>
+    
+        <span class="sr-only">Divio</span>
+    
+</span></a>
+                <p class="text-secondary mt-2 footer-slogan">Autopilot for your Django projects</p>
+                <p class="text-secondary footer-links"><a href="https://www.divio.com/blog/documentation/#" class="js-cookie-settings">Privacy Settings</a>
+</p>
+                <div class="footer-social">
+                    <p class="footer-social-title">Keep up to date</p>
+                    <ul class="list-unstyled list-inline">
+                        <li><a href="https://twitter.com/divio" target="_blank"><span class="icon icon-social-twitter icon-blue">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#social-twitter"></use>
+    </svg>
+    
+        <span class="sr-only">Follow us on Twitter </span>
+    
+</span></a></li>
+                        <li><a href="https://www.facebook.com/divio.ch" target="_blank"><span class="icon icon-social-facebook icon-blue">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#social-facebook"></use>
+    </svg>
+    
+        <span class="sr-only">Follow us on Facebook </span>
+    
+</span></a></li>
+                        <li><a href="https://www.linkedin.com/company/divio-ag" target="_blank"><span class="icon icon-social-linkedin icon-blue">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#social-linkedin"></use>
+    </svg>
+    
+        <span class="sr-only">Follow us on LinkedIn </span>
+    
+</span></a></li>
+                        <li><a href="https://github.com/divio" target="_blank"><span class="icon icon-social-github icon-blue">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#social-github"></use>
+    </svg>
+    
+        <span class="sr-only">Follow us on GitHub </span>
+    
+</span></a></li>
+                        <li><a href="https://plus.google.com/+DivioAGZ%C3%BCrich" target="_blank"><span class="icon icon-social-gplus icon-blue">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#social-gplus"></use>
+    </svg>
+    
+        <span class="sr-only">Follow us on Google Plus </span>
+    
+</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 order-2">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3 pt-4">
+                        <ul class="list-unstyled footer-links">
+                            <li><p class="footer-links-title">Help and Support</p></li>
+                            
+
+
+<li class="child">
+	<a href="https://support.divio.com/academy/get-started">Get Started</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/get-help/">Get Help</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://support.divio.com/">Support</a>
+	
+</li>
+
+<li class="child">
+	<a href="http://docs.divio.com/">Documentation</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.django-cms.org/en/">django CMS</a>
+	
+</li>
+
+<li class="child">
+	<a href="http://status.divio.com/">Status</a>
+	
+</li>
+
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3 pt-4">
+                        <ul class="list-unstyled footer-links">
+                            <li><p class="footer-links-title">About Divio</p></li>
+                            
+
+
+<li class="child">
+	<a href="https://www.divio.com/agencies/find-an-agency/">Partners</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/company/case-studies/">Case studies</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/blog/">Blog</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/events/">Events</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/company/about/">About Us</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/company/careers/">Careers</a>
+	
+</li>
+
+                        </ul>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3 pt-4">
+                        <ul class="list-unstyled footer-links">
+                            <li><p class="footer-links-title">Terms &amp; Policies</p></li>
+                            
+
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/terms/">Terms of Service</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/data-policy/personal-data-protection-policy/">Data Policy</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/security/">Security Policy</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/support-policy/">Support Policy</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/privacy-notice/">Privacy Notice</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/terms-and-policies/site-notice/">Site Notice</a>
+	
+</li>
+
+                        </ul>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-3 pt-4">
+                        <ul class="list-unstyled footer-links">
+                            <li><p class="footer-links-title">Technologies</p></li>
+                            
+
+
+<li class="child">
+	<a href="https://www.divio.com/nodejs/">Node.js</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/php/">PHP</a>
+	
+</li>
+
+<li class="child">
+	<a href="https://www.divio.com/python/">Python</a>
+	
+</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-lg-3 order-1 order-lg-5">
+                <div class="row footer-help d-flex flex-column p-4 px-lg-3 py-lg-4 p-xl-4 ">
+                    <p class="footer-links-title">Need assistance?</p>
+                    <p>We’re here for you 24/7</p>
+                    <div class="row">
+                        <div class="col-6 col-lg-12 col-xl-6 pb-2 flex-row d-flex">
+                            <span class="icon icon-phone icon-slate d-xl-none">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#phone"></use>
+    </svg>
+    
+</span>
+                            <div class="pl-2 pl-xl-0">
+                                <p class="mb-0">USA</p>
+                                <a href="tel:+12016934846">+12016934846</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-12 col-xl-6 pb-2 flex-row d-flex">
+                            <span class="icon icon-phone icon-slate d-xl-none">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#phone"></use>
+    </svg>
+    
+</span>
+                            <div class="pl-2 pl-xl-0">
+                                <p class="mb-0">Worldwide</p>
+                                <a href="tel:+41444801270">+41444801270</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-lg-12 col-xl-6 pb-2 flex-row d-flex">
+                            <span class="icon icon-email icon-slate d-xl-none">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#email"></use>
+    </svg>
+    
+</span>
+                            <div class="pl-2 pl-xl-0">
+                                <p class="mb-0">Sales</p>
+                                <a href="mailto:sales@divio.com">sales@divio.com</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-12 col-xl-6 pb-2 flex-row d-flex">
+                            <span class="icon icon-chat icon-slate d-xl-none">
+    <svg role="presentation">
+        <use xlink:href="/static/sprites/icons.4da2c795b83c.svg#chat"></use>
+    </svg>
+    
+</span>
+                            <div class="pl-2 pl-xl-0">
+                                <p class="mb-0">Support</p>
+                                
+                                <a href="https://www.divio.com/get-help/">Get help</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="mb-0"><strong>Current status</strong></p>
+                            <a href="https://status.divio.com/" target="_blank">status.divio.com</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="py-4">
+            <p class="footer-built-with">This site is built with Django &amp; powered by Divio Cloud</p>
+            <p class="footer-copyright">COPYRIGHT © 2001-2019 DIVIO AG. ALL RIGHTS RESERVED.</p>
+        </div>
+    </div>
+</footer>
+
+
+
+
+    
+    <script type="text/javascript" async="" src="./How to write good documentation_files/js(1)"></script><script src="./How to write good documentation_files/4822193.js" type="text/javascript" id="hs-script-loader"></script><script type="text/javascript" async="" src="./How to write good documentation_files/prum.min.js"></script><script type="text/javascript" async="" src="./How to write good documentation_files/analytics.js"></script><script type="text/javascript" async="" src="./How to write good documentation_files/gtm.js"></script><script type="text/javascript" async="" src="./How to write good documentation_files/wcfe7111"></script><script type="text/javascript" async="" src="./How to write good documentation_files/4822193(1).js" id="hs-analytics"></script><script type="text/javascript" async="" src="./How to write good documentation_files/mixpanel-2-latest.min.js"></script><script type="text/javascript" async="" src="./How to write good documentation_files/analytics.min.js"></script><script>
+        var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+    </script>
+
+<script defer="" src="./How to write good documentation_files/base.bundle.bff547709758.js"></script>
+
+
+
+
+
+
+
+<div class="browser-outdated" id="outdated" hidden="hidden">
+    <noscript><h3>Please enable JavaScript</h3></noscript>
+    <h3>Your browser is out-of-date!</h3>
+    <p>Update your browser to view this website correctly.</p>
+    <p>
+        <a href="http://outdatedbrowser.com/" class="btn btn-lg btn-outline" id="btnUpdateBrowser">
+            Update my browser now
+        </a>
+    </p>
+    <p class="last"><a href="https://www.divio.com/blog/documentation/#" id="btnCloseUpdateBrowser" title="Close">×</a></p>
+</div>
+
+
+
+<div class="cookie-bar is-fixed js-cookie-bar" style="">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-9 col-lg-10 mb-3 mb-md-0">
+                This website uses cookies to help ensure that you enjoy the best experience.<br>
+                If you do not consent to our use of cookies, please adjust your
+                <a href="https://www.divio.com/blog/documentation/#" class="js-cookie-settings">privacy settings</a> accordingly.
+            </div>
+            <div class="col-md-3 col-lg-2">
+                <a href="https://www.divio.com/blog/documentation/#" class="btn btn-block btn-primary js-cookie-accept">Accept</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade cookie-modal" id="privacysettings" tabindex="-1" role="dialog" aria-labelledby="privacylabel">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="privacylabel">Privacy Settings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-info">
+                    
+                        Websites do not have full control over cookies that may set by various third-party scripts.
+                        To see detailed information about and to manage cookies in your browser, please check its
+                        privacy
+                        settings.
+                    
+                </p>
+
+                <div class="category essentials">
+                    <h5>Essentials</h5>
+                    <p>These cookies and scripts cannot be deactivated as they are needed to correctly render this
+                        website.</p>
+                    
+                        <ul>
+                            
+                                <li>
+                                    Segment
+                                </li>
+                            
+                                <li>
+                                    Intercom
+                                </li>
+                            
+                                <li>
+                                    Triggerbee
+                                </li>
+                            
+                        </ul>
+                    
+                </div>
+
+                <hr>
+                <div class="category analytics">
+                    <h5 class="d-flex justify-content-between">
+                        Statistics
+                        <label class="small toggle-check">
+                            <input type="checkbox" name="statistics" data-gdpr-category-name="STATISTICS" class="js-gdpr-optin toggle-check-input">
+                            <span class="toggle-check-text"></span>
+                        </label>
+                    </h5>
+                    <p>
+                        These tools are used to collect statistics about user behaviour that helps us to improve our
+                        website and services.
+                        No personal data are collected.
+                    </p>
+                    
+                        <ul>
+                            
+                                <li>
+                                    Google Analytics
+                                </li>
+                            
+                        </ul>
+                    
+                </div>
+                <hr>
+
+                <div class="category marketing">
+                    <h5 class="d-flex justify-content-between">
+                        Personalisation
+                        <label class="small toggle-check">
+                            <input type="checkbox" name="marketing" data-gdpr-category-name="MARKETING" id="marketing" class="js-gdpr-optin toggle-check-input">
+                            <span class="toggle-check-text"></span>
+                        </label>
+                    </h5>
+                    <p>In order to improve your experience of our services, we will customise your experience based upon
+                        your usage.</p>
+                    
+                        <ul class="items">
+                            
+                                <li>
+                                    HubSpot
+                                </li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary js-modal-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+    window.addEventListener('load', function () {
+        
+        analytics.load("5yNO8Ao0hgByWenhQbYzA0zKSoanNKpk", analyticsIntegrations);
+        
+        
+
+        analytics.page();
+        analytics.ready(function () {
+            
+
+        });
+    });
+}}();
+</script>
+
+
+<div class="modal fade js-tracking-protection-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Your browser is blocking&nbsp;access to our support tools</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                    <p>Some web advertising and tracking blockers interfere with our support tools. If you're seeing this message, it means that your access to our support is being blocked.</p>
+                    <p>To access our support, you'll need to turn off these blockers for our site or for this session.</p>
+                    <p>See <a class="alert-link" href="http://support.divio.com/control-panel/how-to-unblock-our-support-tools-in-your-browser" target="_blank">How to unblock our support tools in your browser</a>.</p>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<flying-focus id="flying-focus"></flying-focus><script type="text/javascript" id="">var mtr_custom=mtr_custom||{},mtr_site_id=461816;(function(){var a=document.createElement("script");a.async=!0;a.src="//t.myvisitors.se/js?site_id\x3d"+mtr_site_id;(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a);a=document.createElement("script");a.async=!0;a.src="//t.myvisitors.se/js/"+mtr_site_id+(-1<window.location.href.indexOf("?dev")?"?v\x3d"+Math.floor(999*Math.random()):"");(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)})();</script><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important;" aria-hidden="true" tabindex="-1" src="./How to write good documentation_files/saved_resource.html"></iframe><div id="intercom-css-container"><style data-emotion="intercom-global"></style><style data-emotion="intercom"></style></div><div id="intercom-container" class="intercom-namespace"><style>html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body,html.intercom-modal-open,#intercom-container-body{overflow:hidden !important;}html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body{position:static !important;}html.intercom-mobile-messenger-active > body{height:0 !important;margin:0 !important;}iframe#intercom-frame{position:absolute !important;opacity:0 !important;width:1px !important;height:1px !important;top:0 !important;left:0 !important;border:none !important;display:block !important;z-index:-1 !important;}</style><div class="intercom-app" aria-live="polite"><iframe allowfullscreen="" class="intercom-launcher-frame intercom-dnu2ve e1ur5zlj0" name="intercom-launcher-frame" title="Intercom live chat" data-intercom-frame="true" src="./How to write good documentation_files/saved_resource(1).html"></iframe><div id="intercom-modal-container"></div></div></div><div>
+        <link href="./How to write good documentation_files/css" rel="stylesheet">
+        <link rel="stylesheet" href="./How to write good documentation_files/base.307b84a568cd.css">
+    </div></body></html>
