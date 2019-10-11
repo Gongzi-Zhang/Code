@@ -19,9 +19,11 @@ print @animals[1..$#animals];	# all except the first one
 
 # functions
 ## sort
+my @sorted = sort @animals;
 my @sorted = sort(@animals);
 
 ## reverse
+my @backwards = reverse @numbers;
 my @backwards = reverse(@numbers);
 
 

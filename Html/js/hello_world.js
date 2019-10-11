@@ -12,15 +12,23 @@ x = undefined;	// undefined type
 x = true;	// boolean
 x = false;
 
-x = 1;		// numbers
-x = 1.23;
-x = Infinity;	// special values of numbers
-x = -Infinity;
+x = 1, 1_000	// numbers
+x = 1.23;		
+x = 1.23E+8, 1.23e8, 1.23e-6;
+x = 0b11111111, 0o377, 0xff, 0xFF;   // 255: binary, octal and hexadecimal
+x = -Infinity, Infinity;	// special values of numbers
 x = NaN;
+1e500 == Infinity;	// too big number, overflow the 64-bit storage
+0.1 + 0.2 != 0.3;
+(0.1*10 + 0.2*10) / 10 == 0.3;
 
-const x = "hello world";	// string, double quote
-x = 'hello world';		// single quote
-x = `hello world`;		// backticks
+
+const x = "hello \n world";	// string, double quote
+x = 'hello \n world';		// single quote
+x = `hello 
+    world`; // backticks allow multilines, while ' and " don't
+x = "\u00A9";
+x = "\u{20331}";
 
 x = Symbol();       // symbol
 x = Symbol("id");   // symbol with the description "id"
@@ -46,7 +54,52 @@ x = `name is ${name}`;
 x = function() {
     alert("Hello!");
 };
-x();
+x();	// () mean execution of a function
+/// destructuring assignment: it works with any iterable (array-like) on the right-side
+let [a, b, c] = "abc";	// string
+let [firstName, surname] = ["Ilya", "Kantor"];	// array
+let [one, , two] = new Set([1, 2, 3]);	// set, ignore some elements with commas
+let user={};
+[user.name, user.age] = ["Ilya", 30];	// leftside can be anything
+[firstName, surname] = [];	// unmatched number of variables
+firstName;	// undefined
+[firstName = "Julias", surname = "Romio"] = [];	    // default value
+[name = prompt('name?'), surname = prompt('surname?')] = ["Julius"];	// default value can even be function, but it will run only for the missing one
+let [name1, name2, ...rest] = ["Bob", "Kyler", "Seamus", "Joy", "Paul"];    // the rest using ...
+name1;		// "Bob"
+name2;		// "Kyler"
+rest.length;	// 3
+
+let {var1, var2} = {var1:..., var2:...};    // obejct, the left side should contain a "pattern" for corresponding properties
+let options = {title: "Menu", width: 100, height: 200};
+let {title, width, height} = options;
+title, width, height;	// "Menu", 100, 200
+({width: w, height: h, title} = options;)   // in any order. Note the surrounding (), if there is no prefixing let, then {} will be regarded as a code block by js engine, rather than destructuring assignment.
+title, w, h;	// "Menu", 100, 200
+delete options.width;
+delete options.height;
+({width = 100, height: h=200, title} = options;)    // default value, can also be function
+({title, ...rest} = options;)	// the ... pattern, rest will be an object
+rest.width;	// 100
+rest.height;	// 200
+options = {
+    size: {
+	width: 100,
+	height: 200,
+    },
+    items: ["Cake", "Donut"],
+    extra: true,
+};
+
+let {
+    size: {
+	width,
+	height,
+    },
+    item: [item1, item2],
+    title = "Menu"
+} = options;	// nested destructuring
+
 
 b = 2;
 x = 3 - (a = b + 1) // 0
@@ -55,6 +108,10 @@ x++;
 x += 3; x -= 3; x *= 3; x /= 3;
 x = 1+2, 3+4;	    // 3
 x = (1+2, 3+4);	    // 7
+
+/// bit operation
+x = ~2;	// bitwise NOT: it converts a number to a 32-bit int, and then reverses all bits in its binary representation. So: ~n = -(n+1)
+~4294967295 = 0;    // due to 32-bit truncation
 
 /// conversion
 
@@ -88,6 +145,7 @@ debugger;   // suspend code execution here
 "" !== false;
 undefined != false;
 null != false;
+NaN != NaN;
 
 0 == ""
 0 !== ""
@@ -100,6 +158,72 @@ let id2 = Symbol("id");
 id1 != id2;
 
 "z" > "a" > "Z" > "A" > "9" > "1" > "0";
+
+// string
+let str = 'Hello\nworld'
+str[0],	str.charAt(0);	// H: 0-based
+str[str.length - 1];	// the last char
+str[str.length + 1];	// undefined
+str.charAt(str.length+1);   // ""
+
+str.indexOf('Hello');	// 0
+str.indexOf('hello');	// -1; not found
+str.indexOf('o', 5);	// 7: begin from position 5
+str.lastIndexOf(substr, postion);   // search in reversed order
+
+str.slice(start [, end]);   // start < end, negative value means count from the end (both need to be negative)
+str.slice(2, 4);	// "ll"
+str.slice(4, 2);	// ""
+str.slice(-5);		// "world"
+str.slice(-5, -1);	// "worl"
+str.slice(-5, 0);	// ""
+str.substring(start [, end]);	// almost the same as slice, but it allows start > end. negative number are treated as 0
+str.substring(2, 4);	// "ll"
+str.substring(4, 2);	// "ll"
+str.substring(-4, 2);	// "he"
+str.substr(start [, length]);	// negative means to count from the end
+
+for (char of 'Hello') {	// loop through a string
+    ...
+}
+
+// compound data structure
+/// array -- mutable
+let arr = new Array(2);	// create a new array with length 2, but all elements undefined.
+let arr = []
+
+let fruits = ["apple", "orange", "plum"];
+fruits[0];  // 0-based
+arr = ['apple', { name: 'John'}, true, function() {alert('Hello');} ];
+arr[3]();
+
+fruits.length;	// a property, not a method; 
+fruits.slice([start,] [end]);	// not includes end, negative allowed
+fruits.pop();	// remove the last element
+fruits.push("pear" [, ...]);	// append an element
+fruits.shift();	// remove the first element
+fruits.unshft("apple" [, ...]);	// add an element to the beginning of the array
+fruits.concat(arg1, arg2...);	// concat array with new elements or array
+
+
+for (fruit of fruits) {	// loop through only the numeric elements
+    ...
+}
+
+fruits.forEach(function(item, index, array){
+    ...
+});
+
+let matrix = [	// multi-dim arrasy
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+matrix[1][1];	// 5
+
+arr = [1, 2, 3];
+String(arr) == "1,2,3";
+[1] + 1;    // "11"
 
 // control flow
 let result = condition ? value1 : value2;
@@ -155,8 +279,16 @@ function fun() {
 /// arrow function
 let fun = (arg1, arg2, ...) => expression;
 
-function fun(arg1, arg2, ...) {
+function fun(arg1 = value1, arg2 = value2, ...) {
     return expression;
+}
+
+function fun({	// use destructuring assignment as funciton parameters
+    arg1 = "value1",
+    arg2: a2 = "value2",
+    item: [item1, item2]
+} = {}) {
+    ...
 }
 
 // objects: associative arrays with several special features
@@ -185,6 +317,12 @@ let user = {
     }
 };   // here user stores a reference to an anonymous object
 
+/// constructed with a function
+user = new function() {
+    this.name = "John";
+    this.aget = 30;
+    ...
+};
 
 const user = {
     name,
@@ -238,5 +376,9 @@ for (key in user) { // integer properties are sorted, others appear in creation 
     // symbolic properties are skipped by for...in loop
     ...
 }
+
+for ([key, value] of Object.entries(user)){
+    ...
+};
 
 

@@ -1,5 +1,8 @@
 import numpy as np
 
+'''
+    get prime numbers within a specified range: 0-N
+'''
 N = 100
 is_prime = np.ones((N,), dtype = bool)
 is_prime[:2] = 0

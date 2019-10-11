@@ -63,3 +63,6 @@ ucfirst
 unlink
 unpack
 given
+
+# hashed
+%ENV

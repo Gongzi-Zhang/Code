@@ -48,7 +48,7 @@ control structures (condition-testing and iteration)
 		||  &	&&  ;	;;  (	)   |	|&  <newline>
 
 RESERVED WORDS
-    !	case	coproc  do   done    elif    esac    fi
+    !	case	coproc  do   done   elif    else    esac    fi
     for	function    if	in  select  then    until   while
     {	}   time    [[  ]]
 

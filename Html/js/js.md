@@ -8,3 +8,12 @@
 * Functions:
     parameters of function are passed by a copy of value
     A Function Declaration can be called earlier than it is defined.For example, a global Function Declaration is visible in the whole script, no matter where it is.
+
+* methods of primitive
+    1. primitive must be fast and lightweight
+    2. There are many things one would want to do with a primitive, it would be nice to access them as methods.
+    > the solution looks a little bit awkward, but here it is:
+    1. primitive are still primitive, a single value, as desired
+    2. the language allows access to methods and properties of strings, numbers, booleans and symbols
+    3. When called, a special "object wrapper" that provides the extra functionality is created, and then is **destroyed** (immediately after the usage).
+    * null and undefined have no methods (wrapper objects)

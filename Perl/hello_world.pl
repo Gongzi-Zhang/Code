@@ -32,6 +32,22 @@ my %fruit_color = ("apple" => "red", "banana" => "yellow");
 $fruit_color{"apple"};	    # "red"
 $fruit_color->{"apple"};    
 
+# reference: a scalar value that can refer to other data type
+my $variables = {
+    scalar => {
+	description => "single item",
+	sigil => '$',
+    },
+
+    array => {
+	description => "ordered list of item",
+	sigil => '@',
+    },
+    hash => {
+	description => "key/value pairs",
+	sigil => '%',
+    },
+}
 # control flow
 if (condition) {
     ...
@@ -74,7 +90,7 @@ foreach (@array) {
 }
 print $list[$_] foreach 0 .. $max;
 
-foreach my @key (keys %hash) {
+foreach my $key (keys %hash) {
     print "The value of $key is $hash{$key}\n";
 }
 
@@ -105,13 +121,19 @@ given ($foo) {
 
 # subroutines (functions)
 sub logger {
-    my $logmessage = shift;
+    my $logmessage = shift; # shift the first argument to variable
     open my $logfile, ">>", "my.log" or die "Could not open my.log: $!";
     print $logfile $logmessage;
 }
 
 logger("We have a logger subroutine!");
 
+## special variable array: @_
+sub subroutine {
+    foreach (@_) {
+	print @_;
+    }
+}
 # POD: embedded documentation
 =head1 Here is a POD
 if a line begins with an equal sign and a word, then that text and 

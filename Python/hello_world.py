@@ -22,6 +22,7 @@ x = 4E210
 x = 4.0e+210
 x = float("inf")
 x = float("-inf")
+1e500 == float("inf")
 x = float("nan")    # not a number
 x = 0o177           # octary
 x = 0x9ff           # hexadecimal
@@ -44,12 +45,26 @@ x = r"\""           # result in two char raw string: \"
 # x = r"\"          # raw string can't end with single backslash
 x = f'formated string'  # formated string
 x = b'hello'        # bytes type
+x = '\u00A9'
 
 x, y = y, x     # exchange
 t = 1, 2.4, 'hello'
 x, y, z = t
 
 del x, y, z, t
+
+## comparison
+.1 + .1 == .2
+.1 + .1 + .1 != .3
+
+(1, 2, 3)   < (1, 2, 4)
+[1, 2, 3]   < [1, 2, 4]
+'z' > 'a' > 'Z' > 'A' > '9' > '1' > '0'
+'ABC' < 'C' < 'Pascal' < 'Python'
+(1, 2, 3, 4)    < (1, 2, 4)
+(1, 2)      < (1, 2, -1)
+(1, 2, 3)   == (1.0, 2.0, 3.0)
+(1, 2, ('aa', 'ab'))    < (1, 2, ('abc', 'a'), 4)
 
 # data structure
 myList = list(1, 2, 3)
