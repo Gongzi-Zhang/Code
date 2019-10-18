@@ -1,6 +1,9 @@
 # scipy project
 import math
+
+## constants
 math.cos(math.pi / 4)   # 0.70710678118654757
+math.log(math.e)    # 1.0
 math.log(1024, 2)   # 10
 
 import random

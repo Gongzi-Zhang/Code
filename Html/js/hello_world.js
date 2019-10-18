@@ -15,10 +15,12 @@ x = false;
 x = 1, 1_000	// numbers
 x = 1.23;		
 x = 1.23E+8, 1.23e8, 1.23e-6;
-x = 0b11111111, 0o377, 0xff, 0xFF;   // 255: binary, octal and hexadecimal
+x = 0b11111111, 0B11111111, 0o377, 0O377, 0xff, 0xFF, 0Xff, 0XFF;   // 255: binary, octal and hexadecimal
 x = -Infinity, Infinity;	// special values of numbers
 x = NaN;
 1e500 == Infinity;	// too big number, overflow the 64-bit storage
+x = Math.PI;	// constant
+x = Math.E; 
 0.1 + 0.2 != 0.3;
 (0.1*10 + 0.2*10) / 10 == 0.3;
 

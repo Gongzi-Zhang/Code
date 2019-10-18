@@ -8,18 +8,20 @@ evalbytes
 length
 print
 printf
+ref	# judge reference type: SCALAR for scalar ref., ARRAY for array ref. or HASH for hash ref.
 require
-split
+split /regexp/, $string, $limit	# if the regexp has groupings, then the resulting list contains the matched substrings from the grouping as well
 sort
 
 ### string
-join
-substr
+join 'del' @array
+substr $string, $begin_pos, $length
 
 ### math
 abs
 cos
 sin
+atan2 x1, x2	# atan(x1/x2)
 exp
 log
 hex
@@ -39,7 +41,6 @@ pos
 quotemeta
 readlink
 readpipe
-ref
 rmdir
 grep
 
@@ -52,8 +53,8 @@ die
 map
 alarm
 say
-chomp
-chop 
+chomp	# remove trailing string, usually '\n', defined in $/ or $INPUT_RECORD_SEPARATOR
+chop	# old version of chomp
 chr
 reverse
 stat
@@ -66,3 +67,14 @@ given
 
 # hashed
 %ENV
+
+## qw: quote word
+my @name = qw(foo bar zorg);
+### qw is not a funciton, parentheses is just the delimiter, we can use other delimiters:
+@name = qw/foo bar zorg/;
+@name = qw{foo bar zorg};
+@name = qw[foo bar zorg];
+@name = qw'foo bar zorg';
+@name = qw"foo bar zorg";
+@name = qw!foo bar zorg!;
+@name = qw@foo bar zorg@;

@@ -1,7 +1,7 @@
 #!/usr/bin/env  python3
 # -*- coding: utf-8 -*-
 import os
-from math import pi
+import math
 import numpy as np
 from matplotlib import pyplot as plot
 import decimal
@@ -11,9 +11,12 @@ print("Hello, World!")
 
 # primitive data type
 x = None        # Nonetype (truth value: false)
+
 x = NotImplemented  # NotImplemented (truth value: true)
+
 x = True        # bool
 x = False
+
 x = 1           # int
 x = 1.          # float
 x = 1_000       # 1000; support after python3
@@ -37,6 +40,9 @@ x = 1 + 2j          # complex
 x = 1 + 2J          # complex
 x = decimal.Decimal('1.0')  # precise decimal
 x = fractions.Fraction(4, 6)    # precise fraction: 4/6
+x = math.pi
+x = math.e
+
 x = "Hello, World"  # str
 x = 'x' * 1_00      # 'xxxx...xxx':  100 'x'
 x = r'raw\string'   # raw str: treat backslash as literal

@@ -26,6 +26,11 @@ my @sorted = sort(@animals);
 my @backwards = reverse @numbers;
 my @backwards = reverse(@numbers);
 
+## push
+push @array, element-list;
+pop @array; 
+shift @array;	# shifts the first value of the array
+unshift @array, element-list;	# prepends list to the front of the array
 
 
 # special arrays

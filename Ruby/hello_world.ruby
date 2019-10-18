@@ -10,11 +10,26 @@ if __FILE__ == $0
     print("Hello World!");
 end
 
-x = :hello	# symbol, symbols are cheaper than string, which will be store only once.
-puts "#{x}.ljst(30)"
+# primitive data type
+## number
+num = 30, 30_000
+num = 3.0, 0.9
+num = 3e10, 3.4E-2
+num = 0b11111111, 0B11111111, 0o377, 0O377, 0xff, 0xFF, 0Xff, 0XFF
+num = Math::PI, Math::E
+num = '40'.to_i
+
+## string
+40.to_s
+
+
+# expression
+puts "#{x}.ljust(30)"
+pust 'true' if 0
+5.times {print 'Odelay'}
+5.times {|numbe| print number }	# 0 1 2 3 4
 
 # string
-40.to_s
 "hello" * 5
 "hello".length
 "hello".reverse
@@ -23,27 +38,30 @@ puts "#{x}.ljst(30)"
 'hElLo'.swapcase
 'hello'.ljust(30)
 'hello'.rjust(30)
-'hello'.gsub('hello', 'world')	# global substitute
+'hello'.gsub('hello', 'world')	# global substitution
+
 sentence = 'hello
-world'
+world'	    # allow newline in string
 sentence.lines	    # lines separated by newline, return a list of separated lines
 sentence.lines.reverse	# reverse the order of elements, not reverse every element
 sentence.lines.join	# opposite operation of lines
 
-
-# number
-'40'.to_i
-5.times {print 'Odelay'}
+x = :hello	# symbol, symbols are cheaper than string, which will be store only once.
 
 
 
+
+
+
+
+# compound data type
 # array
-'40'.to_a
 [12, 47, 35].max
 [12, 47, 35].sort!
 ticket = [12, 47, 35]
 ticket[0]   # 0-based
 ticket.each {|element| do_something }
+ticket << 33	# attend an element
 
 
 # hash
@@ -67,6 +85,7 @@ books['William Shakespeare']
 
 
 
+'z' > 'a' > 'Z' > 'A' > '9' > '0'
 # control flow
 if true && 1 < 2 && 0 && 123456
     puts 'true'
@@ -101,6 +120,11 @@ def fun( argument )
     return a_value
 end
 
+def fun( arg = "default" )
+    ...
+    true    # default return value
+end
+
 # class
 class Cla	# class names always begin with a captial letter
     attr_accessor :content, :time, :mood    # getter and setter
@@ -108,7 +132,7 @@ class Cla	# class names always begin with a captial letter
     def initialize(mood, content="")	# called when new object is created
 	@time = Time.now
 	@content = content[0..39]
-	@mod = mood
+	@mood = mood
     end
 
     def <=> (other)

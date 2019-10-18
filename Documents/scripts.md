@@ -28,6 +28,7 @@ paradigm
 
 syntax (parsing)
     |-- keywords, operator, delimiters
+	|-- precedence: prefix (*, @, $, %, &, +, -, ++, --) > postfix ([], (), {}, ...)
     |-- syntactic sugar
     |-- style (uniformality)
 semantic	
