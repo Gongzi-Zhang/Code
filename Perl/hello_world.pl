@@ -1,6 +1,11 @@
 #!/usr/bin/perl
 $|=1;	# disable output buffering
 
+BEGIN {	# BEGIN block,
+    # this BEGIN block equal to: use WWW::Mechanize;
+    require WWW::Mechanize;
+    import WWW:Mechanize;
+}
 use strict;
 use warnings;
 use constant PI => 4*atan2(1, 1);   # perl pragma to declare constants

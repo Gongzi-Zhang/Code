@@ -104,7 +104,7 @@ until conmmand; do
 done
 
 
-# func
+# func: function must be defined before usage
 function fun{
     ...
 }

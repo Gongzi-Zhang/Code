@@ -144,12 +144,3 @@ pattern ? pattern : pattern
 (pattern)
 ! pattern
 pattern1, pattern2
-
-
-# GAWK
-switch case is an experimental feature of gawk, which is not enabled 
-for compilation in default, there for, you may get syntax error in 
-using it when you gawk doesn't compile with --enable-switch option.
-
-# Doubts
-How to check whether a array or variable exist or not ???

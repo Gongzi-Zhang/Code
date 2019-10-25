@@ -61,6 +61,7 @@ array=${array[@]}   # recreate the indices
 # associative array
 declare -A array=( [a]=hello [b]=world )
 echo ${array[a]}
+array[new]=new_value
 
 ### iterate over an associate array
 for i in "${!array[@]}"; do	# note the use of quotes around the variable, this is necessary in case any keys include spaces

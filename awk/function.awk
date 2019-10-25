@@ -1,12 +1,14 @@
 #!/bin/awk
 
 # functions in awk
+# somehow, use func will cause problem, I don't know why
 
 
 # Numeric functions
 ## absolute value
 ### there is no abs func in awk, so we can create a personal one:
-func abs(x) { return (x<0) ? -x : x }
+function abs(x) { return (x<0) ? -x : x }
+
 
 
 

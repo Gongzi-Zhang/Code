@@ -1,0 +1,2 @@
+# space after LaTeX commands
+    The TeX input processor, after building a control sequence consisting of characters with category code = 11 (a control word), switches to state S, which skips characters with category code = 10 (space). Therefore, to preserve spaces following a control word, a character with category code < 10 or category code > 11 must be used between the control word and the following space. This the essence of the first five options below. The sixth option works after the input processor and adds a space depending on the following token.

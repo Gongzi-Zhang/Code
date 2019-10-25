@@ -18,6 +18,16 @@ while (<$in>) {	    # assigns each line in turn to $_
     print "Just read in this line: $_";
 }
 
+### STDIN
+while (<STDIN>) {
+    print;
+}
+
+### command line args:
+while (<>) {	# without anything inside, <> passes command line arg. to open, which will usually interpreted as file name
+    print;
+}
+
 ### print
 print STDERR "This is std error output!";
 print $out  $record;	    # print out to file
