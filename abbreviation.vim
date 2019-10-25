@@ -12,6 +12,7 @@ ab farc frac
 ab ahve have
 ab ahs  has
 ab aHs  Has
+ab hwo	how
 ab si	is
 ab lief	life
 ab soem	some
