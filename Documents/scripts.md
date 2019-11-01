@@ -1,3 +1,25 @@
+primitive data type: string, number
+compound data type: array (numeric array), disctionary (associative array)
+oepration:
+    string operation
+    number operation
+	bit operation
+    logic operation
+    relation operation
+    array operation
+    hardware operation (system: file, io (format, color), memory and other resource)
+function: collection of operations
+* struct: collection of data type
+* object:
+    collection of both data type and operation
+* data structure (template)
+math function:
+    sqrt
+    pi, cos, sin, atan
+    e, exp, ln, log
+    pow, 
+
+
 * The object of a DSL-based software architecture is to minimise the
 semantic distance between the system’s specification and its implementation.
 
@@ -182,3 +204,11 @@ data as code
 	* iterator 
 	    > next
 # template
+
+# builtin
+    * io
+	* getopt(s)
+    * string
+	* regex
+    * math
+# standard library

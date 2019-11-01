@@ -82,3 +82,20 @@ files=(*)   # glob pattern
 files={~/*.jpg}	# tilde expansion
 files=$(ls) # bad, this just create a string, not an array
 files=($(ls))	# still bad; this does create an array, but the result of ls is substituted to word splitting (space delimited)
+
+# multi-dim array
+## bash doesn't support multi-dim array in nature, so if you need multi-dim array, it means you need some high level language
+## one possible walk around is:
+declare -A arr	# must be
+arr[0,0]=0
+arr[0,1]=1
+arr[1,0]=2
+arr[1,1]=3
+echo ${arr[0,0]} ${arry[0,1]}	# 0 1
+# if arr is not declared as associative array, then the index expression will be evaluated (comma expression), result in 2 and 3
+# assume no declaration
+arr[0,0]=0  ==> arr[0]=0
+arr[0,1]=1  ==> arr[1]=1
+arr[1,0]=2  ==> arr[0]=2    # overwrite previous assignment
+arr[1,1]=3  ==> arr[1]=3
+echo ${arr[0,0]}    ==> ${arr[0]}   # 2

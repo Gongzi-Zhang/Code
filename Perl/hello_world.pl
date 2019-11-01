@@ -48,6 +48,9 @@ print 'true'  if [];	    # though empty array, it is true
 print 'true'  if {};	    # though empty hash, it is true 
 
 ## undef
+## a scalar variable holds the undefined value: undef until it has been assigned a defined value
+## when used as number, it is 0
+## when used as string, it is empty string: ""
 $var = undef
 undef == undef
 

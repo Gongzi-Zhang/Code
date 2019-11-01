@@ -6,7 +6,7 @@ echo hello world
 
 a=hello
 a+=world
-a=true	# these are also string, but can be converted to boolean when needed
+a=true	# this are also string, no boolean type
 a=false
 a=1	# also string, but can be converted to numbers by mathematical expression
 
@@ -42,9 +42,9 @@ let 'b = b>a ? b : a'	# conditional operator
 
 ### boolean: string will be converted to boolean when necessary
 a=true
-if $a; then echo "true"; fi
+if $a; then echo "true"; fi # true is a command that returns 0
 a=false
-if $a; then echo "false"; fi
+if $a; then echo "false"; fi	# false is a command that returns 1
 
 ### comparison
 [ z > a ] && [ a > Z ] && [ Z > A ] && [ A > 9 ] && [ 9 > 1 ] && [ 1 > 0 ] 
@@ -87,7 +87,7 @@ select var in values; do
     ...
 done
 
-for (( local i=0; i<${#var}; i++ )); do
+for (( local i=0; i<${#var[@]}; i++ )); do
     ...
 done
 

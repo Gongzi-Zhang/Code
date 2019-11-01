@@ -1,0 +1,91 @@
+# options
+n N
+    when append a new line to the pattern spece, the line number 
+    changes. when N come to the end of a file, it fails, the the
+    commands after it will not be executed;
+
+Branch is a control structure of sed that allow looping some commands.
+    e.g.
+	: label
+	commands
+	b[t] label
+    # loop commands; 
+    # b label -- jumps to the label without checking any conditions,
+    # if label is not specified, then jumps to the end of the script
+    # How to exit loop for 'b label' 
+    # -- b label unable to exit loop until come to the end of file,
+    #	 use it carefully. 
+    # t label -- jumps to the label only if the last substitute 
+    # command modified the pattern space. If label is not specified,
+    # then jumps to the end of the script.
+  
+# newline in sed
+when sed read in text 'line by line', the usual delimiter '\n' is not appended 
+at the end of each line.  So you can not try to remove it in one-line mode. 
+Of course, you can use 'N' command to read in next line to show the '\n', but, 
+obviously, ex is more suitable for this work, which read in the 'whole text' in one time.
+
+#+ RE
+#++ word boundary '\b'
+sed -e 's/\bteh\b/the/i' << EOF
+teh war of the worlds, the day of the year. 
+Statehouse has teh in it.
+This is the third line.
+EOF
+
+# address
+'address' option accept zero address, which means every input line will
+be dealt with sed command; or one address -- only specified line will
+be dealt with; or address range [ addr1, addr2]. For range address, the
+line which match addr1 will always be accepted, even if addr2 selects 
+an earlier line, in such case, range address will be simplily dealt as
+one address. 
+
+sed '1,2 d' input_file	# delete first two line
+sed '2,1 d' input_file	# delete second line
+
+## address reversion
+after the address and before the command, a '!' may be inserted to 
+choose those lines that do not match the address.
+
+## supported address types
+* number
+* first~step
+* $	# the last line
+* /regexp/
+* \cregexpc	# use 'c' as fild separator, same with /regexp/
+### GNU sed
+0,addr2
+addr1,+N
+addr,~N	
+    Will match addr1 and the lines following addr1 until the next line
+    whose input line number is a multiple of N. 
+
+# regular expression
+##################################################
+		     modifier
+*
+\+  
+?
+\|	or
+
+##################################################
+		      range 
+[]
+
+
+# some example in using sed
+* delete empty line
+>>> sed '/^\s*$/d' file
+
+# How to delete the newline with sed:
+sed ':a;N;$!ba;s/\n//g' input
+
+
+# delete the last 10 lines of a file
+sed -e :a -e '$d;N;2,10ba' -e 'P;D'
+sed -n -e :a -e '1,10!{P;N;D;};N;ba'         # fastest
+
+# tac file.txt | sed '1,10d' | tac	middle
+# or 
+# head -n -10 file.txt	    slowest

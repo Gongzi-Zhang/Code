@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# put anything here for test
+cat << "END" > test.txt
+#Linux
+	Administration
+	Scripting
+	Tips and Tricks
+
+#Windows
+	Administration
+
+#Database
+	Mysql
+	Oracle
+	Queries
+	Procedures
+END
+
+echo "* Double space a file content"
+sed 'G' test.txt
+echo
+
+echo "* Print file content in reverse order"
+sed -n '1!G;h;$p' test.txt
+echo
+
+echo "* Print a paragraph"
+sed -e '/./{H;$!d;}' -e 'x;/Administration/!d' test.txt
+echo
+
+echo "* Print the line immediately before a pattern match"
+sed -n '/Mysql/{g;1!p;};h' test.txt
+echo
+
+echo "* Delete the last line of each paragraph"
+sed -n -e '/^$/{x;d}' -e '/./x;p' test.txt
+echo
+
+echo "* For each line, append the previous line to the end of it"
+sed 'H;x;x/^\(.*\)\n\(.*\)/\2\1/'  test.txt
+echo
+
+echo "* Prepend a tag of every block to every line of that block"
+sed '/^#/{h;d};G;s/^\(.*\)\n#\(.*\)/\2\1/' test.txt
+echo
+
+echo "* replace the first occurrence of a pattern in a whole file"
+sed '/Administration/{s/Administration/Supervisioin/; \
+    :loop; \
+    n; \
+    b loop }' test.txt
+echo
+
+echo -e "* Remove the data between pattern \" \""
+sed -e ':loop; $!{N; /\n$/! b loop}; s/\"[^\"]*"//g' test.txt
+echo
+
+echo "* Remove the HTML tags of a file"
+sed '/</{:loop; s/<[^<]*>//g; \
+    /</{N; b loop} \
+    }' test.txt
+echo
+
+echo "* If a line ends with a backslash, append the next line to it"
+sed ':loop; /\\$/N; s/\\\n */ /; t loop' test.txt
+echo
+
+echo "* Commify a numeeric strings"
+sed ':loop s/\(.*[0-9]\)\([0-9]\{3\}}\)/\1,\2/; t loop' test.txt
+echo
+
+echo "* Replace every leading space of a line with '+'"
+sed 's/^ */&\n/; :loop; s/^\n//; s/ \n/\n+/; t loop' test.txt
+echo
+
+echo " substitude more than one pattern with same value"
+sed 's/#L\|x$/"/g' test.txt
+echo
+
+
+rm test.txt
+
+# strip comment block from a c source file
+sed -e "s%/\*%${WEIRD}%g;s%\*/%${WEIRD}%g" "C_source_file" \
+         | tr '\377\n' '\n\377' \
+	 | sed -ne 'p;n' \
+	 | tr -d '\n' | tr '\377' '\n'
+
+
+
+
