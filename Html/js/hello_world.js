@@ -29,8 +29,16 @@ const x = "hello \n world";	// string, double quote
 x = 'hello \n world';		// single quote
 x = `hello 
     world`; // backticks allow multilines, while ' and " don't
-x = "\u00A9";
-x = "\u{20331}";
+x = "\u00A9";	// 0x0000 - 0xFFFF
+x = "\u{A9}";	// if you don't want to type the whole hex. expression, use {}
+x = '\uD842\uDFB7'; // 吉 4-bytes
+x = "\u{20331}";    // for numbers larger than FFFF, use {}
+"\u{1F608}" === '\uD83D\uDE80';
+'\z' === 'z';
+'\172' === 'z';
+'\x7A' === 'z';
+'\u007A' === 'z';
+'\u{7A}' === 'z';
 
 x = Symbol();       // symbol
 x = Symbol("id");   // symbol with the description "id"
@@ -57,16 +65,33 @@ x = function() {
     alert("Hello!");
 };
 x();	// () mean execution of a function
-/// destructuring assignment: it works with any iterable (array-like) on the right-side
-let [a, b, c] = "abc";	// string
+/// destructuring assignment: it works with any iterable (array-like) on the right-side: the logic is to convert expressions on both sides into a object, and then match the properties of these two objects. 
+
+/// numbers of bool value: will be converted to object
+let {toString: s} = 123;
+s === Number.prototype.toString; 
+let {toString: s} = true;
+s === Boolean.prototype.toString;
+
+/// undefined and null: will result in Error because they can't be converted to object
+let { prop: x } = undefined;	// TypeError
+let { prop: x } = null;		// TypeError
+
+/// the destructuring assignment of array (string) is actually the destructuring assignment of a special object: with properties: 0, 1, 2... and length
+let [a, b, c] = "abc";	// string, this equal to
+let {0:a, 1:b, 2:c} = {0: "a", 1: "b", 2: "c", length: 3};
+let {length} = 'hello';
 let [firstName, surname] = ["Ilya", "Kantor"];	// array
 let [one, , two] = new Set([1, 2, 3]);	// set, ignore some elements with commas
 let user={};
 [user.name, user.age] = ["Ilya", 30];	// leftside can be anything
 [firstName, surname] = [];	// unmatched number of variables
 firstName;	// undefined
+/// For default assignment, if and only if the corresponding property on the right hand side === undefined
 [firstName = "Julias", surname = "Romio"] = [];	    // default value
-[name = prompt('name?'), surname = prompt('surname?')] = ["Julius"];	// default value can even be function, but it will run only for the missing one
+[firstName = "Julias"] = [null];    // fistName: null, rather than the default value
+[1, undefined, 3].map((x = "yes") => x);    // only undefined can trigger the default value
+[name = prompt('name?'), surname = prompt('surname?')] = ["Julius"];	// default value can even be function, but it will not be run until needed
 let [name1, name2, ...rest] = ["Bob", "Kyler", "Seamus", "Joy", "Paul"];    // the rest using ...
 name1;		// "Bob"
 name2;		// "Kyler"
@@ -101,6 +126,21 @@ let {
     item: [item1, item2],
     title = "Menu"
 } = options;	// nested destructuring
+
+/// destructuring assignment of function parameters
+function add([x, y]) {
+    return x + y;
+}
+add([1, 2]);
+
+function move({x = 0, y = 0} = {}) {
+    return [x, y];
+}
+move({});   // [0, 0]
+function move({x, y} = {x: 0, y:0}) {
+    return [x, y];
+}
+move({});   // [undefined, undefined]
 
 
 b = 2;

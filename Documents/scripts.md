@@ -1,4 +1,6 @@
 primitive data type: string, number
+    > number expression
+    > char expression
 compound data type: array (numeric array), disctionary (associative array)
 oepration:
     string operation
@@ -95,6 +97,14 @@ data as code
     * empty value
     * abnormal value (overflow/underflow)
     * special value (null, NaN, undefined)
+## number expression
+    * 1_000
+    * 1e3, 2e-3
+    * 0b11111111, 0o377, 0xFF
+## char expression
+    * 'z', '\z'
+    * '\172', '\x7A'
+    * '\u007A', '\u7A', '\u{7A}'
 ## expression
 ### operations
     * addition/concatentaion
@@ -113,6 +123,7 @@ data as code
     * equality
 	* float number expression: 0.1 + 0.1 + 0.1 != 0.3
     * inequality
+### Logical operation (bit operation)
 
 # complex type:
 ## string
