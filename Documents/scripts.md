@@ -21,6 +21,7 @@ math function:
     e, exp, ln, log
     pow, 
 
+# interpreter: readline
 
 * The object of a DSL-based software architecture is to minimise the
 semantic distance between the system’s specification and its implementation.

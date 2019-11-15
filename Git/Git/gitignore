@@ -8,17 +8,18 @@
 # current level in a dri. tree has such a pattern:
 
 #!!! You can not add a comment to an exclusion rule in the same line
-reference/
-tmp/
-test/
-build/
+# reference/
+# tmp/
+# test/
+# build/
 # /**/figures/
 
 # while from version 1.8.2, git support ** to mean zero or more sub-dir.
 # /**/reference/
-# /**/tmp/
-# /**/test/
-# /**/build/
+**/tmp/
+**/test/
+**/build/
+**/debug/
 
 # latex auxiliary files 
 *.aux
