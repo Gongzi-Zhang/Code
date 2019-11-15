@@ -138,6 +138,11 @@ augroup C
     exe 'au FileType' s:CExtension  'ab	#d  #define'
 augroup END
 
+augroup RUST
+    au!
+    au FileType rust	inoremap    ;	<Esc>A;
+augroup END
+
 augroup DOT
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
