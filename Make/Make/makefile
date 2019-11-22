@@ -11,6 +11,14 @@ include foo.make *.mk $(bar)
 # add '-' to ignore command errors
 
 
+CC	  := cc		# the C compiler
+CFLAGS	  := -g		# optimization
+CXX	  := c++	# the C++ compiler
+CXXFLAGS  := -g
+INCLUDES  := -I.	# contains any -I options to the compiler if there are any
+LIBS	  := -L/usr/X11R6/lib -lX11	# needed libs
+# F77	:= f77		# fortran compiler
+SHELL	  := bash
 
 # syntax
 target: prereq1 prereq2
@@ -242,9 +250,15 @@ VPATH
 
 ## automatic variables
 $$	# '$' char
-$@	Expands to the filename of the target
+$@, $(output), $(target)
+	Expands to the filename of the target
+$(outputs), $(targets)
+	multiple output files
 $%	Expand to target when target is library file
-$< 	Expands to the first file in the prerequisites
+$<, $(input), $(dependency)
+	Expands to the first file in the prerequisites
+$(inputs), $(dependencies)
+	multiple input files
 $?	Refer to all the prerequisite that is newer than target
 $^ 	Expands to the "all" files in the prerequisites, and remove repeated
 $+ 	Expands to the "all" files in the prerequisites, keep repeated

@@ -21,6 +21,16 @@
     > title, author, date, subject, key words, one-line introduction, publication, arxiv number, link, note.
     > Index algorithm, not every citing paper should have the same weight (most of the citing papers just follow the trend)
 * task management system
+* Personal key info record and inquiry
+* record system:
+    * observation
+    * reading
+    * thinking
+    * raw materials
+	1. pictures
+	2. HTML
+	3. txt
+	4. pdf
 
 
 ## update policy

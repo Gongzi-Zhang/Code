@@ -1,6 +1,30 @@
+# some important concepts
+* Procedural
+* Recursive
+* Static type
+* Dynamic type
+* Type inference
+* Lambda function
+* Object oriented
+* Garbage collection
+* Pointer
+* Continuation
+* Meta programming
+* Macro
+* Exception
+
+
+
+syntax
+    > function syntax
+    > operator
+    > expression
+    > statement
 primitive data type: string, number
     > number expression
     > char expression
+precedence of operator and functions 
+data type
 compound data type: array (numeric array), disctionary (associative array)
 oepration:
     string operation
@@ -53,12 +77,12 @@ paradigm
 
 syntax (parsing)
     |-- keywords, operator, delimiters
-	|-- precedence: prefix (*, @, $, %, &, +, -, ++, --) > postfix ([], (), {}, ...)
+	|-- precedence: prefix (*, @, $, %, &, +, -, ++, --) > postfix ([], (), {}, ...) (infix)
     |-- syntactic sugar
     |-- style (uniformality)
 semantic	
     |-- variable substitution (one-time vs unbounded)
-    |-- context (scope, namespace): how to access uplevel var
+    |-- context (scope, namespace -- variable visibility): how to access uplevel var
     |-- parameter passing: by value, by reference [as value]
 builtin functions
     |-- io (read, print, error)
@@ -78,7 +102,7 @@ data structure
 standard libraies
     |-- string, regex
     |-- math (scientific math)
-    |-- network (sockets)
+    |-- network (sockets, json, html, xml)
     |-- file operation(mv, cp, rename, delete)
     |-- gui
     |-- database

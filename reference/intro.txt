@@ -1,0 +1,145 @@
+FRONTMATTER -- PREFACE
+-------------------------------------------------------------------
+
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Flat is better than nested.
+    Sparse is better than dense.
+    Readability counts.
+    Special cases aren't special enough to break the rules.
+    Although practicality beats purity.
+    Errors should never pass silently.
+    Unless explicitly silenced.
+    In the face of ambiguity, refuse the temptation to guess.
+    There should be one--and preferably only one--obvious way to do it.
+    Although that way may not be obvious at first unless you're Dutch.
+    Now is better than never.
+    Although never is often better than *right* now.
+    If the implementation is hard to explain, it's a bad idea.
+    If the implementation is easy to explain, it may be a good idea.
+    Namespaces are one honking great idea--let's do more of those!
+      --Tim Peters, "The Zen of Python"
+
+
+SECTION 6 -- External Resources
+-------------------------------------------------------------------
+
+  TOPIC -- General Resources
+  --------------------------------------------------------------------
+
+  A good clearinghouse for resources and links related to this
+  book is the book's Web site. Over time, I will add errata and
+  additional examples, questions, answers, utilities, and so on to
+  the site, so check it from time to time:
+
+    <http://gnosis.cx/TPiP/>
+
+  The first place you should probably turn for -any- question on
+  Python programming (after this book), is:
+
+    <http://www.python.org/>
+
+  The Python newsgroup '<comp.lang.python>' is an amazingly useful
+  resource, with discussion that is generally both friendly and
+  erudite.  You may also post to and follow the newsgroup via a
+  mirrored mailing list:
+
+    <http://mail.python.org/mailman/listinfo/python-list>
+
+  TOPIC -- Books
+  --------------------------------------------------------------------
+
+  This book generally aims at an intermediate reader.  Other
+  Python books are better introductory texts (especially for
+  those fairly new to programming generally).  Some good
+  introductory texts are:
+
+    _Core Python Programming_, Wesley J. Chun, Prentice Hall,
+    2001.  ISBN:  0-130-26036-3.
+
+    _Learning Python_, Mark Lutz & David Ascher, O'Reilly, 1999.
+    ISBN:  1-56592-464-9.
+
+    _The Quick Python Book_, Daryl Harms & Kenneth McDonald,
+    Manning, 2000.  ISBN:  1-884777-74-0.
+
+  As introductions, I would generally recommend these books in the
+  order listed, but learning styles vary between readers.
+
+  Two texts that overlap this book somewhat, but focus more
+  narrowly on referencing the standard library are:
+
+    _Python Essential Reference, Second Edition_, David M.
+    Beazley, New Riders, 2001.  ISBN:  0-7357-1091-0.
+
+    _Python Standard Library_, Fredrik Lundh, O'Reilly, 2001.
+    ISBN:  0-596-00096-0.
+
+  For coverage of XML, at a far more detailed level than this
+  book has room for, is the excellent text:
+
+    _Python & XML_, Christopher A. Jones & Fred L. Drake, Jr.,
+    O'Reilly, 2002.  ISBN:  0-596-00128-2.
+
+
+  TOPIC -- Software Directories
+  --------------------------------------------------------------------
+
+  Currently, the best Python-specific directory for software is
+  the Vaults of Parnassus:
+
+    <http://www.vex.net/parnassus/>
+
+  SourceForge is a general open source software resource.  Many
+  projects--Python and otherwise--are hosted at that site, and
+  the site provides search capabilities, keywords, category
+  browsing, and the like:
+
+    <http://sourceforge.net/>
+
+  Freshmeat is another widely used directory of software projects
+  (mostly open source).  Like the Vaults of Parnassus, Freshmeat
+  does not directly host project files, but simply acts as an
+  information clearinghouse for finding relevant projects:
+
+    <http://freshmeat.net/>
+
+
+  TOPIC -- Specific Software
+  --------------------------------------------------------------------
+
+  A number of Python projects are discussed in this book.  Most
+  of those are listed in one or more of the software directories
+  mentioned above.  A general search engine like Google,
+  <http://google.com>, is also useful in locating project
+  home pages.  Below are a number of project URLs that are current
+  at the time of this writing.  If any of these fall out of date
+  by the time you read this book, try searching in a search
+  engine or software directory for an updated URL.
+
+  The author's -Gnosis Utilities- contains a number of Python
+  packages mentioned in this book, including [gnosis.indexer],
+  [gnosis.xml.indexer], [gnosis.xml.pickle], and others.  You can
+  download the most current version from:
+
+    <http://gnosis.cx/download/Gnosis_Utils-current.tar.gz>
+
+  eGenix.com provides a number of useful Python extensions, some
+  of which are documented in this book.  These include
+  [mx.TextTools], [mx.DateTime], severeral new datatypes, and
+  other facilities:
+
+    <http://egenix.com/files/python/eGenix-mx-Extensions.html>
+
+  [SimpleParse] is hosted by SourceForge, at:
+
+    <http://simpleparse.sourceforge.net/>
+
+  The [PLY] parsers has a home page at:
+
+    <http://systems.cs.uchicago.edu/ply/ply.html>«
+
+
+
