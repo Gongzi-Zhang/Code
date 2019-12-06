@@ -59,8 +59,11 @@ inoremap   gff	<esc>2la
 inoremap   gfff	<esc>3la
 inoremap   gb	<esc>i
 inoremap   gbb	<esc>hi
+inoremap   gn	<esc>o
+inoremap   g'	<esc>I
 inoremap   g<return>	<esc>A
 " inoremap   '	''<Esc>i
+" inoremap  <return><return> <Esc>o
 
 nnoremap  <F3>	:noh<return><esc>
 
@@ -95,6 +98,8 @@ endfunction
 "   Autocmd
 au Filetype * if &ft != "vim" | inoremap "	""<esc>i| endif
 
+" au BufRead *.list set ft=markdown
+
 augroup TXT
 au BufNewFile,BufRead * if empty(&ft) && filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
 au FileType text if filereadable(expand("~/.vim/ftplugin/txt.vim")) && filereadable(expand("~/.vim/syntax/txt.vim")) | set ft=txt | endif
@@ -127,7 +132,7 @@ augroup XML
 augroup END
 
 augroup C
-    let s:CExtension="c,cc,cp,cxx,cpp,c++,C,CPP,h,javascript"
+    let s:CExtension="c,cc,cp,cxx,cpp,c++,C,CPP,h,java,javascript"
     au!
 "    au FileType c,cc,h  inoremap  <  <><Esc>  " inconvinient for cout
     exe 'au FileType' s:CExtension  'inoremap  ;   <Esc>A;'
