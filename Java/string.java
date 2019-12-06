@@ -1,21 +1,40 @@
+// string methods
 String welcome = "Welcome to " + "Java.";
-int numchars = welcome.length();
 
+char charAt(int index) {
+    //* The index range must be between 0 to string_length-1.
+    //* If the index value is higher than string length or a negative, then IndexOutOfBounds Exception error occurs.
+} 
 
-char charAt(int index) 
-    {Returns character at a specified index} 
+// 4 overloads of indexOf
+int indexOf(int c) {
+    // returns -1 if the char doesn't exist
+}
+int indexOf(char c) {
+    // returns -1 if the char doesn't exist
+}
+int indexOf(char c, int startindex) {
+    // returns the first occurrence of 'c' after the startindex
+}
+int indexOf(String substr) {
+    // returns -1 if the substr is not found
+}
 
-int compareTo(String s) 
-    {Compares this String with another String s}
+int lastIndexOf(int c) 
+    {Returns index of the last occurrence of a character}
 
-String concat(String s) 
-    {Concatenates this String with another String}
+int lastIndexOf(String s) 
+    {Returns index of last occurrence of String s in the current String}
+
+int compareTo(String s) {
+    //* returns < 0 if the string calling the method is lexicographically first
+    //* returns == 0 if the two strings are lexicographically equal
+    //* returns > 0 ...
+}
+
 
 String copyValueOf(char[] ca)
     {Returns a String equivalent to the specified array of characters. This is a static method of the String class.}
-
-boolean endsWith (String suffix)
-    {Returns true if String ends with suffix}
 
 boolean equals(String s)
     {Returns true if this String matches another String s ("case"-sensitive comparison)}
@@ -35,32 +54,14 @@ void getChars(int srcBegin, int srcEnd, char[] dest, int destBegin)
 int hashcode() 
     {Returns hash code for the String}
 
-int indexOf(int c) 
-    {Returns index of first occurrence of a character}
-
-int indexOf(String s) 
-    {Returns index of first occurrence of String s in the current String}
 
 String intern() 
     {Returns a unique instance of String from a global shared pool of String objects}
 
-int lastIndexOf(int c) 
-    {Returns index of the last occurrence of a character}
 
-int lastIndexOf(String s) 
-    {Returns index of last occurrence of String s in the current String}
-
-int length() 
-    {Returns the length of the String (the number of characters in the string)}
 
 boolean regionMatches (int offset, String s, String s int soffset, int length) 
     {Returns true if a region of the String matches the specified region of another}
-
-String replace(char old, char new) 
-    {Replaces all occurrences of old character with new}
-
-boolean startsWith (String prefix) 
-    {Returns true if String starts with specified prefix}
 
 String substring(int begin, int end) 
     {Returns a substring of this String}
@@ -68,17 +69,23 @@ String substring(int begin, int end)
 char[] toCharArray() 
     {Returns a character array from the String}
 
-String toLowerCase() 
-    {Converts String to lowercase}
-
 String toString() 
     {Returns another String with the same contents}
-
-String toUpperCase() 
-    {Converts String to uppercase}
 
 String trim() 
     {Removes any leading and trailing white space from String}
 
 String valueOf(type obj) 
     {Returns the String representation of an object's value (type may be any object of primitive type such as boolean, char, int, long, float, and double). This is a static method of the String class.}
+
+// notes
+//* String reference can be overridden but that does not delete the content; i.e.
+String h1 = "hello";
+h1 = "hello"+"world";   // then "hello" String does not get deleted. It just loses its handle.
+
+
+// convert to string
+//* char <=> string
+String str1 = Character.toString('c');
+String str2 = String.valueOf('c');
+char char1 = str1.charAt(0);

@@ -13,6 +13,10 @@
 * Macro
 * Exception
 
+# Interpreter (Shell)
+* command completion
+* command history
+* some shortcut (Ctrl-A, Ctrl-E ...)
 
 
 syntax
@@ -123,9 +127,14 @@ data as code
     * abnormal value (overflow/underflow)
     * special value (null, NaN, undefined)
 ## number expression
-    * 1_000
-    * 1e3, 2e-3
-    * 0b11111111, 0o377, 0xFF
+    * 1_000	    <- Int
+    * .1, 2.1, 3.   <- Float
+    * 1e2, 2e-2, 1e+2, 1E2, 1E+2, 1E-2	<- Scientific expression
+    * 0b11111111, 0o377, 0xFF	<- any base expression
+
+    Errors
+    * 1e.2, 1e2.3
+    * 0b2222, 0o898, 0xGHI
 ## char expression
     * 'z', '\z'
     * '\172', '\x7A'
@@ -147,6 +156,7 @@ data as code
 ### comparison
     * equality
 	* float number expression: 0.1 + 0.1 + 0.1 != 0.3
+	* precision (pi): 4.0*atan(1) != 6.0*asin(0.5)
     * inequality
 ### Logical operation (bit operation)
 
@@ -215,10 +225,12 @@ data as code
 
 # control flows
     * if ... else if (elif) ... else ... end (done, fi)
+	> what is true: true, "string", non-0 number
     * switch ... case (when) ... break ... default ... end (done, esac)
     * while ... (do) ... continue (break) ... end (done)
     * do ... while ... continue (break) ... end (done)
     * for ... (in) ... (do) ... continue (break) ... end (done)
+    * foreach
 
 # function
     * special syntax (syntax sugar)
@@ -241,10 +253,22 @@ data as code
 	    > next
 # template
 
+# modulization and package
+
 # builtin
     * io
 	* getopt(s)
+	* readline
     * string
 	* regex
     * math
+    * execution
+	* execute other commands
+	* execute other source file
+	* call code in other programming language (foreign function interface)
+	* call other programs 
+    * error (exception) processing
+    * unit test
+    * network
 # standard library
+    * convertion to/from JSON/XML

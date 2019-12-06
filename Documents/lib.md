@@ -7,3 +7,10 @@
 * test
 * regexp
 * system/os
+* socket
+
+## math
+* array manipulation
+
+## data
+* JSON/XML

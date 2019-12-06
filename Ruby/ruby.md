@@ -12,5 +12,5 @@ Keywords	::=
   @var is an instance variable
   $var is a global variable
 * blocks are always attached to methods.
-* A **def** statement outside of a class definition, which is a function in Python, is actually a method call in Ruby. These ersatz functions become private methods of class Object, the root of the Ruby class hierarchy. 
+* A **def** statement outside of a class definition, which is a function in Python, is actually a method call in Ruby. These ensatz functions become private methods of class Object, the root of the Ruby class hierarchy. 
 * mixin: a class definition may include a module, which inserts that module's methods, constants, etc. into the class.

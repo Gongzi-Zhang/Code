@@ -14,10 +14,6 @@ uplevel
 
 open
 file
-    exists
-    isdirectory
-    join
-    rename
 fileevent
 glob
 gets		;# read a line
@@ -26,9 +22,6 @@ eof
 close
 
 string
-    toupper
-    tolower
-    trim
 regexp
 regsub
 split 
@@ -39,7 +32,8 @@ lappend
 append
 lsort
 
-incr
+incr x
+incr x -1
 
 array
 
@@ -48,3 +42,13 @@ regsub
 proc
 label
 return
+
+time script [count] ;# Returns the number of milliseconds it took to execute script. If count is specified, it will run the script count times, and average the result. The time is elapsed time, not CPU time
+clock format [file mtime $file] -format %x
+
+# global variables: info globals
+argc		;# command line input arguments
+argv
+env		;# an associative array contains the ENV variables
+errorInfo	;# 
+errorCode

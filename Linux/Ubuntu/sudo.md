@@ -6,3 +6,9 @@
 > > > workaround:
     sudo -i	OR sudo su
     cd /some/dir/
+
+# root
+    In Ubuntu, the *root* user is not actived by default, to activate it, use the command:
+	> sudo passwd root
+	> su root
+    to set password for root, therefore activate it.
