@@ -6,8 +6,8 @@
 
 the difference between a reference and a pointer:
     - assignment of reference using the instance itself, rather than address.
-    - A reference can't point at nothing.
-    - It can't change what instance it point to
+    - A reference can't point at nothing (a pointer can be a nullptr)
+    - It can't change what instance it point to (reference is bound to its object while a pointer can refer to anything)
     
     MyClass obj;    MyClass obj2;
     MyClass& objRef = obj; objRef = obj2; // error

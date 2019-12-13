@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <h2> Style </h2>
     &lt;br&gt; is a line <b>br</b>eak tag.<br>
     &lt;b&gt; <b>bold</b><br>
     &lt;strong&gt; <strong>strong</strong><br>
@@ -24,5 +25,19 @@
     &lt;tt&gt; <tt>tt</tt>
 
     <a href="google.com">This is a link</a>
+
+    <h2> form </h2>
+    <form action="foo.php"> 
+	Name:	<input type="text" name="username" /><br />
+	Email:	<input type="text" name="email" /><br />
+	Beer: <br />
+	<select multiple name="beer[]">
+	    <option value="warthog">Warthog</option>
+	    <option value="guinness">Guinness</option>
+	    <option value="stuttgarter">Stuttgarter</option>
+	</select><br />
+	<input type="submit" name="submit" value="Submit me!" />
+    </form>
+
 </body>
 </html>

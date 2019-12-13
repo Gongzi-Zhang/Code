@@ -5,3 +5,6 @@ wchar_t cChs = L'张';	// L means encode with wide-character set(unicode), if no
 // set wcout to output Chinese chars.
 wcout.imbue ( locale ( "chs" ) );
 wcout << cChs << endl;
+
+char *p = "hello world.";
+p[0] = 'x'; // it can be compiled, but will raise a run time error: attempt to change a literal string

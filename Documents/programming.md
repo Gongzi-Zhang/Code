@@ -72,3 +72,5 @@
 无论是面向对象的继承，还是函数式编程的高阶函数，都是为了代码复用，减少**代码冗余**
 
 * an exception that is easily avoided should raise an error; otherwise, it should return an error code.
+
+* 乘法的运算要比除法来得省时 (really?)

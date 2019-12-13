@@ -17,6 +17,7 @@
 * command completion
 * command history
 * some shortcut (Ctrl-A, Ctrl-E ...)
+* display: each command should show a return value even it is assigned to a variable; like that in root
 
 
 syntax
@@ -126,6 +127,26 @@ data as code
     * empty value
     * abnormal value (overflow/underflow)
     * special value (null, NaN, undefined)
+
+### integer
+integer	: [-+]?positive
+
+positive: decimal
+	| hexadecimal
+	| octal
+	| binary
+
+decimal	: [1-9][0-9] *
+	| 0
+
+hexadecimal : 0[xX][0-9a-fa-f]+
+
+octal	: 0[0-7]+
+
+binary	: 0[bb][01]+
+### float (double)
+float	: [-+]? (([0-9]\.?) | ([0-9] * \.[0-9]+)) ([eE][-+]?[0-9]+)?
+
 ## number expression
     * 1_000	    <- Int
     * .1, 2.1, 3.   <- Float
@@ -230,7 +251,7 @@ data as code
     * while ... (do) ... continue (break) ... end (done)
     * do ... while ... continue (break) ... end (done)
     * for ... (in) ... (do) ... continue (break) ... end (done)
-    * foreach
+    * foreach (in, as)
 
 # function
     * special syntax (syntax sugar)
@@ -272,3 +293,6 @@ data as code
     * network
 # standard library
     * convertion to/from JSON/XML
+
+
+
