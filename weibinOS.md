@@ -23,6 +23,7 @@
 * task management system
 * Personal key info record and inquiry
 * record system:
+    * 智能分类整理、智能推荐、快速搜索、择要记录
     * observation
     * reading
     * thinking
