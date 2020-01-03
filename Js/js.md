@@ -17,3 +17,5 @@
     2. the language allows access to methods and properties of strings, numbers, booleans and symbols
     3. When called, a special "object wrapper" that provides the extra functionality is created, and then is **destroyed** (immediately after the usage).
     * null and undefined have no methods (wrapper objects)
+
+* closure: combination of a function and the lexical environment within which that function was declared

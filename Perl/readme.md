@@ -1,2 +1,2 @@
 # online help documentation
-perlvar	    : predefined variables
+perldoc -f functionname

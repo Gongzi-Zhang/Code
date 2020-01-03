@@ -254,6 +254,9 @@ float	: [-+]? (([0-9]\.?) | ([0-9] * \.[0-9]+)) ([eE][-+]?[0-9]+)?
     * foreach (in, as)
 
 # function
+    * first class functions, higher-order functions
+    * anonymous function (lambda)
+    * closures
     * special syntax (syntax sugar)
     * parameter
 	* variable parameters

@@ -2,6 +2,8 @@
 use strict
 use warnings
 
+# reference is a scalar value that can refer to any other Perl data type
+
 # reference
 ## if one use a reference like a string, you get something like:
 ## SCALAR(0x80f5dec), ARRAY(0xbfcd1387), HASH(bfcea8240)

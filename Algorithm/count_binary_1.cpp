@@ -29,7 +29,7 @@ int main(int argc, const char* argv[]) {
 	string binary;
 	int val_copy = value;
 	do {
-	    binary = (val_copy%2==0) ? "0" : "1" + binary;
+	    binary = ((val_copy%2==0) ? "0" : "1") + binary;
 	    val_copy /= 2;
 	    // binary = (val_copy & 0x1) ? "1" : "0" + binary;
 	    // val_copy >>= 1;

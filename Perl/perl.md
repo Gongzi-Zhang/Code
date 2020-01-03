@@ -1,4 +1,17 @@
-https://perldoc.perl.org/perlintro(strict).html
+* what is perl (Pathologically Eclectic Rubbish Lister): An combination of sed, awk and sh; good at text processing (Practical Extraction and Reporting Language)
+
+* Context is important, which decide how to interpret variables/statements
+
+# concepts
+* block: a sequence of statements that defines a scope is called a block
+    do	given
+* label
+    BEGIN   END	    LINE    ...
+* modifier
+    if	unless	while	until	for	foreach	    when
+* loop control statements
+    next    redo    last    break   continue
+
 
 * undef: undefined value
     -- when used as a number, it is treated as 0

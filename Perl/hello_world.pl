@@ -56,7 +56,7 @@ $var = undef
 undef == undef
 
 
-# expression
+# expression/statement
 print "Hello, " . $name . "\n";	# string concatenation
 ($<, $>) = ($>, $<);	# swap real and effective uids
 ## default variable
@@ -147,11 +147,6 @@ if (!condition) {
     ...
 }
 
-### post-condition way
-print "Yow!" if $zippy;
-print "We have no bananas" unless $bananas;
-
-
 ## while
 while (condition) {
     ...
@@ -160,8 +155,6 @@ while (condition) {
 until (condition) {
     ...
 }
-### post-condition way
-print "La La La\n" while 1;
 
 ## for, exactly like C:
 for ($i = 0; $i <= $max; $i++) {
@@ -198,6 +191,36 @@ given ($foo) {
     default {
 	die q(I don't know what to do with $foo);
     }
+}
+
+### statement modifiers: post-condition way
+print "Yow!" if $zippy;
+print "We have no bananas" unless $bananas;
+print "La La La\n" while 1;
+### modifiers don't recognize loop control statements ==> add another block inside (for next/redo) or outside (for last)
+do {
+    $line = <STDIN>;
+    ...
+} until !defined{$line} || $line eq ".\n";
+
+do {{
+    next if $x == $y;
+    ...
+}} until $x++ > $z;
+
+{
+    do {
+	last if $x == $y;
+	...
+    } while $x++ <= $z;
+}
+
+LOOP: {
+    do {{
+	next if $x == $y;
+	last LOOP if $x == $y**2;
+	...
+    }} until $x++ > $z;
 }
 
 
