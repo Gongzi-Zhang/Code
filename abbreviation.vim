@@ -15,6 +15,7 @@ ab aHs  Has
 ab hwo	how
 ab si	is
 ab lief	life
+ab mya	may
 ab soem	some
 ab ti	it
 ab fo	of
@@ -26,6 +27,7 @@ ab htah that
 ab Teh	The
 ab teh	the
 ab hte	the
+ab eht	the
 ab tehn then
 ab tehy they
 ab tiem	time
