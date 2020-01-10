@@ -11,3 +11,12 @@ Library type
 
 Version
     major[.minor[.patch[.tweak]]]
+
+# Syntax
+* Definition >= Declaration
+    a declaration can be done many times while definition only once
+
+  in C:
+    int var;	// declare a variable; no memory allocation for it yet
+    var = 5;	// define a variable
+    int func(float arg1) {} // declare a function

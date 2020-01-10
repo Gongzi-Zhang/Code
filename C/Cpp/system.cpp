@@ -11,4 +11,6 @@ void main()
     setenv("LOCAL", buf, 1);
     FILE* fp;
 
+    pid_t pid = getpid();
+    int ppid = (int) getppid();
 }
