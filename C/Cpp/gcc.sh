@@ -13,11 +13,11 @@ into a machine language object file
 ASSEMBLY
 
 :<<LINKING
-    n the linking stage the object file is made into an executable 
-after resolving dependencies with other object files and after adding 
-startup and termination code. When writing a program, the source code 
+    the linking stage the object file is made into an executable 
+after resolving dependencies with other object files and after adding
+startup and termination code. When writing a program, the source code
 for various parts or functions of the program may be defined in 
-separate source files. The source code in one file may call functions 
+separate source files. The source code in one file may call functions
 which are defined in other files. Since each source file is compiled 
 into a separate object file, the object file produced from one source
 file may have a dependency on another object file. The function of 
@@ -65,3 +65,14 @@ nm --print-file-name *.so | grep funcname
 # or
 nm --print-file-name *.a | grep funcname
 
+:<<Linker
+    Note that when link against static libraries, the linker only 
+looks further down the line when looking for symbols used by but 
+not defined in the current lib. Thus the lowest level libs should 
+go right-most and the left most symbol will be used when conflicts 
+occur
+
+    Consider the following example: main call a funciton in work library
+Linker
+g++ -s -L. -o main.exe -lwork -lmain	# FAIL
+g++ -s -L. -o main.exe -lmain -lwork	# SUCCESS
