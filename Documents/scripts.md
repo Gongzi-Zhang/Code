@@ -4,7 +4,7 @@
 * Static type
 * Dynamic type
 * Type inference
-* Lambda function
+* Lambda function: higher order function, which takes functions as input and return a function
 * Object oriented
 * Garbage collection
 * Pointer
@@ -12,6 +12,12 @@
 * Meta programming
 * Macro
 * Exception
+
+## Paradigms
+    In terms of data state, we can get different programming paradigm:
+    1. no data mutation, no implicit state: always produce the same result for the same arguments -- functional programming (Haskell)
+    2. data mutation is allowed only inside a structure (with inside function); may have some implicit state -- OOP
+    3. allow data mutation and many implicit state (variables): side effects	-- procedural programming (like Perl)
 
 # Interpreter (Shell)
 * command completion
@@ -256,7 +262,7 @@ float	: [-+]? (([0-9]\.?) | ([0-9] * \.[0-9]+)) ([eE][-+]?[0-9]+)?
 # function
     * first class functions, higher-order functions
     * anonymous function (lambda)
-    * closures
+    * closures: lexically scoped name binding; a record storing a function together with an env.
     * special syntax (syntax sugar)
     * parameter
 	* variable parameters

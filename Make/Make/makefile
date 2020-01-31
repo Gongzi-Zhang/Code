@@ -1,3 +1,5 @@
+# header
+############################################
 # include other makefile, wildcard is allowed
 include foo.make *.mk $(bar)	
 ## make will search files in the following dir.:
@@ -5,12 +7,14 @@ include foo.make *.mk $(bar)
 #> dir. specified by -I or --include-dir in command line
 #> <prefix>/include (usually /usr/local/bin or /usr/include)
 
-# If include file is not found, make will warns about it; and finally crash if still not found after
-# reading all makefile. To ignore those broken files, add a '-' before include:
+# If include file is not found, make will warns about it; and finally crash if still not found after reading all makefile. To ignore those broken files, add a '-' before include:
 #     -include <filename>
 # add '-' to ignore command errors
 
 
+
+# variables
+############################################
 CC	  := cc		# the C compiler
 CFLAGS	  := -g		# optimization
 CXX	  := c++	# the C++ compiler
@@ -20,7 +24,10 @@ LIBS	  := -L/usr/X11R6/lib -lX11	# needed libs
 # F77	:= f77		# fortran compiler
 SHELL	  := bash
 
+
+
 # syntax
+############################################
 target: prereq1 prereq2
 	commands
 # default target is the first one appear in makefile if not specified in command line

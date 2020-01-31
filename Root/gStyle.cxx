@@ -1,13 +1,24 @@
 // global style
+
 gStyle->SetPalette(1, 0);   // color scheme
+
+// Statistical box
 gStyle->SetOptStat(0);	    // stat box
 gStyle->SetOptTitle(0);	    // show title or not
 gStyle->SetOptDate(0);	    // ?
+gStyle->SetOptFit(1111);    // fitting
+gStyle->SetStatH(0.3);
+gStyle->SetStatW(0.3);
+
+// axis
 gStyle->SetLabelSize(0.03, "xyz");  // size of axis value font
 gStyle->SetTitleSize(0.035, "xyz"); // size of axis title font
 gStyle->SetTitleFont(22, "xyz");    // axis title font
 gStyle->SetLabelFont(22, "xyz");    // axis label font
 gStyle->SetTitleOffset(1.2, "y");   // axis title offset
+gStyle->SetTitleYOffset(1.2);	    // axis title offset
+gStyle->SetTitleH(0.1);
+gStyle->SetTitleW(0.2);
 
 // default canvas options
 gStyle->SetCanvasDefW(500);	// canvas width

@@ -597,6 +597,22 @@ Alph:
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Columns}
+\begin{multicols}{2}
+[To make multi columns environment, include the package \package{multicol}, and use the command \textbackslash{}begin\{multicols\}\{N\}, where N is the number of columns.]
+    This is some random text, to see how the multicols environment will separate text into multi columns.
+\end{multicols}
+
+\begin{multicols}{2}
+    This is also inside an multicols environment, but I will separate
+
+    \columnbreak
+
+    text manually using command \command|\columnbreak|
+\end{multicols}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Table}
 
 \verb|\toprule, \midrule, \bottomrule| used as seperation line.
@@ -642,7 +658,7 @@ The alighment of text can be: l,c,r or p{length}
     \end{tabular}
 \end{center}
 Similarly, we can apply 
-\command|\multirow[pos]{num}{*}{item}| when include
+\command|\multirow[pos]{num}{*}{item}| when include 
 \package{multirow} package.
 
 \begin{center}
