@@ -1,0 +1,110 @@
+# linux-utils
+addpart         	: tell the kernel about the existence of a partition
+agetty			: alternative Linux getty
+blkdiscard      	: discard sectors on a device
+blkid           	: locate/print block device attributes
+blkzone         	: run zone command on a device
+blockdev        	: call block device ioctls from the command line
+cal             	: displays a calendar and the date of Easter
+cfdisk          	: display or manipulate a disk partition table
+chcpu           	: configure CPUs
+chfn            	: change real user name and information
+chmem           	: configure memory
+choom           	: display and adjust OOM-killer score.
+chrt            	: manipulate the real-time attributes of a process
+chsh            	: change login shell
+col             	: filter reverse line feeds from input
+colcrt          	: filter nroff output for CRT previewing
+colrm           	: remove columns from a file
+column          	: columnate lists
+ctrlaltdel      	: set the function of the Ctrl-Alt-Del combination
+delpart         	: tell the kernel to forget about a partition
+dmesg           	: print or control the kernel ring buffer
+eject           	: eject removable media
+fallocate       	: preallocate or deallocate space to a file
+fdformat        	: low-level format a floppy disk
+fdisk			: manipulate disk partition table
+findfs          	: find a filesystem by label or UUID
+findmnt         	: find a filesystem
+flock           	: manage locks from shell scripts
+fsck            	: check and repair a Linux filesystem
+fsck.cramfs     	: fsck compressed ROM file system
+fsck.minix      	: check consistency of Minix filesystem
+fsfreeze        	: suspend access to a filesystem (Ext3/4, ReiserFS, JFS, XFS)
+fstrim          	: discard unused blocks on a mounted filesystem
+getopt          	: parse command options (enhanced)
+hexdump         	: ASCII, decimal, hexadecimal, octal dump
+hwclock         	: time clocks utility
+ionice          	: set or get process I/O scheduling class and priority
+ipcmk           	: make various IPC resources
+ipcrm           	: remove certain IPC resources
+ipcs            	: show information on IPC facilities
+isosize         	: output the length of an iso9660 filesystem
+kill            	: send a signal to a process
+last, lastb     	: show a listing of last logged in users
+ldattach        	: attach a line discipline to a serial line
+logger          	: enter messages into the system log
+login           	: begin session on the system
+look            	: display lines beginning with a given string
+losetup         	: set up and control loop devices
+lsblk           	: list block devices
+lscpu           	: display information about the CPU architecture
+lspci           	: list all PCI devices
+lslocks         	: list local system locks
+lslogins        	: display information about known users in the system
+lsmem           	: list the ranges of available memory with their online status
+mcookie         	: generate magic cookies for xauth
+mesg            	: display (or do not display) messages from other users
+mkfs            	: build a Linux filesystem
+mkfs.bfs        	: make an SCO bfs filesystem
+mkfs.cramfs     	: make compressed ROM file system
+mkfs.minix      	: make a Minix filesystem
+mkswap          	: set up a Linux swap area
+more            	: file perusal filter for crt viewing
+mount           	: mount a filesystem
+mountpoint      	: see if a directory or file is a mountpoint
+namei           	: follow a pathname until a terminal point is found
+newgrp          	: log in to a new group
+nologin         	: politely refuse a login
+nsenter         	: run program with namespaces of other processes
+partx           	: tell the kernel about the presence and numbering of on-disk partitions
+pivot_root      	: change the root filesystem
+prlimit         	: get and set process resource limits
+raw             	: bind a Linux raw character device
+readprofile     	: read kernel profiling information
+rename			: rename files
+renice          	: alter priority of running processes
+tset, reset		: terminal initialization
+resizepart      	: tell the kernel about the new size of a partition
+rev             	: reverse lines characterwise
+rfkill          	: tool for enabling and disabling wireless devices
+rtcwake         	: enter a system sleep state until specified wakeup time
+runuser         	: run a command with substitute user and group ID
+script          	: make typescript of terminal session
+scriptreplay    	: play back typescripts, using timing information
+setarch         	: change reported architecture in new program environment and/or set personality flags
+setpriv         	: run a program with different Linux privilege settings
+setsid          	: run a program in a new session
+setterm         	: set terminal attributes
+sfdisk          	: display or manipulate a disk partition table
+su              	: run a command with substitute user and group ID
+sulogin         	: single-user login
+swaplabel       	: print or change the label or UUID of a swap area
+swapon, swapoff 	: enable/disable devices and files for paging and swapping
+swapon, swapoff 	: enable/disable devices and files for paging and swapping
+switch_root     	: switch to another filesystem as the root of the mount tree
+taskset         	: set or retrieve a process's CPU affinity
+ul              	: do underlining
+umount          	: unmount file systems
+unshare         	: run program with some namespaces unshared from parent
+utmpdump        	: dump UTMP and WTMP files in raw format
+uuidd           	: UUID generation daemon
+uuidgen         	: create a new UUID value
+uuidparse       	: a utility to parse unique identifiers
+vipw, vigr      	: edit the password, group, shadow\-password or shadow\-group file
+wall            	: write a message to all users
+wdctl           	: show hardware watchdog status
+whereis         	: locate the binary, source, and manual page files for a command
+wipefs          	: wipe a signature from a device
+write           	: send a message to another user
+zramctl         	: set up and control zram devices
