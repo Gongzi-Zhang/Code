@@ -59,6 +59,7 @@ h1->DrawNormalized();
  * TEXTnn   draw b n contents as text at angle nn (0<nn<90)
  * [cutg]   draw only the sub-range selected by the TCutG named "cutg"
  */
+h1->Draw("P HIST"); // draw only points, no error bar
 
 // Styles
 h1->SetLineStyle(4);	// see TAttLine.png

@@ -1,5 +1,4 @@
-CMake is a cross-platform build system generator. projects specify their 
-build process with platform-independent CMakelists.txt files included in each directory of a source tree. Users build a project by using CMake to 
+CMake is a cross-platform build system generator. projects specify their build process with platform-independent CMakelists.txt files included in each directory of a source tree. Users build a project by using CMake to 
 generate a build system for a native tool on their platform.
 #
 # CMake 
