@@ -7,6 +7,8 @@ gStyle->SetOptStat(0);	    // stat box
 gStyle->SetOptTitle(0);	    // show title or not
 gStyle->SetOptDate(0);	    // ?
 gStyle->SetOptFit(1111);    // fitting
+gStyle->SetStatX(0.9);
+gStyle->SetStatY(0.9);
 gStyle->SetStatH(0.3);
 gStyle->SetStatW(0.3);
 

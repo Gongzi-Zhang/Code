@@ -5,6 +5,16 @@
 // Constructor
 TH1F * h1 = new TH1F("count", "Count Rate; N_{Counts}; # occurencies", 100, -.5, 15.5);	// set all titles in one statement
 
+// fill histogram from txt file
+ifstream inp;
+double x;
+inp.open("expo.dat");
+while(! (inp >> x) == 0) 
+    h1->Fill(x);
+inp.close();
+// dump histogram contents into an ASCII file
+h1->Print("all"); > dump.txt // note the semicolon after the parenthesis.
+
 // reset
 h1->Reset();
 
@@ -17,6 +27,7 @@ h1->SetBit(TH1::kCanRebin); // allow the histo to re-bin itself
 // Drawing
 h1->DrawNormalized();
 
+gROOT->ForceStyle();
 /* 
  * Draw options for 1D-Histograms
  * "AXIS"   Draw only axis
@@ -72,11 +83,16 @@ h1->SetFillStyle(3001); // see TAttFill.png
 h1->SetFillColor(kYellow);
 // statistics
 h1->GetMean();
+h1->GetMean(1); // for axis = 1,2 or 3 returns the mean value of the hist along X, Y and Z axis.
 h1->GetMeanError();
+h1->GetMeanError(1);
 h1->GetRMS();
+h1->GetRMS(1); 
 h1->GetRMSError();
+h1->GetRMSError(1);
 h1->GetSkewness();
 h1->GetKurtosis();
+h1->GetIntegral();
 
 // Addition and Divition
 // suppose h1, h2, h3, h4 are 4 histo pointer

@@ -30,5 +30,4 @@ gStyle->SetTitleOffset(1.0, "y");
 gStyle->SetTitleFillColor(33);     // title colour to highlight it
 gStyle->SetTitleW(.77);            // Title width
 gStyle->SetTitleH(.07);            // Title height
-
 }

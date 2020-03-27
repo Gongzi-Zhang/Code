@@ -9,7 +9,7 @@
 
 double minf=0.0, maxf=100.;
 TF1 *gfit = new TF1("Gaussian","gaus",minf,maxf); // Create the fit function
-h->Fit("Gaussian","RQ"); // Fit histogram h"
+h->Fit("Gaussian","RQ"); // Fit histogram h
 // h->Fit(gfit,"RQ");
 
 double chisq=gfit->GetChisquare();
@@ -21,6 +21,9 @@ Double_t amp = gfit->GetParameter(0); //value of 0th parameter
 Double_t eamp = gfit->GetParError(0); //error on 0th parameter
 Double_t mean = gfit->GetParameter(1); //value of 1st parameter
 Double_t emean = gfit->GetParError(1); //error on 1st parameter
+
+Doublet_t par[3];
+  it->GetParameters(&par[0]);
 
 void macro()
 {

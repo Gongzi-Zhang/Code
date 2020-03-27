@@ -1,3 +1,25 @@
+defined in header file:
+
+function.h:
+    int function(int arg);
+
+function.cxx
+    #include "function.h"
+    #include <stdio.h>
+    int function(int arg) { printf("arg is : %d", arg); return arg;}
+
+call.cxx
+    #include "function.h"
+    #include
+    int i=5;
+    function(i);
+
+gcc -o call call.cxx function.cxx
+
+# Default value
+Defaults should always go to the header file, if the function is declared in a header file.
+
+This is because the compiler will use the header file for ALL compile units that use your class
 * always check return pointer
 * always check array index
 * release new object when exit

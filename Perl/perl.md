@@ -1,6 +1,9 @@
 * what is perl (Pathologically Eclectic Rubbish Lister): An combination of sed, awk and sh; good at text processing (Practical Extraction and Reporting Language)
 
 * Context is important, which decide how to interpret variables/statements
+* In Perl, scalars are not typed, instread, operators are
+    > $a . "1": use $a as a string
+    > $a + 1:	use $a as a number
 
 # concepts
 * block: a sequence of statements that defines a scope is called a block

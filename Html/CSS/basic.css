@@ -1,2 +1,15 @@
 @import url(font.css)
 @import url(color.css)
+
+:root {
+    --accent:	#226997;
+    --main:	#333;
+    --light:	#666;
+    --lighter:	#f3f3f3;
+    --border:	#e6e6e6;
+    --bg:	#ffffff;
+}
+
+p {
+    color: var(--main);
+}
