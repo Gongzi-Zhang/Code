@@ -1,0 +1,1 @@
+* pdf file name: when read pdf file with evince or browser, if the pdf file has once been renamed, the pdf viewer will show its original name; so it is a bad idea to save a pdf file with absolute path as its name. (especially when exposed to the web)
