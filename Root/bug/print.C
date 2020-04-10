@@ -15,8 +15,9 @@
 using namespace std;
 
 void CanvasPrint() {
-  vector<const char*> s_minirun;    // bug appears onl whne type is const char*, but not string
-  // vector<string> s_minirun;
+  // vector<const char*> s_minirun; // bug appears onl when type is const char*, but not string
+  // vector<char*> s_minirun;	    // char* also doesn't work
+  vector<string> s_minirun;
   gROOT->SetBatch(1);
 
   for (int i=0; i<20; i++) {
