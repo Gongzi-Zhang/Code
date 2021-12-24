@@ -16,6 +16,7 @@ set virtualedit=all
 set tabstop=8  " hard tab
 set shiftwidth=4   " indent
 set softtabstop=4   " soft tab
+set colorcolumn=80  " column limit
 
 " set tw=76   " why 78 ???
 
